@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX-056: Scrolling back up a little puts focus in the address bar and opens the keyboard · ux.sgit.ai</title>
+<meta name="description" content="The reader was not asking to go anywhere, and loses half the screen to a keyboard. Worse, it looks like the page has a bug: the first reading was that the site had somehow started an edit. The browser&#x27;s fault is charged to the site, and the reader&#x27;s concentration is broken either way.">
+<link rel="canonical" href="https://ux.sgit.ai/findings/UX-056.html">
+<link rel="alternate" type="text/markdown" href="/findings/UX-056.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="UX-056: Scrolling back up a little puts focus in the address bar and opens the keyboard">
+<meta property="og:description" content="The reader was not asking to go anywhere, and loses half the screen to a keyboard. Worse, it looks like the page has a bug: the first reading was that the site had somehow started an edit. The browser&#x27;s fault is charged to the site, and the reader&#x27;s concentration is broken either way.">
+<meta property="og:url" content="https://ux.sgit.ai/findings/UX-056.html">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-finding">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/browse/">Browse</a></li><li><a href="/principles/">Principles</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<p><a href="/findings/">Findings</a> / UX-056</p>
+<h1>Scrolling back up a little puts focus in the address bar and opens the keyboard</h1>
+<p class="finding-head"><span class="badge badge--status-open">Open</span><span class="badge badge--severity-high">High</span><span class="badge badge--kind-failure">Failure</span><span class="finding__site">Firefox on iPad</span></p>
+<h2 id="what-we-saw">What we saw</h2>
+<p>Reading a long page, a small scroll back up brings the hidden toolbars back, the address field gets focus with its URL selected, and the on-screen keyboard opens over the bottom half of the page (second screenshot: the URL selected, Cancel showing, the keyboard covering the release table). Nothing on the page was tapped on purpose. A likely mechanism, not yet confirmed: the toolbar slides in under the finger mid-gesture, so the touch that was a scroll lands on the address field as a tap.</p>
+<figure class="evidence"><a href="/findings/img/UX-056-keyboard-after-scroll-up.webp"><img src="/findings/img/UX-056-keyboard-after-scroll-up.webp" alt="Firefox on iPad after a small scroll up: the tab strip and address bar are back, the URL is selected for editing and the keyboard covers the lower half of the newsroom release history" loading="lazy"></a><figcaption>After a small scroll up: address field focused, URL selected, keyboard open. Nothing on the page was tapped.</figcaption></figure>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>The reader was not asking to go anywhere, and loses half the screen to a keyboard. Worse, it looks like the page has a bug: the first reading was that the site had somehow started an edit. The browser's fault is charged to the site, and the reader's concentration is broken either way.</p>
+<h2 id="the-fix">The fix</h2>
+<p>For the browser: a scroll gesture never focuses the address field; only a deliberate tap on a toolbar that is already at rest does. For the sites: nothing a page can prevent, but worth knowing that readers will report it as our bug, so it is recorded here with its real owner.</p>
+<h2 id="the-record">The record</h2>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>High</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Product</strong></td><td><a href="/findings/?product=firefox-ipad">Firefox on iPad</a>, browser</td></tr><tr><td><strong>Where</strong></td><td><a href="https://newsroom.sgit.ai/admin/versions.html" rel="noopener">https://newsroom.sgit.ai/admin/versions.html</a></td></tr><tr><td><strong>Problems</strong></td><td><a href="/findings/?problem=focus-hijack">Focus hijack</a>, <a href="/findings/?problem=unexpected-movement">Unexpected movement</a>, <a href="/findings/?problem=wrong-culprit">Wrong culprit</a></td></tr><tr><td><strong>Visibility</strong></td><td><a href="/findings/?visibility=intermittent">Intermittent</a>: some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand</td></tr><tr><td><strong>Recommendation</strong></td><td><a href="/findings/?recommendation=keep-the-ui-still">Keep the UI still</a>: nothing moves, appears or takes focus unless the reader asked for it; chrome that hides stays hidden until a deliberate gesture</td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=navigation">Navigation</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#ui-stays-still">Nothing moves that the reader did not move</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-18, not recorded</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-18, not recorded</td></tr><tr><td><strong>Environment</strong></td><td>Firefox for iOS on an iPad, landscape, reading newsroom.sgit.ai/admin/versions.html (newsroom v0.12.120)</td></tr><tr><td><strong>Source</strong></td><td><a href="/method/#reports-from-readers">Reported by Dinis Cruz, 18 Oct 2026, with screenshots</a></td></tr></tbody></table></div>
+<p>Previous: <a href="/findings/UX-055.html">UX-055 "Ask the article" has never run against a real on-device model</a></p>
+<p>Next: <a href="/findings/UX-057.html">UX-057 The toolbars come back on any small scroll up, taking screen and moving the page</a></p>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites, and the browsers and platforms they are read on, fail their readers, measured, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-056.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.2.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

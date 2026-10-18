@@ -3,19 +3,20 @@
 Each principle here is kept because at least one finding breaks it: the list grows from evidence, not from taste. Each has a test you can run on your own page in about a minute. When a new kind of failure does not fit any of them, that is a new principle.
 
 1. [The first screen is for a stranger](/principles/index.md#stranger-first-screen)
-2. [Label the money, and never surprise with a charge](/principles/index.md#label-the-money)
-3. [A default is not an answer](/principles/index.md#defaults-are-not-answers)
-4. [Ask before keeping](/principles/index.md#ask-before-keeping)
-5. [Every view is a link](/principles/index.md#every-view-is-a-link)
-6. [No dead ends](/principles/index.md#no-dead-ends)
-7. [One source of truth for every fact](/principles/index.md#one-source-of-truth)
-8. [The publication is not the workshop](/principles/index.md#publication-not-workshop)
-9. [Feedback reaches someone, and the reader gets a receipt](/principles/index.md#feedback-reaches-someone)
-10. [Say how long, and what kind, before the reader commits](/principles/index.md#length-before-commitment)
-11. [Say who wrote it, and how](/principles/index.md#say-who-wrote-it)
-12. [Content is visible without waiting for scripts](/principles/index.md#content-is-visible)
-13. [What a page says about the present is true now](/principles/index.md#state-is-current)
-14. [A vault app works inside the host, not just on its own](/principles/index.md#host-safe-apps)
+2. [Nothing moves that the reader did not move](/principles/index.md#ui-stays-still)
+3. [Label the money, and never surprise with a charge](/principles/index.md#label-the-money)
+4. [A default is not an answer](/principles/index.md#defaults-are-not-answers)
+5. [Ask before keeping](/principles/index.md#ask-before-keeping)
+6. [Every view is a link](/principles/index.md#every-view-is-a-link)
+7. [No dead ends](/principles/index.md#no-dead-ends)
+8. [One source of truth for every fact](/principles/index.md#one-source-of-truth)
+9. [The publication is not the workshop](/principles/index.md#publication-not-workshop)
+10. [Feedback reaches someone, and the reader gets a receipt](/principles/index.md#feedback-reaches-someone)
+11. [Say how long, and what kind, before the reader commits](/principles/index.md#length-before-commitment)
+12. [Say who wrote it, and how](/principles/index.md#say-who-wrote-it)
+13. [Content is visible without waiting for scripts](/principles/index.md#content-is-visible)
+14. [What a page says about the present is true now](/principles/index.md#state-is-current)
+15. [A vault app works inside the host, not just on its own](/principles/index.md#host-safe-apps)
 
 ## 1. The first screen is for a stranger
 
@@ -36,7 +37,21 @@ Broken by 8 findings, 7 open:
 - [UX-054](/findings/UX-054.md) · open · Stacked tables on a phone lose their column labels
 - [UX-050](/findings/UX-050.md) · fixed · File-path pills scrolled the whole page sideways at 390 px
 
-## 2. Label the money, and never surprise with a charge
+## 2. Nothing moves that the reader did not move
+
+**The rule.** While the reader is reading, the interface holds still. Toolbars, keyboards, banners and panels appear, move or take focus only on a deliberate gesture made for that purpose, never as a side effect of scrolling or reading.
+
+**Why.** Movement pulls the eye. Every element that moves outside the reader's task forces a glance, a check and a return, which is a context switch the reader did not choose. On a reading page, concentration is the product.
+
+**The test.** Read a long page on a phone or tablet: scroll down, scroll up a little, pause, carry on. Did anything appear, resize, shift or take focus that you did not ask for? Did the text you were reading stay where it was?
+
+Broken by 3 findings, 2 open:
+
+- [UX-056](/findings/UX-056.md) · open · Scrolling back up a little puts focus in the address bar and opens the keyboard
+- [UX-057](/findings/UX-057.md) · open · The toolbars come back on any small scroll up, taking screen and moving the page
+- [UX-051](/findings/UX-051.md) · fixed · Re-rendering the whole view on every save lost the reader's place
+
+## 3. Label the money, and never surprise with a charge
 
 **The rule.** Every number that is money says what it is. The first time anything is charged, the reader is told before or as it happens. Wording about balances never reads as debt or threat.
 
@@ -52,7 +67,7 @@ Broken by 5 findings, 4 open:
 - [UX-031](/findings/UX-031.md) · open · "You pay the price" reads as a warning
 - [UX-035](/findings/UX-035.md) · fixed · The top-up page said "simulated" while asking for money
 
-## 3. A default is not an answer
+## 4. A default is not an answer
 
 **The rule.** Inputs that ask the reader's opinion start empty. Only what the reader actually did is recorded.
 
@@ -65,7 +80,7 @@ Broken by 2 findings, 2 open:
 - [UX-024](/findings/UX-024.md) · open · All three rating scales start on 3
 - [UX-052](/findings/UX-052.md) · open · A highlight across paragraphs is cut at the first paragraph
 
-## 4. Ask before keeping
+## 5. Ask before keeping
 
 **The rule.** Nothing is added to the reader's lists, profile or storage because they opened something. Keeping is a tap the reader makes.
 
@@ -78,7 +93,7 @@ Broken by 2 findings, 2 open:
 - [UX-027](/findings/UX-027.md) · open · Articles join the reader's list without being asked
 - [UX-043](/findings/UX-043.md) · open · Opening a persona link adds it to the browser without asking
 
-## 5. Every view is a link
+## 6. Every view is a link
 
 **The rule.** Anything a reader can see, they can send: a filter, a search, a tag, a desk, a part of a series. The address changes when the view does.
 
@@ -93,7 +108,7 @@ Broken by 4 findings, 3 open:
 - [UX-049](/findings/UX-049.md) · open · Query strings break inside the vault host, so filters must live in the route path
 - [UX-042](/findings/UX-042.md) · fixed · Persona links were designed but not live
 
-## 6. No dead ends
+## 7. No dead ends
 
 **The rule.** Everything that looks like a way in is one: tags link to pages, missing pages offer the way back, each article ends with one next step.
 
@@ -111,7 +126,7 @@ Broken by 7 findings, 6 open:
 - [UX-019](/findings/UX-019.md) · open · Search only matches titles, teasers and tags
 - [UX-041](/findings/UX-041.md) · fixed · 51 vault images missing across 10 articles
 
-## 7. One source of truth for every fact
+## 8. One source of truth for every fact
 
 **The rule.** Each piece of content is published once, at one canonical address. Every count, date and label is generated from one manifest at build time.
 
@@ -126,7 +141,7 @@ Broken by 4 findings, 3 open:
 - [UX-039](/findings/UX-039.md) · open · The feed is titled for the old site
 - [UX-036](/findings/UX-036.md) · fixed · Articles were published on two domains, and diverged
 
-## 8. The publication is not the workshop
+## 9. The publication is not the workshop
 
 **The rule.** Reader pages carry reader things. How the site is built (versions, author tooling, agent strips, release history, admin) lives in one clearly separate area, one link away.
 
@@ -141,7 +156,7 @@ Broken by 4 findings, 4 open:
 - [UX-006](/findings/UX-006.md) · open · A "For agents /llms.txt" strip sits above the masthead
 - [UX-021](/findings/UX-021.md) · open · Author tooling is shown to every reader
 
-## 9. Feedback reaches someone, and the reader gets a receipt
+## 10. Feedback reaches someone, and the reader gets a receipt
 
 **The rule.** Every rating, request or 'what is missing' goes somewhere a person reads it, by default and with plain consent, and the reader keeps a receipt of what was sent.
 
@@ -155,7 +170,7 @@ Broken by 3 findings, 3 open:
 - [UX-034](/findings/UX-034.md) · open · No contact for a pilot on the Replicate page
 - [UX-026](/findings/UX-026.md) · open · There is no way to say what was missing
 
-## 10. Say how long, and what kind, before the reader commits
+## 11. Say how long, and what kind, before the reader commits
 
 **The rule.** Every card and every link to a long piece shows reading time and format. Every long piece opens with a short version.
 
@@ -169,7 +184,7 @@ Broken by 3 findings, 3 open:
 - [UX-020](/findings/UX-020.md) · open · The best reader feature is buried under metadata and a long italic abstract
 - [UX-053](/findings/UX-053.md) · open · Search results show no snippets
 
-## 11. Say who wrote it, and how
+## 12. Say who wrote it, and how
 
 **The rule.** The byline names the person and the way the piece was made (with agents, from voice notes), where the reader looks, not in the footer. The purpose of the publication is one link away.
 
@@ -183,7 +198,7 @@ Broken by 3 findings, 3 open:
 - [UX-022](/findings/UX-022.md) · open · The byline names one human; the AI authorship is in the footer
 - [UX-023](/findings/UX-023.md) · open · There is no page that says why the publication exists
 
-## 12. Content is visible without waiting for scripts
+## 13. Content is visible without waiting for scripts
 
 **The rule.** The page renders its content in HTML and shows it at once. Scripts enhance; they never gate what the reader can see.
 
@@ -191,13 +206,12 @@ Broken by 3 findings, 3 open:
 
 **The test.** Load the page with JavaScript off, and on a throttled connection. Is the content there at once?
 
-Broken by 3 findings, 2 open:
+Broken by 2 findings, 2 open:
 
 - [UX-044](/findings/UX-044.md) · open · The founder page says "the picks above" and no picks render on a phone
 - [UX-008](/findings/UX-008.md) · open · Content is hidden until JavaScript runs
-- [UX-051](/findings/UX-051.md) · fixed · Re-rendering the whole view on every save lost the reader's place
 
-## 13. What a page says about the present is true now
+## 14. What a page says about the present is true now
 
 **The rule.** Labels like 'edition of', 'currently', 'broken' and 'live' are dated or generated, and change when the facts do. A fixed problem is marked fixed, with the version.
 
@@ -212,7 +226,7 @@ Broken by 4 findings, 4 open:
 - [UX-040](/findings/UX-040.md) · open · The study page reports a fixed bug as current
 - [UX-055](/findings/UX-055.md) · open · "Ask the article" has never run against a real on-device model
 
-## 14. A vault app works inside the host, not just on its own
+## 15. A vault app works inside the host, not just on its own
 
 **The rule.** An app is tested where readers open it: inside the vault host's sandboxed frame. Routing never assigns location.hash, storage goes through the host, and network reads come from the vault.
 

@@ -17,7 +17,7 @@ import build                                                                    
 
 ROOT     = build.ROOT
 FAILURES = []
-FIELDS   = ['id', 'title', 'site', 'where', 'area', 'kind', 'severity', 'status', 'principle',
+FIELDS   = ['id', 'title', 'product', 'where', 'area', 'problems', 'visibility', 'recommendation', 'kind', 'severity', 'status', 'principle',
             'observed', 'checked', 'evidence', 'impact', 'fix', 'prototype', 'source']
 SKIP     = {'.git', 'content', 'admin/build', '.github', 'node_modules'}
 
@@ -51,7 +51,8 @@ def check_fresh(site, files):
 def check_findings(site):
     problems = []
     ids      = set()
-    sites    = set(site.site['sites'])
+    products = set(site.products)
+    tax      = {k: {t['id'] for t in v} for k, v in site.taxonomy.items() if isinstance(v, list)}
     vaults   = set(site.vault)
     for n, f in enumerate(site.findings):
         tag = f.get('id', f'#{n}')
@@ -63,7 +64,12 @@ def check_findings(site):
         if f.get('id') in ids:
             problems.append(f'{tag}: duplicate id')
         ids.add(f.get('id'))
-        checks = [('site', sites), ('area', set(build.AREAS)), ('kind', set(build.KINDS)),
+        if not f.get('problems') or not set(f.get('problems', [])) <= tax['problems']:
+            problems.append(f'{tag}: problems {f.get("problems")!r} must be a non-empty list from data/taxonomy.json')
+        for img in f.get('images', []):
+            if not (ROOT / img.get('src', '').lstrip('/')).is_file() or not img.get('alt') or not img.get('caption'):
+                problems.append(f'{tag}: image {img.get("src")!r} is missing, or has no alt text or caption')
+        checks = [('product', products), ('visibility', tax['visibility']), ('recommendation', tax['recommendations']), ('area', set(build.AREAS)), ('kind', set(build.KINDS)),
                   ('severity', set(build.SEVERITY)), ('status', set(build.STATUS)), ('principle', set(site.principle))]
         for key, allowed in checks:
             if f.get(key) not in allowed:
@@ -88,6 +94,17 @@ def check_findings(site):
 
     numbers = [int(f['id'][3:]) for f in site.findings if re.fullmatch(r'UX-\d+', f.get('id', ''))]
     check('finding ids run 1..n with no gaps', [] if sorted(numbers) == list(range(1, len(numbers) + 1)) else ['ids are not 1..n'])
+
+
+def check_taxonomy(site):
+    used = {
+        'problems'        : {p for f in site.findings for p in f['problems']},
+        'visibility'      : {f['visibility'] for f in site.findings},
+        'recommendations' : {f['recommendation'] for f in site.findings},
+    }
+    check('every taxonomy value and product is used by at least one finding',
+          [f'{k}: {t["id"]}' for k in used for t in site.taxonomy[k] if t['id'] not in used[k]]
+          + [f'products: {k}' for k in site.products if k != 'sgit.ai' and k not in {f['product'] for f in site.findings}])
 
 
 def check_principles(site):
@@ -223,6 +240,7 @@ def main():
     site  = build.Site()
     check_findings(site)
     check_principles(site)
+    check_taxonomy(site)
     if FAILURES:
         print('\nGATE FAIL: the data is malformed, so nothing else was checked')
         sys.exit(1)

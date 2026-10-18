@@ -22,7 +22,7 @@
 <header class="site-head">
   <div class="wrap site-head__row">
     <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
-    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/principles/">Principles</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/browse/">Browse</a></li><li><a href="/principles/">Principles</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
   </div>
 </header>
 <main id="main" class="wrap main">
@@ -38,7 +38,7 @@
 <h2 id="the-fix">The fix</h2>
 <p>A branded 404.html with search and the three entry doors.</p>
 <h2 id="the-record">The record</h2>
-<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>Medium</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Site</strong></td><td><a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a></td></tr><tr><td><strong>Where</strong></td><td><a href="https://newsroom.sgit.ai/no-such-page" rel="noopener">https://newsroom.sgit.ai/no-such-page</a></td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=navigation">Navigation</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#no-dead-ends">No dead ends</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-11, v0.6.4</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-11, v0.7.1</td></tr><tr><td><strong>Source</strong></td><td><a href="/reviews/newsroom-2026-10-11.html#bugs-and-broken-things">Review: bugs and broken things</a></td></tr></tbody></table></div>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>Medium</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Product</strong></td><td><a href="/findings/?product=newsroom.sgit.ai">newsroom.sgit.ai</a>, site</td></tr><tr><td><strong>Where</strong></td><td><a href="https://newsroom.sgit.ai/no-such-page" rel="noopener">https://newsroom.sgit.ai/no-such-page</a></td></tr><tr><td><strong>Problems</strong></td><td><a href="/findings/?problem=dead-end">Dead end</a></td></tr><tr><td><strong>Visibility</strong></td><td><a href="/findings/?visibility=intermittent">Intermittent</a>: some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand</td></tr><tr><td><strong>Recommendation</strong></td><td><a href="/findings/?recommendation=build-the-way-in">Build the way in</a>: create the missing page or path: tag pages, series, start here, a branded 404</td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=navigation">Navigation</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#no-dead-ends">No dead ends</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-11, v0.6.4</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-11, v0.7.1</td></tr><tr><td><strong>Source</strong></td><td><a href="/reviews/newsroom-2026-10-11.html#bugs-and-broken-things">Review: bugs and broken things</a></td></tr></tbody></table></div>
 <p>Previous: <a href="/findings/UX-009.html">UX-009 Two navigation bars, and a 60-link menu that mixes reading with building</a></p>
 <p>Next: <a href="/findings/UX-011.html">UX-011 Links without extensions in one article</a></p>
 </div>
@@ -46,8 +46,8 @@
 <script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
 <footer class="site-foot">
   <div class="wrap">
-    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites fail their readers, measured on the live site, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
-    <p><a href="/findings/UX-010.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.1.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites, and the browsers and platforms they are read on, fail their readers, measured, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-010.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.2.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
     <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
   </div>
 </footer>

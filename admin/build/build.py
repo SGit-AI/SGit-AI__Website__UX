@@ -37,6 +37,29 @@ AREAS     = {
     'platform'    : 'Platform',
 }
 STATUS_LABEL = {'open': 'Open', 'partly-fixed': 'Partly fixed', 'fixed': 'Fixed'}
+FACETS       = ['product', 'area', 'problem', 'visibility', 'recommendation', 'principle', 'severity', 'status', 'kind']
+FACET_LABEL  = {
+    'product'        : 'Product',
+    'area'           : 'Area',
+    'problem'        : 'Problem',
+    'visibility'     : 'Visibility',
+    'recommendation' : 'Recommendation',
+    'principle'      : 'Principle',
+    'severity'       : 'Severity',
+    'status'         : 'Status',
+    'kind'           : 'Kind',
+}
+FACET_INTRO  = {
+    'product'        : 'Whose fault it is: one of our sites, the platform under them, our own prototypes, or the browser the reader uses.',
+    'area'           : 'Where in the reader\'s visit it happens.',
+    'problem'        : 'What kind of thing goes wrong. A finding can have more than one.',
+    'visibility'     : 'How the reader experiences it: seen every time, sometimes, only felt, or not at all.',
+    'recommendation' : 'The shape of the fix. Findings with the same recommendation are often fixed by the same change.',
+    'principle'      : 'The rule it breaks. Each principle has a one-minute test on the principles page.',
+    'severity'       : 'High loses the reader or their trust on the first visit; medium costs effort or a return; low is polish.',
+    'status'         : 'As of the date each finding was last checked.',
+    'kind'           : 'A failure works against the reader; a gap is something they need that is not there.',
+}
 DIRECTIVE    = re.compile(r'^\{\{([a-z-]+)(?::(.*))?\}\}\s*$')
 
 
@@ -55,6 +78,8 @@ class Site:
         self.findings   = load('findings.json')['findings']
         self.principles = load('principles.json')['principles']
         self.lab        = load('lab.json')
+        self.taxonomy   = load('taxonomy.json')
+        self.products   = self.site['products']
         self.version    = self.versions[0]['version']
         self.date       = self.versions[0]['date']
         self.by_id      = {f['id']: f for f in self.findings}
@@ -75,7 +100,7 @@ class Site:
         for part in filter(None, (spec or '').split(';')):
             key, _, value = part.partition('=')
             allowed       = set(value.split(','))
-            items         = [f for f in items if str(f.get(key.strip())) in allowed]
+            items         = [f for f in items if allowed & set(self.finding_values(f, key.strip()))]
         return self.sorted_findings(items)
 
     def finding_href(self, f):
@@ -103,10 +128,39 @@ class Site:
             'high_open' : sum(f['status'] != 'fixed' and f['severity'] == 'high' for f in items),
             'failures'  : sum(f['kind'] == 'failure' for f in items),
             'gaps'      : sum(f['kind'] == 'gap' for f in items),
-            'sites'     : len({f['site'] for f in items}),
+            'products'  : len({f['product'] for f in items}),
         }
 
-    # ------------------------------------------------------------ directives
+    # ---------------------------------------------------------------- facets
+
+    def facet_values(self, key):
+        """Every value a facet can take, in display order: [(id, label, what)]."""
+        tax = {'problem': 'problems', 'visibility': 'visibility', 'recommendation': 'recommendations'}
+        if key in tax:
+            return [(t['id'], t['label'], t['what']) for t in self.taxonomy[tax[key]]]
+        if key == 'product':
+            return [(k, self.product_label(k), v['what']) for k, v in self.products.items()]
+        if key == 'area':
+            return [(k, v, '') for k, v in AREAS.items()]
+        if key == 'principle':
+            return [(p['id'], p['title'], p['rule']) for p in self.principles]
+        if key == 'status':
+            return [(k, STATUS_LABEL[k], '') for k in STATUS]
+        if key == 'severity':
+            return [(k, k.capitalize(), '') for k in SEVERITY]
+        if key == 'kind':
+            return [('failure', 'Failure', 'Something works against the reader'), ('gap', 'Gap', 'Something the reader needs is not there')]
+        raise KeyError(key)
+
+    def finding_values(self, f, key):
+        return list(f['problems']) if key == 'problem' else [str(f.get(key))]
+
+    def label_of(self, key, value):
+        return next((label for v, label, _ in self.facet_values(key) if v == value), value)
+
+    def product_label(self, key):
+        return self.products[key].get('label', key)
+
 
     def d_stats(self, arg):
         c     = self.counts()
@@ -123,83 +177,76 @@ class Site:
         return md_out, html_out
 
     def finding_row(self, f, compact=False):
-        meta  = f'<span class="finding__site">{esc(f["site"])}</span> · {esc(AREAS[f["area"]])}'
-        body  = '' if compact else f'<p class="finding__impact">{esc(f["impact"])}</p>'
-        return (f'<li class="finding" data-site="{esc(f["site"])}" data-area="{esc(f["area"])}" '
-                f'data-severity="{esc(f["severity"])}" data-status="{esc(f["status"])}" data-kind="{esc(f["kind"])}" '
-                f'data-principle="{esc(f["principle"])}">'
+        problems = ', '.join(self.label_of('problem', v) for v in f['problems'])
+        meta     = (f'<span class="finding__site">{esc(self.product_label(f["product"]))}</span> · {esc(AREAS[f["area"]])}'
+                    f' · {esc(problems)} · {esc(self.label_of("visibility", f["visibility"]).lower())}')
+        body     = '' if compact else f'<p class="finding__impact">{esc(f["impact"])}</p>'
+        data     = ' '.join(f'data-{key}="{esc(" ".join(self.finding_values(f, key)))}"' for key in FACETS)
+        return (f'<li class="finding" {data}>'
                 f'<div class="finding__top"><a class="finding__id" href="{self.finding_href(f)}">{esc(f["id"])}</a>{self.badges(f)}</div>'
                 f'<a class="finding__title" href="{self.finding_href(f)}">{esc(f["title"])}</a>'
                 f'<p class="finding__meta">{meta}</p>{body}</li>')
 
     def d_findings_list(self, arg):
         items    = self.select(arg)
-        md_out   = '\n'.join(f'- [{f["id"]}]({self.finding_href(f)}) · {f["severity"]} · {STATUS_LABEL[f["status"]].lower()} · {f["title"]} ({f["site"]})' for f in items)
+        md_out   = '\n'.join(f'- [{f["id"]}]({self.finding_href(f)}) · {f["severity"]} · {STATUS_LABEL[f["status"]].lower()} · {f["title"]} ({self.product_label(f["product"])})' for f in items)
         html_out = '<ul class="findings findings--compact">' + ''.join(self.finding_row(f, compact=True) for f in items) + '</ul>'
         return md_out or '_None._', html_out or '<p><em>None.</em></p>'
 
     def d_findings_register(self, arg):
         items = self.sorted_findings()
-        opts  = {
-            'site'      : sorted({f['site'] for f in items}),
-            'area'      : [a for a in AREAS if any(f['area'] == a for f in items)],
-            'severity'  : SEVERITY,
-            'status'    : STATUS,
-            'kind'      : KINDS,
-            'principle' : [p['id'] for p in self.principles],
-        }
-        labels = {
-            'area'      : AREAS,
-            'status'    : STATUS_LABEL,
-            'principle' : {p['id']: p['title'] for p in self.principles},
-        }
         selects = []
-        for key, values in opts.items():
-            options = ''.join(f'<option value="{esc(v)}">{esc(labels.get(key, {}).get(v, v))}</option>' for v in values)
+        for key in FACETS:
+            used    = {v for f in items for v in self.finding_values(f, key)}
+            options = ''.join(f'<option value="{esc(v)}">{esc(label)}</option>' for v, label, _ in self.facet_values(key) if v in used)
             selects.append(f'<label class="filter"><span>{key.capitalize()}</span>'
                            f'<select name="{key}" data-filter="{key}"><option value="">Any</option>{options}</select></label>')
-        form = (f'<details class="filters-box" data-open-wide><summary>Filter the register</summary>'
+        form = (f'<details class="filters-box" data-open-wide><summary>Filter the register <span class="filters__active" data-findings-active></span></summary>'
                 f'<form class="filters" data-findings-filters action="/findings/" method="get" role="search" aria-label="Filter findings">'
                 f'{"".join(selects)}'
                 f'<label class="filter filter--q"><span>Words</span><input type="search" name="q" data-filter="q" placeholder="e.g. chip, tag, 404"></label>'
                 f'<p class="filters__status" aria-live="polite"><span data-findings-count>{len(items)} of {len(items)}</span> findings · '
                 f'<a href="/findings/" data-findings-reset>Clear</a> · the address is the filter: copy it to share this view</p></form></details>')
-        md_rows  = ['| ID | Status | Severity | Kind | Site | Area | Finding |', '| --- | --- | --- | --- | --- | --- | --- |']
-        md_rows += [f'| [{f["id"]}]({self.finding_href(f)}) | {STATUS_LABEL[f["status"]]} | {f["severity"]} | {f["kind"]} | {f["site"]} | {AREAS[f["area"]]} | {f["title"]} |' for f in items]
+        md_rows  = ['| ID | Status | Severity | Product | Problems | Visibility | Finding |', '| --- | --- | --- | --- | --- | --- | --- |']
+        md_rows += [f'| [{f["id"]}]({self.finding_href(f)}) | {STATUS_LABEL[f["status"]]} | {f["severity"]} | {self.product_label(f["product"])} | '
+                    f'{", ".join(f["problems"])} | {f["visibility"]} | {f["title"]} |' for f in items]
         html_out = form + '<ul class="findings" data-findings>' + ''.join(self.finding_row(f) for f in items) + '</ul>'
         html_out += '<p class="findings__empty" data-findings-empty hidden>No finding matches this filter. <a href="/findings/">Show all</a>.</p>'
         return '\n'.join(md_rows), html_out
 
-    def d_by_site(self, arg):
-        rows_md   = ['| Site | Findings | Open | Open, high | What it is |', '| --- | --- | --- | --- | --- |']
+    def d_facet(self, key):
+        """One facet as a table: each value, what it means, its findings and how many are open, linked to the filter."""
+        rows_md   = [f'| {FACET_LABEL[key]} | Findings | Open | Means |', '| --- | --- | --- | --- |']
         rows_html = []
-        for name, info in self.site['sites'].items():
-            items = [f for f in self.findings if f['site'] == name]
+        for value, label, what in self.facet_values(key):
+            items = [f for f in self.findings if value in self.finding_values(f, key)]
             if not items:
                 continue
-            c    = self.counts(items)
-            link = f'/findings/?site={name}'
-            rows_md.append(f'| [{name}]({info["url"]}) | [{c["total"]}]({link}) | {c["open"]} | {c["high_open"]} | {info["what"]} |')
-            rows_html.append(f'<tr><th scope="row"><a href="{esc(info["url"])}">{esc(name)}</a></th>'
-                             f'<td><a href="{esc(link)}">{c["total"]}</a></td><td>{c["open"]}</td><td>{c["high_open"]}</td><td>{esc(info["what"])}</td></tr>')
-        html_out = ('<div class="table-wrap"><table class="table--wide"><thead><tr><th scope="col">Site</th><th scope="col">Findings</th><th scope="col">Open</th>'
-                    '<th scope="col">Open, high</th><th scope="col">What it is</th></tr></thead><tbody>' + ''.join(rows_html) + '</tbody></table></div>')
+            c     = self.counts(items)
+            link  = f'/findings/?{key}={value}'
+            if key == 'product' and self.products[value]['url'].startswith('http'):
+                what = f'{what} ({self.products[value]["type"]})'
+            rows_md.append(f'| {label} | [{c["total"]}]({link}) | {c["open"]} | {what} |')
+            means = f'<span class="facet__what">{esc(what)}</span>' if what else ''
+            rows_html.append(f'<tr><th scope="row"><a href="{esc(link)}">{esc(label)}</a>{means}</th><td><a href="{esc(link)}">{c["total"]}</a></td>'
+                             f'<td>{c["open"]}</td></tr>')
+        html_out = (f'<div class="table-wrap"><table class="table--facet"><thead><tr><th scope="col">{esc(FACET_LABEL[key])}</th>'
+                    '<th scope="col">Findings</th><th scope="col">Open</th></tr></thead><tbody>'
+                    + ''.join(rows_html) + '</tbody></table></div>')
         return '\n'.join(rows_md), html_out
 
-    def d_by_area(self, arg):
-        rows_md   = ['| Area | Findings | Open |', '| --- | --- | --- |']
-        rows_html = []
-        for key, label in AREAS.items():
-            items = [f for f in self.findings if f['area'] == key]
-            if not items:
-                continue
-            c    = self.counts(items)
-            link = f'/findings/?area={key}'
-            rows_md.append(f'| {label} | [{c["total"]}]({link}) | {c["open"]} |')
-            rows_html.append(f'<tr><th scope="row">{esc(label)}</th><td><a href="{esc(link)}">{c["total"]}</a></td><td>{c["open"]}</td></tr>')
-        html_out = ('<div class="table-wrap"><table class="table--narrow"><thead><tr><th scope="col">Area</th><th scope="col">Findings</th>'
-                    '<th scope="col">Open</th></tr></thead><tbody>' + ''.join(rows_html) + '</tbody></table></div>')
-        return '\n'.join(rows_md), html_out
+    def d_browse(self, arg):
+        md_parts, html_parts = [], []
+        for key in FACETS:
+            md_out, html_out = self.d_facet(key)
+            md_parts.append(f'## By {FACET_LABEL[key].lower()}\n\n{FACET_INTRO[key]}\n\n{md_out}')
+            html_parts.append(f'<section class="facet" id="by-{key}"><h2>By {esc(FACET_LABEL[key].lower())}</h2>'
+                              f'<p class="muted">{esc(FACET_INTRO[key])}</p>{html_out}</section>')
+        return '\n\n'.join(md_parts), ''.join(html_parts)
+
+    def d_browse_index(self, arg):
+        md_out = ' · '.join(f'[{FACET_LABEL[k]}](#by-{k})' for k in FACETS)
+        return md_out, '<p class="facet-index">' + ' · '.join(f'<a href="#by-{k}">{esc(FACET_LABEL[k])}</a>' for k in FACETS) + '</p>'
 
     def d_principles(self, arg):
         md_parts, html_parts = [], []
@@ -378,17 +425,24 @@ class Site:
             prev  = order[i - 1] if i > 0 else None
             nxt   = order[i + 1] if i + 1 < len(order) else None
             where = f['where'] if not f['where'].startswith('http') else f'<{f["where"]}>'
-            site  = self.site['sites'].get(f['site'], {})
+            prod  = self.products[f['product']]
+            rec   = next(r for r in self.taxonomy['recommendations'] if r['id'] == f['recommendation'])
+            probs = ', '.join(f'[{self.label_of("problem", v)}](/findings/?problem={v})' for v in f['problems'])
             rows  = [
                 ('Status',       STATUS_LABEL[f['status']] + (f'. {f["status_note"]}' if f.get('status_note') else '')),
                 ('Severity',     f['severity'].capitalize()),
                 ('Kind',         'Failure: works against the reader' if f['kind'] == 'failure' else 'Gap: something the reader needs is not there'),
-                ('Site',         f'[{f["site"]}]({site.get("url", "")})' if site else f['site']),
+                ('Product',      f'[{self.product_label(f["product"])}](/findings/?product={f["product"]}), {prod["type"]}'),
                 ('Where',        where),
+                ('Problems',     probs),
+                ('Visibility',   f'[{self.label_of("visibility", f["visibility"])}](/findings/?visibility={f["visibility"]}): '
+                                 + next(t['what'] for t in self.taxonomy['visibility'] if t['id'] == f['visibility']).lower()),
+                ('Recommendation', f'[{rec["label"]}](/findings/?recommendation={rec["id"]}): {rec["what"][0].lower() + rec["what"][1:]}'),
                 ('Area',         f'[{AREAS[f["area"]]}](/findings/?area={f["area"]})'),
                 ('Breaks',       f'[{p["title"]}](/principles/#{p["id"]})'),
                 ('Observed',     f'{f["observed"]["date"]}, {f["observed"]["version"]}'),
                 ('Last checked', f'{f["checked"]["date"]}, {f["checked"]["version"]}'),
+            ] + ([('Environment', f['environment'])] if f.get('environment') else []) + [
                 ('Source',       f'[{f["source"]["label"]}]({f["source"]["href"]})'),
             ]
             if f.get('prototype'):
@@ -400,16 +454,25 @@ class Site:
                 nav.append(f'Previous: [{prev["id"]} {prev["title"]}]({self.finding_href(prev)})')
             if nxt:
                 nav.append(f'Next: [{nxt["id"]} {nxt["title"]}]({self.finding_href(nxt)})')
+            shots = ''.join(f'\n\n{{{{finding-image:{f["id"]}:{i}}}}}' for i in range(len(f.get('images', []))))
             body = (f'[Findings](/findings/) / {f["id"]}\n\n# {f["title"]}\n\n{{{{finding-badges:{f["id"]}}}}}\n\n'
-                    f'## What we saw\n\n{f["evidence"]}\n\n## Why it matters\n\n{f["impact"]}\n\n## The fix\n\n{f["fix"]}\n\n'
+                    f'## What we saw\n\n{f["evidence"]}{shots}\n\n## Why it matters\n\n{f["impact"]}\n\n## The fix\n\n{f["fix"]}\n\n'
                     f'## The record\n\n{table}\n\n' + '\n\n'.join(nav) + '\n')
             self.add_page(f'findings/{f["id"]}.html',
                           {'title': f'{f["id"]}: {f["title"]}', 'description': f['impact'], 'layout': 'finding'}, body)
 
     def d_finding_badges(self, arg):
-        f = self.by_id[arg]
-        return (f'{STATUS_LABEL[f["status"]]} · {f["severity"]} severity · {f["kind"]} · {f["site"]}',
-                f'<p class="finding-head">{self.badges(f)}<span class="finding__site">{esc(f["site"])}</span></p>')
+        f     = self.by_id[arg]
+        label = self.product_label(f['product'])
+        return (f'{STATUS_LABEL[f["status"]]} · {f["severity"]} severity · {f["kind"]} · {label}',
+                f'<p class="finding-head">{self.badges(f)}<span class="finding__site">{esc(label)}</span></p>')
+
+    def d_finding_image(self, arg):
+        fid, _, n = arg.partition(':')
+        img       = self.by_id[fid]['images'][int(n)]
+        return (f'![{img["alt"]}]({img["src"]})\n\n_{img["caption"]}_',
+                f'<figure class="evidence"><a href="{esc(img["src"])}"><img src="{esc(img["src"])}" alt="{esc(img["alt"])}" loading="lazy"></a>'
+                f'<figcaption>{esc(img["caption"])}</figcaption></figure>')
 
     # ---------------------------------------------------------------- layout
 
@@ -494,7 +557,7 @@ class Site:
             '',
             '## The headline',
             '',
-            f'{c["total"]} findings across {c["sites"]} sites: {c["open"]} still open, {c["high_open"]} of them high severity, '
+            f'{c["total"]} findings across {c["products"]} products: {c["open"]} still open, {c["high_open"]} of them high severity, '
             f'{c["fixed"]} fixed. {c["failures"]} are failures (something works against the reader) and {c["gaps"]} are gaps '
             '(something the reader needs is not there). Every count on this site is generated from /data/findings.json.',
             '',
@@ -503,7 +566,8 @@ class Site:
             '- /data/findings.json is the register. Every finding page, list, filter and count is generated from it at build, and the gate fails if a page is stale.',
             '- Every finding has a stable page at /findings/<ID>.html and a markdown twin at /findings/<ID>.md.',
             '- Every page has a markdown twin: replace .html with .md, or append index.md to a directory URL.',
-            '- /findings/?site=&area=&severity=&status=&kind=&principle=&q= is a linkable filter (comma-separate values for OR).',
+            '- /findings/?product=&area=&problem=&visibility=&recommendation=&principle=&severity=&status=&kind=&q= is a linkable filter (comma-separate values for OR). /browse/ lists every value of every facet with its count.',
+            '- /data/taxonomy.json defines the problem, visibility and recommendation vocabularies; /data/site.json defines the products.',
             '- Statuses carry the date and version they were last checked. Nothing here claims to be current beyond that date.',
             '- /llms-full.txt is the whole site in one fetch.',
             '',
@@ -515,7 +579,7 @@ class Site:
             lines.append(f'  {p["description"]}')
         lines += ['', '## The findings', '']
         for f in self.sorted_findings():
-            lines.append(f'{self.finding_href(f)}  [{f["status"]}, {f["severity"]}, {f["kind"]}, {f["site"]}] {f["title"]}')
+            lines.append(f'{self.finding_href(f)}  [{f["status"]}, {f["severity"]}, {f["product"]}, {"+".join(f["problems"])}, {f["visibility"]}, {f["recommendation"]}] {f["title"]}')
         lines += ['', '## The sibling sites', '']
         lines += [f'{n["url"]}: {n["what"]}' for n in s['network']]
         lines += ['', f'Repository: {s["repository"]}', '']

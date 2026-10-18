@@ -1,6 +1,17 @@
 # Versions
 
-The current version is v0.1.0. Newest first.
+The current version is v0.2.0. Newest first.
+
+## v0.2.0 · 2026-10-18
+
+The register is indexed nine ways, and the first reports from readers arrive: two Firefox-on-iPad findings about a page that will not hold still.
+
+- `data/taxonomy.json`: problem (24), visibility (4) and recommendation (17) vocabularies; every existing finding backfilled
+- `data/site.json`: sites become products, with a type (site, platform, prototype, browser); Firefox on iPad added
+- `data/findings.json`: UX-056 (scroll up focuses the address bar and opens the keyboard) and UX-057 (toolbars return on any scroll up), with screenshots in findings/img/
+- `data/principles.json`: new principle, nothing moves that the reader did not move; UX-051 moved to it
+- `content/browse/index.md`: every facet with counts, each value a link to the filtered list
+- `admin/build/`: facets drive filters, finding pages, browse and llms.txt; the gate checks the taxonomy and evidence images
 
 ## v0.1.0 · 2026-10-18
 

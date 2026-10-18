@@ -22,7 +22,7 @@
 <header class="site-head">
   <div class="wrap site-head__row">
     <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
-    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/principles/">Principles</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/browse/">Browse</a></li><li><a href="/principles/">Principles</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
   </div>
 </header>
 <main id="main" class="wrap main">
@@ -30,7 +30,7 @@
 <div class="content">
 <p><a href="/findings/">Findings</a> / UX-052</p>
 <h1>A highlight across paragraphs is cut at the first paragraph</h1>
-<p class="finding-head"><span class="badge badge--status-open">Open</span><span class="badge badge--severity-low">Low</span><span class="badge badge--kind-failure">Failure</span><span class="finding__site">newsroom-design-lab</span></p>
+<p class="finding-head"><span class="badge badge--status-open">Open</span><span class="badge badge--severity-low">Low</span><span class="badge badge--kind-failure">Failure</span><span class="finding__site">Newsroom Design Lab</span></p>
 <h2 id="what-we-saw">What we saw</h2>
 <p>Selecting text that spans two paragraphs and tapping Highlight keeps only the part in the first.</p>
 <h2 id="why-it-matters">Why it matters</h2>
@@ -38,7 +38,7 @@
 <h2 id="the-fix">The fix</h2>
 <p>Store highlights as ranges across blocks, or refuse the selection with a message.</p>
 <h2 id="the-record">The record</h2>
-<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>Low</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Site</strong></td><td><a href="/lab/">newsroom-design-lab</a></td></tr><tr><td><strong>Where</strong></td><td>newsroom-proto-article</td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=article">Article page</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#defaults-are-not-answers">A default is not an answer</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-11, v0.1.1</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-11, v0.1.1</td></tr><tr><td><strong>Source</strong></td><td><a href="/lab/#what-building-the-lab-measured">Design lab: what building it measured</a></td></tr><tr><td><strong>Prototype</strong></td><td><a href="/lab/#newsroom-proto-article">Article &amp; reader primitives</a>, route <code>article/hope-or-enforcement</code>, in three directions</td></tr></tbody></table></div>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>Low</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Product</strong></td><td><a href="/findings/?product=newsroom-design-lab">Newsroom Design Lab</a>, prototype</td></tr><tr><td><strong>Where</strong></td><td>newsroom-proto-article</td></tr><tr><td><strong>Problems</strong></td><td><a href="/findings/?problem=data-loss">Data loss</a></td></tr><tr><td><strong>Visibility</strong></td><td><a href="/findings/?visibility=subtle">Subtle</a>: felt more than seen: it costs attention or trust, but is not noticed as a bug</td></tr><tr><td><strong>Recommendation</strong></td><td><a href="/findings/?recommendation=say-what-it-is">Say what it is</a>: label it, in the reader's terms, at the moment it matters</td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=article">Article page</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#defaults-are-not-answers">A default is not an answer</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-11, v0.1.1</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-11, v0.1.1</td></tr><tr><td><strong>Source</strong></td><td><a href="/lab/#what-building-the-lab-measured">Design lab: what building it measured</a></td></tr><tr><td><strong>Prototype</strong></td><td><a href="/lab/#newsroom-proto-article">Article &amp; reader primitives</a>, route <code>article/hope-or-enforcement</code>, in three directions</td></tr></tbody></table></div>
 <p>Previous: <a href="/findings/UX-051.html">UX-051 Re-rendering the whole view on every save lost the reader's place</a></p>
 <p>Next: <a href="/findings/UX-053.html">UX-053 Search results show no snippets</a></p>
 </div>
@@ -46,8 +46,8 @@
 <script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
 <footer class="site-foot">
   <div class="wrap">
-    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites fail their readers, measured on the live site, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
-    <p><a href="/findings/UX-052.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.1.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites, and the browsers and platforms they are read on, fail their readers, measured, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-052.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.2.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
     <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
   </div>
 </footer>

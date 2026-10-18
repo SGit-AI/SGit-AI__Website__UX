@@ -1,6 +1,6 @@
 <div class="hero">
 <h1>Where our sites fail their readers, measured, and what fixes it</h1>
-<p class="lede">A public register of UX failures and gaps across the sgit.ai sites. Each one measured on the live site, dated, tied to the principle it breaks, and paired with its fix.</p>
+<p class="lede">A public register of UX failures and gaps across the sgit.ai sites and the browsers they are read in. Each one measured on the live site, dated, tied to the principle it breaks, and paired with its fix.</p>
 <p class="byline">By Dinis Cruz, written with AI agents. <a href="/about/">Why this exists</a>.</p>
 </div>
 
@@ -10,9 +10,9 @@
 <a class="door" href="/lab/"><span class="door__title">Show me the fixes</span><span class="door__body">The Newsroom Design Lab: four vaults trying the fixes on real data, in three design directions.</span></a>
 </div>
 
-- **55** findings in the register
-- **49** still open
-- **12** open and high severity
+- **57** findings in the register
+- **51** still open
+- **13** open and high severity
 - **6** fixed, with the version that fixed it
 
 ## Open, and high severity
@@ -31,16 +31,20 @@ These lose a reader or a reader's trust on the first visit. Each links to its ev
 - [UX-037](/findings/UX-037.md) · high · open · Two domains claim to be canonical for the same article (newsroom.sgit.ai)
 - [UX-044](/findings/UX-044.md) · high · open · The founder page says "the picks above" and no picks render on a phone (newsroom.sgit.ai)
 - [UX-046](/findings/UX-046.md) · high · open · Setting location.hash inside a vault app re-navigates the frame: every link silently dead (dev.vault.sgraph.ai)
+- [UX-056](/findings/UX-056.md) · high · open · Scrolling back up a little puts focus in the address bar and opens the keyboard (Firefox on iPad)
 
-[All 55 findings →](/findings/index.md)
+[All 57 findings →](/findings/index.md)
 
-## By site
+## By product
 
-| Site | Findings | Open | Open, high | What it is |
-| --- | --- | --- | --- | --- |
-| [newsroom.sgit.ai](https://newsroom.sgit.ai/) | [45](/findings/?site=newsroom.sgit.ai) | 41 | 11 | The publication: articles on AI agents, security and publishing, written with an agent newsroom |
-| [dev.vault.sgraph.ai](https://dev.vault.sgraph.ai/) | [4](/findings/?site=dev.vault.sgraph.ai) | 4 | 1 | The vault host: opens a vault by its key and runs its app in a sandboxed frame |
-| [newsroom-design-lab](/lab/index.md) | [6](/findings/?site=newsroom-design-lab) | 4 | 0 | This site's own prototypes: four vaults trying the newsroom fixes in three directions |
+Whose fault it is. Most findings are on our own sites; some belong to the platform under them or to the browser a reader uses, and are here because readers blame us for them anyway. [Browse every index →](/browse/index.md)
+
+| Product | Findings | Open | Means |
+| --- | --- | --- | --- |
+| newsroom.sgit.ai | [45](/findings/?product=newsroom.sgit.ai) | 41 | The publication: articles on AI agents, security and publishing, written with an agent newsroom (site) |
+| dev.vault.sgraph.ai | [4](/findings/?product=dev.vault.sgraph.ai) | 4 | The vault host: opens a vault by its key and runs its app in a sandboxed frame (platform) |
+| Newsroom Design Lab | [6](/findings/?product=newsroom-design-lab) | 4 | This site's own prototypes: four vaults trying the newsroom fixes in three directions |
+| Firefox on iPad | [2](/findings/?product=firefox-ipad) | 2 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
 
 ## How a finding gets here
 

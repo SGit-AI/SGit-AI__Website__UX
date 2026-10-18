@@ -1,7 +1,7 @@
 /**
  * @module findings
  * The findings filter. The list is complete HTML without this script; this only hides rows.
- * The filter lives in the address (?site=…&severity=high,medium&q=…), so every view is a link.
+ * The filter lives in the address (?product=…&problem=…&severity=high,medium&q=…), so every view is a link.
  */
 (() => {
     const form  = document.querySelector('[data-findings-filters]')
@@ -11,6 +11,7 @@
     const rows    = [...list.querySelectorAll('.finding')]
     const count   = form.querySelector('[data-findings-count]')
     const empty   = document.querySelector('[data-findings-empty]')
+    const active  = form.closest('details').querySelector('[data-findings-active]')
     const fields  = [...form.querySelectorAll('[data-filter]')]
     const text    = new Map(rows.map(row => [row, row.textContent.toLowerCase()]))
 
@@ -39,13 +40,17 @@
             let match = true
             for (const [key, value] of Object.entries(state)) {
                 if (!value || key === 'q') continue
-                if (!value.split(',').includes(row.dataset[key])) match = false
+                const have = row.dataset[key].split(' ')
+                if (!value.split(',').some(v => have.includes(v))) match = false
             }
             if (match && words.length) match = words.every(word => text.get(row).includes(word))
             row.hidden = !match
             if (match) shown += 1
         }
         count.textContent = `${shown} of ${rows.length}`
+        const chosen = fields.filter(field => state[field.dataset.filter])
+            .map(field => field.tagName === 'SELECT' ? field.selectedOptions[0]?.textContent : `"${state.q}"`)
+        active.textContent = chosen.length ? `· ${chosen.join(', ')} · ${shown} of ${rows.length}` : ''
         if (empty) empty.hidden = shown !== 0
     }
 
@@ -71,7 +76,6 @@
     const initial = read()
     sync(initial)
     show(initial)
-    if (Object.values(initial).some(Boolean)) form.closest('details').open = true
 
     form.addEventListener('input', () => {
         const state = fromForm()

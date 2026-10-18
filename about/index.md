@@ -10,7 +10,7 @@ Dinis Cruz, with AI co-authorship. Reviews are run by agents playing named roles
 
 ## Disclosure
 
-Every site reviewed here is ours. The sgit.ai sites argue for sgit (encrypted git for humans and agents) and RiskMandate (behaviour policies for agents), and the author builds both. This site has an interest in those sites working, which is the reason it exists, and no interest in hiding where they do not.
+Every site reviewed here is ours. Browsers and platforms appear only where they get in the way of reading our sites, because readers blame the page for them either way, and each such finding names its real owner. The sgit.ai sites argue for sgit (encrypted git for humans and agents) and RiskMandate (behaviour policies for agents), and the author builds both. This site has an interest in those sites working, which is the reason it exists, and no interest in hiding where they do not.
 
 ## What this is not
 

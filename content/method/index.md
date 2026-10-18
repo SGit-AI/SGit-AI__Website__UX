@@ -45,6 +45,25 @@ A full review reads the same evidence through six roles, each with its own quest
 
 Synthetic users (invented readers driven through the site by agents) add a seventh view, and a score that can be compared between releases. The newsroom's third run scored 2.4 out of 5; the next should add a CISO, who is most of the audience.
 
+## Indexed nine ways
+
+Every finding is indexed by **product** (whose fault it is), **area** (where in the visit), **problem** (what kind of thing goes wrong, one or more), **visibility** (how the reader experiences it), **recommendation** (the shape of the fix), **principle** (the rule it breaks), **severity**, **status** and **kind**. [Browse](/browse/) shows every value of each with its count; the [findings list](/findings/) filters by any combination, and the address is the filter.
+
+| Visibility | Means |
+| --- | --- |
+| **Obvious** | Every reader sees it, every time they reach that point |
+| **Intermittent** | Some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand |
+| **Subtle** | Felt more than seen: costs attention or trust, but is not noticed as a bug |
+| **Silent** | No symptom on screen: found only by measuring, or by its consequences |
+
+Visibility is not severity. A silent failure (ratings that never reach anyone) can be the most serious on the site; an obvious one can be cosmetic. It says how a finding will be found, and therefore who will report it.
+
+## Reports from readers
+
+Most of the register will come from people using the sites and saying where they got stuck: a screenshot, a sentence, the page they were on. A report becomes a finding when it has been written up with the evidence, the device and browser, what the reader expected, and the fix, and indexed like any other. The report is the source; the finding page credits it.
+
+A report about the browser rather than the page still goes in, with the browser as its product. Readers cannot tell whose fault a jumping toolbar is, and they blame the page they were reading, so knowing what the browser does is part of designing the page.
+
 ## Failure or gap
 
 | Kind | Means | Example |
@@ -78,10 +97,14 @@ The register is one file, [/data/findings.json](/data/findings.json). A finding 
 {
  "id":        "UX-056",                       next free number, never reused
  "title":     "What is wrong, as a sentence",
- "site":      "newsroom.sgit.ai",             a key of "sites" in data/site.json
+ "product":   "newsroom.sgit.ai",             whose fault it is: a key of "products" in data/site.json
+                                              (a site, the platform, a prototype, or a browser)
  "where":     "https://…/the/page.html",      the URL, or a description if there is none
  "area":      "first-visit",                  first-visit, navigation, findability, article,
                                               feedback, money, personas, trust, consistency, platform
+ "problems":  ["unexpected-movement"],        one or more, from data/taxonomy.json
+ "visibility": "intermittent",                obvious | intermittent | subtle | silent
+ "recommendation": "keep-the-ui-still",       the shape of the fix, from data/taxonomy.json
  "kind":      "failure",                      failure | gap
  "severity":  "high",                         high | medium | low
  "status":    "open",                         open | partly-fixed | fixed
@@ -93,6 +116,8 @@ The register is one file, [/data/findings.json](/data/findings.json). A finding 
  "fix":       "The smallest change that removes it",
  "prototype": null,                           or {"vault": "newsroom-proto-front", "route": "front"}
  "source":    {"href": "/reviews/…", "label": "Where it was found"},
+ "environment": "optional: device, browser, orientation, the page it happened on",
+ "images":    [{"src": "/findings/img/UX-056-….webp", "alt": "…", "caption": "…"}],
  "status_note": "optional: what changed, and in which version"
 }
 ```

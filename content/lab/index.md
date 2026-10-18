@@ -44,7 +44,7 @@ The lab's hub vault lets the editor pick one option per decision, kept in the br
 
 Building apps that run inside the vault host turned up failures that are not about the newsroom at all: they are traps in the platform, and in the lab's own prototypes. They are in the register like any other finding.
 
-{{findings-list:site=dev.vault.sgraph.ai,newsroom-design-lab}}
+{{findings-list:product=dev.vault.sgraph.ai,newsroom-design-lab}}
 
 ## How it is built
 

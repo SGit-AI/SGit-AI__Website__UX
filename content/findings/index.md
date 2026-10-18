@@ -10,8 +10,6 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 
 {{findings-register}}
 
-## By area
-
-{{by-area}}
+Browse the same register [by product, problem, visibility, recommendation and principle](/browse/).
 
 The register is one file, [/data/findings.json](/data/findings.json). This page, every finding page and every count on the site are generated from it. To add a finding, see [the method](/method/#filing-a-finding).

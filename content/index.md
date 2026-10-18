@@ -6,7 +6,7 @@ layout: home
 
 <div class="hero">
 <h1>Where our sites fail their readers, measured, and what fixes it</h1>
-<p class="lede">A public register of UX failures and gaps across the sgit.ai sites. Each one measured on the live site, dated, tied to the principle it breaks, and paired with its fix.</p>
+<p class="lede">A public register of UX failures and gaps across the sgit.ai sites and the browsers they are read in. Each one measured on the live site, dated, tied to the principle it breaks, and paired with its fix.</p>
 <p class="byline">By Dinis Cruz, written with AI agents. <a href="/about/">Why this exists</a>.</p>
 </div>
 
@@ -26,9 +26,11 @@ These lose a reader or a reader's trust on the first visit. Each links to its ev
 
 [All {{count:total}} findings →](/findings/)
 
-## By site
+## By product
 
-{{by-site}}
+Whose fault it is. Most findings are on our own sites; some belong to the platform under them or to the browser a reader uses, and are here because readers blame us for them anyway. [Browse every index →](/browse/)
+
+{{facet:product}}
 
 ## How a finding gets here
 

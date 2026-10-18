@@ -1,12 +1,18 @@
 {
- "what": "The register of UX failures and gaps. One entry per finding; every page, count and filter on this site is generated from this file. A failure is something that works against the reader; a gap is something the reader needs that is not there.",
+ "what": "The register of UX failures and gaps. One entry per finding; every page, count, index and filter on this site is generated from this file. A failure is something that works against the reader; a gap is something the reader needs that is not there.",
  "findings": [
   {
    "id": "UX-001",
    "title": "The first phone screen explains how the site is built, not what it is about",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "first-visit",
+   "problems": [
+    "buried-content",
+    "builder-chrome"
+   ],
+   "visibility": "obvious",
+   "recommendation": "cut-to-the-essential",
    "kind": "failure",
    "severity": "high",
    "status": "open",
@@ -34,9 +40,14 @@
   {
    "id": "UX-002",
    "title": "The home page is 59 phone screens long, with 845 links",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "first-visit",
+   "problems": [
+    "overload"
+   ],
+   "visibility": "obvious",
+   "recommendation": "cut-to-the-essential",
    "kind": "failure",
    "severity": "high",
    "status": "open",
@@ -64,9 +75,14 @@
   {
    "id": "UX-003",
    "title": "The masthead line describes a method, not a subject",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "first-visit",
+   "problems": [
+    "missing-signal"
+   ],
+   "visibility": "subtle",
+   "recommendation": "show-it-up-front",
    "kind": "gap",
    "severity": "medium",
    "status": "open",
@@ -94,9 +110,14 @@
   {
    "id": "UX-004",
    "title": "The edition label is older than the articles under it",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "first-visit",
+   "problems": [
+    "stale-claim"
+   ],
+   "visibility": "subtle",
+   "recommendation": "date-the-claim",
    "kind": "failure",
    "severity": "medium",
    "status": "open",
@@ -124,9 +145,14 @@
   {
    "id": "UX-005",
    "title": "The version number is shown three times on the first screen",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "first-visit",
+   "problems": [
+    "builder-chrome"
+   ],
+   "visibility": "subtle",
+   "recommendation": "move-to-the-workshop",
    "kind": "failure",
    "severity": "low",
    "status": "open",
@@ -154,9 +180,15 @@
   {
    "id": "UX-006",
    "title": "A \"For agents /llms.txt\" strip sits above the masthead",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "first-visit",
+   "problems": [
+    "builder-chrome",
+    "buried-content"
+   ],
+   "visibility": "obvious",
+   "recommendation": "move-to-the-workshop",
    "kind": "failure",
    "severity": "low",
    "status": "open",
@@ -184,9 +216,14 @@
   {
    "id": "UX-007",
    "title": "The editor's note is written for someone who read the last two editions",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "first-visit",
+   "problems": [
+    "missing-signal"
+   ],
+   "visibility": "subtle",
+   "recommendation": "write-for-a-stranger",
    "kind": "failure",
    "severity": "low",
    "status": "open",
@@ -211,9 +248,14 @@
   {
    "id": "UX-008",
    "title": "Content is hidden until JavaScript runs",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "trust",
+   "problems": [
+    "hidden-until-script"
+   ],
+   "visibility": "intermittent",
+   "recommendation": "render-on-first-load",
    "kind": "failure",
    "severity": "medium",
    "status": "open",
@@ -238,9 +280,15 @@
   {
    "id": "UX-009",
    "title": "Two navigation bars, and a 60-link menu that mixes reading with building",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "navigation",
+   "problems": [
+    "overload",
+    "builder-chrome"
+   ],
+   "visibility": "obvious",
+   "recommendation": "move-to-the-workshop",
    "kind": "failure",
    "severity": "medium",
    "status": "open",
@@ -268,9 +316,14 @@
   {
    "id": "UX-010",
    "title": "Missing pages show the default GitHub Pages 404",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/no-such-page",
    "area": "navigation",
+   "problems": [
+    "dead-end"
+   ],
+   "visibility": "intermittent",
+   "recommendation": "build-the-way-in",
    "kind": "failure",
    "severity": "medium",
    "status": "open",
@@ -295,9 +348,14 @@
   {
    "id": "UX-011",
    "title": "Links without extensions in one article",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/future-of-news-story-vault-not-paywall.html",
    "area": "navigation",
+   "problems": [
+    "dead-end"
+   ],
+   "visibility": "silent",
+   "recommendation": "check-at-build",
    "kind": "failure",
    "severity": "low",
    "status": "open",
@@ -322,9 +380,14 @@
   {
    "id": "UX-012",
    "title": "Each article ends with seven next steps instead of one",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "navigation",
+   "problems": [
+    "overload"
+   ],
+   "visibility": "subtle",
+   "recommendation": "cut-to-the-essential",
    "kind": "failure",
    "severity": "low",
    "status": "open",
@@ -349,9 +412,14 @@
   {
    "id": "UX-013",
    "title": "One topic holds more than half the articles",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/",
    "area": "findability",
+   "problems": [
+    "overload"
+   ],
+   "visibility": "subtle",
+   "recommendation": "build-the-way-in",
    "kind": "failure",
    "severity": "medium",
    "status": "open",
@@ -379,9 +447,14 @@
   {
    "id": "UX-014",
    "title": "Tags are not links, and there are no tag pages",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/hope-or-enforcement.html",
    "area": "findability",
+   "problems": [
+    "dead-end"
+   ],
+   "visibility": "obvious",
+   "recommendation": "make-it-a-link",
    "kind": "failure",
    "severity": "medium",
    "status": "open",
@@ -409,9 +482,14 @@
   {
    "id": "UX-015",
    "title": "Filters cannot be shared",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/",
    "area": "findability",
+   "problems": [
+    "unshareable-view"
+   ],
+   "visibility": "silent",
+   "recommendation": "make-it-a-link",
    "kind": "gap",
    "severity": "medium",
    "status": "open",
@@ -439,9 +517,14 @@
   {
    "id": "UX-016",
    "title": "Series are invisible",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/",
    "area": "findability",
+   "problems": [
+    "missing-way-in"
+   ],
+   "visibility": "silent",
+   "recommendation": "build-the-way-in",
    "kind": "gap",
    "severity": "medium",
    "status": "open",
@@ -469,9 +552,14 @@
   {
    "id": "UX-017",
    "title": "There is no \"start here\" path",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "findability",
+   "problems": [
+    "missing-way-in"
+   ],
+   "visibility": "subtle",
+   "recommendation": "build-the-way-in",
    "kind": "gap",
    "severity": "medium",
    "status": "open",
@@ -499,9 +587,14 @@
   {
    "id": "UX-018",
    "title": "Cards do not show reading time or format",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/",
    "area": "findability",
+   "problems": [
+    "missing-signal"
+   ],
+   "visibility": "subtle",
+   "recommendation": "show-it-up-front",
    "kind": "gap",
    "severity": "medium",
    "status": "open",
@@ -529,9 +622,14 @@
   {
    "id": "UX-019",
    "title": "Search only matches titles, teasers and tags",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/",
    "area": "findability",
+   "problems": [
+    "missing-way-in"
+   ],
+   "visibility": "subtle",
+   "recommendation": "build-the-way-in",
    "kind": "gap",
    "severity": "low",
    "status": "open",
@@ -559,9 +657,14 @@
   {
    "id": "UX-020",
    "title": "The best reader feature is buried under metadata and a long italic abstract",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/hope-or-enforcement.html",
    "area": "article",
+   "problems": [
+    "buried-content"
+   ],
+   "visibility": "obvious",
+   "recommendation": "show-it-up-front",
    "kind": "failure",
    "severity": "medium",
    "status": "open",
@@ -589,9 +692,14 @@
   {
    "id": "UX-021",
    "title": "Author tooling is shown to every reader",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/hope-or-enforcement.html",
    "area": "article",
+   "problems": [
+    "builder-chrome"
+   ],
+   "visibility": "obvious",
+   "recommendation": "move-to-the-workshop",
    "kind": "failure",
    "severity": "low",
    "status": "open",
@@ -616,9 +724,14 @@
   {
    "id": "UX-022",
    "title": "The byline names one human; the AI authorship is in the footer",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/",
    "area": "trust",
+   "problems": [
+    "missing-signal"
+   ],
+   "visibility": "subtle",
+   "recommendation": "show-it-up-front",
    "kind": "failure",
    "severity": "medium",
    "status": "open",
@@ -646,9 +759,14 @@
   {
    "id": "UX-023",
    "title": "There is no page that says why the publication exists",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "trust",
+   "problems": [
+    "missing-signal"
+   ],
+   "visibility": "silent",
+   "recommendation": "build-the-way-in",
    "kind": "gap",
    "severity": "medium",
    "status": "open",
@@ -676,9 +794,14 @@
   {
    "id": "UX-024",
    "title": "All three rating scales start on 3",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/",
    "area": "feedback",
+   "problems": [
+    "preselected-input"
+   ],
+   "visibility": "subtle",
+   "recommendation": "start-empty",
    "kind": "failure",
    "severity": "high",
    "status": "open",
@@ -706,9 +829,14 @@
   {
    "id": "UX-025",
    "title": "Ratings never reach the author",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/",
    "area": "feedback",
+   "problems": [
+    "missing-channel"
+   ],
+   "visibility": "silent",
+   "recommendation": "open-a-channel",
    "kind": "gap",
    "severity": "high",
    "status": "open",
@@ -736,9 +864,14 @@
   {
    "id": "UX-026",
    "title": "There is no way to say what was missing",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/",
    "area": "feedback",
+   "problems": [
+    "missing-channel"
+   ],
+   "visibility": "silent",
+   "recommendation": "open-a-channel",
    "kind": "gap",
    "severity": "low",
    "status": "open",
@@ -766,9 +899,14 @@
   {
    "id": "UX-027",
    "title": "Articles join the reader's list without being asked",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/",
    "area": "feedback",
+   "problems": [
+    "unconsented-state"
+   ],
+   "visibility": "subtle",
+   "recommendation": "ask-first",
    "kind": "failure",
    "severity": "medium",
    "status": "open",
@@ -796,9 +934,14 @@
   {
    "id": "UX-028",
    "title": "The £5.00 balance chip has no label",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "money",
+   "problems": [
+    "unlabelled"
+   ],
+   "visibility": "obvious",
+   "recommendation": "say-what-it-is",
    "kind": "failure",
    "severity": "high",
    "status": "open",
@@ -826,9 +969,15 @@
   {
    "id": "UX-029",
    "title": "Opening an article charges a penny with no notice",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/",
    "area": "money",
+   "problems": [
+    "silent-change",
+    "unlabelled"
+   ],
+   "visibility": "subtle",
+   "recommendation": "say-what-it-is",
    "kind": "failure",
    "severity": "high",
    "status": "open",
@@ -853,9 +1002,14 @@
   {
    "id": "UX-030",
    "title": "\"Credit can go below zero\" reads as a debt",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/account/",
    "area": "money",
+   "problems": [
+    "alarming-wording"
+   ],
+   "visibility": "subtle",
+   "recommendation": "say-what-it-is",
    "kind": "failure",
    "severity": "medium",
    "status": "open",
@@ -880,9 +1034,14 @@
   {
    "id": "UX-031",
    "title": "\"You pay the price\" reads as a warning",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/",
    "area": "money",
+   "problems": [
+    "alarming-wording"
+   ],
+   "visibility": "subtle",
+   "recommendation": "say-what-it-is",
    "kind": "failure",
    "severity": "low",
    "status": "open",
@@ -910,9 +1069,14 @@
   {
    "id": "UX-032",
    "title": "Nothing shows real money moving",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "trust",
+   "problems": [
+    "missing-signal"
+   ],
+   "visibility": "silent",
+   "recommendation": "show-it-up-front",
    "kind": "gap",
    "severity": "high",
    "status": "open",
@@ -937,9 +1101,14 @@
   {
    "id": "UX-033",
    "title": "It is unclear how a writer gets paid",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "trust",
+   "problems": [
+    "missing-signal"
+   ],
+   "visibility": "silent",
+   "recommendation": "show-it-up-front",
    "kind": "gap",
    "severity": "high",
    "status": "open",
@@ -964,9 +1133,14 @@
   {
    "id": "UX-034",
    "title": "No contact for a pilot on the Replicate page",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/replicate/",
    "area": "trust",
+   "problems": [
+    "missing-channel"
+   ],
+   "visibility": "obvious",
+   "recommendation": "open-a-channel",
    "kind": "gap",
    "severity": "high",
    "status": "open",
@@ -991,9 +1165,15 @@
   {
    "id": "UX-035",
    "title": "The top-up page said \"simulated\" while asking for money",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/account/",
    "area": "money",
+   "problems": [
+    "inconsistent-facts",
+    "alarming-wording"
+   ],
+   "visibility": "obvious",
+   "recommendation": "say-what-it-is",
    "kind": "failure",
    "severity": "high",
    "status": "fixed",
@@ -1019,9 +1199,14 @@
   {
    "id": "UX-036",
    "title": "Articles were published on two domains, and diverged",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://sgit.ai/articles/",
    "area": "consistency",
+   "problems": [
+    "inconsistent-facts"
+   ],
+   "visibility": "silent",
+   "recommendation": "generate-from-one-source",
    "kind": "failure",
    "severity": "high",
    "status": "fixed",
@@ -1047,9 +1232,14 @@
   {
    "id": "UX-037",
    "title": "Two domains claim to be canonical for the same article",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://sgit.ai/articles/hope-or-enforcement.html",
    "area": "consistency",
+   "problems": [
+    "inconsistent-facts"
+   ],
+   "visibility": "silent",
+   "recommendation": "generate-from-one-source",
    "kind": "failure",
    "severity": "high",
    "status": "open",
@@ -1074,9 +1264,14 @@
   {
    "id": "UX-038",
    "title": "Three different article counts",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/",
    "area": "consistency",
+   "problems": [
+    "inconsistent-facts"
+   ],
+   "visibility": "subtle",
+   "recommendation": "generate-from-one-source",
    "kind": "failure",
    "severity": "medium",
    "status": "open",
@@ -1102,9 +1297,14 @@
   {
    "id": "UX-039",
    "title": "The feed is titled for the old site",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/feed.xml",
    "area": "consistency",
+   "problems": [
+    "inconsistent-facts"
+   ],
+   "visibility": "subtle",
+   "recommendation": "generate-from-one-source",
    "kind": "failure",
    "severity": "low",
    "status": "open",
@@ -1129,9 +1329,14 @@
   {
    "id": "UX-040",
    "title": "The study page reports a fixed bug as current",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/demos/vaults/newsroom-synthetic-users/index.html",
    "area": "consistency",
+   "problems": [
+    "stale-claim"
+   ],
+   "visibility": "subtle",
+   "recommendation": "date-the-claim",
    "kind": "failure",
    "severity": "low",
    "status": "open",
@@ -1156,9 +1361,14 @@
   {
    "id": "UX-041",
    "title": "51 vault images missing across 10 articles",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/articles/",
    "area": "consistency",
+   "problems": [
+    "dead-end"
+   ],
+   "visibility": "obvious",
+   "recommendation": "check-at-build",
    "kind": "failure",
    "severity": "high",
    "status": "fixed",
@@ -1184,9 +1394,14 @@
   {
    "id": "UX-042",
    "title": "Persona links were designed but not live",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/persona/",
    "area": "personas",
+   "problems": [
+    "missing-way-in"
+   ],
+   "visibility": "silent",
+   "recommendation": "build-the-way-in",
    "kind": "gap",
    "severity": "high",
    "status": "fixed",
@@ -1212,9 +1427,14 @@
   {
    "id": "UX-043",
    "title": "Opening a persona link adds it to the browser without asking",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/persona/founder/",
    "area": "personas",
+   "problems": [
+    "unconsented-state"
+   ],
+   "visibility": "silent",
+   "recommendation": "ask-first",
    "kind": "failure",
    "severity": "medium",
    "status": "open",
@@ -1242,9 +1462,15 @@
   {
    "id": "UX-044",
    "title": "The founder page says \"the picks above\" and no picks render on a phone",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/persona/founder/",
    "area": "personas",
+   "problems": [
+    "hidden-until-script",
+    "dead-end"
+   ],
+   "visibility": "intermittent",
+   "recommendation": "render-on-first-load",
    "kind": "failure",
    "severity": "high",
    "status": "open",
@@ -1272,9 +1498,14 @@
   {
    "id": "UX-045",
    "title": "Persona pages are a list, with no story, opinion or next step",
-   "site": "newsroom.sgit.ai",
+   "product": "newsroom.sgit.ai",
    "where": "https://newsroom.sgit.ai/persona/founder/",
    "area": "personas",
+   "problems": [
+    "missing-signal"
+   ],
+   "visibility": "subtle",
+   "recommendation": "build-the-way-in",
    "kind": "gap",
    "severity": "medium",
    "status": "open",
@@ -1302,9 +1533,15 @@
   {
    "id": "UX-046",
    "title": "Setting location.hash inside a vault app re-navigates the frame: every link silently dead",
-   "site": "dev.vault.sgraph.ai",
+   "product": "dev.vault.sgraph.ai",
    "where": "any vault app that routes by hash",
    "area": "platform",
+   "problems": [
+    "host-trap",
+    "dead-end"
+   ],
+   "visibility": "silent",
+   "recommendation": "design-for-the-host",
    "kind": "failure",
    "severity": "high",
    "status": "open",
@@ -1330,9 +1567,15 @@
   {
    "id": "UX-047",
    "title": "localStorage throws inside the vault app frame, so reader data is lost on reload",
-   "site": "dev.vault.sgraph.ai",
+   "product": "dev.vault.sgraph.ai",
    "where": "any vault app that stores reader state",
    "area": "platform",
+   "problems": [
+    "host-trap",
+    "data-loss"
+   ],
+   "visibility": "intermittent",
+   "recommendation": "design-for-the-host",
    "kind": "failure",
    "severity": "medium",
    "status": "open",
@@ -1358,9 +1601,14 @@
   {
    "id": "UX-048",
    "title": "A vault app can load images and scripts from a site but cannot fetch its data",
-   "site": "dev.vault.sgraph.ai",
+   "product": "dev.vault.sgraph.ai",
    "where": "vault apps reading newsroom.sgit.ai",
    "area": "platform",
+   "problems": [
+    "host-trap"
+   ],
+   "visibility": "silent",
+   "recommendation": "design-for-the-host",
    "kind": "gap",
    "severity": "low",
    "status": "open",
@@ -1385,9 +1633,15 @@
   {
    "id": "UX-049",
    "title": "Query strings break inside the vault host, so filters must live in the route path",
-   "site": "dev.vault.sgraph.ai",
+   "product": "dev.vault.sgraph.ai",
    "where": "vault apps with linkable filters",
    "area": "platform",
+   "problems": [
+    "host-trap",
+    "unshareable-view"
+   ],
+   "visibility": "silent",
+   "recommendation": "design-for-the-host",
    "kind": "gap",
    "severity": "low",
    "status": "open",
@@ -1415,9 +1669,14 @@
   {
    "id": "UX-050",
    "title": "File-path pills scrolled the whole page sideways at 390 px",
-   "site": "newsroom-design-lab",
+   "product": "newsroom-design-lab",
    "where": "lab kit v0.1.1, all prototype vaults",
    "area": "platform",
+   "problems": [
+    "layout-overflow"
+   ],
+   "visibility": "obvious",
+   "recommendation": "check-at-build",
    "kind": "failure",
    "severity": "medium",
    "status": "fixed",
@@ -1442,13 +1701,18 @@
   {
    "id": "UX-051",
    "title": "Re-rendering the whole view on every save lost the reader's place",
-   "site": "newsroom-design-lab",
+   "product": "newsroom-design-lab",
    "where": "newsroom-proto-article",
    "area": "article",
+   "problems": [
+    "unexpected-movement"
+   ],
+   "visibility": "obvious",
+   "recommendation": "keep-the-ui-still",
    "kind": "failure",
    "severity": "medium",
    "status": "fixed",
-   "principle": "content-is-visible",
+   "principle": "ui-stays-still",
    "observed": {
     "date": "2026-10-11",
     "version": "v0.1.0"
@@ -1469,9 +1733,14 @@
   {
    "id": "UX-052",
    "title": "A highlight across paragraphs is cut at the first paragraph",
-   "site": "newsroom-design-lab",
+   "product": "newsroom-design-lab",
    "where": "newsroom-proto-article",
    "area": "article",
+   "problems": [
+    "data-loss"
+   ],
+   "visibility": "subtle",
+   "recommendation": "say-what-it-is",
    "kind": "failure",
    "severity": "low",
    "status": "open",
@@ -1499,9 +1768,14 @@
   {
    "id": "UX-053",
    "title": "Search results show no snippets",
-   "site": "newsroom-design-lab",
+   "product": "newsroom-design-lab",
    "where": "newsroom-proto-find",
    "area": "findability",
+   "problems": [
+    "missing-signal"
+   ],
+   "visibility": "subtle",
+   "recommendation": "show-it-up-front",
    "kind": "gap",
    "severity": "low",
    "status": "open",
@@ -1529,9 +1803,14 @@
   {
    "id": "UX-054",
    "title": "Stacked tables on a phone lose their column labels",
-   "site": "newsroom-design-lab",
+   "product": "newsroom-design-lab",
    "where": "newsroom-proto-find",
    "area": "findability",
+   "problems": [
+    "unlabelled"
+   ],
+   "visibility": "obvious",
+   "recommendation": "say-what-it-is",
    "kind": "gap",
    "severity": "low",
    "status": "open",
@@ -1559,9 +1838,14 @@
   {
    "id": "UX-055",
    "title": "\"Ask the article\" has never run against a real on-device model",
-   "site": "newsroom-design-lab",
+   "product": "newsroom-design-lab",
    "where": "newsroom-proto-article",
    "area": "article",
+   "problems": [
+    "untested-path"
+   ],
+   "visibility": "silent",
+   "recommendation": "test-where-readers-are",
    "kind": "gap",
    "severity": "low",
    "status": "open",
@@ -1585,6 +1869,94 @@
     "href": "/lab/#what-building-the-lab-measured",
     "label": "Design lab: what building it measured"
    }
+  },
+  {
+   "id": "UX-056",
+   "title": "Scrolling back up a little puts focus in the address bar and opens the keyboard",
+   "product": "firefox-ipad",
+   "where": "https://newsroom.sgit.ai/admin/versions.html",
+   "area": "navigation",
+   "problems": [
+    "focus-hijack",
+    "unexpected-movement",
+    "wrong-culprit"
+   ],
+   "visibility": "intermittent",
+   "recommendation": "keep-the-ui-still",
+   "kind": "failure",
+   "severity": "high",
+   "status": "open",
+   "principle": "ui-stays-still",
+   "observed": {
+    "date": "2026-10-18",
+    "version": "not recorded"
+   },
+   "checked": {
+    "date": "2026-10-18",
+    "version": "not recorded"
+   },
+   "environment": "Firefox for iOS on an iPad, landscape, reading newsroom.sgit.ai/admin/versions.html (newsroom v0.12.120)",
+   "evidence": "Reading a long page, a small scroll back up brings the hidden toolbars back, the address field gets focus with its URL selected, and the on-screen keyboard opens over the bottom half of the page (second screenshot: the URL selected, Cancel showing, the keyboard covering the release table). Nothing on the page was tapped on purpose. A likely mechanism, not yet confirmed: the toolbar slides in under the finger mid-gesture, so the touch that was a scroll lands on the address field as a tap.",
+   "impact": "The reader was not asking to go anywhere, and loses half the screen to a keyboard. Worse, it looks like the page has a bug: the first reading was that the site had somehow started an edit. The browser's fault is charged to the site, and the reader's concentration is broken either way.",
+   "fix": "For the browser: a scroll gesture never focuses the address field; only a deliberate tap on a toolbar that is already at rest does. For the sites: nothing a page can prevent, but worth knowing that readers will report it as our bug, so it is recorded here with its real owner.",
+   "prototype": null,
+   "source": {
+    "href": "/method/#reports-from-readers",
+    "label": "Reported by Dinis Cruz, 18 Oct 2026, with screenshots"
+   },
+   "images": [
+    {
+     "src": "/findings/img/UX-056-keyboard-after-scroll-up.webp",
+     "alt": "Firefox on iPad after a small scroll up: the tab strip and address bar are back, the URL is selected for editing and the keyboard covers the lower half of the newsroom release history",
+     "caption": "After a small scroll up: address field focused, URL selected, keyboard open. Nothing on the page was tapped."
+    }
+   ]
+  },
+  {
+   "id": "UX-057",
+   "title": "The toolbars come back on any small scroll up, taking screen and moving the page",
+   "product": "firefox-ipad",
+   "where": "https://newsroom.sgit.ai/admin/versions.html",
+   "area": "navigation",
+   "problems": [
+    "unexpected-movement",
+    "lost-screen-space"
+   ],
+   "visibility": "obvious",
+   "recommendation": "keep-the-ui-still",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "ui-stays-still",
+   "observed": {
+    "date": "2026-10-18",
+    "version": "not recorded"
+   },
+   "checked": {
+    "date": "2026-10-18",
+    "version": "not recorded"
+   },
+   "environment": "Firefox for iOS on an iPad, landscape, reading newsroom.sgit.ai/admin/versions.html (newsroom v0.12.120)",
+   "evidence": "Scrolled down, Firefox shows only a thin address line and the page gets almost the whole screen (first screenshot: the newsroom header starts about 90 px down a 1,640 px screen). Any small scroll up restores the tab strip and full address bar (second screenshot: the header starts about 270 px down), about 180 px or 11% of the screen, and the page content shifts down by that much while it is being read. The hidden state is the one wanted all the time.",
+   "impact": "The reader scrolls up a line to re-read a sentence and the whole page jumps, the text moves away from their eyes, and a toolbar they did not ask for takes a ninth of the screen. Each time, attention goes to the chrome instead of the text.",
+   "fix": "For the browser: keep the toolbars hidden until a deliberate gesture (a tap on the address line, or a scroll to the very top), and offer a setting to keep them collapsed. For the sites, on our side of the line: keep our own sticky header as small as it can be, because it stacks on top of the browser's (on this page the newsroom's header takes about another 110 px).",
+   "prototype": null,
+   "source": {
+    "href": "/method/#reports-from-readers",
+    "label": "Reported by Dinis Cruz, 18 Oct 2026, with screenshots"
+   },
+   "images": [
+    {
+     "src": "/findings/img/UX-057-toolbar-hidden.webp",
+     "alt": "Firefox on iPad scrolled down: only a thin address line above the newsroom header, the release history filling the screen",
+     "caption": "Scrolled down: toolbars collapsed to a thin address line. This is the state wanted all the time."
+    },
+    {
+     "src": "/findings/img/UX-056-keyboard-after-scroll-up.webp",
+     "alt": "The same page after a small scroll up, with the tab strip and address bar back",
+     "caption": "After a small scroll up: tab strip and address bar back, the page pushed down about 180 px (and, here, the keyboard too: UX-056)."
+    }
+   ]
   }
  ]
 }

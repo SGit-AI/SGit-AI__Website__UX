@@ -182,12 +182,12 @@ Building apps that run inside the vault host turned up failures that are not abo
 - [UX-047](/findings/UX-047.md) · medium · open · localStorage throws inside the vault app frame, so reader data is lost on reload (dev.vault.sgraph.ai)
 - [UX-048](/findings/UX-048.md) · low · open · A vault app can load images and scripts from a site but cannot fetch its data (dev.vault.sgraph.ai)
 - [UX-049](/findings/UX-049.md) · low · open · Query strings break inside the vault host, so filters must live in the route path (dev.vault.sgraph.ai)
-- [UX-052](/findings/UX-052.md) · low · open · A highlight across paragraphs is cut at the first paragraph (newsroom-design-lab)
-- [UX-053](/findings/UX-053.md) · low · open · Search results show no snippets (newsroom-design-lab)
-- [UX-054](/findings/UX-054.md) · low · open · Stacked tables on a phone lose their column labels (newsroom-design-lab)
-- [UX-055](/findings/UX-055.md) · low · open · "Ask the article" has never run against a real on-device model (newsroom-design-lab)
-- [UX-050](/findings/UX-050.md) · medium · fixed · File-path pills scrolled the whole page sideways at 390 px (newsroom-design-lab)
-- [UX-051](/findings/UX-051.md) · medium · fixed · Re-rendering the whole view on every save lost the reader's place (newsroom-design-lab)
+- [UX-052](/findings/UX-052.md) · low · open · A highlight across paragraphs is cut at the first paragraph (Newsroom Design Lab)
+- [UX-053](/findings/UX-053.md) · low · open · Search results show no snippets (Newsroom Design Lab)
+- [UX-054](/findings/UX-054.md) · low · open · Stacked tables on a phone lose their column labels (Newsroom Design Lab)
+- [UX-055](/findings/UX-055.md) · low · open · "Ask the article" has never run against a real on-device model (Newsroom Design Lab)
+- [UX-050](/findings/UX-050.md) · medium · fixed · File-path pills scrolled the whole page sideways at 390 px (Newsroom Design Lab)
+- [UX-051](/findings/UX-051.md) · medium · fixed · Re-rendering the whole view on every save lost the reader's place (Newsroom Design Lab)
 
 ## How it is built
 

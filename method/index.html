@@ -22,11 +22,11 @@
 <header class="site-head">
   <div class="wrap site-head__row">
     <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
-    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/">Findings</a></li><li><a href="/principles/">Principles</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/" aria-current="page">Method</a></li></ul></nav>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/">Findings</a></li><li><a href="/browse/">Browse</a></li><li><a href="/principles/">Principles</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/" aria-current="page">Method</a></li></ul></nav>
   </div>
 </header>
 <main id="main" class="wrap main">
-<nav class="toc" aria-label="On this page"><details data-open-wide><summary class="toc__title">On this page</summary><ol><li><a href="#the-readers-path">The reader's path</a></li><li><a href="#the-stranger-test">The stranger test</a></li><li><a href="#the-panel">The panel</a></li><li><a href="#failure-or-gap">Failure or gap</a></li><li><a href="#severity">Severity</a></li><li><a href="#status-and-what-checked-means">Status, and what "checked" means</a></li><li><a href="#filing-a-finding">Filing a finding</a></li><li><a href="#rules-for-the-register-itself">Rules for the register itself</a></li></ol></details></nav>
+<nav class="toc" aria-label="On this page"><details data-open-wide><summary class="toc__title">On this page</summary><ol><li><a href="#the-readers-path">The reader's path</a></li><li><a href="#the-stranger-test">The stranger test</a></li><li><a href="#the-panel">The panel</a></li><li><a href="#indexed-nine-ways">Indexed nine ways</a></li><li><a href="#reports-from-readers">Reports from readers</a></li><li><a href="#failure-or-gap">Failure or gap</a></li><li><a href="#severity">Severity</a></li><li><a href="#status-and-what-checked-means">Status, and what "checked" means</a></li><li><a href="#filing-a-finding">Filing a finding</a></li><li><a href="#rules-for-the-register-itself">Rules for the register itself</a></li></ol></details></nav>
 <div class="content">
 <h1>Method</h1>
 <p>A finding is only as good as its evidence. Everything here is measured on the live site, at a stated date and version, by someone using it as a stranger would. Opinion is welcome as long as it is labelled as one; the register holds what was seen.</p>
@@ -41,6 +41,13 @@
 <p>A full review reads the same evidence through six roles, each with its own question. They disagree usefully: the Architect wanted the "For agents" strip on every page and the Designer wanted it off the first screen, and the answer (the page head and the footer) satisfied both.</p>
 <div class="table-wrap"><table><thead><tr><th scope="col">Role</th><th scope="col">The question it asks</th></tr></thead><tbody><tr><td>Architect</td><td>Is there one pipeline, one source of truth, and URLs that will last?</td></tr><tr><td>Librarian</td><td>Can a reader find everything on a subject, and is the catalogue consistent?</td></tr><tr><td>Historian</td><td>Can a newcomer follow the arc of ideas from the start to now?</td></tr><tr><td>Designer</td><td>Does the first screen and the reading page serve a stranger on a phone?</td></tr><tr><td>Editor</td><td>Is the front page choosing for the reader, and is the voice consistent?</td></tr><tr><td>Journalist</td><td>Would a contact understand the story, trust it, and come back?</td></tr></tbody></table></div>
 <p>Synthetic users (invented readers driven through the site by agents) add a seventh view, and a score that can be compared between releases. The newsroom's third run scored 2.4 out of 5; the next should add a CISO, who is most of the audience.</p>
+<h2 id="indexed-nine-ways">Indexed nine ways</h2>
+<p>Every finding is indexed by <strong>product</strong> (whose fault it is), <strong>area</strong> (where in the visit), <strong>problem</strong> (what kind of thing goes wrong, one or more), <strong>visibility</strong> (how the reader experiences it), <strong>recommendation</strong> (the shape of the fix), <strong>principle</strong> (the rule it breaks), <strong>severity</strong>, <strong>status</strong> and <strong>kind</strong>. <a href="/browse/">Browse</a> shows every value of each with its count; the <a href="/findings/">findings list</a> filters by any combination, and the address is the filter.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Visibility</th><th scope="col">Means</th></tr></thead><tbody><tr><td><strong>Obvious</strong></td><td>Every reader sees it, every time they reach that point</td></tr><tr><td><strong>Intermittent</strong></td><td>Some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand</td></tr><tr><td><strong>Subtle</strong></td><td>Felt more than seen: costs attention or trust, but is not noticed as a bug</td></tr><tr><td><strong>Silent</strong></td><td>No symptom on screen: found only by measuring, or by its consequences</td></tr></tbody></table></div>
+<p>Visibility is not severity. A silent failure (ratings that never reach anyone) can be the most serious on the site; an obvious one can be cosmetic. It says how a finding will be found, and therefore who will report it.</p>
+<h2 id="reports-from-readers">Reports from readers</h2>
+<p>Most of the register will come from people using the sites and saying where they got stuck: a screenshot, a sentence, the page they were on. A report becomes a finding when it has been written up with the evidence, the device and browser, what the reader expected, and the fix, and indexed like any other. The report is the source; the finding page credits it.</p>
+<p>A report about the browser rather than the page still goes in, with the browser as its product. Readers cannot tell whose fault a jumping toolbar is, and they blame the page they were reading, so knowing what the browser does is part of designing the page.</p>
 <h2 id="failure-or-gap">Failure or gap</h2>
 <div class="table-wrap"><table><thead><tr><th scope="col">Kind</th><th scope="col">Means</th><th scope="col">Example</th></tr></thead><tbody><tr><td><strong>Failure</strong></td><td>Something on the site works against the reader</td><td>Rating scales that start on 3; a balance that drops without notice</td></tr><tr><td><strong>Gap</strong></td><td>Something the reader needs is not there</td><td>No way to share a filtered list; no reading time on cards</td></tr></tbody></table></div>
 <h2 id="severity">Severity</h2>
@@ -53,10 +60,14 @@
 <pre><code>{
  "id":        "UX-056",                       next free number, never reused
  "title":     "What is wrong, as a sentence",
- "site":      "newsroom.sgit.ai",             a key of "sites" in data/site.json
+ "product":   "newsroom.sgit.ai",             whose fault it is: a key of "products" in data/site.json
+                                              (a site, the platform, a prototype, or a browser)
  "where":     "https://…/the/page.html",      the URL, or a description if there is none
  "area":      "first-visit",                  first-visit, navigation, findability, article,
                                               feedback, money, personas, trust, consistency, platform
+ "problems":  ["unexpected-movement"],        one or more, from data/taxonomy.json
+ "visibility": "intermittent",                obvious | intermittent | subtle | silent
+ "recommendation": "keep-the-ui-still",       the shape of the fix, from data/taxonomy.json
  "kind":      "failure",                      failure | gap
  "severity":  "high",                         high | medium | low
  "status":    "open",                         open | partly-fixed | fixed
@@ -68,6 +79,8 @@
  "fix":       "The smallest change that removes it",
  "prototype": null,                           or {"vault": "newsroom-proto-front", "route": "front"}
  "source":    {"href": "/reviews/…", "label": "Where it was found"},
+ "environment": "optional: device, browser, orientation, the page it happened on",
+ "images":    [{"src": "/findings/img/UX-056-….webp", "alt": "…", "caption": "…"}],
  "status_note": "optional: what changed, and in which version"
 }</code></pre>
 <p>Then <code>python3 admin/build/build.py</code> and <code>python3 admin/build/gate.py</code>. The gate fails on a missing field, an unknown site, area or principle, a duplicate id, a date that is not a date, a source link that goes nowhere, or a generated page that is out of date.</p>
@@ -79,8 +92,8 @@
 <script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
 <footer class="site-foot">
   <div class="wrap">
-    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites fail their readers, measured on the live site, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
-    <p><a href="/method/index.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.1.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites, and the browsers and platforms they are read on, fail their readers, measured, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/method/index.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.2.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
     <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
   </div>
 </footer>
