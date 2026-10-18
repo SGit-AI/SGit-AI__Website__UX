@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX-058: Whether the toolbars hide depends on how fast you scroll, not how far · ux.sgit.ai</title>
+<meta name="description" content="The reader cannot ask for the state they want. To read with the toolbars hidden they have to flick, lose their place, find it again carefully, and hope the correction does not undo the result. Every attempt takes attention away from the text, which is the opposite of what hiding the toolbars is for.">
+<link rel="canonical" href="https://ux.sgit.ai/findings/UX-058.html">
+<link rel="alternate" type="text/markdown" href="/findings/UX-058.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="UX-058: Whether the toolbars hide depends on how fast you scroll, not how far">
+<meta property="og:description" content="The reader cannot ask for the state they want. To read with the toolbars hidden they have to flick, lose their place, find it again carefully, and hope the correction does not undo the result. Every attempt takes attention away from the text, which is the opposite of what hiding the toolbars is for.">
+<meta property="og:url" content="https://ux.sgit.ai/findings/UX-058.html">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-finding">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/browse/">Browse</a></li><li><a href="/principles/">Principles</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<p><a href="/findings/">Findings</a> / UX-058</p>
+<h1>Whether the toolbars hide depends on how fast you scroll, not how far</h1>
+<p class="finding-head"><span class="badge badge--status-open">Open</span><span class="badge badge--severity-medium">Medium</span><span class="badge badge--kind-failure">Failure</span><span class="finding__site">Firefox on iPad</span></p>
+<h2 id="what-we-saw">What we saw</h2>
+<p>Dragging the page up slowly, by any distance, leaves the full toolbars in place: tab strip, address bar, about 230 px of a 1,640 px screen before the page starts (first screenshot). A flick hides them, leaving a thin address line (second screenshot), but a flick also scrolls the page by an amount the reader does not control, so it overshoots. Scrolling back to the place wanted risks the small upward scroll that brings the toolbars back (UX-057) and can focus the address bar (UX-056). It is hard to reproduce on demand because it depends on gesture speed.</p>
+<figure class="evidence"><a href="/findings/img/UX-058-toolbars-full.webp"><img src="/findings/img/UX-058-toolbars-full.webp" alt="Firefox on iPad at the top of the newsroom front page after a slow scroll: the tab strip and full address bar take the top of the screen" loading="lazy"></a><figcaption>After a slow drag: the full toolbars stay, however far the page has moved.</figcaption></figure>
+<figure class="evidence"><a href="/findings/img/UX-058-toolbars-collapsed-after-flick.webp"><img src="/findings/img/UX-058-toolbars-collapsed-after-flick.webp" alt="The same front page after a flick: only a thin address line above the newsroom header, the page scrolled well past where the reader was" loading="lazy"></a><figcaption>After a flick: the toolbars hide, and the page has scrolled past where the reader was.</figcaption></figure>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>The reader cannot ask for the state they want. To read with the toolbars hidden they have to flick, lose their place, find it again carefully, and hope the correction does not undo the result. Every attempt takes attention away from the text, which is the opposite of what hiding the toolbars is for.</p>
+<h2 id="the-fix">The fix</h2>
+<p>For the browser: make the toolbar state depend on something the reader controls (distance scrolled, or a deliberate tap on the address line), the same every time, and offer a setting to keep the toolbars collapsed while reading. For the sites: nothing a page can do about the browser's chrome; keep our own sticky header small, since it is the part of the stack we own.</p>
+<h2 id="the-record">The record</h2>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>Medium</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Product</strong></td><td><a href="/findings/?product=firefox-ipad">Firefox on iPad</a>, browser</td></tr><tr><td><strong>Where</strong></td><td><a href="https://newsroom.sgit.ai/" rel="noopener">https://newsroom.sgit.ai/</a></td></tr><tr><td><strong>Problems</strong></td><td><a href="/findings/?problem=unpredictable-control">Unpredictable control</a>, <a href="/findings/?problem=unexpected-movement">Unexpected movement</a>, <a href="/findings/?problem=lost-screen-space">Lost screen space</a></td></tr><tr><td><strong>Visibility</strong></td><td><a href="/findings/?visibility=intermittent">Intermittent</a>: some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand</td></tr><tr><td><strong>Recommendation</strong></td><td><a href="/findings/?recommendation=make-it-predictable">Make it predictable</a>: the same gesture always gives the same result, and the reader can set the state directly instead of coaxing it</td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=navigation">Navigation</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#ui-stays-still">Nothing moves that the reader did not move</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-18, not recorded</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-18, not recorded</td></tr><tr><td><strong>Environment</strong></td><td>Firefox for iOS on an iPad, landscape, on the newsroom.sgit.ai front page (newsroom v0.12.120)</td></tr><tr><td><strong>Source</strong></td><td><a href="/method/#reports-from-readers">Reported by Dinis Cruz, 18 Oct 2026, with screenshots</a></td></tr></tbody></table></div>
+<p>Previous: <a href="/findings/UX-057.html">UX-057 The toolbars come back on any small scroll up, taking screen and moving the page</a></p>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites, and the browsers and platforms they are read on, fail their readers, measured, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-058.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.2.1</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

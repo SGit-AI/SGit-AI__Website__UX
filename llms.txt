@@ -4,11 +4,11 @@
 > live site with a date and version, the principle it breaks, the fix, and (where one exists) a working
 > prototype of the fix in three design directions.
 
-Site version: v0.2.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
+Site version: v0.2.1 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
 
 ## The headline
 
-57 findings across 4 products: 51 still open, 13 of them high severity, 6 fixed. 38 are failures (something works against the reader) and 19 are gaps (something the reader needs is not there). Every count on this site is generated from /data/findings.json.
+58 findings across 4 products: 50 still open, 13 of them high severity, 8 fixed. 39 are failures (something works against the reader) and 19 are gaps (something the reader needs is not there). Every count on this site is generated from /data/findings.json.
 
 ## Properties agents may rely on
 
@@ -51,7 +51,6 @@ Site version: v0.2.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-002.html  [open, high, newsroom.sgit.ai, overload, obvious, cut-to-the-essential] The home page is 59 phone screens long, with 845 links
 /findings/UX-024.html  [open, high, newsroom.sgit.ai, preselected-input, subtle, start-empty] All three rating scales start on 3
 /findings/UX-025.html  [open, high, newsroom.sgit.ai, missing-channel, silent, open-a-channel] Ratings never reach the author
-/findings/UX-028.html  [open, high, newsroom.sgit.ai, unlabelled, obvious, say-what-it-is] The £5.00 balance chip has no label
 /findings/UX-029.html  [open, high, newsroom.sgit.ai, silent-change+unlabelled, subtle, say-what-it-is] Opening an article charges a penny with no notice
 /findings/UX-032.html  [open, high, newsroom.sgit.ai, missing-signal, silent, show-it-up-front] Nothing shows real money moving
 /findings/UX-033.html  [open, high, newsroom.sgit.ai, missing-signal, silent, show-it-up-front] It is unclear how a writer gets paid
@@ -60,8 +59,6 @@ Site version: v0.2.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-044.html  [open, high, newsroom.sgit.ai, hidden-until-script+dead-end, intermittent, render-on-first-load] The founder page says "the picks above" and no picks render on a phone
 /findings/UX-046.html  [open, high, dev.vault.sgraph.ai, host-trap+dead-end, silent, design-for-the-host] Setting location.hash inside a vault app re-navigates the frame: every link silently dead
 /findings/UX-056.html  [open, high, firefox-ipad, focus-hijack+unexpected-movement+wrong-culprit, intermittent, keep-the-ui-still] Scrolling back up a little puts focus in the address bar and opens the keyboard
-/findings/UX-003.html  [open, medium, newsroom.sgit.ai, missing-signal, subtle, show-it-up-front] The masthead line describes a method, not a subject
-/findings/UX-004.html  [open, medium, newsroom.sgit.ai, stale-claim, subtle, date-the-claim] The edition label is older than the articles under it
 /findings/UX-008.html  [open, medium, newsroom.sgit.ai, hidden-until-script, intermittent, render-on-first-load] Content is hidden until JavaScript runs
 /findings/UX-009.html  [open, medium, newsroom.sgit.ai, overload+builder-chrome, obvious, move-to-the-workshop] Two navigation bars, and a 60-link menu that mixes reading with building
 /findings/UX-010.html  [open, medium, newsroom.sgit.ai, dead-end, intermittent, build-the-way-in] Missing pages show the default GitHub Pages 404
@@ -81,6 +78,7 @@ Site version: v0.2.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-045.html  [open, medium, newsroom.sgit.ai, missing-signal, subtle, build-the-way-in] Persona pages are a list, with no story, opinion or next step
 /findings/UX-047.html  [open, medium, dev.vault.sgraph.ai, host-trap+data-loss, intermittent, design-for-the-host] localStorage throws inside the vault app frame, so reader data is lost on reload
 /findings/UX-057.html  [open, medium, firefox-ipad, unexpected-movement+lost-screen-space, obvious, keep-the-ui-still] The toolbars come back on any small scroll up, taking screen and moving the page
+/findings/UX-058.html  [open, medium, firefox-ipad, unpredictable-control+unexpected-movement+lost-screen-space, intermittent, make-it-predictable] Whether the toolbars hide depends on how fast you scroll, not how far
 /findings/UX-005.html  [open, low, newsroom.sgit.ai, builder-chrome, subtle, move-to-the-workshop] The version number is shown three times on the first screen
 /findings/UX-006.html  [open, low, newsroom.sgit.ai, builder-chrome+buried-content, obvious, move-to-the-workshop] A "For agents /llms.txt" strip sits above the masthead
 /findings/UX-007.html  [open, low, newsroom.sgit.ai, missing-signal, subtle, write-for-a-stranger] The editor's note is written for someone who read the last two editions
@@ -98,10 +96,13 @@ Site version: v0.2.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-053.html  [open, low, newsroom-design-lab, missing-signal, subtle, show-it-up-front] Search results show no snippets
 /findings/UX-054.html  [open, low, newsroom-design-lab, unlabelled, obvious, say-what-it-is] Stacked tables on a phone lose their column labels
 /findings/UX-055.html  [open, low, newsroom-design-lab, untested-path, silent, test-where-readers-are] "Ask the article" has never run against a real on-device model
+/findings/UX-028.html  [partly-fixed, high, newsroom.sgit.ai, unlabelled, obvious, say-what-it-is] The £5.00 balance chip has no label
 /findings/UX-035.html  [fixed, high, newsroom.sgit.ai, inconsistent-facts+alarming-wording, obvious, say-what-it-is] The top-up page said "simulated" while asking for money
 /findings/UX-036.html  [fixed, high, newsroom.sgit.ai, inconsistent-facts, silent, generate-from-one-source] Articles were published on two domains, and diverged
 /findings/UX-041.html  [fixed, high, newsroom.sgit.ai, dead-end, obvious, check-at-build] 51 vault images missing across 10 articles
 /findings/UX-042.html  [fixed, high, newsroom.sgit.ai, missing-way-in, silent, build-the-way-in] Persona links were designed but not live
+/findings/UX-003.html  [fixed, medium, newsroom.sgit.ai, missing-signal, subtle, show-it-up-front] The masthead line describes a method, not a subject
+/findings/UX-004.html  [fixed, medium, newsroom.sgit.ai, stale-claim, subtle, date-the-claim] The edition label is older than the articles under it
 /findings/UX-050.html  [fixed, medium, newsroom-design-lab, layout-overflow, obvious, check-at-build] File-path pills scrolled the whole page sideways at 390 px
 /findings/UX-051.html  [fixed, medium, newsroom-design-lab, unexpected-movement, obvious, keep-the-ui-still] Re-rendering the whole view on every save lost the reader's place
 

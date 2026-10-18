@@ -26,15 +26,15 @@ Each principle here is kept because at least one finding breaks it: the list gro
 
 **The test.** Open the page at 390×844 with no history. Count the blocks above the lead. Can someone who has never heard of the site say what it is about?
 
-Broken by 8 findings, 7 open:
+Broken by 8 findings, 6 open:
 
 - [UX-001](/findings/UX-001.md) · open · The first phone screen explains how the site is built, not what it is about
 - [UX-002](/findings/UX-002.md) · open · The home page is 59 phone screens long, with 845 links
-- [UX-003](/findings/UX-003.md) · open · The masthead line describes a method, not a subject
 - [UX-017](/findings/UX-017.md) · open · There is no "start here" path
 - [UX-045](/findings/UX-045.md) · open · Persona pages are a list, with no story, opinion or next step
 - [UX-007](/findings/UX-007.md) · open · The editor's note is written for someone who read the last two editions
 - [UX-054](/findings/UX-054.md) · open · Stacked tables on a phone lose their column labels
+- [UX-003](/findings/UX-003.md) · fixed · The masthead line describes a method, not a subject
 - [UX-050](/findings/UX-050.md) · fixed · File-path pills scrolled the whole page sideways at 390 px
 
 ## 2. Nothing moves that the reader did not move
@@ -45,10 +45,11 @@ Broken by 8 findings, 7 open:
 
 **The test.** Read a long page on a phone or tablet: scroll down, scroll up a little, pause, carry on. Did anything appear, resize, shift or take focus that you did not ask for? Did the text you were reading stay where it was?
 
-Broken by 3 findings, 2 open:
+Broken by 4 findings, 3 open:
 
 - [UX-056](/findings/UX-056.md) · open · Scrolling back up a little puts focus in the address bar and opens the keyboard
 - [UX-057](/findings/UX-057.md) · open · The toolbars come back on any small scroll up, taking screen and moving the page
+- [UX-058](/findings/UX-058.md) · open · Whether the toolbars hide depends on how fast you scroll, not how far
 - [UX-051](/findings/UX-051.md) · fixed · Re-rendering the whole view on every save lost the reader's place
 
 ## 3. Label the money, and never surprise with a charge
@@ -61,10 +62,10 @@ Broken by 3 findings, 2 open:
 
 Broken by 5 findings, 4 open:
 
-- [UX-028](/findings/UX-028.md) · open · The £5.00 balance chip has no label
 - [UX-029](/findings/UX-029.md) · open · Opening an article charges a penny with no notice
 - [UX-030](/findings/UX-030.md) · open · "Credit can go below zero" reads as a debt
 - [UX-031](/findings/UX-031.md) · open · "You pay the price" reads as a warning
+- [UX-028](/findings/UX-028.md) · partly fixed · The £5.00 balance chip has no label
 - [UX-035](/findings/UX-035.md) · fixed · The top-up page said "simulated" while asking for money
 
 ## 4. A default is not an answer
@@ -219,12 +220,12 @@ Broken by 2 findings, 2 open:
 
 **The test.** Find every claim about now on the page. Is each dated? Is each still true?
 
-Broken by 4 findings, 4 open:
+Broken by 4 findings, 3 open:
 
 - [UX-032](/findings/UX-032.md) · open · Nothing shows real money moving
-- [UX-004](/findings/UX-004.md) · open · The edition label is older than the articles under it
 - [UX-040](/findings/UX-040.md) · open · The study page reports a fixed bug as current
 - [UX-055](/findings/UX-055.md) · open · "Ask the article" has never run against a real on-device model
+- [UX-004](/findings/UX-004.md) · fixed · The edition label is older than the articles under it
 
 ## 15. A vault app works inside the host, not just on its own
 

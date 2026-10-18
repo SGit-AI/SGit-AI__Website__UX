@@ -1,6 +1,14 @@
 # Versions
 
-The current version is v0.2.0. Newest first.
+The current version is v0.2.1. Newest first.
+
+## v0.2.1 · 2026-10-18
+
+Hiding Firefox's toolbars on an iPad depends on the speed of the flick, so the reader cannot choose it; and three newsroom findings re-checked from a reader's screenshots.
+
+- `data/findings.json`: UX-058 (toolbar state depends on gesture speed) with two screenshots in findings/img/; UX-057 points to it
+- `data/findings.json`: UX-003 and UX-004 fixed, UX-028 partly fixed, each re-checked on newsroom v0.12.120
+- `data/taxonomy.json`: new problem "unpredictable control" and recommendation "make it predictable"
 
 ## v0.2.0 · 2026-10-18
 

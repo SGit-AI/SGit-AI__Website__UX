@@ -2,6 +2,16 @@
     "what": "The release history. The first entry is the current version; the build writes it into every page's footer and llms.txt, and the gate fails if any of them disagree.",
     "versions": [
         {
+            "version": "v0.2.1",
+            "date": "2026-10-18",
+            "title": "Hiding Firefox's toolbars on an iPad depends on the speed of the flick, so the reader cannot choose it; and three newsroom findings re-checked from a reader's screenshots",
+            "changes": [
+                "data/findings.json: UX-058 (toolbar state depends on gesture speed) with two screenshots in findings/img/; UX-057 points to it",
+                "data/findings.json: UX-003 and UX-004 fixed, UX-028 partly fixed, each re-checked on newsroom v0.12.120",
+                "data/taxonomy.json: new problem \"unpredictable control\" and recommendation \"make it predictable\""
+            ]
+        },
+        {
             "version": "v0.2.0",
             "date": "2026-10-18",
             "title": "The register is indexed nine ways, and the first reports from readers arrive: two Firefox-on-iPad findings about a page that will not hold still",

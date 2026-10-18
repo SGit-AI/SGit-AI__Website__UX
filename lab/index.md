@@ -134,10 +134,7 @@ Each finding in the register that a prototype answers, with the finding's status
 | [UX-002](/findings/UX-002.md) The home page is 59 phone screens long, with 845 links | Open | Front page & personas: `front` |
 | [UX-024](/findings/UX-024.md) All three rating scales start on 3 | Open | Article & reader primitives: `feedback` |
 | [UX-025](/findings/UX-025.md) Ratings never reach the author | Open | Article & reader primitives: `feedback` |
-| [UX-028](/findings/UX-028.md) The £5.00 balance chip has no label | Open | Front page & personas: `first-screen` |
 | [UX-044](/findings/UX-044.md) The founder page says "the picks above" and no picks render on a phone | Open | Front page & personas: `persona/founder` |
-| [UX-003](/findings/UX-003.md) The masthead line describes a method, not a subject | Open | Front page & personas: `masthead` |
-| [UX-004](/findings/UX-004.md) The edition label is older than the articles under it | Open | Front page & personas: `front` |
 | [UX-009](/findings/UX-009.md) Two navigation bars, and a 60-link menu that mixes reading with building | Open | Front page & personas: `menu` |
 | [UX-013](/findings/UX-013.md) One topic holds more than half the articles | Open | Findability: `desks` |
 | [UX-014](/findings/UX-014.md) Tags are not links, and there are no tag pages | Open | Findability: `tags` |
@@ -161,6 +158,9 @@ Each finding in the register that a prototype answers, with the finding's status
 | [UX-053](/findings/UX-053.md) Search results show no snippets | Open | Findability: `search` |
 | [UX-054](/findings/UX-054.md) Stacked tables on a phone lose their column labels | Open | Findability: `catalogue-audit` |
 | [UX-055](/findings/UX-055.md) "Ask the article" has never run against a real on-device model | Open | Article & reader primitives: `ask` |
+| [UX-028](/findings/UX-028.md) The £5.00 balance chip has no label | Partly fixed | Front page & personas: `first-screen` |
+| [UX-003](/findings/UX-003.md) The masthead line describes a method, not a subject | Fixed | Front page & personas: `masthead` |
+| [UX-004](/findings/UX-004.md) The edition label is older than the articles under it | Fixed | Front page & personas: `front` |
 
 ## The decisions it exists to settle
 

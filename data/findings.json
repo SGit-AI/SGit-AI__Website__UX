@@ -85,15 +85,15 @@
    "recommendation": "show-it-up-front",
    "kind": "gap",
    "severity": "medium",
-   "status": "open",
+   "status": "fixed",
    "principle": "stranger-first-screen",
    "observed": {
     "date": "2026-10-11",
     "version": "v0.6.4"
    },
    "checked": {
-    "date": "2026-10-11",
-    "version": "v0.7.1"
+    "date": "2026-10-18",
+    "version": "v0.12.120"
    },
    "evidence": "The tagline is \"one page, one argument, with the figures, the data and the links to check it\". Nothing says agents, AI governance, security or news economics.",
    "impact": "The one line every visitor reads tells them how the site works instead of what it is about.",
@@ -105,7 +105,8 @@
    "source": {
     "href": "/reviews/newsroom-2026-10-11.html#the-direction-a-publication-with-a-heart",
     "label": "Review: the direction"
-   }
+   },
+   "status_note": "Fixed by v0.12.120: the masthead now reads \"Field notes on AI agents, security and the next generation of publishing, by Dinis Cruz\" (the lab's first candidate). Seen at iPad width, 18 Oct."
   },
   {
    "id": "UX-004",
@@ -120,15 +121,15 @@
    "recommendation": "date-the-claim",
    "kind": "failure",
    "severity": "medium",
-   "status": "open",
+   "status": "fixed",
    "principle": "state-is-current",
    "observed": {
     "date": "2026-10-11",
     "version": "v0.6.4"
    },
    "checked": {
-    "date": "2026-10-11",
-    "version": "v0.7.1"
+    "date": "2026-10-18",
+    "version": "v0.12.120"
    },
    "evidence": "The home page says \"Edition of 2026-10-08\" above ten articles dated 10 October. Still the case in v0.7.1, above articles from 10 and 11 October.",
    "impact": "A front page that looks three days stale on the day it was published tells a reader the site is not kept.",
@@ -140,7 +141,8 @@
    "source": {
     "href": "/reviews/newsroom-2026-10-11.html#bugs-and-broken-things",
     "label": "Review: bugs and broken things"
-   }
+   },
+   "status_note": "Fixed by v0.12.120: \"Edition of 18 October 2026\" above articles dated 18 October. Seen at iPad width, 18 Oct."
   },
   {
    "id": "UX-005",
@@ -944,15 +946,15 @@
    "recommendation": "say-what-it-is",
    "kind": "failure",
    "severity": "high",
-   "status": "open",
+   "status": "partly-fixed",
    "principle": "label-the-money",
    "observed": {
     "date": "2026-10-11",
     "version": "v0.6.4"
    },
    "checked": {
-    "date": "2026-10-11",
-    "version": "v0.7.1"
+    "date": "2026-10-18",
+    "version": "v0.12.120"
    },
    "evidence": "An unlabelled \"£5.00\" sits in the header of every page. Still unlabelled in v0.7.1.",
    "impact": "An amount of money with no explanation reads as a bill or a trap; the synthetic-user study flagged it.",
@@ -964,7 +966,8 @@
    "source": {
     "href": "/reviews/newsroom-2026-10-11.html#first-visit-a-contact-arriving-from-a-link",
     "label": "Review: first visit"
-   }
+   },
+   "status_note": "Partly fixed in v0.12.120: a meter bar on the front page reads \"0/6 read · £1.67 spent · £3.33 left\", but the header chip on every page is still a bare \"£3.33\". Seen at iPad width, 18 Oct."
   },
   {
    "id": "UX-029",
@@ -1937,7 +1940,7 @@
     "version": "not recorded"
    },
    "environment": "Firefox for iOS on an iPad, landscape, reading newsroom.sgit.ai/admin/versions.html (newsroom v0.12.120)",
-   "evidence": "Scrolled down, Firefox shows only a thin address line and the page gets almost the whole screen (first screenshot: the newsroom header starts about 90 px down a 1,640 px screen). Any small scroll up restores the tab strip and full address bar (second screenshot: the header starts about 270 px down), about 180 px or 11% of the screen, and the page content shifts down by that much while it is being read. The hidden state is the one wanted all the time.",
+   "evidence": "Scrolled down, Firefox shows only a thin address line and the page gets almost the whole screen (first screenshot: the newsroom header starts about 90 px down a 1,640 px screen). Any small scroll up restores the tab strip and full address bar (second screenshot: the header starts about 270 px down), about 180 px or 11% of the screen, and the page content shifts down by that much while it is being read. The hidden state is the one wanted all the time. What brings them back is not the distance scrolled: see UX-058 for how they are hidden, which depends on the speed of the gesture.",
    "impact": "The reader scrolls up a line to re-read a sentence and the whole page jumps, the text moves away from their eyes, and a toolbar they did not ask for takes a ninth of the screen. Each time, attention goes to the chrome instead of the text.",
    "fix": "For the browser: keep the toolbars hidden until a deliberate gesture (a tap on the address line, or a scroll to the very top), and offer a setting to keep them collapsed. For the sites, on our side of the line: keep our own sticky header as small as it can be, because it stacks on top of the browser's (on this page the newsroom's header takes about another 110 px).",
    "prototype": null,
@@ -1955,6 +1958,53 @@
      "src": "/findings/img/UX-056-keyboard-after-scroll-up.webp",
      "alt": "The same page after a small scroll up, with the tab strip and address bar back",
      "caption": "After a small scroll up: tab strip and address bar back, the page pushed down about 180 px (and, here, the keyboard too: UX-056)."
+    }
+   ]
+  },
+  {
+   "id": "UX-058",
+   "title": "Whether the toolbars hide depends on how fast you scroll, not how far",
+   "product": "firefox-ipad",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "navigation",
+   "problems": [
+    "unpredictable-control",
+    "unexpected-movement",
+    "lost-screen-space"
+   ],
+   "visibility": "intermittent",
+   "recommendation": "make-it-predictable",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "ui-stays-still",
+   "observed": {
+    "date": "2026-10-18",
+    "version": "not recorded"
+   },
+   "checked": {
+    "date": "2026-10-18",
+    "version": "not recorded"
+   },
+   "environment": "Firefox for iOS on an iPad, landscape, on the newsroom.sgit.ai front page (newsroom v0.12.120)",
+   "evidence": "Dragging the page up slowly, by any distance, leaves the full toolbars in place: tab strip, address bar, about 230 px of a 1,640 px screen before the page starts (first screenshot). A flick hides them, leaving a thin address line (second screenshot), but a flick also scrolls the page by an amount the reader does not control, so it overshoots. Scrolling back to the place wanted risks the small upward scroll that brings the toolbars back (UX-057) and can focus the address bar (UX-056). It is hard to reproduce on demand because it depends on gesture speed.",
+   "impact": "The reader cannot ask for the state they want. To read with the toolbars hidden they have to flick, lose their place, find it again carefully, and hope the correction does not undo the result. Every attempt takes attention away from the text, which is the opposite of what hiding the toolbars is for.",
+   "fix": "For the browser: make the toolbar state depend on something the reader controls (distance scrolled, or a deliberate tap on the address line), the same every time, and offer a setting to keep the toolbars collapsed while reading. For the sites: nothing a page can do about the browser's chrome; keep our own sticky header small, since it is the part of the stack we own.",
+   "prototype": null,
+   "source": {
+    "href": "/method/#reports-from-readers",
+    "label": "Reported by Dinis Cruz, 18 Oct 2026, with screenshots"
+   },
+   "images": [
+    {
+     "src": "/findings/img/UX-058-toolbars-full.webp",
+     "alt": "Firefox on iPad at the top of the newsroom front page after a slow scroll: the tab strip and full address bar take the top of the screen",
+     "caption": "After a slow drag: the full toolbars stay, however far the page has moved."
+    },
+    {
+     "src": "/findings/img/UX-058-toolbars-collapsed-after-flick.webp",
+     "alt": "The same front page after a flick: only a thin address line above the newsroom header, the page scrolled well past where the reader was",
+     "caption": "After a flick: the toolbars hide, and the page has scrolled past where the reader was."
     }
    ]
   }

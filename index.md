@@ -10,10 +10,10 @@
 <a class="door" href="/lab/"><span class="door__title">Show me the fixes</span><span class="door__body">The Newsroom Design Lab: four vaults trying the fixes on real data, in three design directions.</span></a>
 </div>
 
-- **57** findings in the register
-- **51** still open
+- **58** findings in the register
+- **50** still open
 - **13** open and high severity
-- **6** fixed, with the version that fixed it
+- **8** fixed, with the version that fixed it
 
 ## Open, and high severity
 
@@ -23,7 +23,6 @@ These lose a reader or a reader's trust on the first visit. Each links to its ev
 - [UX-002](/findings/UX-002.md) · high · open · The home page is 59 phone screens long, with 845 links (newsroom.sgit.ai)
 - [UX-024](/findings/UX-024.md) · high · open · All three rating scales start on 3 (newsroom.sgit.ai)
 - [UX-025](/findings/UX-025.md) · high · open · Ratings never reach the author (newsroom.sgit.ai)
-- [UX-028](/findings/UX-028.md) · high · open · The £5.00 balance chip has no label (newsroom.sgit.ai)
 - [UX-029](/findings/UX-029.md) · high · open · Opening an article charges a penny with no notice (newsroom.sgit.ai)
 - [UX-032](/findings/UX-032.md) · high · open · Nothing shows real money moving (newsroom.sgit.ai)
 - [UX-033](/findings/UX-033.md) · high · open · It is unclear how a writer gets paid (newsroom.sgit.ai)
@@ -32,8 +31,9 @@ These lose a reader or a reader's trust on the first visit. Each links to its ev
 - [UX-044](/findings/UX-044.md) · high · open · The founder page says "the picks above" and no picks render on a phone (newsroom.sgit.ai)
 - [UX-046](/findings/UX-046.md) · high · open · Setting location.hash inside a vault app re-navigates the frame: every link silently dead (dev.vault.sgraph.ai)
 - [UX-056](/findings/UX-056.md) · high · open · Scrolling back up a little puts focus in the address bar and opens the keyboard (Firefox on iPad)
+- [UX-028](/findings/UX-028.md) · high · partly fixed · The £5.00 balance chip has no label (newsroom.sgit.ai)
 
-[All 57 findings →](/findings/index.md)
+[All 58 findings →](/findings/index.md)
 
 ## By product
 
@@ -41,10 +41,10 @@ Whose fault it is. Most findings are on our own sites; some belong to the platfo
 
 | Product | Findings | Open | Means |
 | --- | --- | --- | --- |
-| newsroom.sgit.ai | [45](/findings/?product=newsroom.sgit.ai) | 41 | The publication: articles on AI agents, security and publishing, written with an agent newsroom (site) |
+| newsroom.sgit.ai | [45](/findings/?product=newsroom.sgit.ai) | 39 | The publication: articles on AI agents, security and publishing, written with an agent newsroom (site) |
 | dev.vault.sgraph.ai | [4](/findings/?product=dev.vault.sgraph.ai) | 4 | The vault host: opens a vault by its key and runs its app in a sandboxed frame (platform) |
 | Newsroom Design Lab | [6](/findings/?product=newsroom-design-lab) | 4 | This site's own prototypes: four vaults trying the newsroom fixes in three directions |
-| Firefox on iPad | [2](/findings/?product=firefox-ipad) | 2 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
+| Firefox on iPad | [3](/findings/?product=firefox-ipad) | 3 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
 
 ## How a finding gets here
 

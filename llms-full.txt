@@ -4,11 +4,11 @@
 > live site with a date and version, the principle it breaks, the fix, and (where one exists) a working
 > prototype of the fix in three design directions.
 
-Site version: v0.2.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
+Site version: v0.2.1 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
 
 ## The headline
 
-57 findings across 4 products: 51 still open, 13 of them high severity, 6 fixed. 38 are failures (something works against the reader) and 19 are gaps (something the reader needs is not there). Every count on this site is generated from /data/findings.json.
+58 findings across 4 products: 50 still open, 13 of them high severity, 8 fixed. 39 are failures (something works against the reader) and 19 are gaps (something the reader needs is not there). Every count on this site is generated from /data/findings.json.
 
 ## Properties agents may rely on
 
@@ -51,7 +51,6 @@ Site version: v0.2.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-002.html  [open, high, newsroom.sgit.ai, overload, obvious, cut-to-the-essential] The home page is 59 phone screens long, with 845 links
 /findings/UX-024.html  [open, high, newsroom.sgit.ai, preselected-input, subtle, start-empty] All three rating scales start on 3
 /findings/UX-025.html  [open, high, newsroom.sgit.ai, missing-channel, silent, open-a-channel] Ratings never reach the author
-/findings/UX-028.html  [open, high, newsroom.sgit.ai, unlabelled, obvious, say-what-it-is] The £5.00 balance chip has no label
 /findings/UX-029.html  [open, high, newsroom.sgit.ai, silent-change+unlabelled, subtle, say-what-it-is] Opening an article charges a penny with no notice
 /findings/UX-032.html  [open, high, newsroom.sgit.ai, missing-signal, silent, show-it-up-front] Nothing shows real money moving
 /findings/UX-033.html  [open, high, newsroom.sgit.ai, missing-signal, silent, show-it-up-front] It is unclear how a writer gets paid
@@ -60,8 +59,6 @@ Site version: v0.2.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-044.html  [open, high, newsroom.sgit.ai, hidden-until-script+dead-end, intermittent, render-on-first-load] The founder page says "the picks above" and no picks render on a phone
 /findings/UX-046.html  [open, high, dev.vault.sgraph.ai, host-trap+dead-end, silent, design-for-the-host] Setting location.hash inside a vault app re-navigates the frame: every link silently dead
 /findings/UX-056.html  [open, high, firefox-ipad, focus-hijack+unexpected-movement+wrong-culprit, intermittent, keep-the-ui-still] Scrolling back up a little puts focus in the address bar and opens the keyboard
-/findings/UX-003.html  [open, medium, newsroom.sgit.ai, missing-signal, subtle, show-it-up-front] The masthead line describes a method, not a subject
-/findings/UX-004.html  [open, medium, newsroom.sgit.ai, stale-claim, subtle, date-the-claim] The edition label is older than the articles under it
 /findings/UX-008.html  [open, medium, newsroom.sgit.ai, hidden-until-script, intermittent, render-on-first-load] Content is hidden until JavaScript runs
 /findings/UX-009.html  [open, medium, newsroom.sgit.ai, overload+builder-chrome, obvious, move-to-the-workshop] Two navigation bars, and a 60-link menu that mixes reading with building
 /findings/UX-010.html  [open, medium, newsroom.sgit.ai, dead-end, intermittent, build-the-way-in] Missing pages show the default GitHub Pages 404
@@ -81,6 +78,7 @@ Site version: v0.2.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-045.html  [open, medium, newsroom.sgit.ai, missing-signal, subtle, build-the-way-in] Persona pages are a list, with no story, opinion or next step
 /findings/UX-047.html  [open, medium, dev.vault.sgraph.ai, host-trap+data-loss, intermittent, design-for-the-host] localStorage throws inside the vault app frame, so reader data is lost on reload
 /findings/UX-057.html  [open, medium, firefox-ipad, unexpected-movement+lost-screen-space, obvious, keep-the-ui-still] The toolbars come back on any small scroll up, taking screen and moving the page
+/findings/UX-058.html  [open, medium, firefox-ipad, unpredictable-control+unexpected-movement+lost-screen-space, intermittent, make-it-predictable] Whether the toolbars hide depends on how fast you scroll, not how far
 /findings/UX-005.html  [open, low, newsroom.sgit.ai, builder-chrome, subtle, move-to-the-workshop] The version number is shown three times on the first screen
 /findings/UX-006.html  [open, low, newsroom.sgit.ai, builder-chrome+buried-content, obvious, move-to-the-workshop] A "For agents /llms.txt" strip sits above the masthead
 /findings/UX-007.html  [open, low, newsroom.sgit.ai, missing-signal, subtle, write-for-a-stranger] The editor's note is written for someone who read the last two editions
@@ -98,10 +96,13 @@ Site version: v0.2.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-053.html  [open, low, newsroom-design-lab, missing-signal, subtle, show-it-up-front] Search results show no snippets
 /findings/UX-054.html  [open, low, newsroom-design-lab, unlabelled, obvious, say-what-it-is] Stacked tables on a phone lose their column labels
 /findings/UX-055.html  [open, low, newsroom-design-lab, untested-path, silent, test-where-readers-are] "Ask the article" has never run against a real on-device model
+/findings/UX-028.html  [partly-fixed, high, newsroom.sgit.ai, unlabelled, obvious, say-what-it-is] The £5.00 balance chip has no label
 /findings/UX-035.html  [fixed, high, newsroom.sgit.ai, inconsistent-facts+alarming-wording, obvious, say-what-it-is] The top-up page said "simulated" while asking for money
 /findings/UX-036.html  [fixed, high, newsroom.sgit.ai, inconsistent-facts, silent, generate-from-one-source] Articles were published on two domains, and diverged
 /findings/UX-041.html  [fixed, high, newsroom.sgit.ai, dead-end, obvious, check-at-build] 51 vault images missing across 10 articles
 /findings/UX-042.html  [fixed, high, newsroom.sgit.ai, missing-way-in, silent, build-the-way-in] Persona links were designed but not live
+/findings/UX-003.html  [fixed, medium, newsroom.sgit.ai, missing-signal, subtle, show-it-up-front] The masthead line describes a method, not a subject
+/findings/UX-004.html  [fixed, medium, newsroom.sgit.ai, stale-claim, subtle, date-the-claim] The edition label is older than the articles under it
 /findings/UX-050.html  [fixed, medium, newsroom-design-lab, layout-overflow, obvious, check-at-build] File-path pills scrolled the whole page sideways at 390 px
 /findings/UX-051.html  [fixed, medium, newsroom-design-lab, unexpected-movement, obvious, keep-the-ui-still] Re-rendering the whole view on every save lost the reader's place
 
@@ -203,7 +204,15 @@ The version is shown once, in the footer, and links to [what changed](/admin/ver
 
 # Versions
 
-The current version is v0.2.0. Newest first.
+The current version is v0.2.1. Newest first.
+
+## v0.2.1 · 2026-10-18
+
+Hiding Firefox's toolbars on an iPad depends on the speed of the flick, so the reader cannot choose it; and three newsroom findings re-checked from a reader's screenshots.
+
+- `data/findings.json`: UX-058 (toolbar state depends on gesture speed) with two screenshots in findings/img/; UX-057 points to it
+- `data/findings.json`: UX-003 and UX-004 fixed, UX-028 partly fixed, each re-checked on newsroom v0.12.120
+- `data/taxonomy.json`: new problem "unpredictable control" and recommendation "make it predictable"
 
 ## v0.2.0 · 2026-10-18
 
@@ -244,10 +253,10 @@ Whose fault it is: one of our sites, the platform under them, our own prototypes
 
 | Product | Findings | Open | Means |
 | --- | --- | --- | --- |
-| newsroom.sgit.ai | [45](/findings/?product=newsroom.sgit.ai) | 41 | The publication: articles on AI agents, security and publishing, written with an agent newsroom (site) |
+| newsroom.sgit.ai | [45](/findings/?product=newsroom.sgit.ai) | 39 | The publication: articles on AI agents, security and publishing, written with an agent newsroom (site) |
 | dev.vault.sgraph.ai | [4](/findings/?product=dev.vault.sgraph.ai) | 4 | The vault host: opens a vault by its key and runs its app in a sandboxed frame (platform) |
 | Newsroom Design Lab | [6](/findings/?product=newsroom-design-lab) | 4 | This site's own prototypes: four vaults trying the newsroom fixes in three directions |
-| Firefox on iPad | [2](/findings/?product=firefox-ipad) | 2 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
+| Firefox on iPad | [3](/findings/?product=firefox-ipad) | 3 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
 
 ## By area
 
@@ -255,8 +264,8 @@ Where in the reader's visit it happens.
 
 | Area | Findings | Open | Means |
 | --- | --- | --- | --- |
-| First visit | [7](/findings/?area=first-visit) | 7 |  |
-| Navigation | [6](/findings/?area=navigation) | 6 |  |
+| First visit | [7](/findings/?area=first-visit) | 5 |  |
+| Navigation | [7](/findings/?area=navigation) | 7 |  |
 | Findability | [9](/findings/?area=findability) | 9 |  |
 | Article page | [5](/findings/?area=article) | 4 |  |
 | Feedback | [4](/findings/?area=feedback) | 4 |  |
@@ -272,14 +281,15 @@ What kind of thing goes wrong. A finding can have more than one.
 
 | Problem | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Unexpected movement | [3](/findings/?problem=unexpected-movement) | 2 | Part of the interface moves when the reader did not move it |
+| Unexpected movement | [4](/findings/?problem=unexpected-movement) | 3 | Part of the interface moves when the reader did not move it |
 | Focus hijack | [1](/findings/?problem=focus-hijack) | 1 | Focus or input goes somewhere the reader did not send it |
-| Lost screen space | [1](/findings/?problem=lost-screen-space) | 1 | Chrome takes screen that the content needed |
+| Unpredictable control | [1](/findings/?problem=unpredictable-control) | 1 | The result of a gesture depends on something the reader cannot see or control, such as its speed, so the state they want cannot be reached on purpose |
+| Lost screen space | [2](/findings/?problem=lost-screen-space) | 2 | Chrome takes screen that the content needed |
 | Wrong culprit | [1](/findings/?problem=wrong-culprit) | 1 | The reader blames the wrong party: the page for the browser, the site for the platform |
 | Buried content | [3](/findings/?problem=buried-content) | 3 | What the reader came for is pushed down or out of view |
 | Overload | [4](/findings/?problem=overload) | 4 | Too much at once, so nothing is chosen for the reader |
 | Builder chrome | [5](/findings/?problem=builder-chrome) | 5 | Things for the author, an agent or the build, shown to readers |
-| Missing signal | [9](/findings/?problem=missing-signal) | 9 | The reader lacks what they need to decide: length, format, who wrote it, whether it is real |
+| Missing signal | [9](/findings/?problem=missing-signal) | 8 | The reader lacks what they need to decide: length, format, who wrote it, whether it is real |
 | Missing way in | [4](/findings/?problem=missing-way-in) | 3 | A page or path the reader needs does not exist |
 | Dead end | [6](/findings/?problem=dead-end) | 5 | Something that looks like a way in goes nowhere |
 | Unshareable view | [2](/findings/?problem=unshareable-view) | 2 | A view the reader can see but cannot link to |
@@ -290,7 +300,7 @@ What kind of thing goes wrong. A finding can have more than one.
 | Unconsented state | [2](/findings/?problem=unconsented-state) | 2 | Something is kept or added because the reader opened something |
 | Missing channel | [3](/findings/?problem=missing-channel) | 3 | No way for the reader to reach a person |
 | Inconsistent facts | [5](/findings/?problem=inconsistent-facts) | 3 | Two places disagree about the same fact |
-| Stale claim | [2](/findings/?problem=stale-claim) | 2 | A statement about the present that is no longer true |
+| Stale claim | [2](/findings/?problem=stale-claim) | 1 | A statement about the present that is no longer true |
 | Hidden until script | [2](/findings/?problem=hidden-until-script) | 2 | Content appears only after scripts or prior state |
 | Host trap | [4](/findings/?problem=host-trap) | 4 | The platform behaves unlike a normal page, and the difference is not visible |
 | Data loss | [2](/findings/?problem=data-loss) | 2 | Something the reader made or kept is lost or cut |
@@ -304,8 +314,8 @@ How the reader experiences it: seen every time, sometimes, only felt, or not at 
 | Visibility | Findings | Open | Means |
 | --- | --- | --- | --- |
 | Obvious | [15](/findings/?visibility=obvious) | 11 | Every reader sees it, every time they reach that point |
-| Intermittent | [5](/findings/?visibility=intermittent) | 5 | Some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand |
-| Subtle | [21](/findings/?visibility=subtle) | 21 | Felt more than seen: it costs attention or trust, but is not noticed as a bug |
+| Intermittent | [6](/findings/?visibility=intermittent) | 6 | Some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand |
+| Subtle | [21](/findings/?visibility=subtle) | 19 | Felt more than seen: it costs attention or trust, but is not noticed as a bug |
 | Silent | [16](/findings/?visibility=silent) | 14 | No symptom on screen: found only by measuring, or by its consequences |
 
 ## By recommendation
@@ -315,9 +325,10 @@ The shape of the fix. Findings with the same recommendation are often fixed by t
 | Recommendation | Findings | Open | Means |
 | --- | --- | --- | --- |
 | Keep the UI still | [3](/findings/?recommendation=keep-the-ui-still) | 2 | Nothing moves, appears or takes focus unless the reader asked for it; chrome that hides stays hidden until a deliberate gesture |
+| Make it predictable | [1](/findings/?recommendation=make-it-predictable) | 1 | The same gesture always gives the same result, and the reader can set the state directly instead of coaxing it |
 | Cut to the essential | [3](/findings/?recommendation=cut-to-the-essential) | 3 | Remove or move down everything that is not the lead, the doors and the next step |
 | Write for a stranger | [1](/findings/?recommendation=write-for-a-stranger) | 1 | Rewrite the words for someone arriving for the first time |
-| Show it up front | [7](/findings/?recommendation=show-it-up-front) | 7 | Put the signal the reader decides by (length, author, short version, real numbers) where they look first |
+| Show it up front | [7](/findings/?recommendation=show-it-up-front) | 6 | Put the signal the reader decides by (length, author, short version, real numbers) where they look first |
 | Say what it is | [7](/findings/?recommendation=say-what-it-is) | 6 | Label it, in the reader's terms, at the moment it matters |
 | Start empty | [1](/findings/?recommendation=start-empty) | 1 | Inputs start unselected; record only what the reader did |
 | Ask first | [2](/findings/?recommendation=ask-first) | 2 | Make keeping, adding or following a tap the reader makes |
@@ -328,7 +339,7 @@ The shape of the fix. Findings with the same recommendation are often fixed by t
 | Check it at build | [3](/findings/?recommendation=check-at-build) | 1 | Make the release fail when it happens again |
 | Move it to the workshop | [4](/findings/?recommendation=move-to-the-workshop) | 4 | Take builder things off reader pages, one link away |
 | Render on the first load | [2](/findings/?recommendation=render-on-first-load) | 2 | Show the content in the HTML, with no scripts and no prior visit needed |
-| Date the claim | [2](/findings/?recommendation=date-the-claim) | 2 | Generate or date every statement about now, and mark fixes with their version |
+| Date the claim | [2](/findings/?recommendation=date-the-claim) | 1 | Generate or date every statement about now, and mark fixes with their version |
 | Design for the host | [4](/findings/?recommendation=design-for-the-host) | 4 | Use the host's own mechanisms (route variable, sg.state, vault snapshot) instead of the browser's defaults |
 | Test where readers are | [1](/findings/?recommendation=test-where-readers-are) | 1 | Run it on the device, browser and host readers actually use before showing it |
 
@@ -338,8 +349,8 @@ The rule it breaks. Each principle has a one-minute test on the principles page.
 
 | Principle | Findings | Open | Means |
 | --- | --- | --- | --- |
-| The first screen is for a stranger | [8](/findings/?principle=stranger-first-screen) | 7 | On a phone, the first screen says what this is, who it is for, and where to go next. The lead is on it. Chrome, metadata and method come after. |
-| Nothing moves that the reader did not move | [3](/findings/?principle=ui-stays-still) | 2 | While the reader is reading, the interface holds still. Toolbars, keyboards, banners and panels appear, move or take focus only on a deliberate gesture made for that purpose, never as a side effect of scrolling or reading. |
+| The first screen is for a stranger | [8](/findings/?principle=stranger-first-screen) | 6 | On a phone, the first screen says what this is, who it is for, and where to go next. The lead is on it. Chrome, metadata and method come after. |
+| Nothing moves that the reader did not move | [4](/findings/?principle=ui-stays-still) | 3 | While the reader is reading, the interface holds still. Toolbars, keyboards, banners and panels appear, move or take focus only on a deliberate gesture made for that purpose, never as a side effect of scrolling or reading. |
 | Label the money, and never surprise with a charge | [5](/findings/?principle=label-the-money) | 4 | Every number that is money says what it is. The first time anything is charged, the reader is told before or as it happens. Wording about balances never reads as debt or threat. |
 | A default is not an answer | [2](/findings/?principle=defaults-are-not-answers) | 2 | Inputs that ask the reader's opinion start empty. Only what the reader actually did is recorded. |
 | Ask before keeping | [2](/findings/?principle=ask-before-keeping) | 2 | Nothing is added to the reader's lists, profile or storage because they opened something. Keeping is a tap the reader makes. |
@@ -351,7 +362,7 @@ The rule it breaks. Each principle has a one-minute test on the principles page.
 | Say how long, and what kind, before the reader commits | [3](/findings/?principle=length-before-commitment) | 3 | Every card and every link to a long piece shows reading time and format. Every long piece opens with a short version. |
 | Say who wrote it, and how | [3](/findings/?principle=say-who-wrote-it) | 3 | The byline names the person and the way the piece was made (with agents, from voice notes), where the reader looks, not in the footer. The purpose of the publication is one link away. |
 | Content is visible without waiting for scripts | [2](/findings/?principle=content-is-visible) | 2 | The page renders its content in HTML and shows it at once. Scripts enhance; they never gate what the reader can see. |
-| What a page says about the present is true now | [4](/findings/?principle=state-is-current) | 4 | Labels like 'edition of', 'currently', 'broken' and 'live' are dated or generated, and change when the facts do. A fixed problem is marked fixed, with the version. |
+| What a page says about the present is true now | [4](/findings/?principle=state-is-current) | 3 | Labels like 'edition of', 'currently', 'broken' and 'live' are dated or generated, and change when the facts do. A fixed problem is marked fixed, with the version. |
 | A vault app works inside the host, not just on its own | [3](/findings/?principle=host-safe-apps) | 3 | An app is tested where readers open it: inside the vault host's sandboxed frame. Routing never assigns location.hash, storage goes through the host, and network reads come from the vault. |
 
 ## By severity
@@ -361,7 +372,7 @@ High loses the reader or their trust on the first visit; medium costs effort or 
 | Severity | Findings | Open | Means |
 | --- | --- | --- | --- |
 | High | [17](/findings/?severity=high) | 13 |  |
-| Medium | [23](/findings/?severity=medium) | 21 |  |
+| Medium | [24](/findings/?severity=medium) | 20 |  |
 | Low | [17](/findings/?severity=low) | 17 |  |
 
 ## By status
@@ -370,8 +381,9 @@ As of the date each finding was last checked.
 
 | Status | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Open | [51](/findings/?status=open) | 51 |  |
-| Fixed | [6](/findings/?status=fixed) | 0 |  |
+| Open | [49](/findings/?status=open) | 49 |  |
+| Partly fixed | [1](/findings/?status=partly-fixed) | 1 |  |
+| Fixed | [8](/findings/?status=fixed) | 0 |  |
 
 ## By kind
 
@@ -379,8 +391,8 @@ A failure works against the reader; a gap is something they need that is not the
 
 | Kind | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Failure | [38](/findings/?kind=failure) | 33 | Something works against the reader |
-| Gap | [19](/findings/?kind=gap) | 18 | Something the reader needs is not there |
+| Failure | [39](/findings/?kind=failure) | 33 | Something works against the reader |
+| Gap | [19](/findings/?kind=gap) | 17 | Something the reader needs is not there |
 
 
 ==============================================================================
@@ -481,7 +493,7 @@ Next: [UX-003 The masthead line describes a method, not a subject](/findings/UX-
 
 # The masthead line describes a method, not a subject
 
-Open · medium severity · gap · newsroom.sgit.ai
+Fixed · medium severity · gap · newsroom.sgit.ai
 
 ## What we saw
 
@@ -499,7 +511,7 @@ A masthead line that names the subject and the author, e.g. "Field notes on AI a
 
 | | |
 | --- | --- |
-| **Status** | Open |
+| **Status** | Fixed. Fixed by v0.12.120: the masthead now reads "Field notes on AI agents, security and the next generation of publishing, by Dinis Cruz" (the lab's first candidate). Seen at iPad width, 18 Oct. |
 | **Severity** | Medium |
 | **Kind** | Gap: something the reader needs is not there |
 | **Product** | [newsroom.sgit.ai](/findings/?product=newsroom.sgit.ai), site |
@@ -510,7 +522,7 @@ A masthead line that names the subject and the author, e.g. "Field notes on AI a
 | **Area** | [First visit](/findings/?area=first-visit) |
 | **Breaks** | [The first screen is for a stranger](/principles/index.md#stranger-first-screen) |
 | **Observed** | 2026-10-11, v0.6.4 |
-| **Last checked** | 2026-10-11, v0.7.1 |
+| **Last checked** | 2026-10-18, v0.12.120 |
 | **Source** | [Review: the direction](/reviews/newsroom-2026-10-11.md#the-direction-a-publication-with-a-heart) |
 | **Prototype** | [Front page & personas](/lab/index.md#newsroom-proto-front), route `masthead`, in three directions |
 
@@ -527,7 +539,7 @@ Next: [UX-004 The edition label is older than the articles under it](/findings/U
 
 # The edition label is older than the articles under it
 
-Open · medium severity · failure · newsroom.sgit.ai
+Fixed · medium severity · failure · newsroom.sgit.ai
 
 ## What we saw
 
@@ -545,7 +557,7 @@ Date the edition from the newest article at build time, or label it as the edito
 
 | | |
 | --- | --- |
-| **Status** | Open |
+| **Status** | Fixed. Fixed by v0.12.120: "Edition of 18 October 2026" above articles dated 18 October. Seen at iPad width, 18 Oct. |
 | **Severity** | Medium |
 | **Kind** | Failure: works against the reader |
 | **Product** | [newsroom.sgit.ai](/findings/?product=newsroom.sgit.ai), site |
@@ -556,7 +568,7 @@ Date the edition from the newest article at build time, or label it as the edito
 | **Area** | [First visit](/findings/?area=first-visit) |
 | **Breaks** | [What a page says about the present is true now](/principles/index.md#state-is-current) |
 | **Observed** | 2026-10-11, v0.6.4 |
-| **Last checked** | 2026-10-11, v0.7.1 |
+| **Last checked** | 2026-10-18, v0.12.120 |
 | **Source** | [Review: bugs and broken things](/reviews/newsroom-2026-10-11.md#bugs-and-broken-things) |
 | **Prototype** | [Front page & personas](/lab/index.md#newsroom-proto-front), route `front`, in three directions |
 
@@ -1625,7 +1637,7 @@ Next: [UX-028 The £5.00 balance chip has no label](/findings/UX-028.md)
 
 # The £5.00 balance chip has no label
 
-Open · high severity · failure · newsroom.sgit.ai
+Partly fixed · high severity · failure · newsroom.sgit.ai
 
 ## What we saw
 
@@ -1643,7 +1655,7 @@ Label it "£5 free reading credit".
 
 | | |
 | --- | --- |
-| **Status** | Open |
+| **Status** | Partly fixed. Partly fixed in v0.12.120: a meter bar on the front page reads "0/6 read · £1.67 spent · £3.33 left", but the header chip on every page is still a bare "£3.33". Seen at iPad width, 18 Oct. |
 | **Severity** | High |
 | **Kind** | Failure: works against the reader |
 | **Product** | [newsroom.sgit.ai](/findings/?product=newsroom.sgit.ai), site |
@@ -1654,7 +1666,7 @@ Label it "£5 free reading credit".
 | **Area** | [Money](/findings/?area=money) |
 | **Breaks** | [Label the money, and never surprise with a charge](/principles/index.md#label-the-money) |
 | **Observed** | 2026-10-11, v0.6.4 |
-| **Last checked** | 2026-10-11, v0.7.1 |
+| **Last checked** | 2026-10-18, v0.12.120 |
 | **Source** | [Review: first visit](/reviews/newsroom-2026-10-11.md#first-visit-a-contact-arriving-from-a-link) |
 | **Prototype** | [Front page & personas](/lab/index.md#newsroom-proto-front), route `first-screen`, in three directions |
 
@@ -2949,7 +2961,7 @@ Open · medium severity · failure · Firefox on iPad
 
 ## What we saw
 
-Scrolled down, Firefox shows only a thin address line and the page gets almost the whole screen (first screenshot: the newsroom header starts about 90 px down a 1,640 px screen). Any small scroll up restores the tab strip and full address bar (second screenshot: the header starts about 270 px down), about 180 px or 11% of the screen, and the page content shifts down by that much while it is being read. The hidden state is the one wanted all the time.
+Scrolled down, Firefox shows only a thin address line and the page gets almost the whole screen (first screenshot: the newsroom header starts about 90 px down a 1,640 px screen). Any small scroll up restores the tab strip and full address bar (second screenshot: the header starts about 270 px down), about 180 px or 11% of the screen, and the page content shifts down by that much while it is being read. The hidden state is the one wanted all the time. What brings them back is not the distance scrolled: see UX-058 for how they are hidden, which depends on the speed of the gesture.
 
 ![Firefox on iPad scrolled down: only a thin address line above the newsroom header, the release history filling the screen](/findings/img/UX-057-toolbar-hidden.webp)
 
@@ -2988,6 +3000,60 @@ For the browser: keep the toolbars hidden until a deliberate gesture (a tap on t
 
 Previous: [UX-056 Scrolling back up a little puts focus in the address bar and opens the keyboard](/findings/UX-056.md)
 
+Next: [UX-058 Whether the toolbars hide depends on how fast you scroll, not how far](/findings/UX-058.md)
+
+
+==============================================================================
+/findings/UX-058.html  ·  /findings/UX-058.md
+==============================================================================
+
+[Findings](/findings/index.md) / UX-058
+
+# Whether the toolbars hide depends on how fast you scroll, not how far
+
+Open · medium severity · failure · Firefox on iPad
+
+## What we saw
+
+Dragging the page up slowly, by any distance, leaves the full toolbars in place: tab strip, address bar, about 230 px of a 1,640 px screen before the page starts (first screenshot). A flick hides them, leaving a thin address line (second screenshot), but a flick also scrolls the page by an amount the reader does not control, so it overshoots. Scrolling back to the place wanted risks the small upward scroll that brings the toolbars back (UX-057) and can focus the address bar (UX-056). It is hard to reproduce on demand because it depends on gesture speed.
+
+![Firefox on iPad at the top of the newsroom front page after a slow scroll: the tab strip and full address bar take the top of the screen](/findings/img/UX-058-toolbars-full.webp)
+
+_After a slow drag: the full toolbars stay, however far the page has moved._
+
+![The same front page after a flick: only a thin address line above the newsroom header, the page scrolled well past where the reader was](/findings/img/UX-058-toolbars-collapsed-after-flick.webp)
+
+_After a flick: the toolbars hide, and the page has scrolled past where the reader was._
+
+## Why it matters
+
+The reader cannot ask for the state they want. To read with the toolbars hidden they have to flick, lose their place, find it again carefully, and hope the correction does not undo the result. Every attempt takes attention away from the text, which is the opposite of what hiding the toolbars is for.
+
+## The fix
+
+For the browser: make the toolbar state depend on something the reader controls (distance scrolled, or a deliberate tap on the address line), the same every time, and offer a setting to keep the toolbars collapsed while reading. For the sites: nothing a page can do about the browser's chrome; keep our own sticky header small, since it is the part of the stack we own.
+
+## The record
+
+| | |
+| --- | --- |
+| **Status** | Open |
+| **Severity** | Medium |
+| **Kind** | Failure: works against the reader |
+| **Product** | [Firefox on iPad](/findings/?product=firefox-ipad), browser |
+| **Where** | <https://newsroom.sgit.ai/> |
+| **Problems** | [Unpredictable control](/findings/?problem=unpredictable-control), [Unexpected movement](/findings/?problem=unexpected-movement), [Lost screen space](/findings/?problem=lost-screen-space) |
+| **Visibility** | [Intermittent](/findings/?visibility=intermittent): some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand |
+| **Recommendation** | [Make it predictable](/findings/?recommendation=make-it-predictable): the same gesture always gives the same result, and the reader can set the state directly instead of coaxing it |
+| **Area** | [Navigation](/findings/?area=navigation) |
+| **Breaks** | [Nothing moves that the reader did not move](/principles/index.md#ui-stays-still) |
+| **Observed** | 2026-10-18, not recorded |
+| **Last checked** | 2026-10-18, not recorded |
+| **Environment** | Firefox for iOS on an iPad, landscape, on the newsroom.sgit.ai front page (newsroom v0.12.120) |
+| **Source** | [Reported by Dinis Cruz, 18 Oct 2026, with screenshots](/method/index.md#reports-from-readers) |
+
+Previous: [UX-057 The toolbars come back on any small scroll up, taking screen and moving the page](/findings/UX-057.md)
+
 
 ==============================================================================
 /findings/  ·  /findings/index.md
@@ -3003,7 +3069,6 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 | [UX-002](/findings/UX-002.md) | Open | high | newsroom.sgit.ai | overload | obvious | The home page is 59 phone screens long, with 845 links |
 | [UX-024](/findings/UX-024.md) | Open | high | newsroom.sgit.ai | preselected-input | subtle | All three rating scales start on 3 |
 | [UX-025](/findings/UX-025.md) | Open | high | newsroom.sgit.ai | missing-channel | silent | Ratings never reach the author |
-| [UX-028](/findings/UX-028.md) | Open | high | newsroom.sgit.ai | unlabelled | obvious | The £5.00 balance chip has no label |
 | [UX-029](/findings/UX-029.md) | Open | high | newsroom.sgit.ai | silent-change, unlabelled | subtle | Opening an article charges a penny with no notice |
 | [UX-032](/findings/UX-032.md) | Open | high | newsroom.sgit.ai | missing-signal | silent | Nothing shows real money moving |
 | [UX-033](/findings/UX-033.md) | Open | high | newsroom.sgit.ai | missing-signal | silent | It is unclear how a writer gets paid |
@@ -3012,8 +3077,6 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 | [UX-044](/findings/UX-044.md) | Open | high | newsroom.sgit.ai | hidden-until-script, dead-end | intermittent | The founder page says "the picks above" and no picks render on a phone |
 | [UX-046](/findings/UX-046.md) | Open | high | dev.vault.sgraph.ai | host-trap, dead-end | silent | Setting location.hash inside a vault app re-navigates the frame: every link silently dead |
 | [UX-056](/findings/UX-056.md) | Open | high | Firefox on iPad | focus-hijack, unexpected-movement, wrong-culprit | intermittent | Scrolling back up a little puts focus in the address bar and opens the keyboard |
-| [UX-003](/findings/UX-003.md) | Open | medium | newsroom.sgit.ai | missing-signal | subtle | The masthead line describes a method, not a subject |
-| [UX-004](/findings/UX-004.md) | Open | medium | newsroom.sgit.ai | stale-claim | subtle | The edition label is older than the articles under it |
 | [UX-008](/findings/UX-008.md) | Open | medium | newsroom.sgit.ai | hidden-until-script | intermittent | Content is hidden until JavaScript runs |
 | [UX-009](/findings/UX-009.md) | Open | medium | newsroom.sgit.ai | overload, builder-chrome | obvious | Two navigation bars, and a 60-link menu that mixes reading with building |
 | [UX-010](/findings/UX-010.md) | Open | medium | newsroom.sgit.ai | dead-end | intermittent | Missing pages show the default GitHub Pages 404 |
@@ -3033,6 +3096,7 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 | [UX-045](/findings/UX-045.md) | Open | medium | newsroom.sgit.ai | missing-signal | subtle | Persona pages are a list, with no story, opinion or next step |
 | [UX-047](/findings/UX-047.md) | Open | medium | dev.vault.sgraph.ai | host-trap, data-loss | intermittent | localStorage throws inside the vault app frame, so reader data is lost on reload |
 | [UX-057](/findings/UX-057.md) | Open | medium | Firefox on iPad | unexpected-movement, lost-screen-space | obvious | The toolbars come back on any small scroll up, taking screen and moving the page |
+| [UX-058](/findings/UX-058.md) | Open | medium | Firefox on iPad | unpredictable-control, unexpected-movement, lost-screen-space | intermittent | Whether the toolbars hide depends on how fast you scroll, not how far |
 | [UX-005](/findings/UX-005.md) | Open | low | newsroom.sgit.ai | builder-chrome | subtle | The version number is shown three times on the first screen |
 | [UX-006](/findings/UX-006.md) | Open | low | newsroom.sgit.ai | builder-chrome, buried-content | obvious | A "For agents /llms.txt" strip sits above the masthead |
 | [UX-007](/findings/UX-007.md) | Open | low | newsroom.sgit.ai | missing-signal | subtle | The editor's note is written for someone who read the last two editions |
@@ -3050,10 +3114,13 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 | [UX-053](/findings/UX-053.md) | Open | low | Newsroom Design Lab | missing-signal | subtle | Search results show no snippets |
 | [UX-054](/findings/UX-054.md) | Open | low | Newsroom Design Lab | unlabelled | obvious | Stacked tables on a phone lose their column labels |
 | [UX-055](/findings/UX-055.md) | Open | low | Newsroom Design Lab | untested-path | silent | "Ask the article" has never run against a real on-device model |
+| [UX-028](/findings/UX-028.md) | Partly fixed | high | newsroom.sgit.ai | unlabelled | obvious | The £5.00 balance chip has no label |
 | [UX-035](/findings/UX-035.md) | Fixed | high | newsroom.sgit.ai | inconsistent-facts, alarming-wording | obvious | The top-up page said "simulated" while asking for money |
 | [UX-036](/findings/UX-036.md) | Fixed | high | newsroom.sgit.ai | inconsistent-facts | silent | Articles were published on two domains, and diverged |
 | [UX-041](/findings/UX-041.md) | Fixed | high | newsroom.sgit.ai | dead-end | obvious | 51 vault images missing across 10 articles |
 | [UX-042](/findings/UX-042.md) | Fixed | high | newsroom.sgit.ai | missing-way-in | silent | Persona links were designed but not live |
+| [UX-003](/findings/UX-003.md) | Fixed | medium | newsroom.sgit.ai | missing-signal | subtle | The masthead line describes a method, not a subject |
+| [UX-004](/findings/UX-004.md) | Fixed | medium | newsroom.sgit.ai | stale-claim | subtle | The edition label is older than the articles under it |
 | [UX-050](/findings/UX-050.md) | Fixed | medium | Newsroom Design Lab | layout-overflow | obvious | File-path pills scrolled the whole page sideways at 390 px |
 | [UX-051](/findings/UX-051.md) | Fixed | medium | Newsroom Design Lab | unexpected-movement | obvious | Re-rendering the whole view on every save lost the reader's place |
 
@@ -3078,10 +3145,10 @@ The register is one file, [/data/findings.json](/data/findings.json). This page,
 <a class="door" href="/lab/"><span class="door__title">Show me the fixes</span><span class="door__body">The Newsroom Design Lab: four vaults trying the fixes on real data, in three design directions.</span></a>
 </div>
 
-- **57** findings in the register
-- **51** still open
+- **58** findings in the register
+- **50** still open
 - **13** open and high severity
-- **6** fixed, with the version that fixed it
+- **8** fixed, with the version that fixed it
 
 ## Open, and high severity
 
@@ -3091,7 +3158,6 @@ These lose a reader or a reader's trust on the first visit. Each links to its ev
 - [UX-002](/findings/UX-002.md) · high · open · The home page is 59 phone screens long, with 845 links (newsroom.sgit.ai)
 - [UX-024](/findings/UX-024.md) · high · open · All three rating scales start on 3 (newsroom.sgit.ai)
 - [UX-025](/findings/UX-025.md) · high · open · Ratings never reach the author (newsroom.sgit.ai)
-- [UX-028](/findings/UX-028.md) · high · open · The £5.00 balance chip has no label (newsroom.sgit.ai)
 - [UX-029](/findings/UX-029.md) · high · open · Opening an article charges a penny with no notice (newsroom.sgit.ai)
 - [UX-032](/findings/UX-032.md) · high · open · Nothing shows real money moving (newsroom.sgit.ai)
 - [UX-033](/findings/UX-033.md) · high · open · It is unclear how a writer gets paid (newsroom.sgit.ai)
@@ -3100,8 +3166,9 @@ These lose a reader or a reader's trust on the first visit. Each links to its ev
 - [UX-044](/findings/UX-044.md) · high · open · The founder page says "the picks above" and no picks render on a phone (newsroom.sgit.ai)
 - [UX-046](/findings/UX-046.md) · high · open · Setting location.hash inside a vault app re-navigates the frame: every link silently dead (dev.vault.sgraph.ai)
 - [UX-056](/findings/UX-056.md) · high · open · Scrolling back up a little puts focus in the address bar and opens the keyboard (Firefox on iPad)
+- [UX-028](/findings/UX-028.md) · high · partly fixed · The £5.00 balance chip has no label (newsroom.sgit.ai)
 
-[All 57 findings →](/findings/index.md)
+[All 58 findings →](/findings/index.md)
 
 ## By product
 
@@ -3109,10 +3176,10 @@ Whose fault it is. Most findings are on our own sites; some belong to the platfo
 
 | Product | Findings | Open | Means |
 | --- | --- | --- | --- |
-| newsroom.sgit.ai | [45](/findings/?product=newsroom.sgit.ai) | 41 | The publication: articles on AI agents, security and publishing, written with an agent newsroom (site) |
+| newsroom.sgit.ai | [45](/findings/?product=newsroom.sgit.ai) | 39 | The publication: articles on AI agents, security and publishing, written with an agent newsroom (site) |
 | dev.vault.sgraph.ai | [4](/findings/?product=dev.vault.sgraph.ai) | 4 | The vault host: opens a vault by its key and runs its app in a sandboxed frame (platform) |
 | Newsroom Design Lab | [6](/findings/?product=newsroom-design-lab) | 4 | This site's own prototypes: four vaults trying the newsroom fixes in three directions |
-| Firefox on iPad | [2](/findings/?product=firefox-ipad) | 2 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
+| Firefox on iPad | [3](/findings/?product=firefox-ipad) | 3 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
 
 ## How a finding gets here
 
@@ -3261,10 +3328,7 @@ Each finding in the register that a prototype answers, with the finding's status
 | [UX-002](/findings/UX-002.md) The home page is 59 phone screens long, with 845 links | Open | Front page & personas: `front` |
 | [UX-024](/findings/UX-024.md) All three rating scales start on 3 | Open | Article & reader primitives: `feedback` |
 | [UX-025](/findings/UX-025.md) Ratings never reach the author | Open | Article & reader primitives: `feedback` |
-| [UX-028](/findings/UX-028.md) The £5.00 balance chip has no label | Open | Front page & personas: `first-screen` |
 | [UX-044](/findings/UX-044.md) The founder page says "the picks above" and no picks render on a phone | Open | Front page & personas: `persona/founder` |
-| [UX-003](/findings/UX-003.md) The masthead line describes a method, not a subject | Open | Front page & personas: `masthead` |
-| [UX-004](/findings/UX-004.md) The edition label is older than the articles under it | Open | Front page & personas: `front` |
 | [UX-009](/findings/UX-009.md) Two navigation bars, and a 60-link menu that mixes reading with building | Open | Front page & personas: `menu` |
 | [UX-013](/findings/UX-013.md) One topic holds more than half the articles | Open | Findability: `desks` |
 | [UX-014](/findings/UX-014.md) Tags are not links, and there are no tag pages | Open | Findability: `tags` |
@@ -3288,6 +3352,9 @@ Each finding in the register that a prototype answers, with the finding's status
 | [UX-053](/findings/UX-053.md) Search results show no snippets | Open | Findability: `search` |
 | [UX-054](/findings/UX-054.md) Stacked tables on a phone lose their column labels | Open | Findability: `catalogue-audit` |
 | [UX-055](/findings/UX-055.md) "Ask the article" has never run against a real on-device model | Open | Article & reader primitives: `ask` |
+| [UX-028](/findings/UX-028.md) The £5.00 balance chip has no label | Partly fixed | Front page & personas: `first-screen` |
+| [UX-003](/findings/UX-003.md) The masthead line describes a method, not a subject | Fixed | Front page & personas: `masthead` |
+| [UX-004](/findings/UX-004.md) The edition label is older than the articles under it | Fixed | Front page & personas: `front` |
 
 ## The decisions it exists to settle
 
@@ -3490,15 +3557,15 @@ Each principle here is kept because at least one finding breaks it: the list gro
 
 **The test.** Open the page at 390×844 with no history. Count the blocks above the lead. Can someone who has never heard of the site say what it is about?
 
-Broken by 8 findings, 7 open:
+Broken by 8 findings, 6 open:
 
 - [UX-001](/findings/UX-001.md) · open · The first phone screen explains how the site is built, not what it is about
 - [UX-002](/findings/UX-002.md) · open · The home page is 59 phone screens long, with 845 links
-- [UX-003](/findings/UX-003.md) · open · The masthead line describes a method, not a subject
 - [UX-017](/findings/UX-017.md) · open · There is no "start here" path
 - [UX-045](/findings/UX-045.md) · open · Persona pages are a list, with no story, opinion or next step
 - [UX-007](/findings/UX-007.md) · open · The editor's note is written for someone who read the last two editions
 - [UX-054](/findings/UX-054.md) · open · Stacked tables on a phone lose their column labels
+- [UX-003](/findings/UX-003.md) · fixed · The masthead line describes a method, not a subject
 - [UX-050](/findings/UX-050.md) · fixed · File-path pills scrolled the whole page sideways at 390 px
 
 ## 2. Nothing moves that the reader did not move
@@ -3509,10 +3576,11 @@ Broken by 8 findings, 7 open:
 
 **The test.** Read a long page on a phone or tablet: scroll down, scroll up a little, pause, carry on. Did anything appear, resize, shift or take focus that you did not ask for? Did the text you were reading stay where it was?
 
-Broken by 3 findings, 2 open:
+Broken by 4 findings, 3 open:
 
 - [UX-056](/findings/UX-056.md) · open · Scrolling back up a little puts focus in the address bar and opens the keyboard
 - [UX-057](/findings/UX-057.md) · open · The toolbars come back on any small scroll up, taking screen and moving the page
+- [UX-058](/findings/UX-058.md) · open · Whether the toolbars hide depends on how fast you scroll, not how far
 - [UX-051](/findings/UX-051.md) · fixed · Re-rendering the whole view on every save lost the reader's place
 
 ## 3. Label the money, and never surprise with a charge
@@ -3525,10 +3593,10 @@ Broken by 3 findings, 2 open:
 
 Broken by 5 findings, 4 open:
 
-- [UX-028](/findings/UX-028.md) · open · The £5.00 balance chip has no label
 - [UX-029](/findings/UX-029.md) · open · Opening an article charges a penny with no notice
 - [UX-030](/findings/UX-030.md) · open · "Credit can go below zero" reads as a debt
 - [UX-031](/findings/UX-031.md) · open · "You pay the price" reads as a warning
+- [UX-028](/findings/UX-028.md) · partly fixed · The £5.00 balance chip has no label
 - [UX-035](/findings/UX-035.md) · fixed · The top-up page said "simulated" while asking for money
 
 ## 4. A default is not an answer
@@ -3683,12 +3751,12 @@ Broken by 2 findings, 2 open:
 
 **The test.** Find every claim about now on the page. Is each dated? Is each still true?
 
-Broken by 4 findings, 4 open:
+Broken by 4 findings, 3 open:
 
 - [UX-032](/findings/UX-032.md) · open · Nothing shows real money moving
-- [UX-004](/findings/UX-004.md) · open · The edition label is older than the articles under it
 - [UX-040](/findings/UX-040.md) · open · The study page reports a fixed bug as current
 - [UX-055](/findings/UX-055.md) · open · "Ask the article" has never run against a real on-device model
+- [UX-004](/findings/UX-004.md) · fixed · The edition label is older than the articles under it
 
 ## 15. A vault app works inside the host, not just on its own
 
