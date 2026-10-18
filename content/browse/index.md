@@ -10,4 +10,6 @@ The same findings, indexed nine ways. Each value links to the [findings list](/f
 
 {{browse-index}}
 
+And the other direction: [what good looks like](/exemplars/), things that work, each linked to the findings it answers.
+
 {{browse}}

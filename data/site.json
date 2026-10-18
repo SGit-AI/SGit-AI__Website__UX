@@ -86,6 +86,12 @@
             "type": "browser",
             "url": "https://www.mozilla.org/firefox/browsers/mobile/ios/",
             "what": "Firefox for iOS on iPad: the browser, not any site in it"
+        },
+        "safari-ipad": {
+            "label": "Safari on iPad",
+            "type": "browser",
+            "url": "https://www.apple.com/safari/",
+            "what": "Safari on iPadOS: the browser, not any site in it"
         }
     }
 }

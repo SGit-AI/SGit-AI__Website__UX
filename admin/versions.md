@@ -1,6 +1,15 @@
 # Versions
 
-The current version is v0.2.1. Newest first.
+The current version is v0.3.0. Newest first.
+
+## v0.3.0 · 2026-10-18
+
+What good looks like: exemplars join the register, starting with Safari on iPad, and a principle for interfaces that can be learned.
+
+- `data/exemplars.json + /exemplars/`: EX-001, Safari on iPad collapses its toolbars after a small scroll at any speed; answers UX-057 and UX-058
+- `data/principles.json`: new principle, the same gesture gives the same result, so it can be learned; UX-058 moved to it
+- `data/site.json`: Safari on iPad added as a product
+- Finding pages link the exemplars that answer them; principle sections link the exemplars that demonstrate them; the gate checks exemplars
 
 ## v0.2.1 · 2026-10-18
 

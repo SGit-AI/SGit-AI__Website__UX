@@ -63,6 +63,6 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 | [UX-050](/findings/UX-050.md) | Fixed | medium | Newsroom Design Lab | layout-overflow | obvious | File-path pills scrolled the whole page sideways at 390 px |
 | [UX-051](/findings/UX-051.md) | Fixed | medium | Newsroom Design Lab | unexpected-movement | obvious | Re-rendering the whole view on every save lost the reader's place |
 
-Browse the same register [by product, problem, visibility, recommendation and principle](/browse/index.md).
+For things that already get it right, see [what good looks like](/exemplars/index.md). Browse the same register [by product, problem, visibility, recommendation and principle](/browse/index.md).
 
 The register is one file, [/data/findings.json](/data/findings.json). This page, every finding page and every count on the site are generated from it. To add a finding, see [the method](/method/index.md#filing-a-finding).

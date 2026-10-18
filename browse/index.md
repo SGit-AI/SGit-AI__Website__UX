@@ -4,6 +4,8 @@ The same findings, indexed nine ways. Each value links to the [findings list](/f
 
 [Product](#by-product) · [Area](#by-area) · [Problem](#by-problem) · [Visibility](#by-visibility) · [Recommendation](#by-recommendation) · [Principle](#by-principle) · [Severity](#by-severity) · [Status](#by-status) · [Kind](#by-kind)
 
+And the other direction: [what good looks like](/exemplars/index.md), things that work, each linked to the findings it answers.
+
 ## By product
 
 Whose fault it is: one of our sites, the platform under them, our own prototypes, or the browser the reader uses.
@@ -107,7 +109,8 @@ The rule it breaks. Each principle has a one-minute test on the principles page.
 | Principle | Findings | Open | Means |
 | --- | --- | --- | --- |
 | The first screen is for a stranger | [8](/findings/?principle=stranger-first-screen) | 6 | On a phone, the first screen says what this is, who it is for, and where to go next. The lead is on it. Chrome, metadata and method come after. |
-| Nothing moves that the reader did not move | [4](/findings/?principle=ui-stays-still) | 3 | While the reader is reading, the interface holds still. Toolbars, keyboards, banners and panels appear, move or take focus only on a deliberate gesture made for that purpose, never as a side effect of scrolling or reading. |
+| Nothing moves that the reader did not move | [3](/findings/?principle=ui-stays-still) | 2 | While the reader is reading, the interface holds still. Toolbars, keyboards, banners and panels appear, move or take focus only on a deliberate gesture made for that purpose, never as a side effect of scrolling or reading. |
+| The same gesture gives the same result, so it can be learned | [1](/findings/?principle=same-gesture-same-result) | 1 | Every interaction behaves the same way every time, triggered by something the reader controls (where they tap, how far they scroll), never by something they cannot see or repeat (how fast they flicked, what state an animation was in). |
 | Label the money, and never surprise with a charge | [5](/findings/?principle=label-the-money) | 4 | Every number that is money says what it is. The first time anything is charged, the reader is told before or as it happens. Wording about balances never reads as debt or threat. |
 | A default is not an answer | [2](/findings/?principle=defaults-are-not-answers) | 2 | Inputs that ask the reader's opinion start empty. Only what the reader actually did is recorded. |
 | Ask before keeping | [2](/findings/?principle=ask-before-keeping) | 2 | Nothing is added to the reader's lists, profile or storage because they opened something. Keeping is a tap the reader makes. |

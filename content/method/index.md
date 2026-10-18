@@ -64,6 +64,10 @@ Most of the register will come from people using the sites and saying where they
 
 A report about the browser rather than the page still goes in, with the browser as its product. Readers cannot tell whose fault a jumping toolbar is, and they blame the page they were reading, so knowing what the browser does is part of designing the page.
 
+## What good looks like
+
+When something gets it right, it is recorded as an [exemplar](/exemplars/) in [/data/exemplars.json](/data/exemplars.json): what it does, why it works, what it still does not do, and which findings it answers. An exemplar is the best fix description there is, because it can be opened and tried.
+
 ## Failure or gap
 
 | Kind | Means | Example |

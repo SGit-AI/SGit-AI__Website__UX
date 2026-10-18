@@ -1,0 +1,45 @@
+{
+ "what": "What good looks like: things that work, each kept as the reference for the findings it answers. An exemplar is measured like a finding (where, when, on what), says why it works, and says honestly what it still does not do.",
+ "exemplars": [
+  {
+   "id": "EX-001",
+   "title": "Safari on iPad hides its toolbars the same way every time, after a small scroll",
+   "product": "safari-ipad",
+   "where": "https://newsroom.sgit.ai/ (an article page, newsroom v0.12.106)",
+   "environment": "Safari on an iPad, landscape",
+   "observed": {
+    "date": "2026-10-18",
+    "version": "not recorded"
+   },
+   "checked": {
+    "date": "2026-10-18",
+    "version": "not recorded"
+   },
+   "principle": "same-gesture-same-result",
+   "recommendation": "make-it-predictable",
+   "answers": [
+    "UX-058",
+    "UX-057"
+   ],
+   "what": "At the top of a page Safari shows its full toolbars: sidebar, back, address field, share, new tab, tabs, and a tab strip (first screenshot; the page starts about 270 px down a 1,640 px screen). Any small scroll down, slow or fast, collapses them to a small address pill (second screenshot; the page starts about 120 px down). Here the page had moved by only a couple of lines of breadcrumb: the article title is still where it was.",
+   "why": "It is predictable. The trigger is a small distance scrolled, which the reader controls, not the speed of the gesture, so it behaves the same every time and is learned after one or two uses. The collapsed state is small enough to be a fair trade for the space, and getting there costs only a couple of lines of scroll, so the reader never loses their place to reach it.",
+   "still": "It still moves the page: the toolbars collapse as a side effect of scrolling, and the reader would prefer them to stay collapsed without having to move anything. It is a good compromise, not the ideal.",
+   "source": {
+    "href": "/method/#reports-from-readers",
+    "label": "Reported by Dinis Cruz, 18 Oct 2026, with screenshots"
+   },
+   "images": [
+    {
+     "src": "/exemplars/img/EX-001-safari-at-top.webp",
+     "alt": "Safari on iPad at the top of a newsroom article: sidebar, back, address field, share, new tab and tabs buttons, and a tab strip above the page",
+     "caption": "At the top: the full toolbars and the tab strip."
+    },
+    {
+     "src": "/exemplars/img/EX-001-safari-after-small-scroll.webp",
+     "alt": "The same article after a small scroll: Safari shows only a small address pill, and the article title is still on screen",
+     "caption": "After a small scroll, at any speed: a small address pill. The page has moved by two lines."
+    }
+   ]
+  }
+ ]
+}

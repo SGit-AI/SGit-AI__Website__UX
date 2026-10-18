@@ -82,7 +82,8 @@ class Site:
         self.products   = self.site['products']
         self.version    = self.versions[0]['version']
         self.date       = self.versions[0]['date']
-        self.by_id      = {f['id']: f for f in self.findings}
+        self.exemplars  = load('exemplars.json')['exemplars']
+        self.by_id      = {f['id']: f for f in self.findings + self.exemplars}
         self.principle  = {p['id']: p for p in self.principles}
         self.vault      = {v['slug']: v for v in self.lab['vaults']}
         self.pages      = []                                                    # dicts: path, title, description, md, html
@@ -262,7 +263,10 @@ class Site:
                 f'<p class="principle__rule">{esc(p["rule"])}</p>'
                 f'<dl class="principle__dl"><dt>Why</dt><dd>{esc(p["why"])}</dd><dt>The test</dt><dd>{esc(p["test"])}</dd></dl>'
                 f'<p class="principle__count">Broken by <a href="{esc(link)}">{c["total"]} findings</a>, {c["open"]} open.</p>'
-                f'<ul class="findings findings--compact">{"".join(self.finding_row(f, compact=True) for f in items)}</ul></section>')
+                f'<ul class="findings findings--compact">{"".join(self.finding_row(f, compact=True) for f in items)}</ul>'
+                + ''.join(f'<p class="principle__count">What good looks like: <a href="/exemplars/{esc(e["id"])}.html">{esc(e["id"])} {esc(e["title"])}</a>.</p>'
+                          for e in self.exemplars if e['principle'] == p['id'])
+                + '</section>')
         return '\n\n'.join(md_parts), ''.join(html_parts)
 
     def d_principles_index(self, arg):
@@ -455,11 +459,49 @@ class Site:
             if nxt:
                 nav.append(f'Next: [{nxt["id"]} {nxt["title"]}]({self.finding_href(nxt)})')
             shots = ''.join(f'\n\n{{{{finding-image:{f["id"]}:{i}}}}}' for i in range(len(f.get('images', []))))
+            good  = [e for e in self.exemplars if f['id'] in e['answers']]
+            if good:
+                f_fix = f['fix'] + '\n\n**What good looks like:** ' + '; '.join(f'[{e["id"]} {e["title"]}](/exemplars/{e["id"]}.html)' for e in good) + '.'
+            else:
+                f_fix = f['fix']
             body = (f'[Findings](/findings/) / {f["id"]}\n\n# {f["title"]}\n\n{{{{finding-badges:{f["id"]}}}}}\n\n'
-                    f'## What we saw\n\n{f["evidence"]}{shots}\n\n## Why it matters\n\n{f["impact"]}\n\n## The fix\n\n{f["fix"]}\n\n'
+                    f'## What we saw\n\n{f["evidence"]}{shots}\n\n## Why it matters\n\n{f["impact"]}\n\n## The fix\n\n{f_fix}\n\n'
                     f'## The record\n\n{table}\n\n' + '\n\n'.join(nav) + '\n')
             self.add_page(f'findings/{f["id"]}.html',
                           {'title': f'{f["id"]}: {f["title"]}', 'description': f['impact'], 'layout': 'finding'}, body)
+
+    def exemplar_pages(self):
+        for e in self.exemplars:
+            p     = self.principle[e['principle']]
+            rec   = next(r for r in self.taxonomy['recommendations'] if r['id'] == e['recommendation'])
+            shots = ''.join(f'\n\n{{{{finding-image:{e["id"]}:{i}}}}}' for i in range(len(e.get('images', []))))
+            ans   = '\n'.join(f'- [{a} {self.by_id[a]["title"]}]({self.finding_href(self.by_id[a])})' for a in e['answers'])
+            rows  = [
+                ('Product',        f'[{self.product_label(e["product"])}]({self.products[e["product"]]["url"]}), {self.products[e["product"]]["type"]}'),
+                ('Where',          e['where']),
+                ('Environment',    e['environment']),
+                ('Demonstrates',   f'[{p["title"]}](/principles/#{p["id"]})'),
+                ('Recommendation', f'[{rec["label"]}](/findings/?recommendation={rec["id"]})'),
+                ('Observed',       f'{e["observed"]["date"]}, {e["observed"]["version"]}'),
+                ('Last checked',   f'{e["checked"]["date"]}, {e["checked"]["version"]}'),
+                ('Source',         f'[{e["source"]["label"]}]({e["source"]["href"]})'),
+            ]
+            table = '| | |\n| --- | --- |\n' + '\n'.join(f'| **{k}** | {v.replace("|", chr(92) + "|")} |' for k, v in rows)
+            body  = (f'[What good looks like](/exemplars/) / {e["id"]}\n\n# {e["title"]}\n\n'
+                     f'## What it does\n\n{e["what"]}{shots}\n\n## Why it works\n\n{e["why"]}\n\n'
+                     f'## What it still does not do\n\n{e["still"]}\n\n## The findings it answers\n\n{ans}\n\n## The record\n\n{table}\n')
+            self.add_page(f'exemplars/{e["id"]}.html', {'title': f'{e["id"]}: {e["title"]}', 'description': e['why'], 'layout': 'finding'}, body)
+
+    def d_exemplars(self, arg):
+        md_out = '\n'.join(f'- [{e["id"]}](/exemplars/{e["id"]}.html) · {self.product_label(e["product"])} · {e["title"]} (answers {", ".join(e["answers"])})' for e in self.exemplars)
+        lis    = ''.join(
+            f'<li class="finding"><div class="finding__top"><a class="finding__id" href="/exemplars/{esc(e["id"])}.html">{esc(e["id"])}</a>'
+            f'<span class="badge badge--status-fixed">Works</span></div>'
+            f'<a class="finding__title" href="/exemplars/{esc(e["id"])}.html">{esc(e["title"])}</a>'
+            f'<p class="finding__meta"><span class="finding__site">{esc(self.product_label(e["product"]))}</span> · answers '
+            + ', '.join(f'<a href="{self.finding_href(self.by_id[a])}">{esc(a)}</a>' for a in e['answers'])
+            + f'</p><p class="finding__impact">{esc(e["why"])}</p></li>' for e in self.exemplars)
+        return md_out or '_None yet._', f'<ul class="findings">{lis}</ul>'
 
     def d_finding_badges(self, arg):
         f     = self.by_id[arg]
@@ -580,6 +622,9 @@ class Site:
         lines += ['', '## The findings', '']
         for f in self.sorted_findings():
             lines.append(f'{self.finding_href(f)}  [{f["status"]}, {f["severity"]}, {f["product"]}, {"+".join(f["problems"])}, {f["visibility"]}, {f["recommendation"]}] {f["title"]}')
+        lines += ['', '## What good looks like', '']
+        for e in self.exemplars:
+            lines.append(f'/exemplars/{e["id"]}.html  [{e["product"]}, answers {"+".join(e["answers"])}] {e["title"]}')
         lines += ['', '## The sibling sites', '']
         lines += [f'{n["url"]}: {n["what"]}' for n in s['network']]
         lines += ['', f'Repository: {s["repository"]}', '']
@@ -602,6 +647,7 @@ class Site:
     def build(self):
         self.read_content()
         self.finding_pages()
+        self.exemplar_pages()
         known = {p['path'][:-5] + '.md' for p in self.pages if p['twin']}
         for p in self.pages:
             p['md'] = re.sub(r'(?<!!)\]\(([^)\s]+)\)', lambda m: '](' + self.twin_link(m.group(1), known) + ')', p['md'])

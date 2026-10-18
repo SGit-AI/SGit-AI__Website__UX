@@ -4,7 +4,7 @@
 > live site with a date and version, the principle it breaks, the fix, and (where one exists) a working
 > prototype of the fix in three design directions.
 
-Site version: v0.2.1 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
+Site version: v0.3.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
 
 ## The headline
 
@@ -30,6 +30,10 @@ Site version: v0.2.1 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: D
   The release history of ux.sgit.ai: each version, its date, what it changed and the files it touched.
 /browse/  (/browse/index.md)
   Every index of the register in one place: by product, area, problem, visibility, recommendation, principle, severity, status and kind, each value with its count and a link to the filtered list.
+/exemplars/EX-001.html  (/exemplars/EX-001.md)
+  It is predictable. The trigger is a small distance scrolled, which the reader controls, not the speed of the gesture, so it behaves the same every time and is learned after one or two uses. The collapsed state is small enough to be a fair trade for the space, and getting there costs only a couple of lines of scroll, so the reader never loses their place to reach it.
+/exemplars/  (/exemplars/index.md)
+  Things that work, each kept as the reference for the findings it answers: measured like a finding, with why it works and what it still does not do.
 /findings/  (/findings/index.md)
   The register: every UX failure and gap found on the sgit.ai sites, with status, severity, the principle it breaks and the fix. Filterable, and every filter is a link.
 /  (/index.md)
@@ -105,6 +109,10 @@ Site version: v0.2.1 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-004.html  [fixed, medium, newsroom.sgit.ai, stale-claim, subtle, date-the-claim] The edition label is older than the articles under it
 /findings/UX-050.html  [fixed, medium, newsroom-design-lab, layout-overflow, obvious, check-at-build] File-path pills scrolled the whole page sideways at 390 px
 /findings/UX-051.html  [fixed, medium, newsroom-design-lab, unexpected-movement, obvious, keep-the-ui-still] Re-rendering the whole view on every save lost the reader's place
+
+## What good looks like
+
+/exemplars/EX-001.html  [safari-ipad, answers UX-058+UX-057] Safari on iPad hides its toolbars the same way every time, after a small scroll
 
 ## The sibling sites
 

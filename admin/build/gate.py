@@ -104,7 +104,34 @@ def check_taxonomy(site):
     }
     check('every taxonomy value and product is used by at least one finding',
           [f'{k}: {t["id"]}' for k in used for t in site.taxonomy[k] if t['id'] not in used[k]]
-          + [f'products: {k}' for k in site.products if k != 'sgit.ai' and k not in {f['product'] for f in site.findings}])
+          + [f'products: {k}' for k in site.products if k != 'sgit.ai' and k not in {f['product'] for f in site.findings + site.exemplars}])
+
+
+def check_exemplars(site):
+    problems = []
+    ids      = set()
+    for e in site.exemplars:
+        tag = e.get('id', '?')
+        for key in ('id', 'title', 'product', 'where', 'environment', 'observed', 'checked', 'principle', 'recommendation',
+                    'answers', 'what', 'why', 'still', 'source'):
+            if not e.get(key):
+                problems.append(f'{tag}: missing {key}')
+        if not re.fullmatch(r'EX-\d{3,}', e.get('id', '')) or e.get('id') in ids:
+            problems.append(f'{tag}: id must look like EX-001 and be unique')
+        ids.add(e.get('id'))
+        if e.get('product') not in site.products:
+            problems.append(f'{tag}: unknown product {e.get("product")!r}')
+        if e.get('principle') not in site.principle:
+            problems.append(f'{tag}: unknown principle {e.get("principle")!r}')
+        if e.get('recommendation') not in {r['id'] for r in site.taxonomy['recommendations']}:
+            problems.append(f'{tag}: unknown recommendation {e.get("recommendation")!r}')
+        for a in e.get('answers', []):
+            if not a.startswith('UX-') or a not in site.by_id:
+                problems.append(f'{tag}: answers {a!r}, which is not a finding')
+        for img in e.get('images', []):
+            if not (ROOT / img.get('src', '').lstrip('/')).is_file() or not img.get('alt') or not img.get('caption'):
+                problems.append(f'{tag}: image {img.get("src")!r} is missing, or has no alt text or caption')
+    check(f'exemplars.json: {len(site.exemplars)} exemplars well formed', problems)
 
 
 def check_principles(site):
@@ -241,6 +268,7 @@ def main():
     check_findings(site)
     check_principles(site)
     check_taxonomy(site)
+    check_exemplars(site)
     if FAILURES:
         print('\nGATE FAIL: the data is malformed, so nothing else was checked')
         sys.exit(1)

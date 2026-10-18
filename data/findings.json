@@ -1977,7 +1977,7 @@
    "kind": "failure",
    "severity": "medium",
    "status": "open",
-   "principle": "ui-stays-still",
+   "principle": "same-gesture-same-result",
    "observed": {
     "date": "2026-10-18",
     "version": "not recorded"

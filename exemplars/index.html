@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What good looks like · ux.sgit.ai</title>
+<meta name="description" content="Things that work, each kept as the reference for the findings it answers: measured like a finding, with why it works and what it still does not do.">
+<link rel="canonical" href="https://ux.sgit.ai/exemplars/">
+<link rel="alternate" type="text/markdown" href="/exemplars/index.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="What good looks like">
+<meta property="og:description" content="Things that work, each kept as the reference for the findings it answers: measured like a finding, with why it works and what it still does not do.">
+<meta property="og:url" content="https://ux.sgit.ai/exemplars/">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-findings">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/">Findings</a></li><li><a href="/browse/">Browse</a></li><li><a href="/principles/">Principles</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<h1>What good looks like</h1>
+<p>A finding says what is wrong; an exemplar shows something that already gets it right, so a fix can point at a working example instead of a description. Each one is measured like a finding (where, when, on what device), says <strong>why</strong> it works, and says honestly what it still does not do. They come from anywhere: our own sites, other sites, browsers, apps.</p>
+<ul class="findings"><li class="finding"><div class="finding__top"><a class="finding__id" href="/exemplars/EX-001.html">EX-001</a><span class="badge badge--status-fixed">Works</span></div><a class="finding__title" href="/exemplars/EX-001.html">Safari on iPad hides its toolbars the same way every time, after a small scroll</a><p class="finding__meta"><span class="finding__site">Safari on iPad</span> · answers <a href="/findings/UX-058.html">UX-058</a>, <a href="/findings/UX-057.html">UX-057</a></p><p class="finding__impact">It is predictable. The trigger is a small distance scrolled, which the reader controls, not the speed of the gesture, so it behaves the same every time and is learned after one or two uses. The collapsed state is small enough to be a fair trade for the space, and getting there costs only a couple of lines of scroll, so the reader never loses their place to reach it.</p></li></ul>
+<p>Each exemplar is linked from the findings it answers, and from the <a href="/principles/">principle</a> it demonstrates. The source is <a href="/data/exemplars.json">/data/exemplars.json</a>.</p>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites, and the browsers and platforms they are read on, fail their readers, measured, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/exemplars/index.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.3.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

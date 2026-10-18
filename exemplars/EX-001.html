@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EX-001: Safari on iPad hides its toolbars the same way every time, after a small scroll · ux.sgit.ai</title>
+<meta name="description" content="It is predictable. The trigger is a small distance scrolled, which the reader controls, not the speed of the gesture, so it behaves the same every time and is learned after one or two uses. The collapsed state is small enough to be a fair trade for the space, and getting there costs only a couple of lines of scroll, so the reader never loses their place to reach it.">
+<link rel="canonical" href="https://ux.sgit.ai/exemplars/EX-001.html">
+<link rel="alternate" type="text/markdown" href="/exemplars/EX-001.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="EX-001: Safari on iPad hides its toolbars the same way every time, after a small scroll">
+<meta property="og:description" content="It is predictable. The trigger is a small distance scrolled, which the reader controls, not the speed of the gesture, so it behaves the same every time and is learned after one or two uses. The collapsed state is small enough to be a fair trade for the space, and getting there costs only a couple of lines of scroll, so the reader never loses their place to reach it.">
+<meta property="og:url" content="https://ux.sgit.ai/exemplars/EX-001.html">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-finding">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/">Findings</a></li><li><a href="/browse/">Browse</a></li><li><a href="/principles/">Principles</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<p><a href="/exemplars/">What good looks like</a> / EX-001</p>
+<h1>Safari on iPad hides its toolbars the same way every time, after a small scroll</h1>
+<h2 id="what-it-does">What it does</h2>
+<p>At the top of a page Safari shows its full toolbars: sidebar, back, address field, share, new tab, tabs, and a tab strip (first screenshot; the page starts about 270 px down a 1,640 px screen). Any small scroll down, slow or fast, collapses them to a small address pill (second screenshot; the page starts about 120 px down). Here the page had moved by only a couple of lines of breadcrumb: the article title is still where it was.</p>
+<figure class="evidence"><a href="/exemplars/img/EX-001-safari-at-top.webp"><img src="/exemplars/img/EX-001-safari-at-top.webp" alt="Safari on iPad at the top of a newsroom article: sidebar, back, address field, share, new tab and tabs buttons, and a tab strip above the page" loading="lazy"></a><figcaption>At the top: the full toolbars and the tab strip.</figcaption></figure>
+<figure class="evidence"><a href="/exemplars/img/EX-001-safari-after-small-scroll.webp"><img src="/exemplars/img/EX-001-safari-after-small-scroll.webp" alt="The same article after a small scroll: Safari shows only a small address pill, and the article title is still on screen" loading="lazy"></a><figcaption>After a small scroll, at any speed: a small address pill. The page has moved by two lines.</figcaption></figure>
+<h2 id="why-it-works">Why it works</h2>
+<p>It is predictable. The trigger is a small distance scrolled, which the reader controls, not the speed of the gesture, so it behaves the same every time and is learned after one or two uses. The collapsed state is small enough to be a fair trade for the space, and getting there costs only a couple of lines of scroll, so the reader never loses their place to reach it.</p>
+<h2 id="what-it-still-does-not-do">What it still does not do</h2>
+<p>It still moves the page: the toolbars collapse as a side effect of scrolling, and the reader would prefer them to stay collapsed without having to move anything. It is a good compromise, not the ideal.</p>
+<h2 id="the-findings-it-answers">The findings it answers</h2>
+<ul><li><a href="/findings/UX-058.html">UX-058 Whether the toolbars hide depends on how fast you scroll, not how far</a></li><li><a href="/findings/UX-057.html">UX-057 The toolbars come back on any small scroll up, taking screen and moving the page</a></li></ul>
+<h2 id="the-record">The record</h2>
+<div class="table-wrap"><table><tbody><tr><td><strong>Product</strong></td><td><a href="https://www.apple.com/safari/" rel="noopener">Safari on iPad</a>, browser</td></tr><tr><td><strong>Where</strong></td><td>https://newsroom.sgit.ai/ (an article page, newsroom v0.12.106)</td></tr><tr><td><strong>Environment</strong></td><td>Safari on an iPad, landscape</td></tr><tr><td><strong>Demonstrates</strong></td><td><a href="/principles/#same-gesture-same-result">The same gesture gives the same result, so it can be learned</a></td></tr><tr><td><strong>Recommendation</strong></td><td><a href="/findings/?recommendation=make-it-predictable">Make it predictable</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-18, not recorded</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-18, not recorded</td></tr><tr><td><strong>Source</strong></td><td><a href="/method/#reports-from-readers">Reported by Dinis Cruz, 18 Oct 2026, with screenshots</a></td></tr></tbody></table></div>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites, and the browsers and platforms they are read on, fail their readers, measured, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/exemplars/EX-001.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.3.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

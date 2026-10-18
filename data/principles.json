@@ -16,6 +16,13 @@
             "test": "Read a long page on a phone or tablet: scroll down, scroll up a little, pause, carry on. Did anything appear, resize, shift or take focus that you did not ask for? Did the text you were reading stay where it was?"
         },
         {
+            "id": "same-gesture-same-result",
+            "title": "The same gesture gives the same result, so it can be learned",
+            "rule": "Every interaction behaves the same way every time, triggered by something the reader controls (where they tap, how far they scroll), never by something they cannot see or repeat (how fast they flicked, what state an animation was in).",
+            "why": "An interface teaches as it is used. When the same action always gives the same result, the reader learns it once and from then on can depend on it without thinking. When it depends on speed or timing, it can never be learned, and every use costs attention.",
+            "test": "Do the same thing five times: scroll, flick, tap, at slightly different speeds. Did the interface respond the same way each time? Could you reach the state you wanted on the first try?"
+        },
+        {
             "id": "label-the-money",
             "title": "Label the money, and never surprise with a charge",
             "rule": "Every number that is money says what it is. The first time anything is charged, the reader is told before or as it happens. Wording about balances never reads as debt or threat.",
