@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX-046: Setting location.hash inside a vault app re-navigates the frame: every link silently dead · ux.sgit.ai</title>
+<meta name="description" content="An app that works when opened as a file ships to readers with no working navigation, and nothing errors.">
+<link rel="canonical" href="https://ux.sgit.ai/findings/UX-046.html">
+<link rel="alternate" type="text/markdown" href="/findings/UX-046.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="UX-046: Setting location.hash inside a vault app re-navigates the frame: every link silently dead">
+<meta property="og:description" content="An app that works when opened as a file ships to readers with no working navigation, and nothing errors.">
+<meta property="og:url" content="https://ux.sgit.ai/findings/UX-046.html">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-finding">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/principles/">Principles</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<p><a href="/findings/">Findings</a> / UX-046</p>
+<h1>Setting location.hash inside a vault app re-navigates the frame: every link silently dead</h1>
+<p class="finding-head"><span class="badge badge--status-open">Open</span><span class="badge badge--severity-high">High</span><span class="badge badge--kind-failure">Failure</span><span class="finding__site">dev.vault.sgraph.ai</span></p>
+<h2 id="what-we-saw">What we saw</h2>
+<p>In the host the app is an about:srcdoc frame, where assigning location.hash re-navigates instead of firing hashchange. The How Much Evidence vault shipped on 5 October 2026 with every view link dead.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>An app that works when opened as a file ships to readers with no working navigation, and nothing errors.</p>
+<h2 id="the-fix">The fix</h2>
+<p>Keep the route in a variable; catch a[href^="#"] in a capture click handler; mark links data-sg-native; use the hash only when running standalone. Documented in the sgit.ai guidance.</p>
+<h2 id="the-record">The record</h2>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open. Open as a platform trap; every lab vault avoids it.</td></tr><tr><td><strong>Severity</strong></td><td>High</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Site</strong></td><td><a href="https://dev.vault.sgraph.ai/" rel="noopener">dev.vault.sgraph.ai</a></td></tr><tr><td><strong>Where</strong></td><td>any vault app that routes by hash</td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=platform">Platform</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#host-safe-apps">A vault app works inside the host, not just on its own</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-05, host</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-11, host</td></tr><tr><td><strong>Source</strong></td><td><a href="/lab/#what-building-the-lab-measured">Design lab: what building it measured</a></td></tr></tbody></table></div>
+<p>Previous: <a href="/findings/UX-045.html">UX-045 Persona pages are a list, with no story, opinion or next step</a></p>
+<p>Next: <a href="/findings/UX-047.html">UX-047 localStorage throws inside the vault app frame, so reader data is lost on reload</a></p>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites fail their readers, measured on the live site, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-046.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.1.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

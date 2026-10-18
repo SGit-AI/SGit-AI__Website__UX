@@ -1,0 +1,1590 @@
+{
+ "what": "The register of UX failures and gaps. One entry per finding; every page, count and filter on this site is generated from this file. A failure is something that works against the reader; a gap is something the reader needs that is not there.",
+ "findings": [
+  {
+   "id": "UX-001",
+   "title": "The first phone screen explains how the site is built, not what it is about",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "first-visit",
+   "kind": "failure",
+   "severity": "high",
+   "status": "open",
+   "principle": "stranger-first-screen",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "At 390×844 the first screen holds a two-row header, a \"For agents /llms.txt\" strip, three lines of metadata, a tagline about method, a second navigation bar and an editor's note. The lead story starts on screen two.",
+   "impact": "A contact who taps a link cannot tell in one screen that this is a publication about AI agents, security and publishing, or why they were sent it.",
+   "fix": "One sentence on what this is, who writes it, three doors (security, builders, news) and the lead, all on screen one. Everything else moves below or into the menu.",
+   "prototype": {
+    "vault": "newsroom-proto-front",
+    "route": "first-screen"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#first-visit-a-contact-arriving-from-a-link",
+    "label": "Review: first visit"
+   }
+  },
+  {
+   "id": "UX-002",
+   "title": "The home page is 59 phone screens long, with 845 links",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "first-visit",
+   "kind": "failure",
+   "severity": "high",
+   "status": "open",
+   "principle": "stranger-first-screen",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The phone home page measures 49,715 px: Latest, Highlights, desk notes, collections, the full article list, then a map of every article's links.",
+   "impact": "The front page tries to show everything, so it chooses nothing for the reader. Nobody scrolls 59 screens; the curation is invisible.",
+   "fix": "Cut the home page to the lead, three per desk, collections and the newsletter. Lists and the link map move to their own pages.",
+   "prototype": {
+    "vault": "newsroom-proto-front",
+    "route": "front"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#first-visit-a-contact-arriving-from-a-link",
+    "label": "Review: first visit"
+   }
+  },
+  {
+   "id": "UX-003",
+   "title": "The masthead line describes a method, not a subject",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "first-visit",
+   "kind": "gap",
+   "severity": "medium",
+   "status": "open",
+   "principle": "stranger-first-screen",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The tagline is \"one page, one argument, with the figures, the data and the links to check it\". Nothing says agents, AI governance, security or news economics.",
+   "impact": "The one line every visitor reads tells them how the site works instead of what it is about.",
+   "fix": "A masthead line that names the subject and the author, e.g. \"Field notes on AI agents, security and the next generation of publishing, by Dinis Cruz\".",
+   "prototype": {
+    "vault": "newsroom-proto-front",
+    "route": "masthead"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#the-direction-a-publication-with-a-heart",
+    "label": "Review: the direction"
+   }
+  },
+  {
+   "id": "UX-004",
+   "title": "The edition label is older than the articles under it",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "first-visit",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "state-is-current",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The home page says \"Edition of 2026-10-08\" above ten articles dated 10 October. Still the case in v0.7.1, above articles from 10 and 11 October.",
+   "impact": "A front page that looks three days stale on the day it was published tells a reader the site is not kept.",
+   "fix": "Date the edition from the newest article at build time, or label it as the editor's pick of its date.",
+   "prototype": {
+    "vault": "newsroom-proto-front",
+    "route": "front"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#bugs-and-broken-things",
+    "label": "Review: bugs and broken things"
+   }
+  },
+  {
+   "id": "UX-005",
+   "title": "The version number is shown three times on the first screen",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "first-visit",
+   "kind": "failure",
+   "severity": "low",
+   "status": "open",
+   "principle": "publication-not-workshop",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "v0.7.1 appears three times on the desktop first screen: in the agent strip, the metadata lines and the footer badge.",
+   "impact": "Engineering detail repeated where a reader looks first; it reads as a demo, not a publication.",
+   "fix": "One version, in the workshop and the page foot, linked to what changed. None on the reader's first screen.",
+   "prototype": {
+    "vault": "newsroom-proto-front",
+    "route": "front"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#since-v064-what-v071-changed",
+    "label": "Review: since v0.6.4"
+   }
+  },
+  {
+   "id": "UX-006",
+   "title": "A \"For agents /llms.txt\" strip sits above the masthead",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "first-visit",
+   "kind": "failure",
+   "severity": "low",
+   "status": "open",
+   "principle": "publication-not-workshop",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The first element on every page is a strip addressed to agents, above the publication's name.",
+   "impact": "Useful to agents, noise to a person, and it takes the most valuable line on the screen.",
+   "fix": "Move it to the page head (link rel) and the footer, where agents look anyway. Satisfies both the Architect and the Designer on the panel.",
+   "prototype": {
+    "vault": "newsroom-proto-front",
+    "route": "front"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#first-visit-a-contact-arriving-from-a-link",
+    "label": "Review: first visit"
+   }
+  },
+  {
+   "id": "UX-007",
+   "title": "The editor's note is written for someone who read the last two editions",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "first-visit",
+   "kind": "failure",
+   "severity": "low",
+   "status": "open",
+   "principle": "stranger-first-screen",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The note opens \"Third edition... the last two days\", assuming the reader has followed along.",
+   "impact": "The one personal voice on the front page talks past the newcomer the page most needs to win.",
+   "fix": "Write the note for a newcomer: what this edition is about and where to start.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#first-visit-a-contact-arriving-from-a-link",
+    "label": "Review: first visit"
+   }
+  },
+  {
+   "id": "UX-008",
+   "title": "Content is hidden until JavaScript runs",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "trust",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "content-is-visible",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The body starts at opacity 0 and only appears when a \"ready\" class is added, with a 1.6 s fallback.",
+   "impact": "On a slow phone, or for any reader or agent that does not run the script, the page is blank.",
+   "fix": "Render visible by default; animate only enhancements.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#bugs-and-broken-things",
+    "label": "Review: bugs and broken things"
+   }
+  },
+  {
+   "id": "UX-009",
+   "title": "Two navigation bars, and a 60-link menu that mixes reading with building",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "navigation",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "publication-not-workshop",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "A second bar of nine links repeats the menu. The menu holds about 60 links in nine groups (57 links in 8 groups when the lab mapped it), mixing reader pages (Newsletter, Collections) with builder pages (Replicate, Admin, Release history, The run log).",
+   "impact": "The reader has to sort the publication from the workshop themselves, twice.",
+   "fix": "One navigation. The publication on top; the workshop behind one item with its own front page.",
+   "prototype": {
+    "vault": "newsroom-proto-front",
+    "route": "menu"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#first-visit-a-contact-arriving-from-a-link",
+    "label": "Review: first visit"
+   }
+  },
+  {
+   "id": "UX-010",
+   "title": "Missing pages show the default GitHub Pages 404",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/no-such-page",
+   "area": "navigation",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "no-dead-ends",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "Any missing URL shows GitHub's generic error page, with no link back to the newsroom.",
+   "impact": "A mistyped or old link ends the visit on a page that does not even say which site it is.",
+   "fix": "A branded 404.html with search and the three entry doors.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#bugs-and-broken-things",
+    "label": "Review: bugs and broken things"
+   }
+  },
+  {
+   "id": "UX-011",
+   "title": "Links without extensions in one article",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/future-of-news-story-vault-not-paywall.html",
+   "area": "navigation",
+   "kind": "failure",
+   "severity": "low",
+   "status": "open",
+   "principle": "no-dead-ends",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "future-of-news links to /thesis, /portugal and /economics/rails, unlike every other link on the site.",
+   "impact": "They depend on the host resolving extensionless paths; on a strict host or a mirror they break.",
+   "fix": "Use the full .html or trailing-slash form everywhere; check it at build.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#bugs-and-broken-things",
+    "label": "Review: bugs and broken things"
+   }
+  },
+  {
+   "id": "UX-012",
+   "title": "Each article ends with seven next steps instead of one",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "navigation",
+   "kind": "failure",
+   "severity": "low",
+   "status": "open",
+   "principle": "no-dead-ends",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "After the rating scales the foot of an article offers many routes onward with equal weight.",
+   "impact": "At the moment the reader is most ready to continue, the page makes them choose among seven.",
+   "fix": "One next step: the next part of the series, or the next \"start here\" piece for the reader's desk, then the newsletter.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#article-page-and-feedback",
+    "label": "Review: article page and feedback"
+   }
+  },
+  {
+   "id": "UX-013",
+   "title": "One topic holds more than half the articles",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/",
+   "area": "findability",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "every-view-is-a-link",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "\"Agents & policy\" holds 35 of 67 articles (38 of 73 in the lab's snapshot). The other five topics hold 13 to 26 and overlap: an article sits in about two.",
+   "impact": "A CISO who picks the obvious topic still faces 35 long reads. The classification does not help anyone choose.",
+   "fix": "Desks by audience, not internal topic: security, building, vaults, news, strategy (18 / 17 / 14 / 15 / 9 in the lab).",
+   "prototype": {
+    "vault": "newsroom-proto-find",
+    "route": "desks"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#findability-and-information-architecture",
+    "label": "Review: findability"
+   }
+  },
+  {
+   "id": "UX-014",
+   "title": "Tags are not links, and there are no tag pages",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/hope-or-enforcement.html",
+   "area": "findability",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "no-dead-ends",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The lead article carries 12 tag pills; none links anywhere. Tags mix subjects, formats and product names (\"article\", \"riskmandate\"). 339 raw tags, 228 used once.",
+   "impact": "The most precise way into the archive looks clickable and goes nowhere.",
+   "fix": "A controlled vocabulary of about 40 tags owned by the Librarian, a page per tag, tags as links capped at five per article (339 → 42 in the lab; median 11 → 4).",
+   "prototype": {
+    "vault": "newsroom-proto-find",
+    "route": "tags"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#findability-and-information-architecture",
+    "label": "Review: findability"
+   }
+  },
+  {
+   "id": "UX-015",
+   "title": "Filters cannot be shared",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/",
+   "area": "findability",
+   "kind": "gap",
+   "severity": "medium",
+   "status": "open",
+   "principle": "every-view-is-a-link",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "Choosing a topic on the article list does not change the address.",
+   "impact": "You cannot send a contact \"the security articles\"; you can only send the whole list and an instruction.",
+   "fix": "Put every filter in the address (/articles/?desk=security, or in the path where query strings are not allowed).",
+   "prototype": {
+    "vault": "newsroom-proto-find",
+    "route": "search"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#findability-and-information-architecture",
+    "label": "Review: findability"
+   }
+  },
+  {
+   "id": "UX-016",
+   "title": "Series are invisible",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/",
+   "area": "findability",
+   "kind": "gap",
+   "severity": "medium",
+   "status": "open",
+   "principle": "no-dead-ends",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The reading meter in five pieces, the homepage diagnosis and its rebuild, the agent team in three depths: nothing says \"part 2 of 5\" or offers the next part. The lab found eleven series.",
+   "impact": "Readers land in the middle of a story without knowing there is a beginning.",
+   "fix": "Series pages with part numbers, previous / next on each part, and the reader's progress.",
+   "prototype": {
+    "vault": "newsroom-proto-find",
+    "route": "series"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#findability-and-information-architecture",
+    "label": "Review: findability"
+   }
+  },
+  {
+   "id": "UX-017",
+   "title": "There is no \"start here\" path",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "findability",
+   "kind": "gap",
+   "severity": "medium",
+   "status": "open",
+   "principle": "stranger-first-screen",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The Historian's weekly note and the collections are the best orientation on the site, and they sit below the fold.",
+   "impact": "A newcomer facing 73 long articles has no way to know which five to read first.",
+   "fix": "Each desk opens with \"Start here: five articles in order\", written by the Historian.",
+   "prototype": {
+    "vault": "newsroom-proto-find",
+    "route": "desk/security"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#findability-and-information-architecture",
+    "label": "Review: findability"
+   }
+  },
+  {
+   "id": "UX-018",
+   "title": "Cards do not show reading time or format",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/",
+   "area": "findability",
+   "kind": "gap",
+   "severity": "medium",
+   "status": "open",
+   "principle": "length-before-commitment",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The median article is about 4,500 words and 25 of 66 are over 5,000, yet no card shows reading time or whether it is a field report, explainer, analysis or desk note.",
+   "impact": "A reader with three minutes cannot tell a note from a 40-minute analysis before opening it.",
+   "fix": "Reading time and a format label on every card, derived at build.",
+   "prototype": {
+    "vault": "newsroom-proto-find",
+    "route": "cards"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#findability-and-information-architecture",
+    "label": "Review: findability"
+   }
+  },
+  {
+   "id": "UX-019",
+   "title": "Search only matches titles, teasers and tags",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/",
+   "area": "findability",
+   "kind": "gap",
+   "severity": "low",
+   "status": "open",
+   "principle": "no-dead-ends",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The search box does not look inside articles, although a markdown twin of every article exists.",
+   "impact": "About 300,000 words are unsearchable; a reader who remembers a phrase cannot find the piece.",
+   "fix": "Search over bodies and abstracts from the markdown twins, with snippets.",
+   "prototype": {
+    "vault": "newsroom-proto-find",
+    "route": "search"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#findability-and-information-architecture",
+    "label": "Review: findability"
+   }
+  },
+  {
+   "id": "UX-020",
+   "title": "The best reader feature is buried under metadata and a long italic abstract",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/hope-or-enforcement.html",
+   "area": "article",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "length-before-commitment",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "On the lead article (about 8,000 words) a phone reader scrolls past a three-line breadcrumb, a byline with two version numbers, 12 tag pills and a 250-word italic abstract before reaching the \"Five readers\" block.",
+   "impact": "The short version that would let a reader decide is found only by those who already decided to read.",
+   "fix": "Title and standfirst; a byline that says how it was made, date and reading time; the short version in three or four sentences; reader views as one row; then the article. Tags and versions to the foot.",
+   "prototype": {
+    "vault": "newsroom-proto-article",
+    "route": "article/hope-or-enforcement"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#article-page-and-feedback",
+    "label": "Review: article page and feedback"
+   }
+  },
+  {
+   "id": "UX-021",
+   "title": "Author tooling is shown to every reader",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/hope-or-enforcement.html",
+   "area": "article",
+   "kind": "failure",
+   "severity": "low",
+   "status": "open",
+   "principle": "publication-not-workshop",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "Every article ends with \"Posting this article on LinkedIn?\" and the cover image's filename.",
+   "impact": "A tool for the author, printed on every reader's copy.",
+   "fix": "Move it to an admin view, or behind an author flag.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#bugs-and-broken-things",
+    "label": "Review: bugs and broken things"
+   }
+  },
+  {
+   "id": "UX-022",
+   "title": "The byline names one human; the AI authorship is in the footer",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/",
+   "area": "trust",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "say-who-wrote-it",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "Articles are written from voice notes by a desk of named agents; the byline says only \"Dinis Cruz\" and the agent newsroom is credited in the footer.",
+   "impact": "A reader who finds the disclosure late reads it as something hidden, on a publication whose pitch is provenance.",
+   "fix": "\"Dinis Cruz, written with the SGit agent newsroom\" in the byline, linked to the purpose page.",
+   "prototype": {
+    "vault": "newsroom-proto-article",
+    "route": "article/hope-or-enforcement"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#synthetic-users-what-is-fixed-and-what-is-open",
+    "label": "Review: synthetic users"
+   }
+  },
+  {
+   "id": "UX-023",
+   "title": "There is no page that says why the publication exists",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "trust",
+   "kind": "gap",
+   "severity": "medium",
+   "status": "open",
+   "principle": "say-who-wrote-it",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The agenda (build sgit.ai and RiskMandate, which most articles use as evidence), the licences and the participant disclosure are spread across the footer and method pages.",
+   "impact": "Readers cannot judge the argument without knowing who is making it and why.",
+   "fix": "A purpose page, linked from the masthead and every byline: the agenda, open by default, how it is written, who it is for, what I want from you.",
+   "prototype": {
+    "vault": "newsroom-proto-front",
+    "route": "purpose"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#the-direction-a-publication-with-a-heart",
+    "label": "Review: the direction"
+   }
+  },
+  {
+   "id": "UX-024",
+   "title": "All three rating scales start on 3",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/",
+   "area": "feedback",
+   "kind": "failure",
+   "severity": "high",
+   "status": "open",
+   "principle": "defaults-are-not-answers",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The usefulness, more-like-this and level-of-detail scales at the foot of every article are preselected on the middle value.",
+   "impact": "Neither the reader nor the author can tell \"not rated\" from \"useful\". Every rating collected so far is ambiguous.",
+   "fix": "Start unselected; record only real taps.",
+   "prototype": {
+    "vault": "newsroom-proto-article",
+    "route": "feedback"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#article-page-and-feedback",
+    "label": "Review: article page and feedback"
+   }
+  },
+  {
+   "id": "UX-025",
+   "title": "Ratings never reach the author",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/",
+   "area": "feedback",
+   "kind": "gap",
+   "severity": "high",
+   "status": "open",
+   "principle": "feedback-reaches-someone",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "Ratings stay in the reader's browser unless they choose to send their whole reading record.",
+   "impact": "The first contacts sent to the site teach the author nothing about what landed.",
+   "fix": "One-tap send by default, with plain consent (\"Send this rating to Dinis, anonymous\"), through the encrypted append lane, with a local receipt.",
+   "prototype": {
+    "vault": "newsroom-proto-article",
+    "route": "feedback"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#article-page-and-feedback",
+    "label": "Review: article page and feedback"
+   }
+  },
+  {
+   "id": "UX-026",
+   "title": "There is no way to say what was missing",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/",
+   "area": "feedback",
+   "kind": "gap",
+   "severity": "low",
+   "status": "open",
+   "principle": "feedback-reaches-someone",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "Feedback is three scales and nothing else: no free text, no \"write about this\", no \"I need a new version\".",
+   "impact": "Scores say what, not why. Requests that would become the next pitches have no channel.",
+   "fix": "One optional line (\"What would have made this more useful?\") and request buttons, sent through the append lane with a receipt.",
+   "prototype": {
+    "vault": "newsroom-proto-article",
+    "route": "record"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#article-page-and-feedback",
+    "label": "Review: article page and feedback"
+   }
+  },
+  {
+   "id": "UX-027",
+   "title": "Articles join the reader's list without being asked",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/",
+   "area": "feedback",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "ask-before-keeping",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "Opening an article adds it to the reader's reading list automatically.",
+   "impact": "The list stops meaning \"what I chose to keep\" and becomes a history the reader did not ask for.",
+   "fix": "Make \"Keep\" a tap.",
+   "prototype": {
+    "vault": "newsroom-proto-article",
+    "route": "feedback"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#article-page-and-feedback",
+    "label": "Review: article page and feedback"
+   }
+  },
+  {
+   "id": "UX-028",
+   "title": "The £5.00 balance chip has no label",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "money",
+   "kind": "failure",
+   "severity": "high",
+   "status": "open",
+   "principle": "label-the-money",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "An unlabelled \"£5.00\" sits in the header of every page. Still unlabelled in v0.7.1.",
+   "impact": "An amount of money with no explanation reads as a bill or a trap; the synthetic-user study flagged it.",
+   "fix": "Label it \"£5 free reading credit\".",
+   "prototype": {
+    "vault": "newsroom-proto-front",
+    "route": "first-screen"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#first-visit-a-contact-arriving-from-a-link",
+    "label": "Review: first visit"
+   }
+  },
+  {
+   "id": "UX-029",
+   "title": "Opening an article charges a penny with no notice",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/",
+   "area": "money",
+   "kind": "failure",
+   "severity": "high",
+   "status": "open",
+   "principle": "label-the-money",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The chip changes from £5.00 to £4.99 on opening any article, silently. In the synthetic-user study this exact moment made a retired reader ask whether she owed money.",
+   "impact": "The first thing a new reader learns about the reading meter is that their balance dropped without being told.",
+   "fix": "Announce the first charge once, in words, at the moment it happens.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#first-visit-a-contact-arriving-from-a-link",
+    "label": "Review: first visit"
+   }
+  },
+  {
+   "id": "UX-030",
+   "title": "\"Credit can go below zero\" reads as a debt",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/account/",
+   "area": "money",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "label-the-money",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The account page says credit can go below zero.",
+   "impact": "Readers hear \"you can owe us money\", on a site that has not asked them for any.",
+   "fix": "Say what actually happens when the free credit is used up, in reader terms.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#synthetic-users-what-is-fixed-and-what-is-open",
+    "label": "Review: synthetic users"
+   }
+  },
+  {
+   "id": "UX-031",
+   "title": "\"You pay the price\" reads as a warning",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/",
+   "area": "money",
+   "kind": "failure",
+   "severity": "low",
+   "status": "open",
+   "principle": "label-the-money",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The caption under the usefulness scale reads \"You pay the price\".",
+   "impact": "The feature (your rating sets what the page costs you) is a benefit; the wording makes it a threat.",
+   "fix": "\"Your rating sets what this page costs you\".",
+   "prototype": {
+    "vault": "newsroom-proto-article",
+    "route": "feedback"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#article-page-and-feedback",
+    "label": "Review: article page and feedback"
+   }
+  },
+  {
+   "id": "UX-032",
+   "title": "Nothing shows real money moving",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "trust",
+   "kind": "gap",
+   "severity": "high",
+   "status": "open",
+   "principle": "state-is-current",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "No counts of readers, payments or revenue anywhere. A blocking finding of the synthetic-user study, still open.",
+   "impact": "Readers and publishers asking \"is this a real business?\" find no answer.",
+   "fix": "Public reader numbers (ratings, readers, payments), generated and dated.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#synthetic-users-what-is-fixed-and-what-is-open",
+    "label": "Review: synthetic users"
+   }
+  },
+  {
+   "id": "UX-033",
+   "title": "It is unclear how a writer gets paid",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "trust",
+   "kind": "gap",
+   "severity": "high",
+   "status": "open",
+   "principle": "say-who-wrote-it",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The site states nothing is paid upstream yet, and does not say what will be. A blocking finding of the synthetic-user study.",
+   "impact": "Writers and publishers, the people the meter is pitched to, cannot see where their share comes from.",
+   "fix": "Say plainly what is paid today (nothing), what is planned and when.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#synthetic-users-what-is-fixed-and-what-is-open",
+    "label": "Review: synthetic users"
+   }
+  },
+  {
+   "id": "UX-034",
+   "title": "No contact for a pilot on the Replicate page",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/replicate/",
+   "area": "trust",
+   "kind": "gap",
+   "severity": "high",
+   "status": "open",
+   "principle": "feedback-reaches-someone",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The page that invites publishers to replicate the newsroom has no name, email or form.",
+   "impact": "The one reader ready to act has nowhere to go. A blocking finding of the synthetic-user study.",
+   "fix": "A name and email for pilots on Replicate and on the account pages; move the publishers page to the newsroom with the same contact.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#synthetic-users-what-is-fixed-and-what-is-open",
+    "label": "Review: synthetic users"
+   }
+  },
+  {
+   "id": "UX-035",
+   "title": "The top-up page said \"simulated\" while asking for money",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/account/",
+   "area": "money",
+   "kind": "failure",
+   "severity": "high",
+   "status": "fixed",
+   "principle": "label-the-money",
+   "observed": {
+    "date": "2026-10-10",
+    "version": "v0.6.1"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "evidence": "The synthetic-user run of 10 October found the top-up page asking for a payment while describing itself as simulated.",
+   "impact": "A payment page that says it is not real is a payment page nobody can trust.",
+   "fix": "Describe the one real Stripe payment. Done in v0.6.4; real Stripe top-up live since 11 October.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#synthetic-users-what-is-fixed-and-what-is-open",
+    "label": "Review: synthetic users"
+   },
+   "status_note": "Fixed by v0.6.4: the page now describes one Stripe payment."
+  },
+  {
+   "id": "UX-036",
+   "title": "Articles were published on two domains, and diverged",
+   "site": "newsroom.sgit.ai",
+   "where": "https://sgit.ai/articles/",
+   "area": "consistency",
+   "kind": "failure",
+   "severity": "high",
+   "status": "fixed",
+   "principle": "one-source-of-truth",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "sgit.ai/articles/ served five 11 October articles (e.g. no-server-by-design, the-agent-is-the-reader) that returned 404 on newsroom.sgit.ai.",
+   "impact": "The same publication was more complete on the wrong site.",
+   "fix": "Publish once to the newsroom; make sgit.ai link or redirect there.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#bugs-and-broken-things",
+    "label": "Review: bugs and broken things"
+   },
+   "status_note": "Fixed in v0.7.1: all six 11 October articles are live on the newsroom; the count is 73."
+  },
+  {
+   "id": "UX-037",
+   "title": "Two domains claim to be canonical for the same article",
+   "site": "newsroom.sgit.ai",
+   "where": "https://sgit.ai/articles/hope-or-enforcement.html",
+   "area": "consistency",
+   "kind": "failure",
+   "severity": "high",
+   "status": "open",
+   "principle": "one-source-of-truth",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "sgit.ai/articles/hope-or-enforcement.html declares canonical sgit.ai; the newsroom copy declares canonical newsroom.sgit.ai.",
+   "impact": "Search engines split the article's standing between two copies, and readers can land on either.",
+   "fix": "One canonical, the newsroom; a 301 or a canonical pointing there from sgit.ai.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#bugs-and-broken-things",
+    "label": "Review: bugs and broken things"
+   }
+  },
+  {
+   "id": "UX-038",
+   "title": "Three different article counts",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/",
+   "area": "consistency",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "one-source-of-truth",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "sgit.ai said 72, the newsroom home said 67, llms.txt said 66, on the same day.",
+   "impact": "When a site cannot count itself, the reader doubts every other number on it.",
+   "fix": "Generate every count from one manifest at build, and fail the release if any page disagrees.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#bugs-and-broken-things",
+    "label": "Review: bugs and broken things"
+   },
+   "status_note": "wire.json says 73 in v0.7.1; the three surfaces were not re-compared."
+  },
+  {
+   "id": "UX-039",
+   "title": "The feed is titled for the old site",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/feed.xml",
+   "area": "consistency",
+   "kind": "failure",
+   "severity": "low",
+   "status": "open",
+   "principle": "one-source-of-truth",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "articles/feed.xml is titled \"sgit.ai articles\".",
+   "impact": "Subscribers see the wrong publication name in their reader.",
+   "fix": "Retitle it \"SGit Newsroom\", from the same source as the masthead.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#bugs-and-broken-things",
+    "label": "Review: bugs and broken things"
+   }
+  },
+  {
+   "id": "UX-040",
+   "title": "The study page reports a fixed bug as current",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/demos/vaults/newsroom-synthetic-users/index.html",
+   "area": "consistency",
+   "kind": "failure",
+   "severity": "low",
+   "status": "open",
+   "principle": "state-is-current",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "The synthetic-user page says 51 vault images 404; all images now load (0 broken across 10 articles).",
+   "impact": "A visitor reading the study believes the site is broken in a way it no longer is.",
+   "fix": "A dated \"fixed in v0.6.x\" note beside the finding.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#bugs-and-broken-things",
+    "label": "Review: bugs and broken things"
+   }
+  },
+  {
+   "id": "UX-041",
+   "title": "51 vault images missing across 10 articles",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/articles/",
+   "area": "consistency",
+   "kind": "failure",
+   "severity": "high",
+   "status": "fixed",
+   "principle": "no-dead-ends",
+   "observed": {
+    "date": "2026-10-10",
+    "version": "v0.6.1"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "evidence": "The third synthetic-user run found 51 vault images returning 404 in 10 articles.",
+   "impact": "Evidence images are the point of an evidence-first article; broken ones undo the claim.",
+   "fix": "Fixed: 0 broken images on 10 rendered articles in v0.6.4.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#synthetic-users-what-is-fixed-and-what-is-open",
+    "label": "Review: synthetic users"
+   },
+   "status_note": "Fixed by v0.6.4."
+  },
+  {
+   "id": "UX-042",
+   "title": "Persona links were designed but not live",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/persona/",
+   "area": "personas",
+   "kind": "gap",
+   "severity": "high",
+   "status": "fixed",
+   "principle": "every-view-is-a-link",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.6.4"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "Persona links (/for/ciso and others) were described in articles but no URL existed to send a contact.",
+   "impact": "Every contact got the same front page, made for nobody in particular.",
+   "fix": "Ship persona links for the main audiences.",
+   "prototype": null,
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#first-visit-a-contact-arriving-from-a-link",
+    "label": "Review: first visit"
+   },
+   "status_note": "Fixed in v0.7.1: /persona/founder/ and four others, an index page, copyable links and links.json for agents."
+  },
+  {
+   "id": "UX-043",
+   "title": "Opening a persona link adds it to the browser without asking",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/persona/founder/",
+   "area": "personas",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "ask-before-keeping",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "Opening a persona page silently adds the persona to the reader's browser.",
+   "impact": "The reader did not choose to become \"a founder\" on this site; it was done to them.",
+   "fix": "Show the persona and offer \"Read as\" and \"Keep\" as separate choices.",
+   "prototype": {
+    "vault": "newsroom-proto-front",
+    "route": "personas"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#personas-as-the-core-primitive",
+    "label": "Review: personas"
+   }
+  },
+  {
+   "id": "UX-044",
+   "title": "The founder page says \"the picks above\" and no picks render on a phone",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/persona/founder/",
+   "area": "personas",
+   "kind": "failure",
+   "severity": "high",
+   "status": "open",
+   "principle": "content-is-visible",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "On a phone with no prior visit, the founder persona page refers to picks that are not shown.",
+   "impact": "The page a founder is sent to points at content that is not there, on the first visit, which is the only one that matters.",
+   "fix": "Render the picks on the landing view with no prior state; test it in a fresh browser.",
+   "prototype": {
+    "vault": "newsroom-proto-front",
+    "route": "persona/founder"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#since-v064-what-v071-changed",
+    "label": "Review: since v0.6.4"
+   }
+  },
+  {
+   "id": "UX-045",
+   "title": "Persona pages are a list, with no story, opinion or next step",
+   "site": "newsroom.sgit.ai",
+   "where": "https://newsroom.sgit.ai/persona/founder/",
+   "area": "personas",
+   "kind": "gap",
+   "severity": "medium",
+   "status": "open",
+   "principle": "stranger-first-screen",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.7.1"
+   },
+   "evidence": "Each persona page is seven starting articles plus an explanation of how the link works.",
+   "impact": "A persona link is a promise that the site was made for this reader; a list does not keep it.",
+   "fix": "One front-page template filled from a persona file: masthead, story, Dinis's note, start here, sections, board, \"what is missing?\", other readers.",
+   "prototype": {
+    "vault": "newsroom-proto-front",
+    "route": "persona/founder"
+   },
+   "source": {
+    "href": "/reviews/newsroom-2026-10-11.html#personas-as-the-core-primitive",
+    "label": "Review: personas"
+   }
+  },
+  {
+   "id": "UX-046",
+   "title": "Setting location.hash inside a vault app re-navigates the frame: every link silently dead",
+   "site": "dev.vault.sgraph.ai",
+   "where": "any vault app that routes by hash",
+   "area": "platform",
+   "kind": "failure",
+   "severity": "high",
+   "status": "open",
+   "principle": "host-safe-apps",
+   "observed": {
+    "date": "2026-10-05",
+    "version": "host"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "host"
+   },
+   "evidence": "In the host the app is an about:srcdoc frame, where assigning location.hash re-navigates instead of firing hashchange. The How Much Evidence vault shipped on 5 October 2026 with every view link dead.",
+   "impact": "An app that works when opened as a file ships to readers with no working navigation, and nothing errors.",
+   "fix": "Keep the route in a variable; catch a[href^=\"#\"] in a capture click handler; mark links data-sg-native; use the hash only when running standalone. Documented in the sgit.ai guidance.",
+   "prototype": null,
+   "source": {
+    "href": "/lab/#what-building-the-lab-measured",
+    "label": "Design lab: what building it measured"
+   },
+   "status_note": "Open as a platform trap; every lab vault avoids it."
+  },
+  {
+   "id": "UX-047",
+   "title": "localStorage throws inside the vault app frame, so reader data is lost on reload",
+   "site": "dev.vault.sgraph.ai",
+   "where": "any vault app that stores reader state",
+   "area": "platform",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "open",
+   "principle": "host-safe-apps",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "host"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "host"
+   },
+   "evidence": "The app frame refuses localStorage with SecurityError. Lab kit v0.1.2 kept highlights, notes and ratings only until reload.",
+   "impact": "A reader's notes disappear on reload, the worst failure a note-taking feature can have.",
+   "fix": "Store through the host's async sg.state (survives reload). Kit v0.1.3 does; every lab vault was republished on it.",
+   "prototype": null,
+   "source": {
+    "href": "/lab/#what-building-the-lab-measured",
+    "label": "Design lab: what building it measured"
+   },
+   "status_note": "Open as a platform trap; fixed in the lab by kit v0.1.3."
+  },
+  {
+   "id": "UX-048",
+   "title": "A vault app can load images and scripts from a site but cannot fetch its data",
+   "site": "dev.vault.sgraph.ai",
+   "where": "vault apps reading newsroom.sgit.ai",
+   "area": "platform",
+   "kind": "gap",
+   "severity": "low",
+   "status": "open",
+   "principle": "host-safe-apps",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "host"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "host"
+   },
+   "evidence": "The host CSP is connect-src blob: data:. fetch() to newsroom.sgit.ai is refused although it sends access-control-allow-origin *, while <img> and classic <script src> from the same origin load.",
+   "impact": "Builders reasonably expect CORS-open data to be readable and discover otherwise in production; apps must snapshot data instead.",
+   "fix": "Snapshot the data into the vault (with SHA-256 in sources.json) and say in the UI which copy is shown. State the CSP where builders read about vault apps.",
+   "prototype": null,
+   "source": {
+    "href": "/lab/#what-building-the-lab-measured",
+    "label": "Design lab: what building it measured"
+   }
+  },
+  {
+   "id": "UX-049",
+   "title": "Query strings break inside the vault host, so filters must live in the route path",
+   "site": "dev.vault.sgraph.ai",
+   "where": "vault apps with linkable filters",
+   "area": "platform",
+   "kind": "gap",
+   "severity": "low",
+   "status": "open",
+   "principle": "every-view-is-a-link",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "host"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "host"
+   },
+   "evidence": "Adding a query string to an app route breaks in the srcdoc frame.",
+   "impact": "The usual way to make a filter linkable is not available; each app has to invent a path encoding.",
+   "fix": "Encode filters in the path in a fixed order (desk, format, tag, series, month, q), as the findability vault does.",
+   "prototype": {
+    "vault": "newsroom-proto-find",
+    "route": "search"
+   },
+   "source": {
+    "href": "/lab/#what-building-the-lab-measured",
+    "label": "Design lab: what building it measured"
+   }
+  },
+  {
+   "id": "UX-050",
+   "title": "File-path pills scrolled the whole page sideways at 390 px",
+   "site": "newsroom-design-lab",
+   "where": "lab kit v0.1.1, all prototype vaults",
+   "area": "platform",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "fixed",
+   "principle": "stranger-first-screen",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "kit v0.1.1"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "kit v0.1.3"
+   },
+   "evidence": "Long, unbreakable file-path pills on the data pages pushed the page wider than a phone.",
+   "impact": "Sideways scroll on a phone makes every line harder to read and hides the edge of the content.",
+   "fix": "Let pills wrap; the gate now fails on any sideways scroll at 390 px. Fixed in kit v0.1.2.",
+   "prototype": null,
+   "source": {
+    "href": "/lab/#what-building-the-lab-measured",
+    "label": "Design lab: what building it measured"
+   }
+  },
+  {
+   "id": "UX-051",
+   "title": "Re-rendering the whole view on every save lost the reader's place",
+   "site": "newsroom-design-lab",
+   "where": "newsroom-proto-article",
+   "area": "article",
+   "kind": "failure",
+   "severity": "medium",
+   "status": "fixed",
+   "principle": "content-is-visible",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.1.0"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.1.1"
+   },
+   "evidence": "Every store write (a highlight, a note, a status) re-rendered the whole reading view and jumped the scroll position.",
+   "impact": "A reader who highlights a sentence is thrown somewhere else in an 8,000-word article.",
+   "fix": "Repaint only the parts that changed. Done in the article vault before publishing.",
+   "prototype": null,
+   "source": {
+    "href": "/lab/#what-building-the-lab-measured",
+    "label": "Design lab: what building it measured"
+   }
+  },
+  {
+   "id": "UX-052",
+   "title": "A highlight across paragraphs is cut at the first paragraph",
+   "site": "newsroom-design-lab",
+   "where": "newsroom-proto-article",
+   "area": "article",
+   "kind": "failure",
+   "severity": "low",
+   "status": "open",
+   "principle": "defaults-are-not-answers",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.1.1"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.1.1"
+   },
+   "evidence": "Selecting text that spans two paragraphs and tapping Highlight keeps only the part in the first.",
+   "impact": "The reader loses part of what they chose to keep, without being told.",
+   "fix": "Store highlights as ranges across blocks, or refuse the selection with a message.",
+   "prototype": {
+    "vault": "newsroom-proto-article",
+    "route": "article/hope-or-enforcement"
+   },
+   "source": {
+    "href": "/lab/#what-building-the-lab-measured",
+    "label": "Design lab: what building it measured"
+   }
+  },
+  {
+   "id": "UX-053",
+   "title": "Search results show no snippets",
+   "site": "newsroom-design-lab",
+   "where": "newsroom-proto-find",
+   "area": "findability",
+   "kind": "gap",
+   "severity": "low",
+   "status": "open",
+   "principle": "length-before-commitment",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.1.1"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.1.1"
+   },
+   "evidence": "The findability prototype searches a 98 KB term index; results are cards with no matching text.",
+   "impact": "A reader cannot see why a result matched, so cannot judge it before opening.",
+   "fix": "Snippets from the markdown twins, within a size budget, or computed on a site page rather than in the vault.",
+   "prototype": {
+    "vault": "newsroom-proto-find",
+    "route": "search"
+   },
+   "source": {
+    "href": "/lab/#what-building-the-lab-measured",
+    "label": "Design lab: what building it measured"
+   }
+  },
+  {
+   "id": "UX-054",
+   "title": "Stacked tables on a phone lose their column labels",
+   "site": "newsroom-design-lab",
+   "where": "newsroom-proto-find",
+   "area": "findability",
+   "kind": "gap",
+   "severity": "low",
+   "status": "open",
+   "principle": "stranger-first-screen",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.1.1"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.1.1"
+   },
+   "evidence": "At 390 px the prototype stacks table rows into blocks without repeating the column names.",
+   "impact": "Values without labels on a phone: the reader has to remember what each line means.",
+   "fix": "Repeat the column label in each stacked cell (data-label + ::before).",
+   "prototype": {
+    "vault": "newsroom-proto-find",
+    "route": "catalogue-audit"
+   },
+   "source": {
+    "href": "/lab/#what-building-the-lab-measured",
+    "label": "Design lab: what building it measured"
+   }
+  },
+  {
+   "id": "UX-055",
+   "title": "\"Ask the article\" has never run against a real on-device model",
+   "site": "newsroom-design-lab",
+   "where": "newsroom-proto-article",
+   "area": "article",
+   "kind": "gap",
+   "severity": "low",
+   "status": "open",
+   "principle": "state-is-current",
+   "observed": {
+    "date": "2026-10-11",
+    "version": "v0.1.1"
+   },
+   "checked": {
+    "date": "2026-10-11",
+    "version": "v0.1.1"
+   },
+   "evidence": "The ask view uses Chrome's built-in model when present and a labelled extractive fallback otherwise. Only the fallback and a stub were tested; the model is absent in headless Chrome and likely in the vault frame.",
+   "impact": "The feature is shown to readers on a path nobody has seen work.",
+   "fix": "Test in a real Chrome with the model, or use sg.llm with an llm.chat grant; until then say \"fallback\" in the UI, as it does.",
+   "prototype": {
+    "vault": "newsroom-proto-article",
+    "route": "ask"
+   },
+   "source": {
+    "href": "/lab/#what-building-the-lab-measured",
+    "label": "Design lab: what building it measured"
+   }
+  }
+ ]
+}

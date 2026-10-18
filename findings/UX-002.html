@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX-002: The home page is 59 phone screens long, with 845 links · ux.sgit.ai</title>
+<meta name="description" content="The front page tries to show everything, so it chooses nothing for the reader. Nobody scrolls 59 screens; the curation is invisible.">
+<link rel="canonical" href="https://ux.sgit.ai/findings/UX-002.html">
+<link rel="alternate" type="text/markdown" href="/findings/UX-002.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="UX-002: The home page is 59 phone screens long, with 845 links">
+<meta property="og:description" content="The front page tries to show everything, so it chooses nothing for the reader. Nobody scrolls 59 screens; the curation is invisible.">
+<meta property="og:url" content="https://ux.sgit.ai/findings/UX-002.html">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-finding">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/principles/">Principles</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<p><a href="/findings/">Findings</a> / UX-002</p>
+<h1>The home page is 59 phone screens long, with 845 links</h1>
+<p class="finding-head"><span class="badge badge--status-open">Open</span><span class="badge badge--severity-high">High</span><span class="badge badge--kind-failure">Failure</span><span class="finding__site">newsroom.sgit.ai</span></p>
+<h2 id="what-we-saw">What we saw</h2>
+<p>The phone home page measures 49,715 px: Latest, Highlights, desk notes, collections, the full article list, then a map of every article's links.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>The front page tries to show everything, so it chooses nothing for the reader. Nobody scrolls 59 screens; the curation is invisible.</p>
+<h2 id="the-fix">The fix</h2>
+<p>Cut the home page to the lead, three per desk, collections and the newsletter. Lists and the link map move to their own pages.</p>
+<h2 id="the-record">The record</h2>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>High</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Site</strong></td><td><a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a></td></tr><tr><td><strong>Where</strong></td><td><a href="https://newsroom.sgit.ai/" rel="noopener">https://newsroom.sgit.ai/</a></td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=first-visit">First visit</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#stranger-first-screen">The first screen is for a stranger</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-11, v0.6.4</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-11, v0.7.1</td></tr><tr><td><strong>Source</strong></td><td><a href="/reviews/newsroom-2026-10-11.html#first-visit-a-contact-arriving-from-a-link">Review: first visit</a></td></tr><tr><td><strong>Prototype</strong></td><td><a href="/lab/#newsroom-proto-front">Front page &amp; personas</a>, route <code>front</code>, in three directions</td></tr></tbody></table></div>
+<p>Previous: <a href="/findings/UX-001.html">UX-001 The first phone screen explains how the site is built, not what it is about</a></p>
+<p>Next: <a href="/findings/UX-003.html">UX-003 The masthead line describes a method, not a subject</a></p>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites fail their readers, measured on the live site, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-002.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.1.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

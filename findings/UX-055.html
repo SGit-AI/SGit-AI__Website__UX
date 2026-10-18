@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX-055: &quot;Ask the article&quot; has never run against a real on-device model · ux.sgit.ai</title>
+<meta name="description" content="The feature is shown to readers on a path nobody has seen work.">
+<link rel="canonical" href="https://ux.sgit.ai/findings/UX-055.html">
+<link rel="alternate" type="text/markdown" href="/findings/UX-055.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="UX-055: &quot;Ask the article&quot; has never run against a real on-device model">
+<meta property="og:description" content="The feature is shown to readers on a path nobody has seen work.">
+<meta property="og:url" content="https://ux.sgit.ai/findings/UX-055.html">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-finding">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/principles/">Principles</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<p><a href="/findings/">Findings</a> / UX-055</p>
+<h1>"Ask the article" has never run against a real on-device model</h1>
+<p class="finding-head"><span class="badge badge--status-open">Open</span><span class="badge badge--severity-low">Low</span><span class="badge badge--kind-gap">Gap</span><span class="finding__site">newsroom-design-lab</span></p>
+<h2 id="what-we-saw">What we saw</h2>
+<p>The ask view uses Chrome's built-in model when present and a labelled extractive fallback otherwise. Only the fallback and a stub were tested; the model is absent in headless Chrome and likely in the vault frame.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>The feature is shown to readers on a path nobody has seen work.</p>
+<h2 id="the-fix">The fix</h2>
+<p>Test in a real Chrome with the model, or use sg.llm with an llm.chat grant; until then say "fallback" in the UI, as it does.</p>
+<h2 id="the-record">The record</h2>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>Low</td></tr><tr><td><strong>Kind</strong></td><td>Gap: something the reader needs is not there</td></tr><tr><td><strong>Site</strong></td><td><a href="/lab/">newsroom-design-lab</a></td></tr><tr><td><strong>Where</strong></td><td>newsroom-proto-article</td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=article">Article page</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#state-is-current">What a page says about the present is true now</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-11, v0.1.1</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-11, v0.1.1</td></tr><tr><td><strong>Source</strong></td><td><a href="/lab/#what-building-the-lab-measured">Design lab: what building it measured</a></td></tr><tr><td><strong>Prototype</strong></td><td><a href="/lab/#newsroom-proto-article">Article &amp; reader primitives</a>, route <code>ask</code>, in three directions</td></tr></tbody></table></div>
+<p>Previous: <a href="/findings/UX-054.html">UX-054 Stacked tables on a phone lose their column labels</a></p>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites fail their readers, measured on the live site, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-055.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.1.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

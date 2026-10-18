@@ -1,0 +1,14 @@
+# Versions
+
+The current version is v0.1.0. Newest first.
+
+## v0.1.0 · 2026-10-18
+
+The first release: a register of UX failures and gaps, seeded from the newsroom review, with the review, the design lab and the method it was made by.
+
+- `data/findings.json`: 55 findings (newsroom.sgit.ai, the vault host, and the lab's own prototypes), each with evidence, impact, fix, status and the principle it breaks
+- `data/principles.json`: 14 principles, each listing the findings that break it
+- `content/reviews/newsroom-2026-10-11.md`: the newsroom UX review of 11 October 2026, published whole
+- `content/lab/index.md + lab/shots/`: the Newsroom Design Lab, its four vaults with read keys, and 24 phone screenshots in three directions
+- `content/method/index.md`: the reader path, the panel, severity, and how a finding is filed
+- `admin/build/`: build.py, md.py and gate.py, stdlib only

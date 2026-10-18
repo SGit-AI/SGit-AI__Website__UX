@@ -1,0 +1,30 @@
+{
+    "what"        : "The site's own facts: name, version, navigation, the sites it reviews and the sibling sites it links. admin/build/build.py reads this; nothing else states these facts.",
+    "name"        : "ux.sgit.ai",
+    "title"       : "UX, measured",
+    "tagline"     : "Where the sgit.ai sites fail their readers, measured on the live site, and what fixes it",
+    "origin"      : "https://ux.sgit.ai",
+    "repository"  : "https://github.com/SGit-AI/SGit-AI__Website__UX",
+    "author"      : "Dinis Cruz, with AI co-authorship",
+    "licence"     : "Content CC BY 4.0. Code Apache 2.0.",
+    "nav"         : [
+        { "href": "/findings/",   "label": "Findings"   },
+        { "href": "/principles/", "label": "Principles" },
+        { "href": "/reviews/",    "label": "Reviews"    },
+        { "href": "/lab/",        "label": "Lab"        },
+        { "href": "/method/",     "label": "Method"     }
+    ],
+    "sites"       : {
+        "newsroom.sgit.ai"     : { "url": "https://newsroom.sgit.ai/",     "what": "The publication: articles on AI agents, security and publishing, written with an agent newsroom" },
+        "sgit.ai"              : { "url": "https://sgit.ai/",              "what": "The parent project: encrypted git for humans and agents, its docs and published vaults" },
+        "dev.vault.sgraph.ai"  : { "url": "https://dev.vault.sgraph.ai/",  "what": "The vault host: opens a vault by its key and runs its app in a sandboxed frame" },
+        "newsroom-design-lab"  : { "url": "/lab/",                         "what": "This site's own prototypes: four vaults trying the newsroom fixes in three directions" }
+    },
+    "network"     : [
+        { "url": "https://sgit.ai/",            "label": "sgit.ai",            "what": "the parent project" },
+        { "url": "https://newsroom.sgit.ai/",   "label": "newsroom.sgit.ai",   "what": "the publication this site reviews first" },
+        { "url": "https://coding.sgit.ai/",     "label": "coding.sgit.ai",     "what": "how the code is written" },
+        { "url": "https://nfrs.sgit.ai/",       "label": "nfrs.sgit.ai",       "what": "the non-functional requirements, from the inside" },
+        { "url": "https://graphs.sgit.ai/",     "label": "graphs.sgit.ai",     "what": "semantic graphs and the visual layer" }
+    ]
+}

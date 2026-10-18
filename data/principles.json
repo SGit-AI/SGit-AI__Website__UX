@@ -1,0 +1,103 @@
+{
+    "what"       : "The principles a finding can break. Each finding names one. A principle is only kept if at least one finding breaks it: the gate fails on a principle with no findings, so this list grows from evidence, not from taste.",
+    "principles" : [
+        {
+            "id"      : "stranger-first-screen",
+            "title"   : "The first screen is for a stranger",
+            "rule"    : "On a phone, the first screen says what this is, who it is for, and where to go next. The lead is on it. Chrome, metadata and method come after.",
+            "why"     : "Most readers arrive from a link someone sent, on a phone, with one question and a few minutes. If the first screen does not answer 'what is this', the rest of the page is never read.",
+            "test"    : "Open the page at 390×844 with no history. Count the blocks above the lead. Can someone who has never heard of the site say what it is about?"
+        },
+        {
+            "id"      : "label-the-money",
+            "title"   : "Label the money, and never surprise with a charge",
+            "rule"    : "Every number that is money says what it is. The first time anything is charged, the reader is told before or as it happens. Wording about balances never reads as debt or threat.",
+            "why"     : "An unexplained balance that changes is read as a bill. One confused moment about money ends the visit and the trust.",
+            "test"    : "Find every currency figure on the page. Does each have a label? Open a page that charges: did anything say so?"
+        },
+        {
+            "id"      : "defaults-are-not-answers",
+            "title"   : "A default is not an answer",
+            "rule"    : "Inputs that ask the reader's opinion start empty. Only what the reader actually did is recorded.",
+            "why"     : "A scale preset to 3 cannot tell 'not rated' from 'useful'. The data looks real and means nothing, to the reader and to the author.",
+            "test"    : "Open the form fresh. Is any answer already chosen? Submit without touching it: what was recorded?"
+        },
+        {
+            "id"      : "ask-before-keeping",
+            "title"   : "Ask before keeping",
+            "rule"    : "Nothing is added to the reader's lists, profile or storage because they opened something. Keeping is a tap the reader makes.",
+            "why"     : "State the reader did not ask for is clutter at best and surveillance at worst. It also makes the reader's own record useless as a record.",
+            "test"    : "Open a page, close it. Did anything appear in the reader's list, board or persona set?"
+        },
+        {
+            "id"      : "every-view-is-a-link",
+            "title"   : "Every view is a link",
+            "rule"    : "Anything a reader can see, they can send: a filter, a search, a tag, a desk, a part of a series. The address changes when the view does.",
+            "why"     : "The people who most need a subset of the site are the ones a reader would forward it to. A view without an address cannot be shared, bookmarked or found by search.",
+            "test"    : "Choose a filter. Copy the address. Open it in a private window. Is it the same view?"
+        },
+        {
+            "id"      : "no-dead-ends",
+            "title"   : "No dead ends",
+            "rule"    : "Everything that looks like a way in is one: tags link to pages, missing pages offer the way back, each article ends with one next step.",
+            "why"     : "A tag that does not link, a default 404 and an article that ends with seven options all stop the reader at the moment they were ready to go further.",
+            "test"    : "Click every pill, chip and label on a page. Visit a URL that does not exist. Reach the end of an article: what is the one next step?"
+        },
+        {
+            "id"      : "one-source-of-truth",
+            "title"   : "One source of truth for every fact",
+            "rule"    : "Each piece of content is published once, at one canonical address. Every count, date and label is generated from one manifest at build time.",
+            "why"     : "Readers notice when two pages disagree, and they stop trusting both. A count that differs between three pages says the site does not know itself.",
+            "test"    : "Find the same number on three pages (article count, edition date, version). Do they agree? Does each article have exactly one canonical?"
+        },
+        {
+            "id"      : "publication-not-workshop",
+            "title"   : "The publication is not the workshop",
+            "rule"    : "Reader pages carry reader things. How the site is built (versions, author tooling, agent strips, release history, admin) lives in one clearly separate area, one link away.",
+            "why"     : "Builder chrome on a reader page spends the reader's attention on something they did not come for, and makes the site look like a demo instead of a publication.",
+            "test"    : "List every element on a reader page that only the author or an agent needs. Each one is a finding."
+        },
+        {
+            "id"      : "feedback-reaches-someone",
+            "title"   : "Feedback reaches someone, and the reader gets a receipt",
+            "rule"    : "Every rating, request or 'what is missing' goes somewhere a person reads it, by default and with plain consent, and the reader keeps a receipt of what was sent.",
+            "why"     : "Feedback kept only in the reader's browser teaches the author nothing, and a reader who is never answered stops answering.",
+            "test"    : "Rate something. Where did it go? Who reads it, and when? What does the reader have to show they sent it?"
+        },
+        {
+            "id"      : "length-before-commitment",
+            "title"   : "Say how long, and what kind, before the reader commits",
+            "rule"    : "Every card and every link to a long piece shows reading time and format. Every long piece opens with a short version.",
+            "why"     : "A reader with three minutes will not start a 25-minute piece blind. Telling them lets them choose; not telling them makes them leave.",
+            "test"    : "Look at a list of articles. Can you tell which is a five-minute note and which is a 40-minute analysis?"
+        },
+        {
+            "id"      : "say-who-wrote-it",
+            "title"   : "Say who wrote it, and how",
+            "rule"    : "The byline names the person and the way the piece was made (with agents, from voice notes), where the reader looks, not in the footer. The purpose of the publication is one link away.",
+            "why"     : "Readers judge a piece by who stands behind it. Disclosure in the footer reads as concealment when it is found.",
+            "test"    : "From the top of any article, can a reader tell who wrote it, with what help, and why the publication exists?"
+        },
+        {
+            "id"      : "content-is-visible",
+            "title"   : "Content is visible without waiting for scripts",
+            "rule"    : "The page renders its content in HTML and shows it at once. Scripts enhance; they never gate what the reader can see.",
+            "why"     : "A blank page for a second and a half on a slow phone is the page, for that reader. Agents, readers and search engines that do not run scripts see nothing.",
+            "test"    : "Load the page with JavaScript off, and on a throttled connection. Is the content there at once?"
+        },
+        {
+            "id"      : "state-is-current",
+            "title"   : "What a page says about the present is true now",
+            "rule"    : "Labels like 'edition of', 'currently', 'broken' and 'live' are dated or generated, and change when the facts do. A fixed problem is marked fixed, with the version.",
+            "why"     : "A page that describes a fixed bug as current, or labels today's front page with last week's date, tells the reader the rest may be stale too.",
+            "test"    : "Find every claim about now on the page. Is each dated? Is each still true?"
+        },
+        {
+            "id"      : "host-safe-apps",
+            "title"   : "A vault app works inside the host, not just on its own",
+            "rule"    : "An app is tested where readers open it: inside the vault host's sandboxed frame. Routing never assigns location.hash, storage goes through the host, and network reads come from the vault.",
+            "why"     : "The host frame behaves unlike a normal page. An app that works standalone can ship with every link dead and every saved note lost on reload.",
+            "test"    : "Open the published vault in the host, click every link, save something, reload. Check the console."
+        }
+    ]
+}

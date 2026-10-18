@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method · ux.sgit.ai</title>
+<meta name="description" content="How a UX finding is made here: the reader&#x27;s path, the stranger test, the review panel, what severity and status mean, and how to file a finding in the register.">
+<link rel="canonical" href="https://ux.sgit.ai/method/">
+<link rel="alternate" type="text/markdown" href="/method/index.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="Method">
+<meta property="og:description" content="How a UX finding is made here: the reader&#x27;s path, the stranger test, the review panel, what severity and status mean, and how to file a finding in the register.">
+<meta property="og:url" content="https://ux.sgit.ai/method/">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/">Findings</a></li><li><a href="/principles/">Principles</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/" aria-current="page">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+<nav class="toc" aria-label="On this page"><details data-open-wide><summary class="toc__title">On this page</summary><ol><li><a href="#the-readers-path">The reader's path</a></li><li><a href="#the-stranger-test">The stranger test</a></li><li><a href="#the-panel">The panel</a></li><li><a href="#failure-or-gap">Failure or gap</a></li><li><a href="#severity">Severity</a></li><li><a href="#status-and-what-checked-means">Status, and what "checked" means</a></li><li><a href="#filing-a-finding">Filing a finding</a></li><li><a href="#rules-for-the-register-itself">Rules for the register itself</a></li></ol></details></nav>
+<div class="content">
+<h1>Method</h1>
+<p>A finding is only as good as its evidence. Everything here is measured on the live site, at a stated date and version, by someone using it as a stranger would. Opinion is welcome as long as it is labelled as one; the register holds what was seen.</p>
+<h2 id="the-readers-path">The reader's path</h2>
+<p>Every page is judged by which step it moves a reader to next. The path is the one the people these sites are written for actually take:</p>
+<ol><li><strong>Arrive</strong> through a link someone sent, usually on a phone, with one question and a few minutes.</li><li><strong>Read</strong> the first piece, and rate it.</li><li><strong>Come back</strong>: a new pick, the newsletter, a reading board.</li><li><strong>Ask</strong>: what is missing, a new version, a topic.</li><li><strong>Act</strong>: try the product, start a conversation, put their own agents on a problem.</li></ol>
+<p>A finding is anything that stops a reader at one of these steps, or makes the next step harder than it needs to be.</p>
+<h2 id="the-stranger-test">The stranger test</h2>
+<p>The cheapest test there is, and the one that finds most first-visit failures:</p>
+<ul><li>Open the page on a phone (390×844), in a private window, with no history.</li><li>Without scrolling: what is this, who is it for, and where do I go?</li><li>Tap the first thing that looks like a way in. Did it go anywhere?</li><li>Open the thing the site most wants you to read. How long is it? Did anything tell you before you opened it?</li><li>Find every number. Is each one labelled, and do they agree with each other?</li></ul>
+<h2 id="the-panel">The panel</h2>
+<p>A full review reads the same evidence through six roles, each with its own question. They disagree usefully: the Architect wanted the "For agents" strip on every page and the Designer wanted it off the first screen, and the answer (the page head and the footer) satisfied both.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Role</th><th scope="col">The question it asks</th></tr></thead><tbody><tr><td>Architect</td><td>Is there one pipeline, one source of truth, and URLs that will last?</td></tr><tr><td>Librarian</td><td>Can a reader find everything on a subject, and is the catalogue consistent?</td></tr><tr><td>Historian</td><td>Can a newcomer follow the arc of ideas from the start to now?</td></tr><tr><td>Designer</td><td>Does the first screen and the reading page serve a stranger on a phone?</td></tr><tr><td>Editor</td><td>Is the front page choosing for the reader, and is the voice consistent?</td></tr><tr><td>Journalist</td><td>Would a contact understand the story, trust it, and come back?</td></tr></tbody></table></div>
+<p>Synthetic users (invented readers driven through the site by agents) add a seventh view, and a score that can be compared between releases. The newsroom's third run scored 2.4 out of 5; the next should add a CISO, who is most of the audience.</p>
+<h2 id="failure-or-gap">Failure or gap</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Kind</th><th scope="col">Means</th><th scope="col">Example</th></tr></thead><tbody><tr><td><strong>Failure</strong></td><td>Something on the site works against the reader</td><td>Rating scales that start on 3; a balance that drops without notice</td></tr><tr><td><strong>Gap</strong></td><td>Something the reader needs is not there</td><td>No way to share a filtered list; no reading time on cards</td></tr></tbody></table></div>
+<h2 id="severity">Severity</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Severity</th><th scope="col">Means</th></tr></thead><tbody><tr><td><strong>High</strong></td><td>Loses the reader, or the reader's trust, on the first visit. Or the site cannot learn from its readers at all</td></tr><tr><td><strong>Medium</strong></td><td>Costs the reader effort, or a return visit, or makes the site look unkept</td></tr><tr><td><strong>Low</strong></td><td>Polish and consistency: noticed by the careful, forgiven by most, fixed cheaply</td></tr></tbody></table></div>
+<h2 id="status-and-what-checked-means">Status, and what "checked" means</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Status</th><th scope="col">Means</th></tr></thead><tbody><tr><td><strong>Open</strong></td><td>Still true when last checked</td></tr><tr><td><strong>Partly fixed</strong></td><td>Some of it changed; the finding says what is left</td></tr><tr><td><strong>Fixed</strong></td><td>No longer true, with the version that fixed it</td></tr></tbody></table></div>
+<p>Every finding carries the date and version it was <strong>observed</strong> and the date and version it was <strong>last checked</strong>. A status is a claim about that date, not about today. Re-checking a finding means visiting it again, and updating both.</p>
+<h2 id="filing-a-finding">Filing a finding</h2>
+<p>The register is one file, <a href="/data/findings.json">/data/findings.json</a>. A finding is one entry; the build turns it into a page, a markdown twin, a row in every list and filter, and a line in <a href="/llms.txt">llms.txt</a>. The fields:</p>
+<pre><code>{
+ "id":        "UX-056",                       next free number, never reused
+ "title":     "What is wrong, as a sentence",
+ "site":      "newsroom.sgit.ai",             a key of "sites" in data/site.json
+ "where":     "https://…/the/page.html",      the URL, or a description if there is none
+ "area":      "first-visit",                  first-visit, navigation, findability, article,
+                                              feedback, money, personas, trust, consistency, platform
+ "kind":      "failure",                      failure | gap
+ "severity":  "high",                         high | medium | low
+ "status":    "open",                         open | partly-fixed | fixed
+ "principle": "stranger-first-screen",        an id in data/principles.json
+ "observed":  {"date": "2026-10-18", "version": "v0.7.3"},
+ "checked":   {"date": "2026-10-18", "version": "v0.7.3"},
+ "evidence":  "What was seen, measured: sizes, counts, the exact words on the page",
+ "impact":    "Why it matters to the reader, in one or two sentences",
+ "fix":       "The smallest change that removes it",
+ "prototype": null,                           or {"vault": "newsroom-proto-front", "route": "front"}
+ "source":    {"href": "/reviews/…", "label": "Where it was found"},
+ "status_note": "optional: what changed, and in which version"
+}</code></pre>
+<p>Then <code>python3 admin/build/build.py</code> and <code>python3 admin/build/gate.py</code>. The gate fails on a missing field, an unknown site, area or principle, a duplicate id, a date that is not a date, a source link that goes nowhere, or a generated page that is out of date.</p>
+<p>If a finding does not fit any <a href="/principles/">principle</a>, add the principle: it earns its place by having a finding that breaks it.</p>
+<h2 id="rules-for-the-register-itself">Rules for the register itself</h2>
+<ul><li><strong>Measure, then write.</strong> Sizes, counts and the exact words on the page, not impressions of them.</li><li><strong>Date every status.</strong> A finding with no "last checked" is a rumour.</li><li><strong>Name the fix.</strong> A finding without a proposed fix is a complaint; the fix can be wrong, and that is fine.</li><li><strong>Our own work is in scope.</strong> The lab's prototypes and this site are reviewed like any other.</li><li><strong>Content exists once.</strong> The review is published whole and never edited; the register is where status changes.</li></ul>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites fail their readers, measured on the live site, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/method/index.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.1.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

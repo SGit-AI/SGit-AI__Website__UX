@@ -1,0 +1,111 @@
+# ux.sgit.ai: UX, measured
+
+> Where the sgit.ai sites fail their readers, measured on the live site, and what fixes it. A register of UX failures and gaps across the sgit.ai sites, each measured on the
+> live site with a date and version, the principle it breaks, the fix, and (where one exists) a working
+> prototype of the fix in three design directions.
+
+Site version: v0.1.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
+
+## The headline
+
+55 findings across 3 sites: 49 still open, 12 of them high severity, 6 fixed. 36 are failures (something works against the reader) and 19 are gaps (something the reader needs is not there). Every count on this site is generated from /data/findings.json.
+
+## Properties agents may rely on
+
+- /data/findings.json is the register. Every finding page, list, filter and count is generated from it at build, and the gate fails if a page is stale.
+- Every finding has a stable page at /findings/<ID>.html and a markdown twin at /findings/<ID>.md.
+- Every page has a markdown twin: replace .html with .md, or append index.md to a directory URL.
+- /findings/?site=&area=&severity=&status=&kind=&principle=&q= is a linkable filter (comma-separate values for OR).
+- Statuses carry the date and version they were last checked. Nothing here claims to be current beyond that date.
+- /llms-full.txt is the whole site in one fetch.
+
+## The pages
+
+/about/  (/about/index.md)
+  Who writes ux.sgit.ai, why the register is public, what it is not, and the licences.
+/admin/  (/admin/index.md)
+  How ux.sgit.ai is built and checked: the source files, the build, the gate, and what CI enforces.
+/admin/versions.html  (/admin/versions.md)
+  The release history of ux.sgit.ai: each version, its date, what it changed and the files it touched.
+/findings/  (/findings/index.md)
+  The register: every UX failure and gap found on the sgit.ai sites, with status, severity, the principle it breaks and the fix. Filterable, and every filter is a link.
+/  (/index.md)
+  A register of where the sgit.ai sites fail their readers, measured on the live site with a date and a version, the principle each failure breaks, the fix, and a working prototype of it.
+/lab/  (/lab/index.md)
+  Four encrypted vaults that try the newsroom review's fixes as working prototypes, on the real newsroom data, in three design directions each, before anything changes on the live site.
+/method/  (/method/index.md)
+  How a UX finding is made here: the reader's path, the stranger test, the review panel, what severity and status mean, and how to file a finding in the register.
+/principles/  (/principles/index.md)
+  The rules the findings break, each with why it matters, a one-minute test you can run on any page, and the findings that break it.
+/reviews/  (/reviews/index.md)
+  The full UX reviews the findings come from, published whole, with their date, the version reviewed and the method.
+/reviews/newsroom-2026-10-11.html  (/reviews/newsroom-2026-10-11.md)
+  The UX review of newsroom.sgit.ai (v0.6.4, re-checked on v0.7.1) that seeded this site's register: first visit, findability, the article and its feedback, personas, reader primitives, the publishing pipeline and a roadmap.
+
+## The findings
+
+/findings/UX-001.html  [open, high, failure, newsroom.sgit.ai] The first phone screen explains how the site is built, not what it is about
+/findings/UX-002.html  [open, high, failure, newsroom.sgit.ai] The home page is 59 phone screens long, with 845 links
+/findings/UX-024.html  [open, high, failure, newsroom.sgit.ai] All three rating scales start on 3
+/findings/UX-025.html  [open, high, gap, newsroom.sgit.ai] Ratings never reach the author
+/findings/UX-028.html  [open, high, failure, newsroom.sgit.ai] The £5.00 balance chip has no label
+/findings/UX-029.html  [open, high, failure, newsroom.sgit.ai] Opening an article charges a penny with no notice
+/findings/UX-032.html  [open, high, gap, newsroom.sgit.ai] Nothing shows real money moving
+/findings/UX-033.html  [open, high, gap, newsroom.sgit.ai] It is unclear how a writer gets paid
+/findings/UX-034.html  [open, high, gap, newsroom.sgit.ai] No contact for a pilot on the Replicate page
+/findings/UX-037.html  [open, high, failure, newsroom.sgit.ai] Two domains claim to be canonical for the same article
+/findings/UX-044.html  [open, high, failure, newsroom.sgit.ai] The founder page says "the picks above" and no picks render on a phone
+/findings/UX-046.html  [open, high, failure, dev.vault.sgraph.ai] Setting location.hash inside a vault app re-navigates the frame: every link silently dead
+/findings/UX-003.html  [open, medium, gap, newsroom.sgit.ai] The masthead line describes a method, not a subject
+/findings/UX-004.html  [open, medium, failure, newsroom.sgit.ai] The edition label is older than the articles under it
+/findings/UX-008.html  [open, medium, failure, newsroom.sgit.ai] Content is hidden until JavaScript runs
+/findings/UX-009.html  [open, medium, failure, newsroom.sgit.ai] Two navigation bars, and a 60-link menu that mixes reading with building
+/findings/UX-010.html  [open, medium, failure, newsroom.sgit.ai] Missing pages show the default GitHub Pages 404
+/findings/UX-013.html  [open, medium, failure, newsroom.sgit.ai] One topic holds more than half the articles
+/findings/UX-014.html  [open, medium, failure, newsroom.sgit.ai] Tags are not links, and there are no tag pages
+/findings/UX-015.html  [open, medium, gap, newsroom.sgit.ai] Filters cannot be shared
+/findings/UX-016.html  [open, medium, gap, newsroom.sgit.ai] Series are invisible
+/findings/UX-017.html  [open, medium, gap, newsroom.sgit.ai] There is no "start here" path
+/findings/UX-018.html  [open, medium, gap, newsroom.sgit.ai] Cards do not show reading time or format
+/findings/UX-020.html  [open, medium, failure, newsroom.sgit.ai] The best reader feature is buried under metadata and a long italic abstract
+/findings/UX-022.html  [open, medium, failure, newsroom.sgit.ai] The byline names one human; the AI authorship is in the footer
+/findings/UX-023.html  [open, medium, gap, newsroom.sgit.ai] There is no page that says why the publication exists
+/findings/UX-027.html  [open, medium, failure, newsroom.sgit.ai] Articles join the reader's list without being asked
+/findings/UX-030.html  [open, medium, failure, newsroom.sgit.ai] "Credit can go below zero" reads as a debt
+/findings/UX-038.html  [open, medium, failure, newsroom.sgit.ai] Three different article counts
+/findings/UX-043.html  [open, medium, failure, newsroom.sgit.ai] Opening a persona link adds it to the browser without asking
+/findings/UX-045.html  [open, medium, gap, newsroom.sgit.ai] Persona pages are a list, with no story, opinion or next step
+/findings/UX-047.html  [open, medium, failure, dev.vault.sgraph.ai] localStorage throws inside the vault app frame, so reader data is lost on reload
+/findings/UX-005.html  [open, low, failure, newsroom.sgit.ai] The version number is shown three times on the first screen
+/findings/UX-006.html  [open, low, failure, newsroom.sgit.ai] A "For agents /llms.txt" strip sits above the masthead
+/findings/UX-007.html  [open, low, failure, newsroom.sgit.ai] The editor's note is written for someone who read the last two editions
+/findings/UX-011.html  [open, low, failure, newsroom.sgit.ai] Links without extensions in one article
+/findings/UX-012.html  [open, low, failure, newsroom.sgit.ai] Each article ends with seven next steps instead of one
+/findings/UX-019.html  [open, low, gap, newsroom.sgit.ai] Search only matches titles, teasers and tags
+/findings/UX-021.html  [open, low, failure, newsroom.sgit.ai] Author tooling is shown to every reader
+/findings/UX-026.html  [open, low, gap, newsroom.sgit.ai] There is no way to say what was missing
+/findings/UX-031.html  [open, low, failure, newsroom.sgit.ai] "You pay the price" reads as a warning
+/findings/UX-039.html  [open, low, failure, newsroom.sgit.ai] The feed is titled for the old site
+/findings/UX-040.html  [open, low, failure, newsroom.sgit.ai] The study page reports a fixed bug as current
+/findings/UX-048.html  [open, low, gap, dev.vault.sgraph.ai] A vault app can load images and scripts from a site but cannot fetch its data
+/findings/UX-049.html  [open, low, gap, dev.vault.sgraph.ai] Query strings break inside the vault host, so filters must live in the route path
+/findings/UX-052.html  [open, low, failure, newsroom-design-lab] A highlight across paragraphs is cut at the first paragraph
+/findings/UX-053.html  [open, low, gap, newsroom-design-lab] Search results show no snippets
+/findings/UX-054.html  [open, low, gap, newsroom-design-lab] Stacked tables on a phone lose their column labels
+/findings/UX-055.html  [open, low, gap, newsroom-design-lab] "Ask the article" has never run against a real on-device model
+/findings/UX-035.html  [fixed, high, failure, newsroom.sgit.ai] The top-up page said "simulated" while asking for money
+/findings/UX-036.html  [fixed, high, failure, newsroom.sgit.ai] Articles were published on two domains, and diverged
+/findings/UX-041.html  [fixed, high, failure, newsroom.sgit.ai] 51 vault images missing across 10 articles
+/findings/UX-042.html  [fixed, high, gap, newsroom.sgit.ai] Persona links were designed but not live
+/findings/UX-050.html  [fixed, medium, failure, newsroom-design-lab] File-path pills scrolled the whole page sideways at 390 px
+/findings/UX-051.html  [fixed, medium, failure, newsroom-design-lab] Re-rendering the whole view on every save lost the reader's place
+
+## The sibling sites
+
+https://sgit.ai/: the parent project
+https://newsroom.sgit.ai/: the publication this site reviews first
+https://coding.sgit.ai/: how the code is written
+https://nfrs.sgit.ai/: the non-functional requirements, from the inside
+https://graphs.sgit.ai/: semantic graphs and the visual layer
+
+Repository: https://github.com/SGit-AI/SGit-AI__Website__UX

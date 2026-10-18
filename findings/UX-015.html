@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX-015: Filters cannot be shared · ux.sgit.ai</title>
+<meta name="description" content="You cannot send a contact &quot;the security articles&quot;; you can only send the whole list and an instruction.">
+<link rel="canonical" href="https://ux.sgit.ai/findings/UX-015.html">
+<link rel="alternate" type="text/markdown" href="/findings/UX-015.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="UX-015: Filters cannot be shared">
+<meta property="og:description" content="You cannot send a contact &quot;the security articles&quot;; you can only send the whole list and an instruction.">
+<meta property="og:url" content="https://ux.sgit.ai/findings/UX-015.html">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-finding">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/principles/">Principles</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<p><a href="/findings/">Findings</a> / UX-015</p>
+<h1>Filters cannot be shared</h1>
+<p class="finding-head"><span class="badge badge--status-open">Open</span><span class="badge badge--severity-medium">Medium</span><span class="badge badge--kind-gap">Gap</span><span class="finding__site">newsroom.sgit.ai</span></p>
+<h2 id="what-we-saw">What we saw</h2>
+<p>Choosing a topic on the article list does not change the address.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>You cannot send a contact "the security articles"; you can only send the whole list and an instruction.</p>
+<h2 id="the-fix">The fix</h2>
+<p>Put every filter in the address (/articles/?desk=security, or in the path where query strings are not allowed).</p>
+<h2 id="the-record">The record</h2>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>Medium</td></tr><tr><td><strong>Kind</strong></td><td>Gap: something the reader needs is not there</td></tr><tr><td><strong>Site</strong></td><td><a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a></td></tr><tr><td><strong>Where</strong></td><td><a href="https://newsroom.sgit.ai/articles/" rel="noopener">https://newsroom.sgit.ai/articles/</a></td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=findability">Findability</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#every-view-is-a-link">Every view is a link</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-11, v0.6.4</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-11, v0.7.1</td></tr><tr><td><strong>Source</strong></td><td><a href="/reviews/newsroom-2026-10-11.html#findability-and-information-architecture">Review: findability</a></td></tr><tr><td><strong>Prototype</strong></td><td><a href="/lab/#newsroom-proto-find">Findability</a>, route <code>search</code>, in three directions</td></tr></tbody></table></div>
+<p>Previous: <a href="/findings/UX-014.html">UX-014 Tags are not links, and there are no tag pages</a></p>
+<p>Next: <a href="/findings/UX-016.html">UX-016 Series are invisible</a></p>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites fail their readers, measured on the live site, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-015.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.1.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

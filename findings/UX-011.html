@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX-011: Links without extensions in one article · ux.sgit.ai</title>
+<meta name="description" content="They depend on the host resolving extensionless paths; on a strict host or a mirror they break.">
+<link rel="canonical" href="https://ux.sgit.ai/findings/UX-011.html">
+<link rel="alternate" type="text/markdown" href="/findings/UX-011.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="UX-011: Links without extensions in one article">
+<meta property="og:description" content="They depend on the host resolving extensionless paths; on a strict host or a mirror they break.">
+<meta property="og:url" content="https://ux.sgit.ai/findings/UX-011.html">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-finding">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/principles/">Principles</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<p><a href="/findings/">Findings</a> / UX-011</p>
+<h1>Links without extensions in one article</h1>
+<p class="finding-head"><span class="badge badge--status-open">Open</span><span class="badge badge--severity-low">Low</span><span class="badge badge--kind-failure">Failure</span><span class="finding__site">newsroom.sgit.ai</span></p>
+<h2 id="what-we-saw">What we saw</h2>
+<p>future-of-news links to /thesis, /portugal and /economics/rails, unlike every other link on the site.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>They depend on the host resolving extensionless paths; on a strict host or a mirror they break.</p>
+<h2 id="the-fix">The fix</h2>
+<p>Use the full .html or trailing-slash form everywhere; check it at build.</p>
+<h2 id="the-record">The record</h2>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>Low</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Site</strong></td><td><a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a></td></tr><tr><td><strong>Where</strong></td><td><a href="https://newsroom.sgit.ai/articles/future-of-news-story-vault-not-paywall.html" rel="noopener">https://newsroom.sgit.ai/articles/future-of-news-story-vault-not-paywall.html</a></td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=navigation">Navigation</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#no-dead-ends">No dead ends</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-11, v0.6.4</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-11, v0.7.1</td></tr><tr><td><strong>Source</strong></td><td><a href="/reviews/newsroom-2026-10-11.html#bugs-and-broken-things">Review: bugs and broken things</a></td></tr></tbody></table></div>
+<p>Previous: <a href="/findings/UX-010.html">UX-010 Missing pages show the default GitHub Pages 404</a></p>
+<p>Next: <a href="/findings/UX-012.html">UX-012 Each article ends with seven next steps instead of one</a></p>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites fail their readers, measured on the live site, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-011.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.1.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

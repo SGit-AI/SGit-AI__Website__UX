@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX-036: Articles were published on two domains, and diverged · ux.sgit.ai</title>
+<meta name="description" content="The same publication was more complete on the wrong site.">
+<link rel="canonical" href="https://ux.sgit.ai/findings/UX-036.html">
+<link rel="alternate" type="text/markdown" href="/findings/UX-036.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="UX-036: Articles were published on two domains, and diverged">
+<meta property="og:description" content="The same publication was more complete on the wrong site.">
+<meta property="og:url" content="https://ux.sgit.ai/findings/UX-036.html">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-finding">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/principles/">Principles</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<p><a href="/findings/">Findings</a> / UX-036</p>
+<h1>Articles were published on two domains, and diverged</h1>
+<p class="finding-head"><span class="badge badge--status-fixed">Fixed</span><span class="badge badge--severity-high">High</span><span class="badge badge--kind-failure">Failure</span><span class="finding__site">newsroom.sgit.ai</span></p>
+<h2 id="what-we-saw">What we saw</h2>
+<p>sgit.ai/articles/ served five 11 October articles (e.g. no-server-by-design, the-agent-is-the-reader) that returned 404 on newsroom.sgit.ai.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>The same publication was more complete on the wrong site.</p>
+<h2 id="the-fix">The fix</h2>
+<p>Publish once to the newsroom; make sgit.ai link or redirect there.</p>
+<h2 id="the-record">The record</h2>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Fixed. Fixed in v0.7.1: all six 11 October articles are live on the newsroom; the count is 73.</td></tr><tr><td><strong>Severity</strong></td><td>High</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Site</strong></td><td><a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a></td></tr><tr><td><strong>Where</strong></td><td><a href="https://sgit.ai/articles/" rel="noopener">https://sgit.ai/articles/</a></td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=consistency">Consistency</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#one-source-of-truth">One source of truth for every fact</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-11, v0.6.4</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-11, v0.7.1</td></tr><tr><td><strong>Source</strong></td><td><a href="/reviews/newsroom-2026-10-11.html#bugs-and-broken-things">Review: bugs and broken things</a></td></tr></tbody></table></div>
+<p>Previous: <a href="/findings/UX-035.html">UX-035 The top-up page said "simulated" while asking for money</a></p>
+<p>Next: <a href="/findings/UX-037.html">UX-037 Two domains claim to be canonical for the same article</a></p>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites fail their readers, measured on the live site, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-036.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.1.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

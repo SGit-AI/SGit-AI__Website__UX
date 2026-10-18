@@ -1,0 +1,319 @@
+{
+ "what": "The Newsroom Design Lab: its vaults (published read keys, read only), the three design directions, the screenshots shown on /lab/, and the decisions it exists to settle. Vaults and decisions are copied from the lab hub vault (3bf2p46v, data/vaults.json and data/proposals/decisions.json, v0.1.1).",
+ "published": "2026-10-11",
+ "kit": "v0.1.3",
+ "open_url": "https://dev.vault.sgraph.ai/#",
+ "vaults": [
+  {
+   "slug": "newsroom-design-lab",
+   "id": "3bf2p46v",
+   "title": "The lab",
+   "role": "hub",
+   "read_key": "sgit_public_read_b7d938b9d9c57853ed28015309f0c7ff5537da9667bf4b4da16688df892e7297:3bf2p46v",
+   "answers": "The brief, the three directions, the map from review to prototype, the decisions, the reviews."
+  },
+  {
+   "slug": "newsroom-proto-front",
+   "id": "m1m66ace",
+   "title": "Front page & personas",
+   "role": "prototype",
+   "read_key": "sgit_public_read_47f49bdabb39be07282e69f4f88cb1323ebb9c94875f7f626bff62d8e70502ea:m1m66ace",
+   "routes": [
+    "front",
+    "first-screen",
+    "personas",
+    "persona/founder",
+    "purpose",
+    "masthead",
+    "menu"
+   ],
+   "answers": "First visit; a publication with a heart; the purpose page; publication and workshop; personas as the core primitive; the founder mini-site."
+  },
+  {
+   "slug": "newsroom-proto-article",
+   "id": "vdcj8hpl",
+   "title": "Article & reader primitives",
+   "role": "prototype",
+   "read_key": "sgit_public_read_4b40a9541792eeb2052ccdcc425e14ebcb739438b66b463044856648fd6bad78:vdcj8hpl",
+   "routes": [
+    "articles",
+    "article/hope-or-enforcement",
+    "feedback",
+    "ask",
+    "board",
+    "record"
+   ],
+   "answers": "The article page reordered; the short version first; the side column; highlights and notes; ratings that start unselected; ask the article; the reading board; the reader's record."
+  },
+  {
+   "slug": "newsroom-proto-find",
+   "id": "xvq3z35u",
+   "title": "Findability",
+   "role": "prototype",
+   "read_key": "sgit_public_read_2d4ca142def8d0e089fcddcf5b7ef529ec01d8152d7553c7605bf0100cba4c56:xvq3z35u",
+   "routes": [
+    "find",
+    "desks",
+    "desk/security",
+    "series",
+    "tags",
+    "search",
+    "archive",
+    "cards",
+    "catalogue-audit"
+   ],
+   "answers": "Five desks by audience; 42 controlled tags from 339 raw ones; 11 series with part numbers; linkable search; reading time and format on every card; the Librarian's audit."
+  }
+ ],
+ "directions": [
+  {
+   "id": "broadsheet",
+   "label": "A · Broadsheet",
+   "idea": "A serious publication. Editorial hierarchy, one lead, a named author with a stated purpose.",
+   "looks": "Serif headlines, warm paper, rules between columns, kickers, restrained colour. FT / Guardian long-read feel."
+  },
+  {
+   "id": "briefing",
+   "label": "B · Briefing",
+   "idea": "Answers first. Every unit opens with the news in two sentences, then labelled blocks: the news, our view, the evidence, room for disagreement.",
+   "looks": "Sans, compact cards with reading time and format, bold labels, one accent colour. Semafor / Axios feel."
+  },
+  {
+   "id": "desk",
+   "label": "C · Your desk",
+   "idea": "The reader's own newsroom. The persona is the front page; the board, highlights, notes and questions are first-class.",
+   "looks": "App-like: left rail, side column, chips and progress. Readwise / Arc feel."
+  }
+ ],
+ "compare": [
+  {
+   "id": "first-screen",
+   "vault": "newsroom-proto-front",
+   "route": "first-screen",
+   "title": "The first phone screen, today against the proposal",
+   "tests": "Arrive: does a stranger know in one screen what this is?"
+  },
+  {
+   "id": "front",
+   "vault": "newsroom-proto-front",
+   "route": "front",
+   "title": "The front page as the neutral persona",
+   "tests": "Arrive: lead, doors and desks instead of 59 screens"
+  },
+  {
+   "id": "persona-founder",
+   "vault": "newsroom-proto-front",
+   "route": "persona/founder",
+   "title": "The founder mini-site",
+   "tests": "Arrive through a persona link: story, note, start here, sections"
+  },
+  {
+   "id": "article-hope-or-enforcement",
+   "vault": "newsroom-proto-article",
+   "route": "article/hope-or-enforcement",
+   "title": "An article, reordered",
+   "tests": "Read: short version first, byline that says how it was made"
+  },
+  {
+   "id": "feedback",
+   "vault": "newsroom-proto-article",
+   "route": "feedback",
+   "title": "Feedback that starts empty and reaches someone",
+   "tests": "Rate: unselected scales, consent, a receipt"
+  },
+  {
+   "id": "board",
+   "vault": "newsroom-proto-article",
+   "route": "board",
+   "title": "The reading board",
+   "tests": "Return: New, Reading, Follow-up, Done"
+  },
+  {
+   "id": "desk-security",
+   "vault": "newsroom-proto-find",
+   "route": "desk/security",
+   "title": "A desk page: start here, series, the rest",
+   "tests": "Find: a way in chosen by audience"
+  },
+  {
+   "id": "search",
+   "vault": "newsroom-proto-find",
+   "route": "search",
+   "title": "Search with the filters in the address",
+   "tests": "Find and share: every result set is a link"
+  }
+ ],
+ "decisions": [
+  {
+   "id": "direction",
+   "question": "Which direction should the live front page take?",
+   "why": "Everything else follows from it: type, density, how much the reader's own data shows.",
+   "options": [
+    {
+     "id": "broadsheet",
+     "label": "A · Broadsheet"
+    },
+    {
+     "id": "briefing",
+     "label": "B · Briefing"
+    },
+    {
+     "id": "desk",
+     "label": "C · Your desk"
+    },
+    {
+     "id": "mix",
+     "label": "Mix: A for the publication, C for a signed-in reader"
+    }
+   ],
+   "where": [
+    {
+     "vault": "newsroom-proto-front",
+     "route": "front"
+    }
+   ]
+  },
+  {
+   "id": "masthead",
+   "question": "Which masthead line names the heart?",
+   "why": "The tagline today describes a method, not a subject.",
+   "options": [
+    {
+     "id": "field-notes",
+     "label": "Field notes on AI agents, security and the next generation of publishing, by Dinis Cruz"
+    },
+    {
+     "id": "open-thinking",
+     "label": "Open thinking on agentic AI: what to build, how to secure it, and how to ship it"
+    },
+    {
+     "id": "in-the-open",
+     "label": "The agentic era, written in the open"
+    }
+   ],
+   "where": [
+    {
+     "vault": "newsroom-proto-front",
+     "route": "masthead"
+    }
+   ]
+  },
+  {
+   "id": "doors",
+   "question": "How many doors on the first screen?",
+   "why": "Three is easier to choose from; five covers everyone you send links to.",
+   "options": [
+    {
+     "id": "three",
+     "label": "Three (security, builders, news)"
+    },
+    {
+     "id": "five",
+     "label": "Five personas plus 'just looking'"
+    }
+   ],
+   "where": [
+    {
+     "vault": "newsroom-proto-front",
+     "route": "front"
+    }
+   ]
+  },
+  {
+   "id": "article-top",
+   "question": "What opens every article?",
+   "why": "Readers have three minutes on a phone; the median article is about 4,500 words.",
+   "options": [
+    {
+     "id": "in-brief",
+     "label": "A boxed 'In brief' (the Explainer's short version)"
+    },
+    {
+     "id": "semaform",
+     "label": "Labelled blocks: the news, our view, the evidence, room for disagreement"
+    },
+    {
+     "id": "side-column",
+     "label": "The article with the reader's side column"
+    }
+   ],
+   "where": [
+    {
+     "vault": "newsroom-proto-article",
+     "route": "article/hope-or-enforcement"
+    }
+   ]
+  },
+  {
+   "id": "feedback",
+   "question": "How should a rating reach you?",
+   "why": "Today it stays in the reader's browser unless they send their whole reading.",
+   "options": [
+    {
+     "id": "one-tap",
+     "label": "One tap, anonymous, with plain consent"
+    },
+    {
+     "id": "with-email",
+     "label": "One tap, with an optional email for a reply"
+    },
+    {
+     "id": "batch",
+     "label": "Kept locally, sent weekly with the reader's consent"
+    }
+   ],
+   "where": [
+    {
+     "vault": "newsroom-proto-article",
+     "route": "feedback"
+    }
+   ]
+  },
+  {
+   "id": "desks",
+   "question": "Desks by audience or by subject?",
+   "why": "Topics today overlap and one holds 38 of 73 articles.",
+   "options": [
+    {
+     "id": "audience",
+     "label": "Five desks by audience (proposed)"
+    },
+    {
+     "id": "topics",
+     "label": "Keep the six topics, add tag pages"
+    }
+   ],
+   "where": [
+    {
+     "vault": "newsroom-proto-find",
+     "route": "desks"
+    },
+    {
+     "vault": "newsroom-proto-find",
+     "route": "catalogue-audit"
+    }
+   ]
+  },
+  {
+   "id": "board",
+   "question": "Ship the reading board in the first release?",
+   "why": "It gives a returning reader a reason to come back, and it is the most app-like piece.",
+   "options": [
+    {
+     "id": "yes",
+     "label": "Yes, on every persona page"
+    },
+    {
+     "id": "later",
+     "label": "Later, once ratings flow"
+    }
+   ],
+   "where": [
+    {
+     "vault": "newsroom-proto-article",
+     "route": "board"
+    }
+   ]
+  }
+ ]
+}

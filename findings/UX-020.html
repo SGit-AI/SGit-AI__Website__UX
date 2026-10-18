@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX-020: The best reader feature is buried under metadata and a long italic abstract · ux.sgit.ai</title>
+<meta name="description" content="The short version that would let a reader decide is found only by those who already decided to read.">
+<link rel="canonical" href="https://ux.sgit.ai/findings/UX-020.html">
+<link rel="alternate" type="text/markdown" href="/findings/UX-020.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="UX-020: The best reader feature is buried under metadata and a long italic abstract">
+<meta property="og:description" content="The short version that would let a reader decide is found only by those who already decided to read.">
+<meta property="og:url" content="https://ux.sgit.ai/findings/UX-020.html">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-finding">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/principles/">Principles</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<p><a href="/findings/">Findings</a> / UX-020</p>
+<h1>The best reader feature is buried under metadata and a long italic abstract</h1>
+<p class="finding-head"><span class="badge badge--status-open">Open</span><span class="badge badge--severity-medium">Medium</span><span class="badge badge--kind-failure">Failure</span><span class="finding__site">newsroom.sgit.ai</span></p>
+<h2 id="what-we-saw">What we saw</h2>
+<p>On the lead article (about 8,000 words) a phone reader scrolls past a three-line breadcrumb, a byline with two version numbers, 12 tag pills and a 250-word italic abstract before reaching the "Five readers" block.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>The short version that would let a reader decide is found only by those who already decided to read.</p>
+<h2 id="the-fix">The fix</h2>
+<p>Title and standfirst; a byline that says how it was made, date and reading time; the short version in three or four sentences; reader views as one row; then the article. Tags and versions to the foot.</p>
+<h2 id="the-record">The record</h2>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>Medium</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Site</strong></td><td><a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a></td></tr><tr><td><strong>Where</strong></td><td><a href="https://newsroom.sgit.ai/articles/hope-or-enforcement.html" rel="noopener">https://newsroom.sgit.ai/articles/hope-or-enforcement.html</a></td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=article">Article page</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#length-before-commitment">Say how long, and what kind, before the reader commits</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-11, v0.6.4</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-11, v0.7.1</td></tr><tr><td><strong>Source</strong></td><td><a href="/reviews/newsroom-2026-10-11.html#article-page-and-feedback">Review: article page and feedback</a></td></tr><tr><td><strong>Prototype</strong></td><td><a href="/lab/#newsroom-proto-article">Article &amp; reader primitives</a>, route <code>article/hope-or-enforcement</code>, in three directions</td></tr></tbody></table></div>
+<p>Previous: <a href="/findings/UX-019.html">UX-019 Search only matches titles, teasers and tags</a></p>
+<p>Next: <a href="/findings/UX-021.html">UX-021 Author tooling is shown to every reader</a></p>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites fail their readers, measured on the live site, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-020.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.1.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>
