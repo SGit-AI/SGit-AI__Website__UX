@@ -41,13 +41,14 @@ python3 -m http.server 8000      # then open http://localhost:8000/</code></pre>
 <ul><li>any generated file is stale (the build is re-run and compared byte for byte), or any <code>.html</code> in the tree is not generated;</li><li>a finding is missing a field, uses an unknown product, area, problem, visibility, recommendation, kind, severity, status or principle, repeats an id, has a date that is not a date, or attaches an image that is missing or has no alt text;</li><li>a principle, problem, visibility or recommendation has no finding that uses it;</li><li>an internal link or <code>#anchor</code> on any page goes nowhere, or a page has no markdown twin;</li><li>a colour is written anywhere but the token block at the top of <code>assets/site.css</code>;</li><li>the version disagrees between <code>data/versions.json</code>, the pages, <code>llms.txt</code> and <code>index.md</code>;</li><li>a lab screenshot named in <code>data/lab.json</code> is missing, or a credential that is not a published read key appears in a tracked file.</li></ul>
 <h2 id="versions">Versions</h2>
 <p>The version is shown once, in the footer, and links to <a href="/admin/versions.html">what changed</a>.</p>
+<p>Each release bumps the last number (v0.4.0 → v0.4.1), unless the project lead asks for a larger step. Every release gets an entry in <code>data/versions.json</code> naming what changed and the files it touched.</p>
 </div>
 </main>
 <script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
 <footer class="site-foot">
   <div class="wrap">
     <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites, and the browsers and platforms they are read on, fail their readers, measured, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
-    <p><a href="/admin/index.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.4.0</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p><a href="/admin/index.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.4.1</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
     <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
   </div>
 </footer>

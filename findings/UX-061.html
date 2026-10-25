@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX-061: Three voice controls with no labels: the safe one and the send-as-is one sit side by side · ux.sgit.ai</title>
+<meta name="description" content="Every first use is a guess, and the guess has consequences: a wrong tap either destroys the recording (UX-060) or sends a message full of transcription errors to an agent that will act on it.">
+<link rel="canonical" href="https://ux.sgit.ai/findings/UX-061.html">
+<link rel="alternate" type="text/markdown" href="/findings/UX-061.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="UX-061: Three voice controls with no labels: the safe one and the send-as-is one sit side by side">
+<meta property="og:description" content="Every first use is a guess, and the guess has consequences: a wrong tap either destroys the recording (UX-060) or sends a message full of transcription errors to an agent that will act on it.">
+<meta property="og:url" content="https://ux.sgit.ai/findings/UX-061.html">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-finding">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/browse/">Browse</a></li><li><a href="/principles/">Principles</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<p><a href="/findings/">Findings</a> / UX-061</p>
+<h1>Three voice controls with no labels: the safe one and the send-as-is one sit side by side</h1>
+<p class="finding-head"><span class="badge badge--status-open">Open</span><span class="badge badge--severity-medium">Medium</span><span class="badge badge--kind-failure">Failure</span><span class="finding__site">Claude app (iPhone and iPad)</span></p>
+<h2 id="what-we-saw">What we saw</h2>
+<p>Of the three buttons, the square is the one you usually want: it stops recording and puts the transcript in the box to correct, which dictated text nearly always needs. The up arrow, right next to it, sends the transcript as is, uncorrected. Nothing (label, tooltip, first-use hint) says which does what; the reporter learned all three by trial and error.</p>
+<figure class="evidence"><a href="/findings/img/UX-060-voice-input-controls.webp"><img src="/findings/img/UX-060-voice-input-controls.webp" alt="Claude app on iPad while dictating: the transcript so far in the message box, a waveform, an X button on the left, a square button and an orange up-arrow button side by side on the right, none of them labelled" loading="lazy"></a><figcaption>The square (stop and edit) and the up arrow (send as is) are adjacent and unlabelled.</figcaption></figure>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Every first use is a guess, and the guess has consequences: a wrong tap either destroys the recording (UX-060) or sends a message full of transcription errors to an agent that will act on it.</p>
+<h2 id="the-fix">The fix</h2>
+<p>Label the buttons ("Discard", "Stop and edit", "Send"), at least until they have been used a few times. Make "Stop and edit" the visually primary action, and put space between it and "Send".</p>
+<h2 id="the-record">The record</h2>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>Medium</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Product</strong></td><td><a href="/findings/?product=claude-app-ios">Claude app (iPhone and iPad)</a>, app</td></tr><tr><td><strong>Where</strong></td><td>Message box, voice input</td></tr><tr><td><strong>Problems</strong></td><td><a href="/findings/?problem=unlabelled">Unlabelled</a>, <a href="/findings/?problem=uninformed-decision">Uninformed decision</a></td></tr><tr><td><strong>Visibility</strong></td><td><a href="/findings/?visibility=obvious">Obvious</a>: every reader sees it, every time they reach that point</td></tr><tr><td><strong>Recommendation</strong></td><td><a href="/findings/?recommendation=say-what-it-is">Say what it is</a>: label it, in the reader's terms, at the moment it matters</td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=input">Input and dictation</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#informed-decisions">A decision comes with what you need to make it</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-25, not recorded</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-25, not recorded</td></tr><tr><td><strong>Environment</strong></td><td>Claude app on iPad, landscape, dictating a message into a Claude Code session</td></tr><tr><td><strong>Source</strong></td><td><a href="/method/#reports-from-readers">Reported by Dinis Cruz, 25 Oct 2026, by voice, with a screenshot</a></td></tr></tbody></table></div>
+<p>Previous: <a href="/findings/UX-060.html">UX-060 One unlabelled X throws away the whole recording, with no confirmation</a></p>
+<p>Next: <a href="/findings/UX-062.html">UX-062 The transcript is cleaned up in a second pass without saying when, or what changed</a></p>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites, and the browsers and platforms they are read on, fail their readers, measured, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-061.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.4.1</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

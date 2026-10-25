@@ -7,6 +7,11 @@
             "what": "The reader is asked to decide without what they need to judge it: what it does, what it touches, what could go wrong"
         },
         {
+            "id": "missing-feedback",
+            "label": "Missing feedback",
+            "what": "No sign of what the system is doing, so the reader cannot tell progress from failure"
+        },
+        {
             "id": "unexpected-movement",
             "label": "Unexpected movement",
             "what": "Part of the interface moves when the reader did not move it"
@@ -159,6 +164,21 @@
             "id": "explain-the-decision",
             "label": "Explain the decision",
             "what": "Before asking, say in plain words what will happen, what it touches, whether it can be undone and why it is being asked, with the raw detail one tap away"
+        },
+        {
+            "id": "confirm-or-undo",
+            "label": "Confirm or undo",
+            "what": "A destructive action either asks first or can be undone, and the safe choice is the easy one"
+        },
+        {
+            "id": "show-the-state",
+            "label": "Show the state",
+            "what": "Always show what the system is doing (listening, working, paused, failed) and keep what was captured until it is safely delivered"
+        },
+        {
+            "id": "show-what-changed",
+            "label": "Show what changed",
+            "what": "When the system rewrites what the reader made, mark it, and let them see and undo the change"
         },
         {
             "id": "keep-the-ui-still",

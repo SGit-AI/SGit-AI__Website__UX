@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX-063: The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording · ux.sgit.ai</title>
+<meta name="description" content="The reader has to keep a mental check running while they speak, watching for words to appear, and stops trusting the tool whenever they do not. When it fails the recording cannot be recovered or resubmitted, so the loss is total.">
+<link rel="canonical" href="https://ux.sgit.ai/findings/UX-063.html">
+<link rel="alternate" type="text/markdown" href="/findings/UX-063.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="UX-063: The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording">
+<meta property="og:description" content="The reader has to keep a mental check running while they speak, watching for words to appear, and stops trusting the tool whenever they do not. When it fails the recording cannot be recovered or resubmitted, so the loss is total.">
+<meta property="og:url" content="https://ux.sgit.ai/findings/UX-063.html">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-finding">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/browse/">Browse</a></li><li><a href="/principles/">Principles</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<p><a href="/findings/">Findings</a> / UX-063</p>
+<h1>The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording</h1>
+<p class="finding-head"><span class="badge badge--status-open">Open</span><span class="badge badge--severity-high">High</span><span class="badge badge--kind-failure">Failure</span><span class="finding__site">Claude app (iPhone and iPad)</span></p>
+<h2 id="what-we-saw">What we saw</h2>
+<p>Mid-dictation the live transcript can stop updating while the waveform keeps moving, so there is no way to know whether the rest is being captured. Sometimes pressing the square then shows the missing text after a "transcribing" step; sometimes it has been lost. The reporter puts it at roughly half the time it stalls, and has lost "quite a lot of voice memos" this way. The audio is never offered back for a retry.</p>
+<figure class="evidence"><a href="/findings/img/UX-060-voice-input-controls.webp"><img src="/findings/img/UX-060-voice-input-controls.webp" alt="Claude app on iPad while dictating: the transcript so far in the message box, a waveform, an X button on the left, a square button and an orange up-arrow button side by side on the right, none of them labelled" loading="lazy"></a><figcaption>Mid-dictation: the transcript ends at &quot;usability&quot; while the waveform keeps moving. Is the rest being recorded? Nothing says.</figcaption></figure>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>The reader has to keep a mental check running while they speak, watching for words to appear, and stops trusting the tool whenever they do not. When it fails the recording cannot be recovered or resubmitted, so the loss is total.</p>
+<h2 id="the-fix">The fix</h2>
+<p>Show the state explicitly: "Live transcript paused, audio still recording" when the live pass stalls, and a clear error if capture itself stops. Keep the audio on the device until the final transcript is in the box, and offer "Transcribe again" when it fails.</p>
+<p><strong>What good looks like:</strong> <a href="/exemplars/EX-002.html">EX-002 Dictation that shows your words as you speak them</a>.</p>
+<h2 id="the-record">The record</h2>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>High</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Product</strong></td><td><a href="/findings/?product=claude-app-ios">Claude app (iPhone and iPad)</a>, app</td></tr><tr><td><strong>Where</strong></td><td>Message box, voice input</td></tr><tr><td><strong>Problems</strong></td><td><a href="/findings/?problem=missing-feedback">Missing feedback</a>, <a href="/findings/?problem=data-loss">Data loss</a></td></tr><tr><td><strong>Visibility</strong></td><td><a href="/findings/?visibility=intermittent">Intermittent</a>: some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand</td></tr><tr><td><strong>Recommendation</strong></td><td><a href="/findings/?recommendation=show-the-state">Show the state</a>: always show what the system is doing (listening, working, paused, failed) and keep what was captured until it is safely delivered</td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=input">Input and dictation</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#system-state-is-visible">The reader can always tell what the system is doing</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-25, not recorded</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-25, not recorded</td></tr><tr><td><strong>Environment</strong></td><td>Claude app on iPad, landscape, dictating a message into a Claude Code session</td></tr><tr><td><strong>Source</strong></td><td><a href="/method/#reports-from-readers">Reported by Dinis Cruz, 25 Oct 2026, by voice, with a screenshot</a></td></tr></tbody></table></div>
+<p>Previous: <a href="/findings/UX-062.html">UX-062 The transcript is cleaned up in a second pass without saying when, or what changed</a></p>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites, and the browsers and platforms they are read on, fail their readers, measured, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-063.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.4.1</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

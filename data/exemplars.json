@@ -40,6 +40,34 @@
      "caption": "After a small scroll, at any speed: a small address pill. The page has moved by two lines."
     }
    ]
+  },
+  {
+   "id": "EX-002",
+   "title": "Dictation that shows your words as you speak them",
+   "product": "claude-app-ios",
+   "where": "Message box, voice input",
+   "environment": "Claude app on iPad, landscape, dictating a message into a Claude Code session",
+   "observed": {
+    "date": "2026-10-25",
+    "version": "not recorded"
+   },
+   "checked": {
+    "date": "2026-10-25",
+    "version": "not recorded"
+   },
+   "principle": "system-state-is-visible",
+   "recommendation": "show-the-state",
+   "answers": [
+    "UX-063"
+   ],
+   "what": "While you dictate, the Claude app writes the transcript into the message box as you speak, then refines it in a second pass when you stop. The first pass is rough, but it is immediate.",
+   "why": "Seeing your words appear is proof that they are being captured. It is the reason the reporter uses this input over others: as long as the text keeps appearing, they know the recording is safe, and they can keep their attention on what they are saying.",
+   "still": "When the live pass stalls (UX-063), the proof disappears with no explanation, and the second pass rewrites text without showing what changed (UX-062). The feedback is the right idea; it needs to cover the failure cases too.",
+   "source": {
+    "href": "/method/#reports-from-readers",
+    "label": "Reported by Dinis Cruz, 25 Oct 2026, by voice, with a screenshot"
+   },
+   "images": []
   }
  ]
 }

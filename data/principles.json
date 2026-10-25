@@ -9,6 +9,20 @@
             "test": "Show the prompt to someone for five seconds. Can they say what will happen if they press each button? If they would need to read code to answer, the prompt has failed."
         },
         {
+            "id": "work-is-never-lost",
+            "title": "Work is never lost to one tap or a silent failure",
+            "rule": "What the reader has made (a recording, a draft, a note) cannot be destroyed by a single unlabelled tap, and is kept when something fails. Destructive actions ask first or can be undone; failures keep the raw capture and offer a retry.",
+            "why": "Losing work once teaches the reader to distrust the whole tool. From then on they spend attention guarding against the tool instead of using it, and some stop using it at all.",
+            "test": "Make something, then press every button that could end the flow. Can any one tap destroy it without asking? Cut the network halfway: is what you made still there?"
+        },
+        {
+            "id": "system-state-is-visible",
+            "title": "The reader can always tell what the system is doing",
+            "rule": "At every moment the interface shows whether it is listening, working, paused, done or failed. A process that stops shows that it stopped; it never just goes quiet.",
+            "why": "Silence is ambiguous. Without a visible state the reader cannot tell a slow system from a broken one, so they either wait for something that will never come or abandon something that was working.",
+            "test": "Start a long operation and watch it. If it stalled now, would anything on screen change? Can you tell \"still working\" from \"failed\" without waiting for the end?"
+        },
+        {
             "id": "stranger-first-screen",
             "title": "The first screen is for a stranger",
             "rule": "On a phone, the first screen says what this is, who it is for, and where to go next. The lead is on it. Chrome, metadata and method come after.",

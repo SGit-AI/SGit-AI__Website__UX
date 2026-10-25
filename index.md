@@ -10,9 +10,9 @@
 <a class="door" href="/lab/"><span class="door__title">Show me the fixes</span><span class="door__body">The Newsroom Design Lab: four vaults trying the fixes on real data, in three design directions.</span></a>
 </div>
 
-- **59** findings in the register
-- **51** still open
-- **14** open and high severity
+- **63** findings in the register
+- **55** still open
+- **16** open and high severity
 - **8** fixed, with the version that fixed it
 
 ## Open, and high severity
@@ -31,10 +31,12 @@ These lose a reader or a reader's trust on the first visit. Each links to its ev
 - [UX-044](/findings/UX-044.md) · high · open · The founder page says "the picks above" and no picks render on a phone (newsroom.sgit.ai)
 - [UX-046](/findings/UX-046.md) · high · open · Setting location.hash inside a vault app re-navigates the frame: every link silently dead (dev.vault.sgraph.ai)
 - [UX-056](/findings/UX-056.md) · high · open · Scrolling back up a little puts focus in the address bar and opens the keyboard (Firefox on iPad)
-- [UX-059](/findings/UX-059.md) · high · open · A security prompt that asks you to approve a command it does not explain, and cuts off (Claude app on iPhone)
+- [UX-059](/findings/UX-059.md) · high · open · A security prompt that asks you to approve a command it does not explain, and cuts off (Claude app (iPhone and iPad))
+- [UX-060](/findings/UX-060.md) · high · open · One unlabelled X throws away the whole recording, with no confirmation (Claude app (iPhone and iPad))
+- [UX-063](/findings/UX-063.md) · high · open · The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording (Claude app (iPhone and iPad))
 - [UX-028](/findings/UX-028.md) · high · partly fixed · The £5.00 balance chip has no label (newsroom.sgit.ai)
 
-[All 59 findings →](/findings/index.md)
+[All 63 findings →](/findings/index.md)
 
 ## By product
 
@@ -46,7 +48,7 @@ Whose fault it is. Most findings are on our own sites; some belong to the platfo
 | dev.vault.sgraph.ai | [4](/findings/?product=dev.vault.sgraph.ai) | 4 | The vault host: opens a vault by its key and runs its app in a sandboxed frame (platform) |
 | Newsroom Design Lab | [6](/findings/?product=newsroom-design-lab) | 4 | This site's own prototypes: four vaults trying the newsroom fixes in three directions |
 | Firefox on iPad | [3](/findings/?product=firefox-ipad) | 3 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
-| Claude app on iPhone | [1](/findings/?product=claude-app-iphone) | 1 | The Claude app on iOS, used here to run and supervise Claude Code sessions (app) |
+| Claude app (iPhone and iPad) | [5](/findings/?product=claude-app-ios) | 5 | The Claude app on iOS and iPadOS, used here to run and supervise Claude Code sessions, often by voice (app) |
 
 ## How a finding gets here
 

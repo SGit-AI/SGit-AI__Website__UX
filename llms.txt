@@ -4,11 +4,11 @@
 > live site with a date and version, the principle it breaks, the fix, and (where one exists) a working
 > prototype of the fix in three design directions.
 
-Site version: v0.4.0 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
+Site version: v0.4.1 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
 
 ## The headline
 
-59 findings across 5 products: 51 still open, 14 of them high severity, 8 fixed. 40 are failures (something works against the reader) and 19 are gaps (something the reader needs is not there). Every count on this site is generated from /data/findings.json.
+63 findings across 5 products: 55 still open, 16 of them high severity, 8 fixed. 44 are failures (something works against the reader) and 19 are gaps (something the reader needs is not there). Every count on this site is generated from /data/findings.json.
 
 ## Properties agents may rely on
 
@@ -32,6 +32,8 @@ Site version: v0.4.0 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: D
   Every index of the register in one place: by product, area, problem, visibility, recommendation, principle, severity, status and kind, each value with its count and a link to the filtered list.
 /exemplars/EX-001.html  (/exemplars/EX-001.md)
   It is predictable. The trigger is a small distance scrolled, which the reader controls, not the speed of the gesture, so it behaves the same every time and is learned after one or two uses. The collapsed state is small enough to be a fair trade for the space, and getting there costs only a couple of lines of scroll, so the reader never loses their place to reach it.
+/exemplars/EX-002.html  (/exemplars/EX-002.md)
+  Seeing your words appear is proof that they are being captured. It is the reason the reporter uses this input over others: as long as the text keeps appearing, they know the recording is safe, and they can keep their attention on what they are saying.
 /exemplars/  (/exemplars/index.md)
   Things that work, each kept as the reference for the findings it answers: measured like a finding, with why it works and what it still does not do.
 /findings/  (/findings/index.md)
@@ -63,7 +65,9 @@ Site version: v0.4.0 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-044.html  [open, high, newsroom.sgit.ai, hidden-until-script+dead-end, intermittent, render-on-first-load] The founder page says "the picks above" and no picks render on a phone
 /findings/UX-046.html  [open, high, dev.vault.sgraph.ai, host-trap+dead-end, silent, design-for-the-host] Setting location.hash inside a vault app re-navigates the frame: every link silently dead
 /findings/UX-056.html  [open, high, firefox-ipad, focus-hijack+unexpected-movement+wrong-culprit, intermittent, keep-the-ui-still] Scrolling back up a little puts focus in the address bar and opens the keyboard
-/findings/UX-059.html  [open, high, claude-app-iphone, uninformed-decision+buried-content+missing-signal, obvious, explain-the-decision] A security prompt that asks you to approve a command it does not explain, and cuts off
+/findings/UX-059.html  [open, high, claude-app-ios, uninformed-decision+buried-content+missing-signal, obvious, explain-the-decision] A security prompt that asks you to approve a command it does not explain, and cuts off
+/findings/UX-060.html  [open, high, claude-app-ios, data-loss+unlabelled, obvious, confirm-or-undo] One unlabelled X throws away the whole recording, with no confirmation
+/findings/UX-063.html  [open, high, claude-app-ios, missing-feedback+data-loss, intermittent, show-the-state] The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording
 /findings/UX-008.html  [open, medium, newsroom.sgit.ai, hidden-until-script, intermittent, render-on-first-load] Content is hidden until JavaScript runs
 /findings/UX-009.html  [open, medium, newsroom.sgit.ai, overload+builder-chrome, obvious, move-to-the-workshop] Two navigation bars, and a 60-link menu that mixes reading with building
 /findings/UX-010.html  [open, medium, newsroom.sgit.ai, dead-end, intermittent, build-the-way-in] Missing pages show the default GitHub Pages 404
@@ -84,6 +88,7 @@ Site version: v0.4.0 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-047.html  [open, medium, dev.vault.sgraph.ai, host-trap+data-loss, intermittent, design-for-the-host] localStorage throws inside the vault app frame, so reader data is lost on reload
 /findings/UX-057.html  [open, medium, firefox-ipad, unexpected-movement+lost-screen-space, obvious, keep-the-ui-still] The toolbars come back on any small scroll up, taking screen and moving the page
 /findings/UX-058.html  [open, medium, firefox-ipad, unpredictable-control+unexpected-movement+lost-screen-space, intermittent, make-it-predictable] Whether the toolbars hide depends on how fast you scroll, not how far
+/findings/UX-061.html  [open, medium, claude-app-ios, unlabelled+uninformed-decision, obvious, say-what-it-is] Three voice controls with no labels: the safe one and the send-as-is one sit side by side
 /findings/UX-005.html  [open, low, newsroom.sgit.ai, builder-chrome, subtle, move-to-the-workshop] The version number is shown three times on the first screen
 /findings/UX-006.html  [open, low, newsroom.sgit.ai, builder-chrome+buried-content, obvious, move-to-the-workshop] A "For agents /llms.txt" strip sits above the masthead
 /findings/UX-007.html  [open, low, newsroom.sgit.ai, missing-signal, subtle, write-for-a-stranger] The editor's note is written for someone who read the last two editions
@@ -101,6 +106,7 @@ Site version: v0.4.0 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-053.html  [open, low, newsroom-design-lab, missing-signal, subtle, show-it-up-front] Search results show no snippets
 /findings/UX-054.html  [open, low, newsroom-design-lab, unlabelled, obvious, say-what-it-is] Stacked tables on a phone lose their column labels
 /findings/UX-055.html  [open, low, newsroom-design-lab, untested-path, silent, test-where-readers-are] "Ask the article" has never run against a real on-device model
+/findings/UX-062.html  [open, low, claude-app-ios, silent-change, subtle, show-what-changed] The transcript is cleaned up in a second pass without saying when, or what changed
 /findings/UX-028.html  [partly-fixed, high, newsroom.sgit.ai, unlabelled, obvious, say-what-it-is] The £5.00 balance chip has no label
 /findings/UX-035.html  [fixed, high, newsroom.sgit.ai, inconsistent-facts+alarming-wording, obvious, say-what-it-is] The top-up page said "simulated" while asking for money
 /findings/UX-036.html  [fixed, high, newsroom.sgit.ai, inconsistent-facts, silent, generate-from-one-source] Articles were published on two domains, and diverged
@@ -114,6 +120,7 @@ Site version: v0.4.0 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: D
 ## What good looks like
 
 /exemplars/EX-001.html  [safari-ipad, answers UX-058+UX-057] Safari on iPad hides its toolbars the same way every time, after a small scroll
+/exemplars/EX-002.html  [claude-app-ios, answers UX-063] Dictation that shows your words as you speak them
 
 ## The sibling sites
 

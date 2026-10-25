@@ -1,6 +1,17 @@
 # Versions
 
-The current version is v0.4.0. Newest first.
+The current version is v0.4.1. Newest first.
+
+## v0.4.1 · 2026-10-25
+
+Voice input that can throw away your words: four findings on the Claude app's dictation controls, one thing it gets right, and two principles about lost work and silent systems.
+
+- `data/findings.json`: UX-060 (X discards the recording without confirmation), UX-061 (three unlabelled controls), UX-062 (silent second-pass rewrite), UX-063 (live transcript stalls with no state shown), with a screenshot
+- `data/exemplars.json`: EX-002, the live transcript as proof the recording is working
+- `data/principles.json`: work is never lost to one tap or a silent failure; the reader can always tell what the system is doing
+- `data/taxonomy.json`: problem "missing feedback"; recommendations "confirm or undo", "show the state", "show what changed"
+- `data/site.json`: the Claude app product covers iPhone and iPad; new area: input and dictation
+- `content/admin/index.md`: releases bump the patch number
 
 ## v0.4.0 · 2026-10-25
 

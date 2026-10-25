@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UX-060: One unlabelled X throws away the whole recording, with no confirmation · ux.sgit.ai</title>
+<meta name="description" content="A minute of dictation, often the hardest part of the message, is gone in one tap, on the button that looks least consequential. It has already happened to the reporter: &quot;I literally fell for this in the past.&quot;">
+<link rel="canonical" href="https://ux.sgit.ai/findings/UX-060.html">
+<link rel="alternate" type="text/markdown" href="/findings/UX-060.md">
+<link rel="alternate" type="text/plain" title="Site index for agents" href="/llms.txt">
+<meta property="og:title" content="UX-060: One unlabelled X throws away the whole recording, with no confirmation">
+<meta property="og:description" content="A minute of dictation, often the hardest part of the message, is gone in one tap, on the button that looks least consequential. It has already happened to the reporter: &quot;I literally fell for this in the past.&quot;">
+<meta property="og:url" content="https://ux.sgit.ai/findings/UX-060.html">
+<meta property="og:site_name" content="ux.sgit.ai">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/site.css">
+
+</head>
+<body class="layout-finding">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <nav class="site-nav" aria-label="Main"><ul><li><a href="/findings/" aria-current="page">Findings</a></li><li><a href="/browse/">Browse</a></li><li><a href="/principles/">Principles</a></li><li><a href="/lab/">Lab</a></li><li><a href="/method/">Method</a></li></ul></nav>
+  </div>
+</header>
+<main id="main" class="wrap main">
+
+<div class="content">
+<p><a href="/findings/">Findings</a> / UX-060</p>
+<h1>One unlabelled X throws away the whole recording, with no confirmation</h1>
+<p class="finding-head"><span class="badge badge--status-open">Open</span><span class="badge badge--severity-high">High</span><span class="badge badge--kind-failure">Failure</span><span class="finding__site">Claude app (iPhone and iPad)</span></p>
+<h2 id="what-we-saw">What we saw</h2>
+<p>While dictating, the message box shows three buttons: an X on the left, a square and an up arrow on the right. None is labelled. The X discards the recording and its transcript at once: no "discard this recording?", no undo, no copy kept. It sits where a "close" or "minimise" usually sits.</p>
+<figure class="evidence"><a href="/findings/img/UX-060-voice-input-controls.webp"><img src="/findings/img/UX-060-voice-input-controls.webp" alt="Claude app on iPad while dictating: the transcript so far in the message box, a waveform, an X button on the left, a square button and an orange up-arrow button side by side on the right, none of them labelled" loading="lazy"></a><figcaption>The three controls while dictating: X (discards everything, no confirmation), square (stops and lets you edit), up arrow (sends as is). None is labelled.</figcaption></figure>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>A minute of dictation, often the hardest part of the message, is gone in one tap, on the button that looks least consequential. It has already happened to the reporter: "I literally fell for this in the past."</p>
+<h2 id="the-fix">The fix</h2>
+<p>Ask before discarding a recording longer than a few seconds, or discard with an undo ("Recording discarded · Undo") and keep the audio for a while. Label it "Discard". Move it away from the corner people tap to dismiss things.</p>
+<h2 id="the-record">The record</h2>
+<div class="table-wrap"><table><tbody><tr><td><strong>Status</strong></td><td>Open</td></tr><tr><td><strong>Severity</strong></td><td>High</td></tr><tr><td><strong>Kind</strong></td><td>Failure: works against the reader</td></tr><tr><td><strong>Product</strong></td><td><a href="/findings/?product=claude-app-ios">Claude app (iPhone and iPad)</a>, app</td></tr><tr><td><strong>Where</strong></td><td>Message box, voice input</td></tr><tr><td><strong>Problems</strong></td><td><a href="/findings/?problem=data-loss">Data loss</a>, <a href="/findings/?problem=unlabelled">Unlabelled</a></td></tr><tr><td><strong>Visibility</strong></td><td><a href="/findings/?visibility=obvious">Obvious</a>: every reader sees it, every time they reach that point</td></tr><tr><td><strong>Recommendation</strong></td><td><a href="/findings/?recommendation=confirm-or-undo">Confirm or undo</a>: a destructive action either asks first or can be undone, and the safe choice is the easy one</td></tr><tr><td><strong>Area</strong></td><td><a href="/findings/?area=input">Input and dictation</a></td></tr><tr><td><strong>Breaks</strong></td><td><a href="/principles/#work-is-never-lost">Work is never lost to one tap or a silent failure</a></td></tr><tr><td><strong>Observed</strong></td><td>2026-10-25, not recorded</td></tr><tr><td><strong>Last checked</strong></td><td>2026-10-25, not recorded</td></tr><tr><td><strong>Environment</strong></td><td>Claude app on iPad, landscape, dictating a message into a Claude Code session</td></tr><tr><td><strong>Source</strong></td><td><a href="/method/#reports-from-readers">Reported by Dinis Cruz, 25 Oct 2026, by voice, with a screenshot</a></td></tr></tbody></table></div>
+<p>Previous: <a href="/findings/UX-059.html">UX-059 A security prompt that asks you to approve a command it does not explain, and cuts off</a></p>
+<p>Next: <a href="/findings/UX-061.html">UX-061 Three voice controls with no labels: the safe one and the send-as-is one sit side by side</a></p>
+</div>
+</main>
+<script>if (matchMedia('(min-width: 64rem)').matches) document.querySelectorAll('[data-open-wide]').forEach(d => d.open = true)</script>
+<footer class="site-foot">
+  <div class="wrap">
+    <p><strong>ux.sgit.ai</strong>: Where the sgit.ai sites, and the browsers and platforms they are read on, fail their readers, measured, and what fixes it. By Dinis Cruz, with AI co-authorship. <a href="/about/">Why this exists</a>.</p>
+    <p><a href="/findings/UX-060.md">This page as markdown</a> · <a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">v0.4.1</a> · <a href="https://github.com/SGit-AI/SGit-AI__Website__UX" rel="noopener">Source</a></p>
+    <p class="muted">Part of the sgit.ai network: <a href="https://sgit.ai/" rel="noopener">sgit.ai</a> · <a href="https://newsroom.sgit.ai/" rel="noopener">newsroom.sgit.ai</a> · <a href="https://coding.sgit.ai/" rel="noopener">coding.sgit.ai</a> · <a href="https://nfrs.sgit.ai/" rel="noopener">nfrs.sgit.ai</a> · <a href="https://graphs.sgit.ai/" rel="noopener">graphs.sgit.ai</a>. Content CC BY 4.0. Code Apache 2.0.</p>
+  </div>
+</footer>
+</body>
+</html>

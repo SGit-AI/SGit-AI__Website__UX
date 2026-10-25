@@ -36,6 +36,7 @@ AREAS     = {
     'consistency' : 'Consistency',
     'platform'    : 'Platform',
     'security'    : 'Security decisions',
+    'input'       : 'Input and dictation',
 }
 STATUS_LABEL = {'open': 'Open', 'partly-fixed': 'Partly fixed', 'fixed': 'Fixed'}
 FACETS       = ['product', 'area', 'problem', 'visibility', 'recommendation', 'principle', 'severity', 'status', 'kind']

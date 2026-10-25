@@ -49,3 +49,5 @@ CI runs it on every push, and a release is the commit it passes on. It fails if:
 ## Versions
 
 The version is shown once, in the footer, and links to [what changed](/admin/versions.html).
+
+Each release bumps the last number (v0.4.0 → v0.4.1), unless the project lead asks for a larger step. Every release gets an entry in `data/versions.json` naming what changed and the files it touched.

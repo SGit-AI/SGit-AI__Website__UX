@@ -2011,7 +2011,7 @@
   {
    "id": "UX-059",
    "title": "A security prompt that asks you to approve a command it does not explain, and cuts off",
-   "product": "claude-app-iphone",
+   "product": "claude-app-ios",
    "where": "Claude Code session, Bash permission prompt",
    "area": "security",
    "problems": [
@@ -2049,6 +2049,162 @@
      "caption": "The prompt as shown: raw code, wrapped mid-word and cut off mid-line, with no plain-words summary of what it will do."
     }
    ]
+  },
+  {
+   "id": "UX-060",
+   "title": "One unlabelled X throws away the whole recording, with no confirmation",
+   "problems": [
+    "data-loss",
+    "unlabelled"
+   ],
+   "visibility": "obvious",
+   "recommendation": "confirm-or-undo",
+   "severity": "high",
+   "principle": "work-is-never-lost",
+   "evidence": "While dictating, the message box shows three buttons: an X on the left, a square and an up arrow on the right. None is labelled. The X discards the recording and its transcript at once: no \"discard this recording?\", no undo, no copy kept. It sits where a \"close\" or \"minimise\" usually sits.",
+   "impact": "A minute of dictation, often the hardest part of the message, is gone in one tap, on the button that looks least consequential. It has already happened to the reporter: \"I literally fell for this in the past.\"",
+   "fix": "Ask before discarding a recording longer than a few seconds, or discard with an undo (\"Recording discarded · Undo\") and keep the audio for a while. Label it \"Discard\". Move it away from the corner people tap to dismiss things.",
+   "images": [
+    {
+     "src": "/findings/img/UX-060-voice-input-controls.webp",
+     "alt": "Claude app on iPad while dictating: the transcript so far in the message box, a waveform, an X button on the left, a square button and an orange up-arrow button side by side on the right, none of them labelled",
+     "caption": "The three controls while dictating: X (discards everything, no confirmation), square (stops and lets you edit), up arrow (sends as is). None is labelled."
+    }
+   ],
+   "product": "claude-app-ios",
+   "where": "Message box, voice input",
+   "area": "input",
+   "kind": "failure",
+   "status": "open",
+   "observed": {
+    "date": "2026-10-25",
+    "version": "not recorded"
+   },
+   "checked": {
+    "date": "2026-10-25",
+    "version": "not recorded"
+   },
+   "environment": "Claude app on iPad, landscape, dictating a message into a Claude Code session",
+   "prototype": null,
+   "source": {
+    "href": "/method/#reports-from-readers",
+    "label": "Reported by Dinis Cruz, 25 Oct 2026, by voice, with a screenshot"
+   }
+  },
+  {
+   "id": "UX-061",
+   "title": "Three voice controls with no labels: the safe one and the send-as-is one sit side by side",
+   "problems": [
+    "unlabelled",
+    "uninformed-decision"
+   ],
+   "visibility": "obvious",
+   "recommendation": "say-what-it-is",
+   "severity": "medium",
+   "principle": "informed-decisions",
+   "evidence": "Of the three buttons, the square is the one you usually want: it stops recording and puts the transcript in the box to correct, which dictated text nearly always needs. The up arrow, right next to it, sends the transcript as is, uncorrected. Nothing (label, tooltip, first-use hint) says which does what; the reporter learned all three by trial and error.",
+   "impact": "Every first use is a guess, and the guess has consequences: a wrong tap either destroys the recording (UX-060) or sends a message full of transcription errors to an agent that will act on it.",
+   "fix": "Label the buttons (\"Discard\", \"Stop and edit\", \"Send\"), at least until they have been used a few times. Make \"Stop and edit\" the visually primary action, and put space between it and \"Send\".",
+   "images": [
+    {
+     "src": "/findings/img/UX-060-voice-input-controls.webp",
+     "alt": "Claude app on iPad while dictating: the transcript so far in the message box, a waveform, an X button on the left, a square button and an orange up-arrow button side by side on the right, none of them labelled",
+     "caption": "The square (stop and edit) and the up arrow (send as is) are adjacent and unlabelled."
+    }
+   ],
+   "product": "claude-app-ios",
+   "where": "Message box, voice input",
+   "area": "input",
+   "kind": "failure",
+   "status": "open",
+   "observed": {
+    "date": "2026-10-25",
+    "version": "not recorded"
+   },
+   "checked": {
+    "date": "2026-10-25",
+    "version": "not recorded"
+   },
+   "environment": "Claude app on iPad, landscape, dictating a message into a Claude Code session",
+   "prototype": null,
+   "source": {
+    "href": "/method/#reports-from-readers",
+    "label": "Reported by Dinis Cruz, 25 Oct 2026, by voice, with a screenshot"
+   }
+  },
+  {
+   "id": "UX-062",
+   "title": "The transcript is cleaned up in a second pass without saying when, or what changed",
+   "problems": [
+    "silent-change"
+   ],
+   "visibility": "subtle",
+   "recommendation": "show-what-changed",
+   "severity": "low",
+   "principle": "say-who-wrote-it",
+   "evidence": "After the live transcript, a second pass rewrites the text to tidy it up. The result is usually better, but nothing shows that it happened, when it happened, or which words were changed from what was actually said.",
+   "impact": "The reader can no longer tell their own words from the model's interpretation of them, so they cannot tell what to check. For an instruction to an agent, a quietly changed word can change the task.",
+   "fix": "Mark the moment the second pass runs, highlight words it changed, and offer \"show what I said\" or a one-tap revert to the raw transcript.",
+   "product": "claude-app-ios",
+   "where": "Message box, voice input",
+   "area": "input",
+   "kind": "failure",
+   "status": "open",
+   "observed": {
+    "date": "2026-10-25",
+    "version": "not recorded"
+   },
+   "checked": {
+    "date": "2026-10-25",
+    "version": "not recorded"
+   },
+   "environment": "Claude app on iPad, landscape, dictating a message into a Claude Code session",
+   "prototype": null,
+   "source": {
+    "href": "/method/#reports-from-readers",
+    "label": "Reported by Dinis Cruz, 25 Oct 2026, by voice, with a screenshot"
+   }
+  },
+  {
+   "id": "UX-063",
+   "title": "The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording",
+   "problems": [
+    "missing-feedback",
+    "data-loss"
+   ],
+   "visibility": "intermittent",
+   "recommendation": "show-the-state",
+   "severity": "high",
+   "principle": "system-state-is-visible",
+   "evidence": "Mid-dictation the live transcript can stop updating while the waveform keeps moving, so there is no way to know whether the rest is being captured. Sometimes pressing the square then shows the missing text after a \"transcribing\" step; sometimes it has been lost. The reporter puts it at roughly half the time it stalls, and has lost \"quite a lot of voice memos\" this way. The audio is never offered back for a retry.",
+   "impact": "The reader has to keep a mental check running while they speak, watching for words to appear, and stops trusting the tool whenever they do not. When it fails the recording cannot be recovered or resubmitted, so the loss is total.",
+   "fix": "Show the state explicitly: \"Live transcript paused, audio still recording\" when the live pass stalls, and a clear error if capture itself stops. Keep the audio on the device until the final transcript is in the box, and offer \"Transcribe again\" when it fails.",
+   "images": [
+    {
+     "src": "/findings/img/UX-060-voice-input-controls.webp",
+     "alt": "Claude app on iPad while dictating: the transcript so far in the message box, a waveform, an X button on the left, a square button and an orange up-arrow button side by side on the right, none of them labelled",
+     "caption": "Mid-dictation: the transcript ends at \"usability\" while the waveform keeps moving. Is the rest being recorded? Nothing says."
+    }
+   ],
+   "product": "claude-app-ios",
+   "where": "Message box, voice input",
+   "area": "input",
+   "kind": "failure",
+   "status": "open",
+   "observed": {
+    "date": "2026-10-25",
+    "version": "not recorded"
+   },
+   "checked": {
+    "date": "2026-10-25",
+    "version": "not recorded"
+   },
+   "environment": "Claude app on iPad, landscape, dictating a message into a Claude Code session",
+   "prototype": null,
+   "source": {
+    "href": "/method/#reports-from-readers",
+    "label": "Reported by Dinis Cruz, 25 Oct 2026, by voice, with a screenshot"
+   }
   }
  ]
 }

@@ -16,7 +16,9 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 | [UX-044](/findings/UX-044.md) | Open | high | newsroom.sgit.ai | hidden-until-script, dead-end | intermittent | The founder page says "the picks above" and no picks render on a phone |
 | [UX-046](/findings/UX-046.md) | Open | high | dev.vault.sgraph.ai | host-trap, dead-end | silent | Setting location.hash inside a vault app re-navigates the frame: every link silently dead |
 | [UX-056](/findings/UX-056.md) | Open | high | Firefox on iPad | focus-hijack, unexpected-movement, wrong-culprit | intermittent | Scrolling back up a little puts focus in the address bar and opens the keyboard |
-| [UX-059](/findings/UX-059.md) | Open | high | Claude app on iPhone | uninformed-decision, buried-content, missing-signal | obvious | A security prompt that asks you to approve a command it does not explain, and cuts off |
+| [UX-059](/findings/UX-059.md) | Open | high | Claude app (iPhone and iPad) | uninformed-decision, buried-content, missing-signal | obvious | A security prompt that asks you to approve a command it does not explain, and cuts off |
+| [UX-060](/findings/UX-060.md) | Open | high | Claude app (iPhone and iPad) | data-loss, unlabelled | obvious | One unlabelled X throws away the whole recording, with no confirmation |
+| [UX-063](/findings/UX-063.md) | Open | high | Claude app (iPhone and iPad) | missing-feedback, data-loss | intermittent | The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording |
 | [UX-008](/findings/UX-008.md) | Open | medium | newsroom.sgit.ai | hidden-until-script | intermittent | Content is hidden until JavaScript runs |
 | [UX-009](/findings/UX-009.md) | Open | medium | newsroom.sgit.ai | overload, builder-chrome | obvious | Two navigation bars, and a 60-link menu that mixes reading with building |
 | [UX-010](/findings/UX-010.md) | Open | medium | newsroom.sgit.ai | dead-end | intermittent | Missing pages show the default GitHub Pages 404 |
@@ -37,6 +39,7 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 | [UX-047](/findings/UX-047.md) | Open | medium | dev.vault.sgraph.ai | host-trap, data-loss | intermittent | localStorage throws inside the vault app frame, so reader data is lost on reload |
 | [UX-057](/findings/UX-057.md) | Open | medium | Firefox on iPad | unexpected-movement, lost-screen-space | obvious | The toolbars come back on any small scroll up, taking screen and moving the page |
 | [UX-058](/findings/UX-058.md) | Open | medium | Firefox on iPad | unpredictable-control, unexpected-movement, lost-screen-space | intermittent | Whether the toolbars hide depends on how fast you scroll, not how far |
+| [UX-061](/findings/UX-061.md) | Open | medium | Claude app (iPhone and iPad) | unlabelled, uninformed-decision | obvious | Three voice controls with no labels: the safe one and the send-as-is one sit side by side |
 | [UX-005](/findings/UX-005.md) | Open | low | newsroom.sgit.ai | builder-chrome | subtle | The version number is shown three times on the first screen |
 | [UX-006](/findings/UX-006.md) | Open | low | newsroom.sgit.ai | builder-chrome, buried-content | obvious | A "For agents /llms.txt" strip sits above the masthead |
 | [UX-007](/findings/UX-007.md) | Open | low | newsroom.sgit.ai | missing-signal | subtle | The editor's note is written for someone who read the last two editions |
@@ -54,6 +57,7 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 | [UX-053](/findings/UX-053.md) | Open | low | Newsroom Design Lab | missing-signal | subtle | Search results show no snippets |
 | [UX-054](/findings/UX-054.md) | Open | low | Newsroom Design Lab | unlabelled | obvious | Stacked tables on a phone lose their column labels |
 | [UX-055](/findings/UX-055.md) | Open | low | Newsroom Design Lab | untested-path | silent | "Ask the article" has never run against a real on-device model |
+| [UX-062](/findings/UX-062.md) | Open | low | Claude app (iPhone and iPad) | silent-change | subtle | The transcript is cleaned up in a second pass without saying when, or what changed |
 | [UX-028](/findings/UX-028.md) | Partly fixed | high | newsroom.sgit.ai | unlabelled | obvious | The £5.00 balance chip has no label |
 | [UX-035](/findings/UX-035.md) | Fixed | high | newsroom.sgit.ai | inconsistent-facts, alarming-wording | obvious | The top-up page said "simulated" while asking for money |
 | [UX-036](/findings/UX-036.md) | Fixed | high | newsroom.sgit.ai | inconsistent-facts | silent | Articles were published on two domains, and diverged |

@@ -4,11 +4,11 @@
 > live site with a date and version, the principle it breaks, the fix, and (where one exists) a working
 > prototype of the fix in three design directions.
 
-Site version: v0.4.0 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
+Site version: v0.4.1 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
 
 ## The headline
 
-59 findings across 5 products: 51 still open, 14 of them high severity, 8 fixed. 40 are failures (something works against the reader) and 19 are gaps (something the reader needs is not there). Every count on this site is generated from /data/findings.json.
+63 findings across 5 products: 55 still open, 16 of them high severity, 8 fixed. 44 are failures (something works against the reader) and 19 are gaps (something the reader needs is not there). Every count on this site is generated from /data/findings.json.
 
 ## Properties agents may rely on
 
@@ -32,6 +32,8 @@ Site version: v0.4.0 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: D
   Every index of the register in one place: by product, area, problem, visibility, recommendation, principle, severity, status and kind, each value with its count and a link to the filtered list.
 /exemplars/EX-001.html  (/exemplars/EX-001.md)
   It is predictable. The trigger is a small distance scrolled, which the reader controls, not the speed of the gesture, so it behaves the same every time and is learned after one or two uses. The collapsed state is small enough to be a fair trade for the space, and getting there costs only a couple of lines of scroll, so the reader never loses their place to reach it.
+/exemplars/EX-002.html  (/exemplars/EX-002.md)
+  Seeing your words appear is proof that they are being captured. It is the reason the reporter uses this input over others: as long as the text keeps appearing, they know the recording is safe, and they can keep their attention on what they are saying.
 /exemplars/  (/exemplars/index.md)
   Things that work, each kept as the reference for the findings it answers: measured like a finding, with why it works and what it still does not do.
 /findings/  (/findings/index.md)
@@ -63,7 +65,9 @@ Site version: v0.4.0 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-044.html  [open, high, newsroom.sgit.ai, hidden-until-script+dead-end, intermittent, render-on-first-load] The founder page says "the picks above" and no picks render on a phone
 /findings/UX-046.html  [open, high, dev.vault.sgraph.ai, host-trap+dead-end, silent, design-for-the-host] Setting location.hash inside a vault app re-navigates the frame: every link silently dead
 /findings/UX-056.html  [open, high, firefox-ipad, focus-hijack+unexpected-movement+wrong-culprit, intermittent, keep-the-ui-still] Scrolling back up a little puts focus in the address bar and opens the keyboard
-/findings/UX-059.html  [open, high, claude-app-iphone, uninformed-decision+buried-content+missing-signal, obvious, explain-the-decision] A security prompt that asks you to approve a command it does not explain, and cuts off
+/findings/UX-059.html  [open, high, claude-app-ios, uninformed-decision+buried-content+missing-signal, obvious, explain-the-decision] A security prompt that asks you to approve a command it does not explain, and cuts off
+/findings/UX-060.html  [open, high, claude-app-ios, data-loss+unlabelled, obvious, confirm-or-undo] One unlabelled X throws away the whole recording, with no confirmation
+/findings/UX-063.html  [open, high, claude-app-ios, missing-feedback+data-loss, intermittent, show-the-state] The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording
 /findings/UX-008.html  [open, medium, newsroom.sgit.ai, hidden-until-script, intermittent, render-on-first-load] Content is hidden until JavaScript runs
 /findings/UX-009.html  [open, medium, newsroom.sgit.ai, overload+builder-chrome, obvious, move-to-the-workshop] Two navigation bars, and a 60-link menu that mixes reading with building
 /findings/UX-010.html  [open, medium, newsroom.sgit.ai, dead-end, intermittent, build-the-way-in] Missing pages show the default GitHub Pages 404
@@ -84,6 +88,7 @@ Site version: v0.4.0 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-047.html  [open, medium, dev.vault.sgraph.ai, host-trap+data-loss, intermittent, design-for-the-host] localStorage throws inside the vault app frame, so reader data is lost on reload
 /findings/UX-057.html  [open, medium, firefox-ipad, unexpected-movement+lost-screen-space, obvious, keep-the-ui-still] The toolbars come back on any small scroll up, taking screen and moving the page
 /findings/UX-058.html  [open, medium, firefox-ipad, unpredictable-control+unexpected-movement+lost-screen-space, intermittent, make-it-predictable] Whether the toolbars hide depends on how fast you scroll, not how far
+/findings/UX-061.html  [open, medium, claude-app-ios, unlabelled+uninformed-decision, obvious, say-what-it-is] Three voice controls with no labels: the safe one and the send-as-is one sit side by side
 /findings/UX-005.html  [open, low, newsroom.sgit.ai, builder-chrome, subtle, move-to-the-workshop] The version number is shown three times on the first screen
 /findings/UX-006.html  [open, low, newsroom.sgit.ai, builder-chrome+buried-content, obvious, move-to-the-workshop] A "For agents /llms.txt" strip sits above the masthead
 /findings/UX-007.html  [open, low, newsroom.sgit.ai, missing-signal, subtle, write-for-a-stranger] The editor's note is written for someone who read the last two editions
@@ -101,6 +106,7 @@ Site version: v0.4.0 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-053.html  [open, low, newsroom-design-lab, missing-signal, subtle, show-it-up-front] Search results show no snippets
 /findings/UX-054.html  [open, low, newsroom-design-lab, unlabelled, obvious, say-what-it-is] Stacked tables on a phone lose their column labels
 /findings/UX-055.html  [open, low, newsroom-design-lab, untested-path, silent, test-where-readers-are] "Ask the article" has never run against a real on-device model
+/findings/UX-062.html  [open, low, claude-app-ios, silent-change, subtle, show-what-changed] The transcript is cleaned up in a second pass without saying when, or what changed
 /findings/UX-028.html  [partly-fixed, high, newsroom.sgit.ai, unlabelled, obvious, say-what-it-is] The £5.00 balance chip has no label
 /findings/UX-035.html  [fixed, high, newsroom.sgit.ai, inconsistent-facts+alarming-wording, obvious, say-what-it-is] The top-up page said "simulated" while asking for money
 /findings/UX-036.html  [fixed, high, newsroom.sgit.ai, inconsistent-facts, silent, generate-from-one-source] Articles were published on two domains, and diverged
@@ -114,6 +120,7 @@ Site version: v0.4.0 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: D
 ## What good looks like
 
 /exemplars/EX-001.html  [safari-ipad, answers UX-058+UX-057] Safari on iPad hides its toolbars the same way every time, after a small scroll
+/exemplars/EX-002.html  [claude-app-ios, answers UX-063] Dictation that shows your words as you speak them
 
 ## The sibling sites
 
@@ -207,6 +214,8 @@ CI runs it on every push, and a release is the commit it passes on. It fails if:
 
 The version is shown once, in the footer, and links to [what changed](/admin/versions.md).
 
+Each release bumps the last number (v0.4.0 → v0.4.1), unless the project lead asks for a larger step. Every release gets an entry in `data/versions.json` naming what changed and the files it touched.
+
 
 ==============================================================================
 /admin/versions.html  ·  /admin/versions.md
@@ -214,7 +223,18 @@ The version is shown once, in the footer, and links to [what changed](/admin/ver
 
 # Versions
 
-The current version is v0.4.0. Newest first.
+The current version is v0.4.1. Newest first.
+
+## v0.4.1 · 2026-10-25
+
+Voice input that can throw away your words: four findings on the Claude app's dictation controls, one thing it gets right, and two principles about lost work and silent systems.
+
+- `data/findings.json`: UX-060 (X discards the recording without confirmation), UX-061 (three unlabelled controls), UX-062 (silent second-pass rewrite), UX-063 (live transcript stalls with no state shown), with a screenshot
+- `data/exemplars.json`: EX-002, the live transcript as proof the recording is working
+- `data/principles.json`: work is never lost to one tap or a silent failure; the reader can always tell what the system is doing
+- `data/taxonomy.json`: problem "missing feedback"; recommendations "confirm or undo", "show the state", "show what changed"
+- `data/site.json`: the Claude app product covers iPhone and iPad; new area: input and dictation
+- `content/admin/index.md`: releases bump the patch number
 
 ## v0.4.0 · 2026-10-25
 
@@ -287,7 +307,7 @@ Whose fault it is: one of our sites, the platform under them, our own prototypes
 | dev.vault.sgraph.ai | [4](/findings/?product=dev.vault.sgraph.ai) | 4 | The vault host: opens a vault by its key and runs its app in a sandboxed frame (platform) |
 | Newsroom Design Lab | [6](/findings/?product=newsroom-design-lab) | 4 | This site's own prototypes: four vaults trying the newsroom fixes in three directions |
 | Firefox on iPad | [3](/findings/?product=firefox-ipad) | 3 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
-| Claude app on iPhone | [1](/findings/?product=claude-app-iphone) | 1 | The Claude app on iOS, used here to run and supervise Claude Code sessions (app) |
+| Claude app (iPhone and iPad) | [5](/findings/?product=claude-app-ios) | 5 | The Claude app on iOS and iPadOS, used here to run and supervise Claude Code sessions, often by voice (app) |
 
 ## By area
 
@@ -306,6 +326,7 @@ Where in the reader's visit it happens.
 | Consistency | [6](/findings/?area=consistency) | 4 |  |
 | Platform | [5](/findings/?area=platform) | 4 |  |
 | Security decisions | [1](/findings/?area=security) | 1 |  |
+| Input and dictation | [4](/findings/?area=input) | 4 |  |
 
 ## By problem
 
@@ -313,7 +334,8 @@ What kind of thing goes wrong. A finding can have more than one.
 
 | Problem | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Uninformed decision | [1](/findings/?problem=uninformed-decision) | 1 | The reader is asked to decide without what they need to judge it: what it does, what it touches, what could go wrong |
+| Uninformed decision | [2](/findings/?problem=uninformed-decision) | 2 | The reader is asked to decide without what they need to judge it: what it does, what it touches, what could go wrong |
+| Missing feedback | [1](/findings/?problem=missing-feedback) | 1 | No sign of what the system is doing, so the reader cannot tell progress from failure |
 | Unexpected movement | [4](/findings/?problem=unexpected-movement) | 3 | Part of the interface moves when the reader did not move it |
 | Focus hijack | [1](/findings/?problem=focus-hijack) | 1 | Focus or input goes somewhere the reader did not send it |
 | Unpredictable control | [1](/findings/?problem=unpredictable-control) | 1 | The result of a gesture depends on something the reader cannot see or control, such as its speed, so the state they want cannot be reached on purpose |
@@ -326,9 +348,9 @@ What kind of thing goes wrong. A finding can have more than one.
 | Missing way in | [4](/findings/?problem=missing-way-in) | 3 | A page or path the reader needs does not exist |
 | Dead end | [6](/findings/?problem=dead-end) | 5 | Something that looks like a way in goes nowhere |
 | Unshareable view | [2](/findings/?problem=unshareable-view) | 2 | A view the reader can see but cannot link to |
-| Unlabelled | [3](/findings/?problem=unlabelled) | 3 | A number, value or control with no label |
+| Unlabelled | [5](/findings/?problem=unlabelled) | 5 | A number, value or control with no label |
 | Alarming wording | [3](/findings/?problem=alarming-wording) | 2 | Words that read as a threat, a debt or a trick when they describe something benign |
-| Silent change | [1](/findings/?problem=silent-change) | 1 | State changes without telling the reader |
+| Silent change | [2](/findings/?problem=silent-change) | 2 | State changes without telling the reader |
 | Preselected input | [1](/findings/?problem=preselected-input) | 1 | An answer is chosen before the reader chooses |
 | Unconsented state | [2](/findings/?problem=unconsented-state) | 2 | Something is kept or added because the reader opened something |
 | Missing channel | [3](/findings/?problem=missing-channel) | 3 | No way for the reader to reach a person |
@@ -336,7 +358,7 @@ What kind of thing goes wrong. A finding can have more than one.
 | Stale claim | [2](/findings/?problem=stale-claim) | 1 | A statement about the present that is no longer true |
 | Hidden until script | [2](/findings/?problem=hidden-until-script) | 2 | Content appears only after scripts or prior state |
 | Host trap | [4](/findings/?problem=host-trap) | 4 | The platform behaves unlike a normal page, and the difference is not visible |
-| Data loss | [2](/findings/?problem=data-loss) | 2 | Something the reader made or kept is lost or cut |
+| Data loss | [4](/findings/?problem=data-loss) | 4 | Something the reader made or kept is lost or cut |
 | Layout overflow | [1](/findings/?problem=layout-overflow) | 0 | Content wider or taller than the screen it is on |
 | Untested path | [1](/findings/?problem=untested-path) | 1 | A path shown to readers that nobody has seen work |
 
@@ -346,9 +368,9 @@ How the reader experiences it: seen every time, sometimes, only felt, or not at 
 
 | Visibility | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Obvious | [16](/findings/?visibility=obvious) | 12 | Every reader sees it, every time they reach that point |
-| Intermittent | [6](/findings/?visibility=intermittent) | 6 | Some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand |
-| Subtle | [21](/findings/?visibility=subtle) | 19 | Felt more than seen: it costs attention or trust, but is not noticed as a bug |
+| Obvious | [18](/findings/?visibility=obvious) | 14 | Every reader sees it, every time they reach that point |
+| Intermittent | [7](/findings/?visibility=intermittent) | 7 | Some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand |
+| Subtle | [22](/findings/?visibility=subtle) | 20 | Felt more than seen: it costs attention or trust, but is not noticed as a bug |
 | Silent | [16](/findings/?visibility=silent) | 14 | No symptom on screen: found only by measuring, or by its consequences |
 
 ## By recommendation
@@ -358,12 +380,15 @@ The shape of the fix. Findings with the same recommendation are often fixed by t
 | Recommendation | Findings | Open | Means |
 | --- | --- | --- | --- |
 | Explain the decision | [1](/findings/?recommendation=explain-the-decision) | 1 | Before asking, say in plain words what will happen, what it touches, whether it can be undone and why it is being asked, with the raw detail one tap away |
+| Confirm or undo | [1](/findings/?recommendation=confirm-or-undo) | 1 | A destructive action either asks first or can be undone, and the safe choice is the easy one |
+| Show the state | [1](/findings/?recommendation=show-the-state) | 1 | Always show what the system is doing (listening, working, paused, failed) and keep what was captured until it is safely delivered |
+| Show what changed | [1](/findings/?recommendation=show-what-changed) | 1 | When the system rewrites what the reader made, mark it, and let them see and undo the change |
 | Keep the UI still | [3](/findings/?recommendation=keep-the-ui-still) | 2 | Nothing moves, appears or takes focus unless the reader asked for it; chrome that hides stays hidden until a deliberate gesture |
 | Make it predictable | [1](/findings/?recommendation=make-it-predictable) | 1 | The same gesture always gives the same result, and the reader can set the state directly instead of coaxing it |
 | Cut to the essential | [3](/findings/?recommendation=cut-to-the-essential) | 3 | Remove or move down everything that is not the lead, the doors and the next step |
 | Write for a stranger | [1](/findings/?recommendation=write-for-a-stranger) | 1 | Rewrite the words for someone arriving for the first time |
 | Show it up front | [7](/findings/?recommendation=show-it-up-front) | 6 | Put the signal the reader decides by (length, author, short version, real numbers) where they look first |
-| Say what it is | [7](/findings/?recommendation=say-what-it-is) | 6 | Label it, in the reader's terms, at the moment it matters |
+| Say what it is | [8](/findings/?recommendation=say-what-it-is) | 7 | Label it, in the reader's terms, at the moment it matters |
 | Start empty | [1](/findings/?recommendation=start-empty) | 1 | Inputs start unselected; record only what the reader did |
 | Ask first | [2](/findings/?recommendation=ask-first) | 2 | Make keeping, adding or following a tap the reader makes |
 | Make it a link | [2](/findings/?recommendation=make-it-a-link) | 2 | Give the view, filter or label an address, and make it go there |
@@ -383,7 +408,9 @@ The rule it breaks. Each principle has a one-minute test on the principles page.
 
 | Principle | Findings | Open | Means |
 | --- | --- | --- | --- |
-| A decision comes with what you need to make it | [1](/findings/?principle=informed-decisions) | 1 | Any prompt that asks the reader to decide (allow, pay, share, delete) first says, in plain words, what will happen, what it touches, whether it can be undone, and why it is being asked. The raw detail is there for checking, not as the explanation. |
+| A decision comes with what you need to make it | [2](/findings/?principle=informed-decisions) | 2 | Any prompt that asks the reader to decide (allow, pay, share, delete) first says, in plain words, what will happen, what it touches, whether it can be undone, and why it is being asked. The raw detail is there for checking, not as the explanation. |
+| Work is never lost to one tap or a silent failure | [1](/findings/?principle=work-is-never-lost) | 1 | What the reader has made (a recording, a draft, a note) cannot be destroyed by a single unlabelled tap, and is kept when something fails. Destructive actions ask first or can be undone; failures keep the raw capture and offer a retry. |
+| The reader can always tell what the system is doing | [1](/findings/?principle=system-state-is-visible) | 1 | At every moment the interface shows whether it is listening, working, paused, done or failed. A process that stops shows that it stopped; it never just goes quiet. |
 | The first screen is for a stranger | [8](/findings/?principle=stranger-first-screen) | 6 | On a phone, the first screen says what this is, who it is for, and where to go next. The lead is on it. Chrome, metadata and method come after. |
 | Nothing moves that the reader did not move | [3](/findings/?principle=ui-stays-still) | 2 | While the reader is reading, the interface holds still. Toolbars, keyboards, banners and panels appear, move or take focus only on a deliberate gesture made for that purpose, never as a side effect of scrolling or reading. |
 | The same gesture gives the same result, so it can be learned | [1](/findings/?principle=same-gesture-same-result) | 1 | Every interaction behaves the same way every time, triggered by something the reader controls (where they tap, how far they scroll), never by something they cannot see or repeat (how fast they flicked, what state an animation was in). |
@@ -396,7 +423,7 @@ The rule it breaks. Each principle has a one-minute test on the principles page.
 | The publication is not the workshop | [4](/findings/?principle=publication-not-workshop) | 4 | Reader pages carry reader things. How the site is built (versions, author tooling, agent strips, release history, admin) lives in one clearly separate area, one link away. |
 | Feedback reaches someone, and the reader gets a receipt | [3](/findings/?principle=feedback-reaches-someone) | 3 | Every rating, request or 'what is missing' goes somewhere a person reads it, by default and with plain consent, and the reader keeps a receipt of what was sent. |
 | Say how long, and what kind, before the reader commits | [3](/findings/?principle=length-before-commitment) | 3 | Every card and every link to a long piece shows reading time and format. Every long piece opens with a short version. |
-| Say who wrote it, and how | [3](/findings/?principle=say-who-wrote-it) | 3 | The byline names the person and the way the piece was made (with agents, from voice notes), where the reader looks, not in the footer. The purpose of the publication is one link away. |
+| Say who wrote it, and how | [4](/findings/?principle=say-who-wrote-it) | 4 | The byline names the person and the way the piece was made (with agents, from voice notes), where the reader looks, not in the footer. The purpose of the publication is one link away. |
 | Content is visible without waiting for scripts | [2](/findings/?principle=content-is-visible) | 2 | The page renders its content in HTML and shows it at once. Scripts enhance; they never gate what the reader can see. |
 | What a page says about the present is true now | [4](/findings/?principle=state-is-current) | 3 | Labels like 'edition of', 'currently', 'broken' and 'live' are dated or generated, and change when the facts do. A fixed problem is marked fixed, with the version. |
 | A vault app works inside the host, not just on its own | [3](/findings/?principle=host-safe-apps) | 3 | An app is tested where readers open it: inside the vault host's sandboxed frame. Routing never assigns location.hash, storage goes through the host, and network reads come from the vault. |
@@ -407,9 +434,9 @@ High loses the reader or their trust on the first visit; medium costs effort or 
 
 | Severity | Findings | Open | Means |
 | --- | --- | --- | --- |
-| High | [18](/findings/?severity=high) | 14 |  |
-| Medium | [24](/findings/?severity=medium) | 20 |  |
-| Low | [17](/findings/?severity=low) | 17 |  |
+| High | [20](/findings/?severity=high) | 16 |  |
+| Medium | [25](/findings/?severity=medium) | 21 |  |
+| Low | [18](/findings/?severity=low) | 18 |  |
 
 ## By status
 
@@ -417,7 +444,7 @@ As of the date each finding was last checked.
 
 | Status | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Open | [50](/findings/?status=open) | 50 |  |
+| Open | [54](/findings/?status=open) | 54 |  |
 | Partly fixed | [1](/findings/?status=partly-fixed) | 1 |  |
 | Fixed | [8](/findings/?status=fixed) | 0 |  |
 
@@ -427,7 +454,7 @@ A failure works against the reader; a gap is something they need that is not the
 
 | Kind | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Failure | [40](/findings/?kind=failure) | 34 | Something works against the reader |
+| Failure | [44](/findings/?kind=failure) | 38 | Something works against the reader |
 | Gap | [19](/findings/?kind=gap) | 17 | Something the reader needs is not there |
 
 
@@ -479,6 +506,44 @@ It still moves the page: the toolbars collapse as a side effect of scrolling, an
 
 
 ==============================================================================
+/exemplars/EX-002.html  ·  /exemplars/EX-002.md
+==============================================================================
+
+[What good looks like](/exemplars/index.md) / EX-002
+
+# Dictation that shows your words as you speak them
+
+## What it does
+
+While you dictate, the Claude app writes the transcript into the message box as you speak, then refines it in a second pass when you stop. The first pass is rough, but it is immediate.
+
+## Why it works
+
+Seeing your words appear is proof that they are being captured. It is the reason the reporter uses this input over others: as long as the text keeps appearing, they know the recording is safe, and they can keep their attention on what they are saying.
+
+## What it still does not do
+
+When the live pass stalls (UX-063), the proof disappears with no explanation, and the second pass rewrites text without showing what changed (UX-062). The feedback is the right idea; it needs to cover the failure cases too.
+
+## The findings it answers
+
+- [UX-063 The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording](/findings/UX-063.md)
+
+## The record
+
+| | |
+| --- | --- |
+| **Product** | [Claude app (iPhone and iPad)](https://claude.ai/download), app |
+| **Where** | Message box, voice input |
+| **Environment** | Claude app on iPad, landscape, dictating a message into a Claude Code session |
+| **Demonstrates** | [The reader can always tell what the system is doing](/principles/index.md#system-state-is-visible) |
+| **Recommendation** | [Show the state](/findings/?recommendation=show-the-state) |
+| **Observed** | 2026-10-25, not recorded |
+| **Last checked** | 2026-10-25, not recorded |
+| **Source** | [Reported by Dinis Cruz, 25 Oct 2026, by voice, with a screenshot](/method/index.md#reports-from-readers) |
+
+
+==============================================================================
 /exemplars/  ·  /exemplars/index.md
 ==============================================================================
 
@@ -487,6 +552,7 @@ It still moves the page: the toolbars collapse as a side effect of scrolling, an
 A finding says what is wrong; an exemplar shows something that already gets it right, so a fix can point at a working example instead of a description. Each one is measured like a finding (where, when, on what device), says **why** it works, and says honestly what it still does not do. They come from anywhere: our own sites, other sites, browsers, apps.
 
 - [EX-001](/exemplars/EX-001.md) · Safari on iPad · Safari on iPad hides its toolbars the same way every time, after a small scroll (answers UX-058, UX-057)
+- [EX-002](/exemplars/EX-002.md) · Claude app (iPhone and iPad) · Dictation that shows your words as you speak them (answers UX-063)
 
 Each exemplar is linked from the findings it answers, and from the [principle](/principles/index.md) it demonstrates. The source is [/data/exemplars.json](/data/exemplars.json).
 
@@ -3165,7 +3231,7 @@ Next: [UX-059 A security prompt that asks you to approve a command it does not e
 
 # A security prompt that asks you to approve a command it does not explain, and cuts off
 
-Open · high severity · failure · Claude app on iPhone
+Open · high severity · failure · Claude app (iPhone and iPad)
 
 ## What we saw
 
@@ -3190,7 +3256,7 @@ Lead with one line in plain words: "Edit 2 files in the newsroom repository: too
 | **Status** | Open |
 | **Severity** | High |
 | **Kind** | Failure: works against the reader |
-| **Product** | [Claude app on iPhone](/findings/?product=claude-app-iphone), app |
+| **Product** | [Claude app (iPhone and iPad)](/findings/?product=claude-app-ios), app |
 | **Where** | Claude Code session, Bash permission prompt |
 | **Problems** | [Uninformed decision](/findings/?problem=uninformed-decision), [Buried content](/findings/?problem=buried-content), [Missing signal](/findings/?problem=missing-signal) |
 | **Visibility** | [Obvious](/findings/?visibility=obvious): every reader sees it, every time they reach that point |
@@ -3203,6 +3269,204 @@ Lead with one line in plain words: "Edit 2 files in the newsroom repository: too
 | **Source** | [Reported by Dinis Cruz, 25 Oct 2026, with a screenshot](/method/index.md#reports-from-readers) |
 
 Previous: [UX-058 Whether the toolbars hide depends on how fast you scroll, not how far](/findings/UX-058.md)
+
+Next: [UX-060 One unlabelled X throws away the whole recording, with no confirmation](/findings/UX-060.md)
+
+
+==============================================================================
+/findings/UX-060.html  ·  /findings/UX-060.md
+==============================================================================
+
+[Findings](/findings/index.md) / UX-060
+
+# One unlabelled X throws away the whole recording, with no confirmation
+
+Open · high severity · failure · Claude app (iPhone and iPad)
+
+## What we saw
+
+While dictating, the message box shows three buttons: an X on the left, a square and an up arrow on the right. None is labelled. The X discards the recording and its transcript at once: no "discard this recording?", no undo, no copy kept. It sits where a "close" or "minimise" usually sits.
+
+![Claude app on iPad while dictating: the transcript so far in the message box, a waveform, an X button on the left, a square button and an orange up-arrow button side by side on the right, none of them labelled](/findings/img/UX-060-voice-input-controls.webp)
+
+_The three controls while dictating: X (discards everything, no confirmation), square (stops and lets you edit), up arrow (sends as is). None is labelled._
+
+## Why it matters
+
+A minute of dictation, often the hardest part of the message, is gone in one tap, on the button that looks least consequential. It has already happened to the reporter: "I literally fell for this in the past."
+
+## The fix
+
+Ask before discarding a recording longer than a few seconds, or discard with an undo ("Recording discarded · Undo") and keep the audio for a while. Label it "Discard". Move it away from the corner people tap to dismiss things.
+
+## The record
+
+| | |
+| --- | --- |
+| **Status** | Open |
+| **Severity** | High |
+| **Kind** | Failure: works against the reader |
+| **Product** | [Claude app (iPhone and iPad)](/findings/?product=claude-app-ios), app |
+| **Where** | Message box, voice input |
+| **Problems** | [Data loss](/findings/?problem=data-loss), [Unlabelled](/findings/?problem=unlabelled) |
+| **Visibility** | [Obvious](/findings/?visibility=obvious): every reader sees it, every time they reach that point |
+| **Recommendation** | [Confirm or undo](/findings/?recommendation=confirm-or-undo): a destructive action either asks first or can be undone, and the safe choice is the easy one |
+| **Area** | [Input and dictation](/findings/?area=input) |
+| **Breaks** | [Work is never lost to one tap or a silent failure](/principles/index.md#work-is-never-lost) |
+| **Observed** | 2026-10-25, not recorded |
+| **Last checked** | 2026-10-25, not recorded |
+| **Environment** | Claude app on iPad, landscape, dictating a message into a Claude Code session |
+| **Source** | [Reported by Dinis Cruz, 25 Oct 2026, by voice, with a screenshot](/method/index.md#reports-from-readers) |
+
+Previous: [UX-059 A security prompt that asks you to approve a command it does not explain, and cuts off](/findings/UX-059.md)
+
+Next: [UX-061 Three voice controls with no labels: the safe one and the send-as-is one sit side by side](/findings/UX-061.md)
+
+
+==============================================================================
+/findings/UX-061.html  ·  /findings/UX-061.md
+==============================================================================
+
+[Findings](/findings/index.md) / UX-061
+
+# Three voice controls with no labels: the safe one and the send-as-is one sit side by side
+
+Open · medium severity · failure · Claude app (iPhone and iPad)
+
+## What we saw
+
+Of the three buttons, the square is the one you usually want: it stops recording and puts the transcript in the box to correct, which dictated text nearly always needs. The up arrow, right next to it, sends the transcript as is, uncorrected. Nothing (label, tooltip, first-use hint) says which does what; the reporter learned all three by trial and error.
+
+![Claude app on iPad while dictating: the transcript so far in the message box, a waveform, an X button on the left, a square button and an orange up-arrow button side by side on the right, none of them labelled](/findings/img/UX-060-voice-input-controls.webp)
+
+_The square (stop and edit) and the up arrow (send as is) are adjacent and unlabelled._
+
+## Why it matters
+
+Every first use is a guess, and the guess has consequences: a wrong tap either destroys the recording (UX-060) or sends a message full of transcription errors to an agent that will act on it.
+
+## The fix
+
+Label the buttons ("Discard", "Stop and edit", "Send"), at least until they have been used a few times. Make "Stop and edit" the visually primary action, and put space between it and "Send".
+
+## The record
+
+| | |
+| --- | --- |
+| **Status** | Open |
+| **Severity** | Medium |
+| **Kind** | Failure: works against the reader |
+| **Product** | [Claude app (iPhone and iPad)](/findings/?product=claude-app-ios), app |
+| **Where** | Message box, voice input |
+| **Problems** | [Unlabelled](/findings/?problem=unlabelled), [Uninformed decision](/findings/?problem=uninformed-decision) |
+| **Visibility** | [Obvious](/findings/?visibility=obvious): every reader sees it, every time they reach that point |
+| **Recommendation** | [Say what it is](/findings/?recommendation=say-what-it-is): label it, in the reader's terms, at the moment it matters |
+| **Area** | [Input and dictation](/findings/?area=input) |
+| **Breaks** | [A decision comes with what you need to make it](/principles/index.md#informed-decisions) |
+| **Observed** | 2026-10-25, not recorded |
+| **Last checked** | 2026-10-25, not recorded |
+| **Environment** | Claude app on iPad, landscape, dictating a message into a Claude Code session |
+| **Source** | [Reported by Dinis Cruz, 25 Oct 2026, by voice, with a screenshot](/method/index.md#reports-from-readers) |
+
+Previous: [UX-060 One unlabelled X throws away the whole recording, with no confirmation](/findings/UX-060.md)
+
+Next: [UX-062 The transcript is cleaned up in a second pass without saying when, or what changed](/findings/UX-062.md)
+
+
+==============================================================================
+/findings/UX-062.html  ·  /findings/UX-062.md
+==============================================================================
+
+[Findings](/findings/index.md) / UX-062
+
+# The transcript is cleaned up in a second pass without saying when, or what changed
+
+Open · low severity · failure · Claude app (iPhone and iPad)
+
+## What we saw
+
+After the live transcript, a second pass rewrites the text to tidy it up. The result is usually better, but nothing shows that it happened, when it happened, or which words were changed from what was actually said.
+
+## Why it matters
+
+The reader can no longer tell their own words from the model's interpretation of them, so they cannot tell what to check. For an instruction to an agent, a quietly changed word can change the task.
+
+## The fix
+
+Mark the moment the second pass runs, highlight words it changed, and offer "show what I said" or a one-tap revert to the raw transcript.
+
+## The record
+
+| | |
+| --- | --- |
+| **Status** | Open |
+| **Severity** | Low |
+| **Kind** | Failure: works against the reader |
+| **Product** | [Claude app (iPhone and iPad)](/findings/?product=claude-app-ios), app |
+| **Where** | Message box, voice input |
+| **Problems** | [Silent change](/findings/?problem=silent-change) |
+| **Visibility** | [Subtle](/findings/?visibility=subtle): felt more than seen: it costs attention or trust, but is not noticed as a bug |
+| **Recommendation** | [Show what changed](/findings/?recommendation=show-what-changed): when the system rewrites what the reader made, mark it, and let them see and undo the change |
+| **Area** | [Input and dictation](/findings/?area=input) |
+| **Breaks** | [Say who wrote it, and how](/principles/index.md#say-who-wrote-it) |
+| **Observed** | 2026-10-25, not recorded |
+| **Last checked** | 2026-10-25, not recorded |
+| **Environment** | Claude app on iPad, landscape, dictating a message into a Claude Code session |
+| **Source** | [Reported by Dinis Cruz, 25 Oct 2026, by voice, with a screenshot](/method/index.md#reports-from-readers) |
+
+Previous: [UX-061 Three voice controls with no labels: the safe one and the send-as-is one sit side by side](/findings/UX-061.md)
+
+Next: [UX-063 The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording](/findings/UX-063.md)
+
+
+==============================================================================
+/findings/UX-063.html  ·  /findings/UX-063.md
+==============================================================================
+
+[Findings](/findings/index.md) / UX-063
+
+# The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording
+
+Open · high severity · failure · Claude app (iPhone and iPad)
+
+## What we saw
+
+Mid-dictation the live transcript can stop updating while the waveform keeps moving, so there is no way to know whether the rest is being captured. Sometimes pressing the square then shows the missing text after a "transcribing" step; sometimes it has been lost. The reporter puts it at roughly half the time it stalls, and has lost "quite a lot of voice memos" this way. The audio is never offered back for a retry.
+
+![Claude app on iPad while dictating: the transcript so far in the message box, a waveform, an X button on the left, a square button and an orange up-arrow button side by side on the right, none of them labelled](/findings/img/UX-060-voice-input-controls.webp)
+
+_Mid-dictation: the transcript ends at "usability" while the waveform keeps moving. Is the rest being recorded? Nothing says._
+
+## Why it matters
+
+The reader has to keep a mental check running while they speak, watching for words to appear, and stops trusting the tool whenever they do not. When it fails the recording cannot be recovered or resubmitted, so the loss is total.
+
+## The fix
+
+Show the state explicitly: "Live transcript paused, audio still recording" when the live pass stalls, and a clear error if capture itself stops. Keep the audio on the device until the final transcript is in the box, and offer "Transcribe again" when it fails.
+
+**What good looks like:** [EX-002 Dictation that shows your words as you speak them](/exemplars/EX-002.md).
+
+## The record
+
+| | |
+| --- | --- |
+| **Status** | Open |
+| **Severity** | High |
+| **Kind** | Failure: works against the reader |
+| **Product** | [Claude app (iPhone and iPad)](/findings/?product=claude-app-ios), app |
+| **Where** | Message box, voice input |
+| **Problems** | [Missing feedback](/findings/?problem=missing-feedback), [Data loss](/findings/?problem=data-loss) |
+| **Visibility** | [Intermittent](/findings/?visibility=intermittent): some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand |
+| **Recommendation** | [Show the state](/findings/?recommendation=show-the-state): always show what the system is doing (listening, working, paused, failed) and keep what was captured until it is safely delivered |
+| **Area** | [Input and dictation](/findings/?area=input) |
+| **Breaks** | [The reader can always tell what the system is doing](/principles/index.md#system-state-is-visible) |
+| **Observed** | 2026-10-25, not recorded |
+| **Last checked** | 2026-10-25, not recorded |
+| **Environment** | Claude app on iPad, landscape, dictating a message into a Claude Code session |
+| **Source** | [Reported by Dinis Cruz, 25 Oct 2026, by voice, with a screenshot](/method/index.md#reports-from-readers) |
+
+Previous: [UX-062 The transcript is cleaned up in a second pass without saying when, or what changed](/findings/UX-062.md)
 
 
 ==============================================================================
@@ -3227,7 +3491,9 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 | [UX-044](/findings/UX-044.md) | Open | high | newsroom.sgit.ai | hidden-until-script, dead-end | intermittent | The founder page says "the picks above" and no picks render on a phone |
 | [UX-046](/findings/UX-046.md) | Open | high | dev.vault.sgraph.ai | host-trap, dead-end | silent | Setting location.hash inside a vault app re-navigates the frame: every link silently dead |
 | [UX-056](/findings/UX-056.md) | Open | high | Firefox on iPad | focus-hijack, unexpected-movement, wrong-culprit | intermittent | Scrolling back up a little puts focus in the address bar and opens the keyboard |
-| [UX-059](/findings/UX-059.md) | Open | high | Claude app on iPhone | uninformed-decision, buried-content, missing-signal | obvious | A security prompt that asks you to approve a command it does not explain, and cuts off |
+| [UX-059](/findings/UX-059.md) | Open | high | Claude app (iPhone and iPad) | uninformed-decision, buried-content, missing-signal | obvious | A security prompt that asks you to approve a command it does not explain, and cuts off |
+| [UX-060](/findings/UX-060.md) | Open | high | Claude app (iPhone and iPad) | data-loss, unlabelled | obvious | One unlabelled X throws away the whole recording, with no confirmation |
+| [UX-063](/findings/UX-063.md) | Open | high | Claude app (iPhone and iPad) | missing-feedback, data-loss | intermittent | The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording |
 | [UX-008](/findings/UX-008.md) | Open | medium | newsroom.sgit.ai | hidden-until-script | intermittent | Content is hidden until JavaScript runs |
 | [UX-009](/findings/UX-009.md) | Open | medium | newsroom.sgit.ai | overload, builder-chrome | obvious | Two navigation bars, and a 60-link menu that mixes reading with building |
 | [UX-010](/findings/UX-010.md) | Open | medium | newsroom.sgit.ai | dead-end | intermittent | Missing pages show the default GitHub Pages 404 |
@@ -3248,6 +3514,7 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 | [UX-047](/findings/UX-047.md) | Open | medium | dev.vault.sgraph.ai | host-trap, data-loss | intermittent | localStorage throws inside the vault app frame, so reader data is lost on reload |
 | [UX-057](/findings/UX-057.md) | Open | medium | Firefox on iPad | unexpected-movement, lost-screen-space | obvious | The toolbars come back on any small scroll up, taking screen and moving the page |
 | [UX-058](/findings/UX-058.md) | Open | medium | Firefox on iPad | unpredictable-control, unexpected-movement, lost-screen-space | intermittent | Whether the toolbars hide depends on how fast you scroll, not how far |
+| [UX-061](/findings/UX-061.md) | Open | medium | Claude app (iPhone and iPad) | unlabelled, uninformed-decision | obvious | Three voice controls with no labels: the safe one and the send-as-is one sit side by side |
 | [UX-005](/findings/UX-005.md) | Open | low | newsroom.sgit.ai | builder-chrome | subtle | The version number is shown three times on the first screen |
 | [UX-006](/findings/UX-006.md) | Open | low | newsroom.sgit.ai | builder-chrome, buried-content | obvious | A "For agents /llms.txt" strip sits above the masthead |
 | [UX-007](/findings/UX-007.md) | Open | low | newsroom.sgit.ai | missing-signal | subtle | The editor's note is written for someone who read the last two editions |
@@ -3265,6 +3532,7 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 | [UX-053](/findings/UX-053.md) | Open | low | Newsroom Design Lab | missing-signal | subtle | Search results show no snippets |
 | [UX-054](/findings/UX-054.md) | Open | low | Newsroom Design Lab | unlabelled | obvious | Stacked tables on a phone lose their column labels |
 | [UX-055](/findings/UX-055.md) | Open | low | Newsroom Design Lab | untested-path | silent | "Ask the article" has never run against a real on-device model |
+| [UX-062](/findings/UX-062.md) | Open | low | Claude app (iPhone and iPad) | silent-change | subtle | The transcript is cleaned up in a second pass without saying when, or what changed |
 | [UX-028](/findings/UX-028.md) | Partly fixed | high | newsroom.sgit.ai | unlabelled | obvious | The £5.00 balance chip has no label |
 | [UX-035](/findings/UX-035.md) | Fixed | high | newsroom.sgit.ai | inconsistent-facts, alarming-wording | obvious | The top-up page said "simulated" while asking for money |
 | [UX-036](/findings/UX-036.md) | Fixed | high | newsroom.sgit.ai | inconsistent-facts | silent | Articles were published on two domains, and diverged |
@@ -3296,9 +3564,9 @@ The register is one file, [/data/findings.json](/data/findings.json). This page,
 <a class="door" href="/lab/"><span class="door__title">Show me the fixes</span><span class="door__body">The Newsroom Design Lab: four vaults trying the fixes on real data, in three design directions.</span></a>
 </div>
 
-- **59** findings in the register
-- **51** still open
-- **14** open and high severity
+- **63** findings in the register
+- **55** still open
+- **16** open and high severity
 - **8** fixed, with the version that fixed it
 
 ## Open, and high severity
@@ -3317,10 +3585,12 @@ These lose a reader or a reader's trust on the first visit. Each links to its ev
 - [UX-044](/findings/UX-044.md) · high · open · The founder page says "the picks above" and no picks render on a phone (newsroom.sgit.ai)
 - [UX-046](/findings/UX-046.md) · high · open · Setting location.hash inside a vault app re-navigates the frame: every link silently dead (dev.vault.sgraph.ai)
 - [UX-056](/findings/UX-056.md) · high · open · Scrolling back up a little puts focus in the address bar and opens the keyboard (Firefox on iPad)
-- [UX-059](/findings/UX-059.md) · high · open · A security prompt that asks you to approve a command it does not explain, and cuts off (Claude app on iPhone)
+- [UX-059](/findings/UX-059.md) · high · open · A security prompt that asks you to approve a command it does not explain, and cuts off (Claude app (iPhone and iPad))
+- [UX-060](/findings/UX-060.md) · high · open · One unlabelled X throws away the whole recording, with no confirmation (Claude app (iPhone and iPad))
+- [UX-063](/findings/UX-063.md) · high · open · The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording (Claude app (iPhone and iPad))
 - [UX-028](/findings/UX-028.md) · high · partly fixed · The £5.00 balance chip has no label (newsroom.sgit.ai)
 
-[All 59 findings →](/findings/index.md)
+[All 63 findings →](/findings/index.md)
 
 ## By product
 
@@ -3332,7 +3602,7 @@ Whose fault it is. Most findings are on our own sites; some belong to the platfo
 | dev.vault.sgraph.ai | [4](/findings/?product=dev.vault.sgraph.ai) | 4 | The vault host: opens a vault by its key and runs its app in a sandboxed frame (platform) |
 | Newsroom Design Lab | [6](/findings/?product=newsroom-design-lab) | 4 | This site's own prototypes: four vaults trying the newsroom fixes in three directions |
 | Firefox on iPad | [3](/findings/?product=firefox-ipad) | 3 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
-| Claude app on iPhone | [1](/findings/?product=claude-app-iphone) | 1 | The Claude app on iOS, used here to run and supervise Claude Code sessions (app) |
+| Claude app (iPhone and iPad) | [5](/findings/?product=claude-app-ios) | 5 | The Claude app on iOS and iPadOS, used here to run and supervise Claude Code sessions, often by voice (app) |
 
 ## How a finding gets here
 
@@ -3691,22 +3961,24 @@ If a finding does not fit any [principle](/principles/index.md), add the princip
 Each principle here is kept because at least one finding breaks it: the list grows from evidence, not from taste. Each has a test you can run on your own page in about a minute. When a new kind of failure does not fit any of them, that is a new principle.
 
 1. [A decision comes with what you need to make it](/principles/index.md#informed-decisions)
-2. [The first screen is for a stranger](/principles/index.md#stranger-first-screen)
-3. [Nothing moves that the reader did not move](/principles/index.md#ui-stays-still)
-4. [The same gesture gives the same result, so it can be learned](/principles/index.md#same-gesture-same-result)
-5. [Label the money, and never surprise with a charge](/principles/index.md#label-the-money)
-6. [A default is not an answer](/principles/index.md#defaults-are-not-answers)
-7. [Ask before keeping](/principles/index.md#ask-before-keeping)
-8. [Every view is a link](/principles/index.md#every-view-is-a-link)
-9. [No dead ends](/principles/index.md#no-dead-ends)
-10. [One source of truth for every fact](/principles/index.md#one-source-of-truth)
-11. [The publication is not the workshop](/principles/index.md#publication-not-workshop)
-12. [Feedback reaches someone, and the reader gets a receipt](/principles/index.md#feedback-reaches-someone)
-13. [Say how long, and what kind, before the reader commits](/principles/index.md#length-before-commitment)
-14. [Say who wrote it, and how](/principles/index.md#say-who-wrote-it)
-15. [Content is visible without waiting for scripts](/principles/index.md#content-is-visible)
-16. [What a page says about the present is true now](/principles/index.md#state-is-current)
-17. [A vault app works inside the host, not just on its own](/principles/index.md#host-safe-apps)
+2. [Work is never lost to one tap or a silent failure](/principles/index.md#work-is-never-lost)
+3. [The reader can always tell what the system is doing](/principles/index.md#system-state-is-visible)
+4. [The first screen is for a stranger](/principles/index.md#stranger-first-screen)
+5. [Nothing moves that the reader did not move](/principles/index.md#ui-stays-still)
+6. [The same gesture gives the same result, so it can be learned](/principles/index.md#same-gesture-same-result)
+7. [Label the money, and never surprise with a charge](/principles/index.md#label-the-money)
+8. [A default is not an answer](/principles/index.md#defaults-are-not-answers)
+9. [Ask before keeping](/principles/index.md#ask-before-keeping)
+10. [Every view is a link](/principles/index.md#every-view-is-a-link)
+11. [No dead ends](/principles/index.md#no-dead-ends)
+12. [One source of truth for every fact](/principles/index.md#one-source-of-truth)
+13. [The publication is not the workshop](/principles/index.md#publication-not-workshop)
+14. [Feedback reaches someone, and the reader gets a receipt](/principles/index.md#feedback-reaches-someone)
+15. [Say how long, and what kind, before the reader commits](/principles/index.md#length-before-commitment)
+16. [Say who wrote it, and how](/principles/index.md#say-who-wrote-it)
+17. [Content is visible without waiting for scripts](/principles/index.md#content-is-visible)
+18. [What a page says about the present is true now](/principles/index.md#state-is-current)
+19. [A vault app works inside the host, not just on its own](/principles/index.md#host-safe-apps)
 
 ## 1. A decision comes with what you need to make it
 
@@ -3716,11 +3988,36 @@ Each principle here is kept because at least one finding breaks it: the list gro
 
 **The test.** Show the prompt to someone for five seconds. Can they say what will happen if they press each button? If they would need to read code to answer, the prompt has failed.
 
-Broken by 1 findings, 1 open:
+Broken by 2 findings, 2 open:
 
 - [UX-059](/findings/UX-059.md) · open · A security prompt that asks you to approve a command it does not explain, and cuts off
+- [UX-061](/findings/UX-061.md) · open · Three voice controls with no labels: the safe one and the send-as-is one sit side by side
 
-## 2. The first screen is for a stranger
+## 2. Work is never lost to one tap or a silent failure
+
+**The rule.** What the reader has made (a recording, a draft, a note) cannot be destroyed by a single unlabelled tap, and is kept when something fails. Destructive actions ask first or can be undone; failures keep the raw capture and offer a retry.
+
+**Why.** Losing work once teaches the reader to distrust the whole tool. From then on they spend attention guarding against the tool instead of using it, and some stop using it at all.
+
+**The test.** Make something, then press every button that could end the flow. Can any one tap destroy it without asking? Cut the network halfway: is what you made still there?
+
+Broken by 1 findings, 1 open:
+
+- [UX-060](/findings/UX-060.md) · open · One unlabelled X throws away the whole recording, with no confirmation
+
+## 3. The reader can always tell what the system is doing
+
+**The rule.** At every moment the interface shows whether it is listening, working, paused, done or failed. A process that stops shows that it stopped; it never just goes quiet.
+
+**Why.** Silence is ambiguous. Without a visible state the reader cannot tell a slow system from a broken one, so they either wait for something that will never come or abandon something that was working.
+
+**The test.** Start a long operation and watch it. If it stalled now, would anything on screen change? Can you tell "still working" from "failed" without waiting for the end?
+
+Broken by 1 findings, 1 open:
+
+- [UX-063](/findings/UX-063.md) · open · The live transcript sometimes stops while you are still speaking, and nothing says whether it is still recording
+
+## 4. The first screen is for a stranger
 
 **The rule.** On a phone, the first screen says what this is, who it is for, and where to go next. The lead is on it. Chrome, metadata and method come after.
 
@@ -3739,7 +4036,7 @@ Broken by 8 findings, 6 open:
 - [UX-003](/findings/UX-003.md) · fixed · The masthead line describes a method, not a subject
 - [UX-050](/findings/UX-050.md) · fixed · File-path pills scrolled the whole page sideways at 390 px
 
-## 3. Nothing moves that the reader did not move
+## 5. Nothing moves that the reader did not move
 
 **The rule.** While the reader is reading, the interface holds still. Toolbars, keyboards, banners and panels appear, move or take focus only on a deliberate gesture made for that purpose, never as a side effect of scrolling or reading.
 
@@ -3753,7 +4050,7 @@ Broken by 3 findings, 2 open:
 - [UX-057](/findings/UX-057.md) · open · The toolbars come back on any small scroll up, taking screen and moving the page
 - [UX-051](/findings/UX-051.md) · fixed · Re-rendering the whole view on every save lost the reader's place
 
-## 4. The same gesture gives the same result, so it can be learned
+## 6. The same gesture gives the same result, so it can be learned
 
 **The rule.** Every interaction behaves the same way every time, triggered by something the reader controls (where they tap, how far they scroll), never by something they cannot see or repeat (how fast they flicked, what state an animation was in).
 
@@ -3765,7 +4062,7 @@ Broken by 1 findings, 1 open:
 
 - [UX-058](/findings/UX-058.md) · open · Whether the toolbars hide depends on how fast you scroll, not how far
 
-## 5. Label the money, and never surprise with a charge
+## 7. Label the money, and never surprise with a charge
 
 **The rule.** Every number that is money says what it is. The first time anything is charged, the reader is told before or as it happens. Wording about balances never reads as debt or threat.
 
@@ -3781,7 +4078,7 @@ Broken by 5 findings, 4 open:
 - [UX-028](/findings/UX-028.md) · partly fixed · The £5.00 balance chip has no label
 - [UX-035](/findings/UX-035.md) · fixed · The top-up page said "simulated" while asking for money
 
-## 6. A default is not an answer
+## 8. A default is not an answer
 
 **The rule.** Inputs that ask the reader's opinion start empty. Only what the reader actually did is recorded.
 
@@ -3794,7 +4091,7 @@ Broken by 2 findings, 2 open:
 - [UX-024](/findings/UX-024.md) · open · All three rating scales start on 3
 - [UX-052](/findings/UX-052.md) · open · A highlight across paragraphs is cut at the first paragraph
 
-## 7. Ask before keeping
+## 9. Ask before keeping
 
 **The rule.** Nothing is added to the reader's lists, profile or storage because they opened something. Keeping is a tap the reader makes.
 
@@ -3807,7 +4104,7 @@ Broken by 2 findings, 2 open:
 - [UX-027](/findings/UX-027.md) · open · Articles join the reader's list without being asked
 - [UX-043](/findings/UX-043.md) · open · Opening a persona link adds it to the browser without asking
 
-## 8. Every view is a link
+## 10. Every view is a link
 
 **The rule.** Anything a reader can see, they can send: a filter, a search, a tag, a desk, a part of a series. The address changes when the view does.
 
@@ -3822,7 +4119,7 @@ Broken by 4 findings, 3 open:
 - [UX-049](/findings/UX-049.md) · open · Query strings break inside the vault host, so filters must live in the route path
 - [UX-042](/findings/UX-042.md) · fixed · Persona links were designed but not live
 
-## 9. No dead ends
+## 11. No dead ends
 
 **The rule.** Everything that looks like a way in is one: tags link to pages, missing pages offer the way back, each article ends with one next step.
 
@@ -3840,7 +4137,7 @@ Broken by 7 findings, 6 open:
 - [UX-019](/findings/UX-019.md) · open · Search only matches titles, teasers and tags
 - [UX-041](/findings/UX-041.md) · fixed · 51 vault images missing across 10 articles
 
-## 10. One source of truth for every fact
+## 12. One source of truth for every fact
 
 **The rule.** Each piece of content is published once, at one canonical address. Every count, date and label is generated from one manifest at build time.
 
@@ -3855,7 +4152,7 @@ Broken by 4 findings, 3 open:
 - [UX-039](/findings/UX-039.md) · open · The feed is titled for the old site
 - [UX-036](/findings/UX-036.md) · fixed · Articles were published on two domains, and diverged
 
-## 11. The publication is not the workshop
+## 13. The publication is not the workshop
 
 **The rule.** Reader pages carry reader things. How the site is built (versions, author tooling, agent strips, release history, admin) lives in one clearly separate area, one link away.
 
@@ -3870,7 +4167,7 @@ Broken by 4 findings, 4 open:
 - [UX-006](/findings/UX-006.md) · open · A "For agents /llms.txt" strip sits above the masthead
 - [UX-021](/findings/UX-021.md) · open · Author tooling is shown to every reader
 
-## 12. Feedback reaches someone, and the reader gets a receipt
+## 14. Feedback reaches someone, and the reader gets a receipt
 
 **The rule.** Every rating, request or 'what is missing' goes somewhere a person reads it, by default and with plain consent, and the reader keeps a receipt of what was sent.
 
@@ -3884,7 +4181,7 @@ Broken by 3 findings, 3 open:
 - [UX-034](/findings/UX-034.md) · open · No contact for a pilot on the Replicate page
 - [UX-026](/findings/UX-026.md) · open · There is no way to say what was missing
 
-## 13. Say how long, and what kind, before the reader commits
+## 15. Say how long, and what kind, before the reader commits
 
 **The rule.** Every card and every link to a long piece shows reading time and format. Every long piece opens with a short version.
 
@@ -3898,7 +4195,7 @@ Broken by 3 findings, 3 open:
 - [UX-020](/findings/UX-020.md) · open · The best reader feature is buried under metadata and a long italic abstract
 - [UX-053](/findings/UX-053.md) · open · Search results show no snippets
 
-## 14. Say who wrote it, and how
+## 16. Say who wrote it, and how
 
 **The rule.** The byline names the person and the way the piece was made (with agents, from voice notes), where the reader looks, not in the footer. The purpose of the publication is one link away.
 
@@ -3906,13 +4203,14 @@ Broken by 3 findings, 3 open:
 
 **The test.** From the top of any article, can a reader tell who wrote it, with what help, and why the publication exists?
 
-Broken by 3 findings, 3 open:
+Broken by 4 findings, 4 open:
 
 - [UX-033](/findings/UX-033.md) · open · It is unclear how a writer gets paid
 - [UX-022](/findings/UX-022.md) · open · The byline names one human; the AI authorship is in the footer
 - [UX-023](/findings/UX-023.md) · open · There is no page that says why the publication exists
+- [UX-062](/findings/UX-062.md) · open · The transcript is cleaned up in a second pass without saying when, or what changed
 
-## 15. Content is visible without waiting for scripts
+## 17. Content is visible without waiting for scripts
 
 **The rule.** The page renders its content in HTML and shows it at once. Scripts enhance; they never gate what the reader can see.
 
@@ -3925,7 +4223,7 @@ Broken by 2 findings, 2 open:
 - [UX-044](/findings/UX-044.md) · open · The founder page says "the picks above" and no picks render on a phone
 - [UX-008](/findings/UX-008.md) · open · Content is hidden until JavaScript runs
 
-## 16. What a page says about the present is true now
+## 18. What a page says about the present is true now
 
 **The rule.** Labels like 'edition of', 'currently', 'broken' and 'live' are dated or generated, and change when the facts do. A fixed problem is marked fixed, with the version.
 
@@ -3940,7 +4238,7 @@ Broken by 4 findings, 3 open:
 - [UX-055](/findings/UX-055.md) · open · "Ask the article" has never run against a real on-device model
 - [UX-004](/findings/UX-004.md) · fixed · The edition label is older than the articles under it
 
-## 17. A vault app works inside the host, not just on its own
+## 19. A vault app works inside the host, not just on its own
 
 **The rule.** An app is tested where readers open it: inside the vault host's sandboxed frame. Routing never assigns location.hash, storage goes through the host, and network reads come from the vault.
 

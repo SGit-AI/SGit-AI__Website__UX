@@ -16,7 +16,7 @@ Whose fault it is: one of our sites, the platform under them, our own prototypes
 | dev.vault.sgraph.ai | [4](/findings/?product=dev.vault.sgraph.ai) | 4 | The vault host: opens a vault by its key and runs its app in a sandboxed frame (platform) |
 | Newsroom Design Lab | [6](/findings/?product=newsroom-design-lab) | 4 | This site's own prototypes: four vaults trying the newsroom fixes in three directions |
 | Firefox on iPad | [3](/findings/?product=firefox-ipad) | 3 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
-| Claude app on iPhone | [1](/findings/?product=claude-app-iphone) | 1 | The Claude app on iOS, used here to run and supervise Claude Code sessions (app) |
+| Claude app (iPhone and iPad) | [5](/findings/?product=claude-app-ios) | 5 | The Claude app on iOS and iPadOS, used here to run and supervise Claude Code sessions, often by voice (app) |
 
 ## By area
 
@@ -35,6 +35,7 @@ Where in the reader's visit it happens.
 | Consistency | [6](/findings/?area=consistency) | 4 |  |
 | Platform | [5](/findings/?area=platform) | 4 |  |
 | Security decisions | [1](/findings/?area=security) | 1 |  |
+| Input and dictation | [4](/findings/?area=input) | 4 |  |
 
 ## By problem
 
@@ -42,7 +43,8 @@ What kind of thing goes wrong. A finding can have more than one.
 
 | Problem | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Uninformed decision | [1](/findings/?problem=uninformed-decision) | 1 | The reader is asked to decide without what they need to judge it: what it does, what it touches, what could go wrong |
+| Uninformed decision | [2](/findings/?problem=uninformed-decision) | 2 | The reader is asked to decide without what they need to judge it: what it does, what it touches, what could go wrong |
+| Missing feedback | [1](/findings/?problem=missing-feedback) | 1 | No sign of what the system is doing, so the reader cannot tell progress from failure |
 | Unexpected movement | [4](/findings/?problem=unexpected-movement) | 3 | Part of the interface moves when the reader did not move it |
 | Focus hijack | [1](/findings/?problem=focus-hijack) | 1 | Focus or input goes somewhere the reader did not send it |
 | Unpredictable control | [1](/findings/?problem=unpredictable-control) | 1 | The result of a gesture depends on something the reader cannot see or control, such as its speed, so the state they want cannot be reached on purpose |
@@ -55,9 +57,9 @@ What kind of thing goes wrong. A finding can have more than one.
 | Missing way in | [4](/findings/?problem=missing-way-in) | 3 | A page or path the reader needs does not exist |
 | Dead end | [6](/findings/?problem=dead-end) | 5 | Something that looks like a way in goes nowhere |
 | Unshareable view | [2](/findings/?problem=unshareable-view) | 2 | A view the reader can see but cannot link to |
-| Unlabelled | [3](/findings/?problem=unlabelled) | 3 | A number, value or control with no label |
+| Unlabelled | [5](/findings/?problem=unlabelled) | 5 | A number, value or control with no label |
 | Alarming wording | [3](/findings/?problem=alarming-wording) | 2 | Words that read as a threat, a debt or a trick when they describe something benign |
-| Silent change | [1](/findings/?problem=silent-change) | 1 | State changes without telling the reader |
+| Silent change | [2](/findings/?problem=silent-change) | 2 | State changes without telling the reader |
 | Preselected input | [1](/findings/?problem=preselected-input) | 1 | An answer is chosen before the reader chooses |
 | Unconsented state | [2](/findings/?problem=unconsented-state) | 2 | Something is kept or added because the reader opened something |
 | Missing channel | [3](/findings/?problem=missing-channel) | 3 | No way for the reader to reach a person |
@@ -65,7 +67,7 @@ What kind of thing goes wrong. A finding can have more than one.
 | Stale claim | [2](/findings/?problem=stale-claim) | 1 | A statement about the present that is no longer true |
 | Hidden until script | [2](/findings/?problem=hidden-until-script) | 2 | Content appears only after scripts or prior state |
 | Host trap | [4](/findings/?problem=host-trap) | 4 | The platform behaves unlike a normal page, and the difference is not visible |
-| Data loss | [2](/findings/?problem=data-loss) | 2 | Something the reader made or kept is lost or cut |
+| Data loss | [4](/findings/?problem=data-loss) | 4 | Something the reader made or kept is lost or cut |
 | Layout overflow | [1](/findings/?problem=layout-overflow) | 0 | Content wider or taller than the screen it is on |
 | Untested path | [1](/findings/?problem=untested-path) | 1 | A path shown to readers that nobody has seen work |
 
@@ -75,9 +77,9 @@ How the reader experiences it: seen every time, sometimes, only felt, or not at 
 
 | Visibility | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Obvious | [16](/findings/?visibility=obvious) | 12 | Every reader sees it, every time they reach that point |
-| Intermittent | [6](/findings/?visibility=intermittent) | 6 | Some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand |
-| Subtle | [21](/findings/?visibility=subtle) | 19 | Felt more than seen: it costs attention or trust, but is not noticed as a bug |
+| Obvious | [18](/findings/?visibility=obvious) | 14 | Every reader sees it, every time they reach that point |
+| Intermittent | [7](/findings/?visibility=intermittent) | 7 | Some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand |
+| Subtle | [22](/findings/?visibility=subtle) | 20 | Felt more than seen: it costs attention or trust, but is not noticed as a bug |
 | Silent | [16](/findings/?visibility=silent) | 14 | No symptom on screen: found only by measuring, or by its consequences |
 
 ## By recommendation
@@ -87,12 +89,15 @@ The shape of the fix. Findings with the same recommendation are often fixed by t
 | Recommendation | Findings | Open | Means |
 | --- | --- | --- | --- |
 | Explain the decision | [1](/findings/?recommendation=explain-the-decision) | 1 | Before asking, say in plain words what will happen, what it touches, whether it can be undone and why it is being asked, with the raw detail one tap away |
+| Confirm or undo | [1](/findings/?recommendation=confirm-or-undo) | 1 | A destructive action either asks first or can be undone, and the safe choice is the easy one |
+| Show the state | [1](/findings/?recommendation=show-the-state) | 1 | Always show what the system is doing (listening, working, paused, failed) and keep what was captured until it is safely delivered |
+| Show what changed | [1](/findings/?recommendation=show-what-changed) | 1 | When the system rewrites what the reader made, mark it, and let them see and undo the change |
 | Keep the UI still | [3](/findings/?recommendation=keep-the-ui-still) | 2 | Nothing moves, appears or takes focus unless the reader asked for it; chrome that hides stays hidden until a deliberate gesture |
 | Make it predictable | [1](/findings/?recommendation=make-it-predictable) | 1 | The same gesture always gives the same result, and the reader can set the state directly instead of coaxing it |
 | Cut to the essential | [3](/findings/?recommendation=cut-to-the-essential) | 3 | Remove or move down everything that is not the lead, the doors and the next step |
 | Write for a stranger | [1](/findings/?recommendation=write-for-a-stranger) | 1 | Rewrite the words for someone arriving for the first time |
 | Show it up front | [7](/findings/?recommendation=show-it-up-front) | 6 | Put the signal the reader decides by (length, author, short version, real numbers) where they look first |
-| Say what it is | [7](/findings/?recommendation=say-what-it-is) | 6 | Label it, in the reader's terms, at the moment it matters |
+| Say what it is | [8](/findings/?recommendation=say-what-it-is) | 7 | Label it, in the reader's terms, at the moment it matters |
 | Start empty | [1](/findings/?recommendation=start-empty) | 1 | Inputs start unselected; record only what the reader did |
 | Ask first | [2](/findings/?recommendation=ask-first) | 2 | Make keeping, adding or following a tap the reader makes |
 | Make it a link | [2](/findings/?recommendation=make-it-a-link) | 2 | Give the view, filter or label an address, and make it go there |
@@ -112,7 +117,9 @@ The rule it breaks. Each principle has a one-minute test on the principles page.
 
 | Principle | Findings | Open | Means |
 | --- | --- | --- | --- |
-| A decision comes with what you need to make it | [1](/findings/?principle=informed-decisions) | 1 | Any prompt that asks the reader to decide (allow, pay, share, delete) first says, in plain words, what will happen, what it touches, whether it can be undone, and why it is being asked. The raw detail is there for checking, not as the explanation. |
+| A decision comes with what you need to make it | [2](/findings/?principle=informed-decisions) | 2 | Any prompt that asks the reader to decide (allow, pay, share, delete) first says, in plain words, what will happen, what it touches, whether it can be undone, and why it is being asked. The raw detail is there for checking, not as the explanation. |
+| Work is never lost to one tap or a silent failure | [1](/findings/?principle=work-is-never-lost) | 1 | What the reader has made (a recording, a draft, a note) cannot be destroyed by a single unlabelled tap, and is kept when something fails. Destructive actions ask first or can be undone; failures keep the raw capture and offer a retry. |
+| The reader can always tell what the system is doing | [1](/findings/?principle=system-state-is-visible) | 1 | At every moment the interface shows whether it is listening, working, paused, done or failed. A process that stops shows that it stopped; it never just goes quiet. |
 | The first screen is for a stranger | [8](/findings/?principle=stranger-first-screen) | 6 | On a phone, the first screen says what this is, who it is for, and where to go next. The lead is on it. Chrome, metadata and method come after. |
 | Nothing moves that the reader did not move | [3](/findings/?principle=ui-stays-still) | 2 | While the reader is reading, the interface holds still. Toolbars, keyboards, banners and panels appear, move or take focus only on a deliberate gesture made for that purpose, never as a side effect of scrolling or reading. |
 | The same gesture gives the same result, so it can be learned | [1](/findings/?principle=same-gesture-same-result) | 1 | Every interaction behaves the same way every time, triggered by something the reader controls (where they tap, how far they scroll), never by something they cannot see or repeat (how fast they flicked, what state an animation was in). |
@@ -125,7 +132,7 @@ The rule it breaks. Each principle has a one-minute test on the principles page.
 | The publication is not the workshop | [4](/findings/?principle=publication-not-workshop) | 4 | Reader pages carry reader things. How the site is built (versions, author tooling, agent strips, release history, admin) lives in one clearly separate area, one link away. |
 | Feedback reaches someone, and the reader gets a receipt | [3](/findings/?principle=feedback-reaches-someone) | 3 | Every rating, request or 'what is missing' goes somewhere a person reads it, by default and with plain consent, and the reader keeps a receipt of what was sent. |
 | Say how long, and what kind, before the reader commits | [3](/findings/?principle=length-before-commitment) | 3 | Every card and every link to a long piece shows reading time and format. Every long piece opens with a short version. |
-| Say who wrote it, and how | [3](/findings/?principle=say-who-wrote-it) | 3 | The byline names the person and the way the piece was made (with agents, from voice notes), where the reader looks, not in the footer. The purpose of the publication is one link away. |
+| Say who wrote it, and how | [4](/findings/?principle=say-who-wrote-it) | 4 | The byline names the person and the way the piece was made (with agents, from voice notes), where the reader looks, not in the footer. The purpose of the publication is one link away. |
 | Content is visible without waiting for scripts | [2](/findings/?principle=content-is-visible) | 2 | The page renders its content in HTML and shows it at once. Scripts enhance; they never gate what the reader can see. |
 | What a page says about the present is true now | [4](/findings/?principle=state-is-current) | 3 | Labels like 'edition of', 'currently', 'broken' and 'live' are dated or generated, and change when the facts do. A fixed problem is marked fixed, with the version. |
 | A vault app works inside the host, not just on its own | [3](/findings/?principle=host-safe-apps) | 3 | An app is tested where readers open it: inside the vault host's sandboxed frame. Routing never assigns location.hash, storage goes through the host, and network reads come from the vault. |
@@ -136,9 +143,9 @@ High loses the reader or their trust on the first visit; medium costs effort or 
 
 | Severity | Findings | Open | Means |
 | --- | --- | --- | --- |
-| High | [18](/findings/?severity=high) | 14 |  |
-| Medium | [24](/findings/?severity=medium) | 20 |  |
-| Low | [17](/findings/?severity=low) | 17 |  |
+| High | [20](/findings/?severity=high) | 16 |  |
+| Medium | [25](/findings/?severity=medium) | 21 |  |
+| Low | [18](/findings/?severity=low) | 18 |  |
 
 ## By status
 
@@ -146,7 +153,7 @@ As of the date each finding was last checked.
 
 | Status | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Open | [50](/findings/?status=open) | 50 |  |
+| Open | [54](/findings/?status=open) | 54 |  |
 | Partly fixed | [1](/findings/?status=partly-fixed) | 1 |  |
 | Fixed | [8](/findings/?status=fixed) | 0 |  |
 
@@ -156,5 +163,5 @@ A failure works against the reader; a gap is something they need that is not the
 
 | Kind | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Failure | [40](/findings/?kind=failure) | 34 | Something works against the reader |
+| Failure | [44](/findings/?kind=failure) | 38 | Something works against the reader |
 | Gap | [19](/findings/?kind=gap) | 17 | Something the reader needs is not there |
