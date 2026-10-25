@@ -2,24 +2,37 @@
 
 Each principle here is kept because at least one finding breaks it: the list grows from evidence, not from taste. Each has a test you can run on your own page in about a minute. When a new kind of failure does not fit any of them, that is a new principle.
 
-1. [The first screen is for a stranger](/principles/index.md#stranger-first-screen)
-2. [Nothing moves that the reader did not move](/principles/index.md#ui-stays-still)
-3. [The same gesture gives the same result, so it can be learned](/principles/index.md#same-gesture-same-result)
-4. [Label the money, and never surprise with a charge](/principles/index.md#label-the-money)
-5. [A default is not an answer](/principles/index.md#defaults-are-not-answers)
-6. [Ask before keeping](/principles/index.md#ask-before-keeping)
-7. [Every view is a link](/principles/index.md#every-view-is-a-link)
-8. [No dead ends](/principles/index.md#no-dead-ends)
-9. [One source of truth for every fact](/principles/index.md#one-source-of-truth)
-10. [The publication is not the workshop](/principles/index.md#publication-not-workshop)
-11. [Feedback reaches someone, and the reader gets a receipt](/principles/index.md#feedback-reaches-someone)
-12. [Say how long, and what kind, before the reader commits](/principles/index.md#length-before-commitment)
-13. [Say who wrote it, and how](/principles/index.md#say-who-wrote-it)
-14. [Content is visible without waiting for scripts](/principles/index.md#content-is-visible)
-15. [What a page says about the present is true now](/principles/index.md#state-is-current)
-16. [A vault app works inside the host, not just on its own](/principles/index.md#host-safe-apps)
+1. [A decision comes with what you need to make it](/principles/index.md#informed-decisions)
+2. [The first screen is for a stranger](/principles/index.md#stranger-first-screen)
+3. [Nothing moves that the reader did not move](/principles/index.md#ui-stays-still)
+4. [The same gesture gives the same result, so it can be learned](/principles/index.md#same-gesture-same-result)
+5. [Label the money, and never surprise with a charge](/principles/index.md#label-the-money)
+6. [A default is not an answer](/principles/index.md#defaults-are-not-answers)
+7. [Ask before keeping](/principles/index.md#ask-before-keeping)
+8. [Every view is a link](/principles/index.md#every-view-is-a-link)
+9. [No dead ends](/principles/index.md#no-dead-ends)
+10. [One source of truth for every fact](/principles/index.md#one-source-of-truth)
+11. [The publication is not the workshop](/principles/index.md#publication-not-workshop)
+12. [Feedback reaches someone, and the reader gets a receipt](/principles/index.md#feedback-reaches-someone)
+13. [Say how long, and what kind, before the reader commits](/principles/index.md#length-before-commitment)
+14. [Say who wrote it, and how](/principles/index.md#say-who-wrote-it)
+15. [Content is visible without waiting for scripts](/principles/index.md#content-is-visible)
+16. [What a page says about the present is true now](/principles/index.md#state-is-current)
+17. [A vault app works inside the host, not just on its own](/principles/index.md#host-safe-apps)
 
-## 1. The first screen is for a stranger
+## 1. A decision comes with what you need to make it
+
+**The rule.** Any prompt that asks the reader to decide (allow, pay, share, delete) first says, in plain words, what will happen, what it touches, whether it can be undone, and why it is being asked. The raw detail is there for checking, not as the explanation.
+
+**Why.** A decision the reader cannot judge is not a decision. They either refuse and stall the work, or learn to press Allow without reading, and a security prompt that trains people to press Allow is worse than no prompt at all.
+
+**The test.** Show the prompt to someone for five seconds. Can they say what will happen if they press each button? If they would need to read code to answer, the prompt has failed.
+
+Broken by 1 findings, 1 open:
+
+- [UX-059](/findings/UX-059.md) · open · A security prompt that asks you to approve a command it does not explain, and cuts off
+
+## 2. The first screen is for a stranger
 
 **The rule.** On a phone, the first screen says what this is, who it is for, and where to go next. The lead is on it. Chrome, metadata and method come after.
 
@@ -38,7 +51,7 @@ Broken by 8 findings, 6 open:
 - [UX-003](/findings/UX-003.md) · fixed · The masthead line describes a method, not a subject
 - [UX-050](/findings/UX-050.md) · fixed · File-path pills scrolled the whole page sideways at 390 px
 
-## 2. Nothing moves that the reader did not move
+## 3. Nothing moves that the reader did not move
 
 **The rule.** While the reader is reading, the interface holds still. Toolbars, keyboards, banners and panels appear, move or take focus only on a deliberate gesture made for that purpose, never as a side effect of scrolling or reading.
 
@@ -52,7 +65,7 @@ Broken by 3 findings, 2 open:
 - [UX-057](/findings/UX-057.md) · open · The toolbars come back on any small scroll up, taking screen and moving the page
 - [UX-051](/findings/UX-051.md) · fixed · Re-rendering the whole view on every save lost the reader's place
 
-## 3. The same gesture gives the same result, so it can be learned
+## 4. The same gesture gives the same result, so it can be learned
 
 **The rule.** Every interaction behaves the same way every time, triggered by something the reader controls (where they tap, how far they scroll), never by something they cannot see or repeat (how fast they flicked, what state an animation was in).
 
@@ -64,7 +77,7 @@ Broken by 1 findings, 1 open:
 
 - [UX-058](/findings/UX-058.md) · open · Whether the toolbars hide depends on how fast you scroll, not how far
 
-## 4. Label the money, and never surprise with a charge
+## 5. Label the money, and never surprise with a charge
 
 **The rule.** Every number that is money says what it is. The first time anything is charged, the reader is told before or as it happens. Wording about balances never reads as debt or threat.
 
@@ -80,7 +93,7 @@ Broken by 5 findings, 4 open:
 - [UX-028](/findings/UX-028.md) · partly fixed · The £5.00 balance chip has no label
 - [UX-035](/findings/UX-035.md) · fixed · The top-up page said "simulated" while asking for money
 
-## 5. A default is not an answer
+## 6. A default is not an answer
 
 **The rule.** Inputs that ask the reader's opinion start empty. Only what the reader actually did is recorded.
 
@@ -93,7 +106,7 @@ Broken by 2 findings, 2 open:
 - [UX-024](/findings/UX-024.md) · open · All three rating scales start on 3
 - [UX-052](/findings/UX-052.md) · open · A highlight across paragraphs is cut at the first paragraph
 
-## 6. Ask before keeping
+## 7. Ask before keeping
 
 **The rule.** Nothing is added to the reader's lists, profile or storage because they opened something. Keeping is a tap the reader makes.
 
@@ -106,7 +119,7 @@ Broken by 2 findings, 2 open:
 - [UX-027](/findings/UX-027.md) · open · Articles join the reader's list without being asked
 - [UX-043](/findings/UX-043.md) · open · Opening a persona link adds it to the browser without asking
 
-## 7. Every view is a link
+## 8. Every view is a link
 
 **The rule.** Anything a reader can see, they can send: a filter, a search, a tag, a desk, a part of a series. The address changes when the view does.
 
@@ -121,7 +134,7 @@ Broken by 4 findings, 3 open:
 - [UX-049](/findings/UX-049.md) · open · Query strings break inside the vault host, so filters must live in the route path
 - [UX-042](/findings/UX-042.md) · fixed · Persona links were designed but not live
 
-## 8. No dead ends
+## 9. No dead ends
 
 **The rule.** Everything that looks like a way in is one: tags link to pages, missing pages offer the way back, each article ends with one next step.
 
@@ -139,7 +152,7 @@ Broken by 7 findings, 6 open:
 - [UX-019](/findings/UX-019.md) · open · Search only matches titles, teasers and tags
 - [UX-041](/findings/UX-041.md) · fixed · 51 vault images missing across 10 articles
 
-## 9. One source of truth for every fact
+## 10. One source of truth for every fact
 
 **The rule.** Each piece of content is published once, at one canonical address. Every count, date and label is generated from one manifest at build time.
 
@@ -154,7 +167,7 @@ Broken by 4 findings, 3 open:
 - [UX-039](/findings/UX-039.md) · open · The feed is titled for the old site
 - [UX-036](/findings/UX-036.md) · fixed · Articles were published on two domains, and diverged
 
-## 10. The publication is not the workshop
+## 11. The publication is not the workshop
 
 **The rule.** Reader pages carry reader things. How the site is built (versions, author tooling, agent strips, release history, admin) lives in one clearly separate area, one link away.
 
@@ -169,7 +182,7 @@ Broken by 4 findings, 4 open:
 - [UX-006](/findings/UX-006.md) · open · A "For agents /llms.txt" strip sits above the masthead
 - [UX-021](/findings/UX-021.md) · open · Author tooling is shown to every reader
 
-## 11. Feedback reaches someone, and the reader gets a receipt
+## 12. Feedback reaches someone, and the reader gets a receipt
 
 **The rule.** Every rating, request or 'what is missing' goes somewhere a person reads it, by default and with plain consent, and the reader keeps a receipt of what was sent.
 
@@ -183,7 +196,7 @@ Broken by 3 findings, 3 open:
 - [UX-034](/findings/UX-034.md) · open · No contact for a pilot on the Replicate page
 - [UX-026](/findings/UX-026.md) · open · There is no way to say what was missing
 
-## 12. Say how long, and what kind, before the reader commits
+## 13. Say how long, and what kind, before the reader commits
 
 **The rule.** Every card and every link to a long piece shows reading time and format. Every long piece opens with a short version.
 
@@ -197,7 +210,7 @@ Broken by 3 findings, 3 open:
 - [UX-020](/findings/UX-020.md) · open · The best reader feature is buried under metadata and a long italic abstract
 - [UX-053](/findings/UX-053.md) · open · Search results show no snippets
 
-## 13. Say who wrote it, and how
+## 14. Say who wrote it, and how
 
 **The rule.** The byline names the person and the way the piece was made (with agents, from voice notes), where the reader looks, not in the footer. The purpose of the publication is one link away.
 
@@ -211,7 +224,7 @@ Broken by 3 findings, 3 open:
 - [UX-022](/findings/UX-022.md) · open · The byline names one human; the AI authorship is in the footer
 - [UX-023](/findings/UX-023.md) · open · There is no page that says why the publication exists
 
-## 14. Content is visible without waiting for scripts
+## 15. Content is visible without waiting for scripts
 
 **The rule.** The page renders its content in HTML and shows it at once. Scripts enhance; they never gate what the reader can see.
 
@@ -224,7 +237,7 @@ Broken by 2 findings, 2 open:
 - [UX-044](/findings/UX-044.md) · open · The founder page says "the picks above" and no picks render on a phone
 - [UX-008](/findings/UX-008.md) · open · Content is hidden until JavaScript runs
 
-## 15. What a page says about the present is true now
+## 16. What a page says about the present is true now
 
 **The rule.** Labels like 'edition of', 'currently', 'broken' and 'live' are dated or generated, and change when the facts do. A fixed problem is marked fixed, with the version.
 
@@ -239,7 +252,7 @@ Broken by 4 findings, 3 open:
 - [UX-055](/findings/UX-055.md) · open · "Ask the article" has never run against a real on-device model
 - [UX-004](/findings/UX-004.md) · fixed · The edition label is older than the articles under it
 
-## 16. A vault app works inside the host, not just on its own
+## 17. A vault app works inside the host, not just on its own
 
 **The rule.** An app is tested where readers open it: inside the vault host's sandboxed frame. Routing never assigns location.hash, storage goes through the host, and network reads come from the vault.
 

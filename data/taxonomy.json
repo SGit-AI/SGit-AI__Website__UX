@@ -2,6 +2,11 @@
     "what": "The vocabularies a finding is indexed by, besides its product, area and principle. A finding has one or more problems, one visibility and one recommendation. The gate fails on a value that is not here, and on a value here that no finding uses, so each list grows from evidence.",
     "problems": [
         {
+            "id": "uninformed-decision",
+            "label": "Uninformed decision",
+            "what": "The reader is asked to decide without what they need to judge it: what it does, what it touches, what could go wrong"
+        },
+        {
             "id": "unexpected-movement",
             "label": "Unexpected movement",
             "what": "Part of the interface moves when the reader did not move it"
@@ -150,6 +155,11 @@
         }
     ],
     "recommendations": [
+        {
+            "id": "explain-the-decision",
+            "label": "Explain the decision",
+            "what": "Before asking, say in plain words what will happen, what it touches, whether it can be undone and why it is being asked, with the raw detail one tap away"
+        },
         {
             "id": "keep-the-ui-still",
             "label": "Keep the UI still",

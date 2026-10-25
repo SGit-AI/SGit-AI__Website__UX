@@ -4,11 +4,11 @@
 > live site with a date and version, the principle it breaks, the fix, and (where one exists) a working
 > prototype of the fix in three design directions.
 
-Site version: v0.3.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
+Site version: v0.4.0 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
 
 ## The headline
 
-58 findings across 4 products: 50 still open, 13 of them high severity, 8 fixed. 39 are failures (something works against the reader) and 19 are gaps (something the reader needs is not there). Every count on this site is generated from /data/findings.json.
+59 findings across 5 products: 51 still open, 14 of them high severity, 8 fixed. 40 are failures (something works against the reader) and 19 are gaps (something the reader needs is not there). Every count on this site is generated from /data/findings.json.
 
 ## Properties agents may rely on
 
@@ -63,6 +63,7 @@ Site version: v0.3.0 (2026-10-18). Content CC BY 4.0. Code Apache 2.0. Author: D
 /findings/UX-044.html  [open, high, newsroom.sgit.ai, hidden-until-script+dead-end, intermittent, render-on-first-load] The founder page says "the picks above" and no picks render on a phone
 /findings/UX-046.html  [open, high, dev.vault.sgraph.ai, host-trap+dead-end, silent, design-for-the-host] Setting location.hash inside a vault app re-navigates the frame: every link silently dead
 /findings/UX-056.html  [open, high, firefox-ipad, focus-hijack+unexpected-movement+wrong-culprit, intermittent, keep-the-ui-still] Scrolling back up a little puts focus in the address bar and opens the keyboard
+/findings/UX-059.html  [open, high, claude-app-iphone, uninformed-decision+buried-content+missing-signal, obvious, explain-the-decision] A security prompt that asks you to approve a command it does not explain, and cuts off
 /findings/UX-008.html  [open, medium, newsroom.sgit.ai, hidden-until-script, intermittent, render-on-first-load] Content is hidden until JavaScript runs
 /findings/UX-009.html  [open, medium, newsroom.sgit.ai, overload+builder-chrome, obvious, move-to-the-workshop] Two navigation bars, and a 60-link menu that mixes reading with building
 /findings/UX-010.html  [open, medium, newsroom.sgit.ai, dead-end, intermittent, build-the-way-in] Missing pages show the default GitHub Pages 404
@@ -213,7 +214,16 @@ The version is shown once, in the footer, and links to [what changed](/admin/ver
 
 # Versions
 
-The current version is v0.3.0. Newest first.
+The current version is v0.4.0. Newest first.
+
+## v0.4.0 · 2026-10-25
+
+A security prompt that asks for a decision it does not explain: UX-059, and a principle for informed decisions.
+
+- `data/findings.json`: UX-059, the Claude app's Bash permission prompt shows raw, truncated code and no plain-words summary, with a screenshot
+- `data/principles.json`: new principle, a decision comes with what you need to make it
+- `data/taxonomy.json`: problem "uninformed decision", recommendation "explain the decision"
+- `data/site.json`: Claude app on iPhone added as a product (type: app); new area: security decisions
 
 ## v0.3.0 · 2026-10-18
 
@@ -277,6 +287,7 @@ Whose fault it is: one of our sites, the platform under them, our own prototypes
 | dev.vault.sgraph.ai | [4](/findings/?product=dev.vault.sgraph.ai) | 4 | The vault host: opens a vault by its key and runs its app in a sandboxed frame (platform) |
 | Newsroom Design Lab | [6](/findings/?product=newsroom-design-lab) | 4 | This site's own prototypes: four vaults trying the newsroom fixes in three directions |
 | Firefox on iPad | [3](/findings/?product=firefox-ipad) | 3 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
+| Claude app on iPhone | [1](/findings/?product=claude-app-iphone) | 1 | The Claude app on iOS, used here to run and supervise Claude Code sessions (app) |
 
 ## By area
 
@@ -294,6 +305,7 @@ Where in the reader's visit it happens.
 | Trust | [6](/findings/?area=trust) | 6 |  |
 | Consistency | [6](/findings/?area=consistency) | 4 |  |
 | Platform | [5](/findings/?area=platform) | 4 |  |
+| Security decisions | [1](/findings/?area=security) | 1 |  |
 
 ## By problem
 
@@ -301,15 +313,16 @@ What kind of thing goes wrong. A finding can have more than one.
 
 | Problem | Findings | Open | Means |
 | --- | --- | --- | --- |
+| Uninformed decision | [1](/findings/?problem=uninformed-decision) | 1 | The reader is asked to decide without what they need to judge it: what it does, what it touches, what could go wrong |
 | Unexpected movement | [4](/findings/?problem=unexpected-movement) | 3 | Part of the interface moves when the reader did not move it |
 | Focus hijack | [1](/findings/?problem=focus-hijack) | 1 | Focus or input goes somewhere the reader did not send it |
 | Unpredictable control | [1](/findings/?problem=unpredictable-control) | 1 | The result of a gesture depends on something the reader cannot see or control, such as its speed, so the state they want cannot be reached on purpose |
 | Lost screen space | [2](/findings/?problem=lost-screen-space) | 2 | Chrome takes screen that the content needed |
 | Wrong culprit | [1](/findings/?problem=wrong-culprit) | 1 | The reader blames the wrong party: the page for the browser, the site for the platform |
-| Buried content | [3](/findings/?problem=buried-content) | 3 | What the reader came for is pushed down or out of view |
+| Buried content | [4](/findings/?problem=buried-content) | 4 | What the reader came for is pushed down or out of view |
 | Overload | [4](/findings/?problem=overload) | 4 | Too much at once, so nothing is chosen for the reader |
 | Builder chrome | [5](/findings/?problem=builder-chrome) | 5 | Things for the author, an agent or the build, shown to readers |
-| Missing signal | [9](/findings/?problem=missing-signal) | 8 | The reader lacks what they need to decide: length, format, who wrote it, whether it is real |
+| Missing signal | [10](/findings/?problem=missing-signal) | 9 | The reader lacks what they need to decide: length, format, who wrote it, whether it is real |
 | Missing way in | [4](/findings/?problem=missing-way-in) | 3 | A page or path the reader needs does not exist |
 | Dead end | [6](/findings/?problem=dead-end) | 5 | Something that looks like a way in goes nowhere |
 | Unshareable view | [2](/findings/?problem=unshareable-view) | 2 | A view the reader can see but cannot link to |
@@ -333,7 +346,7 @@ How the reader experiences it: seen every time, sometimes, only felt, or not at 
 
 | Visibility | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Obvious | [15](/findings/?visibility=obvious) | 11 | Every reader sees it, every time they reach that point |
+| Obvious | [16](/findings/?visibility=obvious) | 12 | Every reader sees it, every time they reach that point |
 | Intermittent | [6](/findings/?visibility=intermittent) | 6 | Some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand |
 | Subtle | [21](/findings/?visibility=subtle) | 19 | Felt more than seen: it costs attention or trust, but is not noticed as a bug |
 | Silent | [16](/findings/?visibility=silent) | 14 | No symptom on screen: found only by measuring, or by its consequences |
@@ -344,6 +357,7 @@ The shape of the fix. Findings with the same recommendation are often fixed by t
 
 | Recommendation | Findings | Open | Means |
 | --- | --- | --- | --- |
+| Explain the decision | [1](/findings/?recommendation=explain-the-decision) | 1 | Before asking, say in plain words what will happen, what it touches, whether it can be undone and why it is being asked, with the raw detail one tap away |
 | Keep the UI still | [3](/findings/?recommendation=keep-the-ui-still) | 2 | Nothing moves, appears or takes focus unless the reader asked for it; chrome that hides stays hidden until a deliberate gesture |
 | Make it predictable | [1](/findings/?recommendation=make-it-predictable) | 1 | The same gesture always gives the same result, and the reader can set the state directly instead of coaxing it |
 | Cut to the essential | [3](/findings/?recommendation=cut-to-the-essential) | 3 | Remove or move down everything that is not the lead, the doors and the next step |
@@ -369,6 +383,7 @@ The rule it breaks. Each principle has a one-minute test on the principles page.
 
 | Principle | Findings | Open | Means |
 | --- | --- | --- | --- |
+| A decision comes with what you need to make it | [1](/findings/?principle=informed-decisions) | 1 | Any prompt that asks the reader to decide (allow, pay, share, delete) first says, in plain words, what will happen, what it touches, whether it can be undone, and why it is being asked. The raw detail is there for checking, not as the explanation. |
 | The first screen is for a stranger | [8](/findings/?principle=stranger-first-screen) | 6 | On a phone, the first screen says what this is, who it is for, and where to go next. The lead is on it. Chrome, metadata and method come after. |
 | Nothing moves that the reader did not move | [3](/findings/?principle=ui-stays-still) | 2 | While the reader is reading, the interface holds still. Toolbars, keyboards, banners and panels appear, move or take focus only on a deliberate gesture made for that purpose, never as a side effect of scrolling or reading. |
 | The same gesture gives the same result, so it can be learned | [1](/findings/?principle=same-gesture-same-result) | 1 | Every interaction behaves the same way every time, triggered by something the reader controls (where they tap, how far they scroll), never by something they cannot see or repeat (how fast they flicked, what state an animation was in). |
@@ -392,7 +407,7 @@ High loses the reader or their trust on the first visit; medium costs effort or 
 
 | Severity | Findings | Open | Means |
 | --- | --- | --- | --- |
-| High | [17](/findings/?severity=high) | 13 |  |
+| High | [18](/findings/?severity=high) | 14 |  |
 | Medium | [24](/findings/?severity=medium) | 20 |  |
 | Low | [17](/findings/?severity=low) | 17 |  |
 
@@ -402,7 +417,7 @@ As of the date each finding was last checked.
 
 | Status | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Open | [49](/findings/?status=open) | 49 |  |
+| Open | [50](/findings/?status=open) | 50 |  |
 | Partly fixed | [1](/findings/?status=partly-fixed) | 1 |  |
 | Fixed | [8](/findings/?status=fixed) | 0 |  |
 
@@ -412,7 +427,7 @@ A failure works against the reader; a gap is something they need that is not the
 
 | Kind | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Failure | [39](/findings/?kind=failure) | 33 | Something works against the reader |
+| Failure | [40](/findings/?kind=failure) | 34 | Something works against the reader |
 | Gap | [19](/findings/?kind=gap) | 17 | Something the reader needs is not there |
 
 
@@ -3139,6 +3154,56 @@ For the browser: make the toolbar state depend on something the reader controls 
 
 Previous: [UX-057 The toolbars come back on any small scroll up, taking screen and moving the page](/findings/UX-057.md)
 
+Next: [UX-059 A security prompt that asks you to approve a command it does not explain, and cuts off](/findings/UX-059.md)
+
+
+==============================================================================
+/findings/UX-059.html  ·  /findings/UX-059.md
+==============================================================================
+
+[Findings](/findings/index.md) / UX-059
+
+# A security prompt that asks you to approve a command it does not explain, and cuts off
+
+Open · high severity · failure · Claude app on iPhone
+
+## What we saw
+
+The prompt says only "Bash wants to run:" above a box of raw shell: a variable holding a long path, then python3 reading a heredoc that rewrites a line in two files (tools/partition.py and tools/site_gate.py). Lines wrap mid-word ("newsro / om", "repos / itory") and the box is cut off with a fade halfway through the line that matters, the replacement string; nothing says whether it scrolls. Above it, a lock icon and its padding take about a quarter of the prompt. Below, two buttons, Deny and a filled black Allow once, which is the visually stronger choice. Nothing on the prompt says, in words, what the command does, which files it changes, whether it touches the network, whether it can be undone, or connects it to the agent's own explanation in the conversation behind the prompt ("team repo records need to move to records/").
+
+![Claude app on iPhone showing a permission prompt: a lock icon, "Bash wants to run:", a box of raw shell and Python cut off with a fade mid-line, and Deny and Allow once buttons](/findings/img/UX-059-bash-permission-prompt.webp)
+
+_The prompt as shown: raw code, wrapped mid-word and cut off mid-line, with no plain-words summary of what it will do._
+
+## Why it matters
+
+The person is asked to make a security decision and given only code to make it with, partly hidden, on a phone. In practice the choice is to stop the work or to trust blindly, and every prompt like this teaches the habit of pressing Allow without reading, which defeats the point of asking. Here the command was harmless (a one-line edit to two files), but the prompt would have looked the same if it were not.
+
+## The fix
+
+Lead with one line in plain words: "Edit 2 files in the newsroom repository: tools/partition.py and tools/site_gate.py (one line each)". Then the facts that decide it, as labels: reads, writes, deletes, network, outside the working directory, reversible. For an edit, show the diff, not the script that makes it. Link the agent's stated reason. Keep the full command one tap away, with real line breaks and no mid-word wrapping. Give Deny and Allow equal weight, or emphasise the safe choice. The short description already exists: the Bash tool asks the agent for a plain-words description of every command it runs, and the prompt does not show it.
+
+## The record
+
+| | |
+| --- | --- |
+| **Status** | Open |
+| **Severity** | High |
+| **Kind** | Failure: works against the reader |
+| **Product** | [Claude app on iPhone](/findings/?product=claude-app-iphone), app |
+| **Where** | Claude Code session, Bash permission prompt |
+| **Problems** | [Uninformed decision](/findings/?problem=uninformed-decision), [Buried content](/findings/?problem=buried-content), [Missing signal](/findings/?problem=missing-signal) |
+| **Visibility** | [Obvious](/findings/?visibility=obvious): every reader sees it, every time they reach that point |
+| **Recommendation** | [Explain the decision](/findings/?recommendation=explain-the-decision): before asking, say in plain words what will happen, what it touches, whether it can be undone and why it is being asked, with the raw detail one tap away |
+| **Area** | [Security decisions](/findings/?area=security) |
+| **Breaks** | [A decision comes with what you need to make it](/principles/index.md#informed-decisions) |
+| **Observed** | 2026-10-25, not recorded |
+| **Last checked** | 2026-10-25, not recorded |
+| **Environment** | Claude app on iPhone, portrait, supervising a remote Claude Code session working on the newsroom repository |
+| **Source** | [Reported by Dinis Cruz, 25 Oct 2026, with a screenshot](/method/index.md#reports-from-readers) |
+
+Previous: [UX-058 Whether the toolbars hide depends on how fast you scroll, not how far](/findings/UX-058.md)
+
 
 ==============================================================================
 /findings/  ·  /findings/index.md
@@ -3162,6 +3227,7 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 | [UX-044](/findings/UX-044.md) | Open | high | newsroom.sgit.ai | hidden-until-script, dead-end | intermittent | The founder page says "the picks above" and no picks render on a phone |
 | [UX-046](/findings/UX-046.md) | Open | high | dev.vault.sgraph.ai | host-trap, dead-end | silent | Setting location.hash inside a vault app re-navigates the frame: every link silently dead |
 | [UX-056](/findings/UX-056.md) | Open | high | Firefox on iPad | focus-hijack, unexpected-movement, wrong-culprit | intermittent | Scrolling back up a little puts focus in the address bar and opens the keyboard |
+| [UX-059](/findings/UX-059.md) | Open | high | Claude app on iPhone | uninformed-decision, buried-content, missing-signal | obvious | A security prompt that asks you to approve a command it does not explain, and cuts off |
 | [UX-008](/findings/UX-008.md) | Open | medium | newsroom.sgit.ai | hidden-until-script | intermittent | Content is hidden until JavaScript runs |
 | [UX-009](/findings/UX-009.md) | Open | medium | newsroom.sgit.ai | overload, builder-chrome | obvious | Two navigation bars, and a 60-link menu that mixes reading with building |
 | [UX-010](/findings/UX-010.md) | Open | medium | newsroom.sgit.ai | dead-end | intermittent | Missing pages show the default GitHub Pages 404 |
@@ -3230,9 +3296,9 @@ The register is one file, [/data/findings.json](/data/findings.json). This page,
 <a class="door" href="/lab/"><span class="door__title">Show me the fixes</span><span class="door__body">The Newsroom Design Lab: four vaults trying the fixes on real data, in three design directions.</span></a>
 </div>
 
-- **58** findings in the register
-- **50** still open
-- **13** open and high severity
+- **59** findings in the register
+- **51** still open
+- **14** open and high severity
 - **8** fixed, with the version that fixed it
 
 ## Open, and high severity
@@ -3251,9 +3317,10 @@ These lose a reader or a reader's trust on the first visit. Each links to its ev
 - [UX-044](/findings/UX-044.md) · high · open · The founder page says "the picks above" and no picks render on a phone (newsroom.sgit.ai)
 - [UX-046](/findings/UX-046.md) · high · open · Setting location.hash inside a vault app re-navigates the frame: every link silently dead (dev.vault.sgraph.ai)
 - [UX-056](/findings/UX-056.md) · high · open · Scrolling back up a little puts focus in the address bar and opens the keyboard (Firefox on iPad)
+- [UX-059](/findings/UX-059.md) · high · open · A security prompt that asks you to approve a command it does not explain, and cuts off (Claude app on iPhone)
 - [UX-028](/findings/UX-028.md) · high · partly fixed · The £5.00 balance chip has no label (newsroom.sgit.ai)
 
-[All 58 findings →](/findings/index.md)
+[All 59 findings →](/findings/index.md)
 
 ## By product
 
@@ -3265,6 +3332,7 @@ Whose fault it is. Most findings are on our own sites; some belong to the platfo
 | dev.vault.sgraph.ai | [4](/findings/?product=dev.vault.sgraph.ai) | 4 | The vault host: opens a vault by its key and runs its app in a sandboxed frame (platform) |
 | Newsroom Design Lab | [6](/findings/?product=newsroom-design-lab) | 4 | This site's own prototypes: four vaults trying the newsroom fixes in three directions |
 | Firefox on iPad | [3](/findings/?product=firefox-ipad) | 3 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
+| Claude app on iPhone | [1](/findings/?product=claude-app-iphone) | 1 | The Claude app on iOS, used here to run and supervise Claude Code sessions (app) |
 
 ## How a finding gets here
 
@@ -3622,24 +3690,37 @@ If a finding does not fit any [principle](/principles/index.md), add the princip
 
 Each principle here is kept because at least one finding breaks it: the list grows from evidence, not from taste. Each has a test you can run on your own page in about a minute. When a new kind of failure does not fit any of them, that is a new principle.
 
-1. [The first screen is for a stranger](/principles/index.md#stranger-first-screen)
-2. [Nothing moves that the reader did not move](/principles/index.md#ui-stays-still)
-3. [The same gesture gives the same result, so it can be learned](/principles/index.md#same-gesture-same-result)
-4. [Label the money, and never surprise with a charge](/principles/index.md#label-the-money)
-5. [A default is not an answer](/principles/index.md#defaults-are-not-answers)
-6. [Ask before keeping](/principles/index.md#ask-before-keeping)
-7. [Every view is a link](/principles/index.md#every-view-is-a-link)
-8. [No dead ends](/principles/index.md#no-dead-ends)
-9. [One source of truth for every fact](/principles/index.md#one-source-of-truth)
-10. [The publication is not the workshop](/principles/index.md#publication-not-workshop)
-11. [Feedback reaches someone, and the reader gets a receipt](/principles/index.md#feedback-reaches-someone)
-12. [Say how long, and what kind, before the reader commits](/principles/index.md#length-before-commitment)
-13. [Say who wrote it, and how](/principles/index.md#say-who-wrote-it)
-14. [Content is visible without waiting for scripts](/principles/index.md#content-is-visible)
-15. [What a page says about the present is true now](/principles/index.md#state-is-current)
-16. [A vault app works inside the host, not just on its own](/principles/index.md#host-safe-apps)
+1. [A decision comes with what you need to make it](/principles/index.md#informed-decisions)
+2. [The first screen is for a stranger](/principles/index.md#stranger-first-screen)
+3. [Nothing moves that the reader did not move](/principles/index.md#ui-stays-still)
+4. [The same gesture gives the same result, so it can be learned](/principles/index.md#same-gesture-same-result)
+5. [Label the money, and never surprise with a charge](/principles/index.md#label-the-money)
+6. [A default is not an answer](/principles/index.md#defaults-are-not-answers)
+7. [Ask before keeping](/principles/index.md#ask-before-keeping)
+8. [Every view is a link](/principles/index.md#every-view-is-a-link)
+9. [No dead ends](/principles/index.md#no-dead-ends)
+10. [One source of truth for every fact](/principles/index.md#one-source-of-truth)
+11. [The publication is not the workshop](/principles/index.md#publication-not-workshop)
+12. [Feedback reaches someone, and the reader gets a receipt](/principles/index.md#feedback-reaches-someone)
+13. [Say how long, and what kind, before the reader commits](/principles/index.md#length-before-commitment)
+14. [Say who wrote it, and how](/principles/index.md#say-who-wrote-it)
+15. [Content is visible without waiting for scripts](/principles/index.md#content-is-visible)
+16. [What a page says about the present is true now](/principles/index.md#state-is-current)
+17. [A vault app works inside the host, not just on its own](/principles/index.md#host-safe-apps)
 
-## 1. The first screen is for a stranger
+## 1. A decision comes with what you need to make it
+
+**The rule.** Any prompt that asks the reader to decide (allow, pay, share, delete) first says, in plain words, what will happen, what it touches, whether it can be undone, and why it is being asked. The raw detail is there for checking, not as the explanation.
+
+**Why.** A decision the reader cannot judge is not a decision. They either refuse and stall the work, or learn to press Allow without reading, and a security prompt that trains people to press Allow is worse than no prompt at all.
+
+**The test.** Show the prompt to someone for five seconds. Can they say what will happen if they press each button? If they would need to read code to answer, the prompt has failed.
+
+Broken by 1 findings, 1 open:
+
+- [UX-059](/findings/UX-059.md) · open · A security prompt that asks you to approve a command it does not explain, and cuts off
+
+## 2. The first screen is for a stranger
 
 **The rule.** On a phone, the first screen says what this is, who it is for, and where to go next. The lead is on it. Chrome, metadata and method come after.
 
@@ -3658,7 +3739,7 @@ Broken by 8 findings, 6 open:
 - [UX-003](/findings/UX-003.md) · fixed · The masthead line describes a method, not a subject
 - [UX-050](/findings/UX-050.md) · fixed · File-path pills scrolled the whole page sideways at 390 px
 
-## 2. Nothing moves that the reader did not move
+## 3. Nothing moves that the reader did not move
 
 **The rule.** While the reader is reading, the interface holds still. Toolbars, keyboards, banners and panels appear, move or take focus only on a deliberate gesture made for that purpose, never as a side effect of scrolling or reading.
 
@@ -3672,7 +3753,7 @@ Broken by 3 findings, 2 open:
 - [UX-057](/findings/UX-057.md) · open · The toolbars come back on any small scroll up, taking screen and moving the page
 - [UX-051](/findings/UX-051.md) · fixed · Re-rendering the whole view on every save lost the reader's place
 
-## 3. The same gesture gives the same result, so it can be learned
+## 4. The same gesture gives the same result, so it can be learned
 
 **The rule.** Every interaction behaves the same way every time, triggered by something the reader controls (where they tap, how far they scroll), never by something they cannot see or repeat (how fast they flicked, what state an animation was in).
 
@@ -3684,7 +3765,7 @@ Broken by 1 findings, 1 open:
 
 - [UX-058](/findings/UX-058.md) · open · Whether the toolbars hide depends on how fast you scroll, not how far
 
-## 4. Label the money, and never surprise with a charge
+## 5. Label the money, and never surprise with a charge
 
 **The rule.** Every number that is money says what it is. The first time anything is charged, the reader is told before or as it happens. Wording about balances never reads as debt or threat.
 
@@ -3700,7 +3781,7 @@ Broken by 5 findings, 4 open:
 - [UX-028](/findings/UX-028.md) · partly fixed · The £5.00 balance chip has no label
 - [UX-035](/findings/UX-035.md) · fixed · The top-up page said "simulated" while asking for money
 
-## 5. A default is not an answer
+## 6. A default is not an answer
 
 **The rule.** Inputs that ask the reader's opinion start empty. Only what the reader actually did is recorded.
 
@@ -3713,7 +3794,7 @@ Broken by 2 findings, 2 open:
 - [UX-024](/findings/UX-024.md) · open · All three rating scales start on 3
 - [UX-052](/findings/UX-052.md) · open · A highlight across paragraphs is cut at the first paragraph
 
-## 6. Ask before keeping
+## 7. Ask before keeping
 
 **The rule.** Nothing is added to the reader's lists, profile or storage because they opened something. Keeping is a tap the reader makes.
 
@@ -3726,7 +3807,7 @@ Broken by 2 findings, 2 open:
 - [UX-027](/findings/UX-027.md) · open · Articles join the reader's list without being asked
 - [UX-043](/findings/UX-043.md) · open · Opening a persona link adds it to the browser without asking
 
-## 7. Every view is a link
+## 8. Every view is a link
 
 **The rule.** Anything a reader can see, they can send: a filter, a search, a tag, a desk, a part of a series. The address changes when the view does.
 
@@ -3741,7 +3822,7 @@ Broken by 4 findings, 3 open:
 - [UX-049](/findings/UX-049.md) · open · Query strings break inside the vault host, so filters must live in the route path
 - [UX-042](/findings/UX-042.md) · fixed · Persona links were designed but not live
 
-## 8. No dead ends
+## 9. No dead ends
 
 **The rule.** Everything that looks like a way in is one: tags link to pages, missing pages offer the way back, each article ends with one next step.
 
@@ -3759,7 +3840,7 @@ Broken by 7 findings, 6 open:
 - [UX-019](/findings/UX-019.md) · open · Search only matches titles, teasers and tags
 - [UX-041](/findings/UX-041.md) · fixed · 51 vault images missing across 10 articles
 
-## 9. One source of truth for every fact
+## 10. One source of truth for every fact
 
 **The rule.** Each piece of content is published once, at one canonical address. Every count, date and label is generated from one manifest at build time.
 
@@ -3774,7 +3855,7 @@ Broken by 4 findings, 3 open:
 - [UX-039](/findings/UX-039.md) · open · The feed is titled for the old site
 - [UX-036](/findings/UX-036.md) · fixed · Articles were published on two domains, and diverged
 
-## 10. The publication is not the workshop
+## 11. The publication is not the workshop
 
 **The rule.** Reader pages carry reader things. How the site is built (versions, author tooling, agent strips, release history, admin) lives in one clearly separate area, one link away.
 
@@ -3789,7 +3870,7 @@ Broken by 4 findings, 4 open:
 - [UX-006](/findings/UX-006.md) · open · A "For agents /llms.txt" strip sits above the masthead
 - [UX-021](/findings/UX-021.md) · open · Author tooling is shown to every reader
 
-## 11. Feedback reaches someone, and the reader gets a receipt
+## 12. Feedback reaches someone, and the reader gets a receipt
 
 **The rule.** Every rating, request or 'what is missing' goes somewhere a person reads it, by default and with plain consent, and the reader keeps a receipt of what was sent.
 
@@ -3803,7 +3884,7 @@ Broken by 3 findings, 3 open:
 - [UX-034](/findings/UX-034.md) · open · No contact for a pilot on the Replicate page
 - [UX-026](/findings/UX-026.md) · open · There is no way to say what was missing
 
-## 12. Say how long, and what kind, before the reader commits
+## 13. Say how long, and what kind, before the reader commits
 
 **The rule.** Every card and every link to a long piece shows reading time and format. Every long piece opens with a short version.
 
@@ -3817,7 +3898,7 @@ Broken by 3 findings, 3 open:
 - [UX-020](/findings/UX-020.md) · open · The best reader feature is buried under metadata and a long italic abstract
 - [UX-053](/findings/UX-053.md) · open · Search results show no snippets
 
-## 13. Say who wrote it, and how
+## 14. Say who wrote it, and how
 
 **The rule.** The byline names the person and the way the piece was made (with agents, from voice notes), where the reader looks, not in the footer. The purpose of the publication is one link away.
 
@@ -3831,7 +3912,7 @@ Broken by 3 findings, 3 open:
 - [UX-022](/findings/UX-022.md) · open · The byline names one human; the AI authorship is in the footer
 - [UX-023](/findings/UX-023.md) · open · There is no page that says why the publication exists
 
-## 14. Content is visible without waiting for scripts
+## 15. Content is visible without waiting for scripts
 
 **The rule.** The page renders its content in HTML and shows it at once. Scripts enhance; they never gate what the reader can see.
 
@@ -3844,7 +3925,7 @@ Broken by 2 findings, 2 open:
 - [UX-044](/findings/UX-044.md) · open · The founder page says "the picks above" and no picks render on a phone
 - [UX-008](/findings/UX-008.md) · open · Content is hidden until JavaScript runs
 
-## 15. What a page says about the present is true now
+## 16. What a page says about the present is true now
 
 **The rule.** Labels like 'edition of', 'currently', 'broken' and 'live' are dated or generated, and change when the facts do. A fixed problem is marked fixed, with the version.
 
@@ -3859,7 +3940,7 @@ Broken by 4 findings, 3 open:
 - [UX-055](/findings/UX-055.md) · open · "Ask the article" has never run against a real on-device model
 - [UX-004](/findings/UX-004.md) · fixed · The edition label is older than the articles under it
 
-## 16. A vault app works inside the host, not just on its own
+## 17. A vault app works inside the host, not just on its own
 
 **The rule.** An app is tested where readers open it: inside the vault host's sandboxed frame. Routing never assigns location.hash, storage goes through the host, and network reads come from the vault.
 

@@ -16,6 +16,7 @@ Whose fault it is: one of our sites, the platform under them, our own prototypes
 | dev.vault.sgraph.ai | [4](/findings/?product=dev.vault.sgraph.ai) | 4 | The vault host: opens a vault by its key and runs its app in a sandboxed frame (platform) |
 | Newsroom Design Lab | [6](/findings/?product=newsroom-design-lab) | 4 | This site's own prototypes: four vaults trying the newsroom fixes in three directions |
 | Firefox on iPad | [3](/findings/?product=firefox-ipad) | 3 | Firefox for iOS on iPad: the browser, not any site in it (browser) |
+| Claude app on iPhone | [1](/findings/?product=claude-app-iphone) | 1 | The Claude app on iOS, used here to run and supervise Claude Code sessions (app) |
 
 ## By area
 
@@ -33,6 +34,7 @@ Where in the reader's visit it happens.
 | Trust | [6](/findings/?area=trust) | 6 |  |
 | Consistency | [6](/findings/?area=consistency) | 4 |  |
 | Platform | [5](/findings/?area=platform) | 4 |  |
+| Security decisions | [1](/findings/?area=security) | 1 |  |
 
 ## By problem
 
@@ -40,15 +42,16 @@ What kind of thing goes wrong. A finding can have more than one.
 
 | Problem | Findings | Open | Means |
 | --- | --- | --- | --- |
+| Uninformed decision | [1](/findings/?problem=uninformed-decision) | 1 | The reader is asked to decide without what they need to judge it: what it does, what it touches, what could go wrong |
 | Unexpected movement | [4](/findings/?problem=unexpected-movement) | 3 | Part of the interface moves when the reader did not move it |
 | Focus hijack | [1](/findings/?problem=focus-hijack) | 1 | Focus or input goes somewhere the reader did not send it |
 | Unpredictable control | [1](/findings/?problem=unpredictable-control) | 1 | The result of a gesture depends on something the reader cannot see or control, such as its speed, so the state they want cannot be reached on purpose |
 | Lost screen space | [2](/findings/?problem=lost-screen-space) | 2 | Chrome takes screen that the content needed |
 | Wrong culprit | [1](/findings/?problem=wrong-culprit) | 1 | The reader blames the wrong party: the page for the browser, the site for the platform |
-| Buried content | [3](/findings/?problem=buried-content) | 3 | What the reader came for is pushed down or out of view |
+| Buried content | [4](/findings/?problem=buried-content) | 4 | What the reader came for is pushed down or out of view |
 | Overload | [4](/findings/?problem=overload) | 4 | Too much at once, so nothing is chosen for the reader |
 | Builder chrome | [5](/findings/?problem=builder-chrome) | 5 | Things for the author, an agent or the build, shown to readers |
-| Missing signal | [9](/findings/?problem=missing-signal) | 8 | The reader lacks what they need to decide: length, format, who wrote it, whether it is real |
+| Missing signal | [10](/findings/?problem=missing-signal) | 9 | The reader lacks what they need to decide: length, format, who wrote it, whether it is real |
 | Missing way in | [4](/findings/?problem=missing-way-in) | 3 | A page or path the reader needs does not exist |
 | Dead end | [6](/findings/?problem=dead-end) | 5 | Something that looks like a way in goes nowhere |
 | Unshareable view | [2](/findings/?problem=unshareable-view) | 2 | A view the reader can see but cannot link to |
@@ -72,7 +75,7 @@ How the reader experiences it: seen every time, sometimes, only felt, or not at 
 
 | Visibility | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Obvious | [15](/findings/?visibility=obvious) | 11 | Every reader sees it, every time they reach that point |
+| Obvious | [16](/findings/?visibility=obvious) | 12 | Every reader sees it, every time they reach that point |
 | Intermittent | [6](/findings/?visibility=intermittent) | 6 | Some readers, some of the time: depends on a gesture, a device or a state, and is hard to reproduce on demand |
 | Subtle | [21](/findings/?visibility=subtle) | 19 | Felt more than seen: it costs attention or trust, but is not noticed as a bug |
 | Silent | [16](/findings/?visibility=silent) | 14 | No symptom on screen: found only by measuring, or by its consequences |
@@ -83,6 +86,7 @@ The shape of the fix. Findings with the same recommendation are often fixed by t
 
 | Recommendation | Findings | Open | Means |
 | --- | --- | --- | --- |
+| Explain the decision | [1](/findings/?recommendation=explain-the-decision) | 1 | Before asking, say in plain words what will happen, what it touches, whether it can be undone and why it is being asked, with the raw detail one tap away |
 | Keep the UI still | [3](/findings/?recommendation=keep-the-ui-still) | 2 | Nothing moves, appears or takes focus unless the reader asked for it; chrome that hides stays hidden until a deliberate gesture |
 | Make it predictable | [1](/findings/?recommendation=make-it-predictable) | 1 | The same gesture always gives the same result, and the reader can set the state directly instead of coaxing it |
 | Cut to the essential | [3](/findings/?recommendation=cut-to-the-essential) | 3 | Remove or move down everything that is not the lead, the doors and the next step |
@@ -108,6 +112,7 @@ The rule it breaks. Each principle has a one-minute test on the principles page.
 
 | Principle | Findings | Open | Means |
 | --- | --- | --- | --- |
+| A decision comes with what you need to make it | [1](/findings/?principle=informed-decisions) | 1 | Any prompt that asks the reader to decide (allow, pay, share, delete) first says, in plain words, what will happen, what it touches, whether it can be undone, and why it is being asked. The raw detail is there for checking, not as the explanation. |
 | The first screen is for a stranger | [8](/findings/?principle=stranger-first-screen) | 6 | On a phone, the first screen says what this is, who it is for, and where to go next. The lead is on it. Chrome, metadata and method come after. |
 | Nothing moves that the reader did not move | [3](/findings/?principle=ui-stays-still) | 2 | While the reader is reading, the interface holds still. Toolbars, keyboards, banners and panels appear, move or take focus only on a deliberate gesture made for that purpose, never as a side effect of scrolling or reading. |
 | The same gesture gives the same result, so it can be learned | [1](/findings/?principle=same-gesture-same-result) | 1 | Every interaction behaves the same way every time, triggered by something the reader controls (where they tap, how far they scroll), never by something they cannot see or repeat (how fast they flicked, what state an animation was in). |
@@ -131,7 +136,7 @@ High loses the reader or their trust on the first visit; medium costs effort or 
 
 | Severity | Findings | Open | Means |
 | --- | --- | --- | --- |
-| High | [17](/findings/?severity=high) | 13 |  |
+| High | [18](/findings/?severity=high) | 14 |  |
 | Medium | [24](/findings/?severity=medium) | 20 |  |
 | Low | [17](/findings/?severity=low) | 17 |  |
 
@@ -141,7 +146,7 @@ As of the date each finding was last checked.
 
 | Status | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Open | [49](/findings/?status=open) | 49 |  |
+| Open | [50](/findings/?status=open) | 50 |  |
 | Partly fixed | [1](/findings/?status=partly-fixed) | 1 |  |
 | Fixed | [8](/findings/?status=fixed) | 0 |  |
 
@@ -151,5 +156,5 @@ A failure works against the reader; a gap is something they need that is not the
 
 | Kind | Findings | Open | Means |
 | --- | --- | --- | --- |
-| Failure | [39](/findings/?kind=failure) | 33 | Something works against the reader |
+| Failure | [40](/findings/?kind=failure) | 34 | Something works against the reader |
 | Gap | [19](/findings/?kind=gap) | 17 | Something the reader needs is not there |

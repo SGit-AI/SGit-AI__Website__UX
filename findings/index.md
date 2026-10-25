@@ -16,6 +16,7 @@ Every UX failure and gap in the register, open first, then by severity. A **fail
 | [UX-044](/findings/UX-044.md) | Open | high | newsroom.sgit.ai | hidden-until-script, dead-end | intermittent | The founder page says "the picks above" and no picks render on a phone |
 | [UX-046](/findings/UX-046.md) | Open | high | dev.vault.sgraph.ai | host-trap, dead-end | silent | Setting location.hash inside a vault app re-navigates the frame: every link silently dead |
 | [UX-056](/findings/UX-056.md) | Open | high | Firefox on iPad | focus-hijack, unexpected-movement, wrong-culprit | intermittent | Scrolling back up a little puts focus in the address bar and opens the keyboard |
+| [UX-059](/findings/UX-059.md) | Open | high | Claude app on iPhone | uninformed-decision, buried-content, missing-signal | obvious | A security prompt that asks you to approve a command it does not explain, and cuts off |
 | [UX-008](/findings/UX-008.md) | Open | medium | newsroom.sgit.ai | hidden-until-script | intermittent | Content is hidden until JavaScript runs |
 | [UX-009](/findings/UX-009.md) | Open | medium | newsroom.sgit.ai | overload, builder-chrome | obvious | Two navigation bars, and a 60-link menu that mixes reading with building |
 | [UX-010](/findings/UX-010.md) | Open | medium | newsroom.sgit.ai | dead-end | intermittent | Missing pages show the default GitHub Pages 404 |

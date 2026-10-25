@@ -2,6 +2,13 @@
     "what": "The principles a finding can break. Each finding names one. A principle is only kept if at least one finding breaks it: the gate fails on a principle with no findings, so this list grows from evidence, not from taste.",
     "principles": [
         {
+            "id": "informed-decisions",
+            "title": "A decision comes with what you need to make it",
+            "rule": "Any prompt that asks the reader to decide (allow, pay, share, delete) first says, in plain words, what will happen, what it touches, whether it can be undone, and why it is being asked. The raw detail is there for checking, not as the explanation.",
+            "why": "A decision the reader cannot judge is not a decision. They either refuse and stall the work, or learn to press Allow without reading, and a security prompt that trains people to press Allow is worse than no prompt at all.",
+            "test": "Show the prompt to someone for five seconds. Can they say what will happen if they press each button? If they would need to read code to answer, the prompt has failed."
+        },
+        {
             "id": "stranger-first-screen",
             "title": "The first screen is for a stranger",
             "rule": "On a phone, the first screen says what this is, who it is for, and where to go next. The lead is on it. Chrome, metadata and method come after.",

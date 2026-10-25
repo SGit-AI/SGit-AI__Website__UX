@@ -1,6 +1,15 @@
 # Versions
 
-The current version is v0.3.0. Newest first.
+The current version is v0.4.0. Newest first.
+
+## v0.4.0 · 2026-10-25
+
+A security prompt that asks for a decision it does not explain: UX-059, and a principle for informed decisions.
+
+- `data/findings.json`: UX-059, the Claude app's Bash permission prompt shows raw, truncated code and no plain-words summary, with a screenshot
+- `data/principles.json`: new principle, a decision comes with what you need to make it
+- `data/taxonomy.json`: problem "uninformed decision", recommendation "explain the decision"
+- `data/site.json`: Claude app on iPhone added as a product (type: app); new area: security decisions
 
 ## v0.3.0 · 2026-10-18
 

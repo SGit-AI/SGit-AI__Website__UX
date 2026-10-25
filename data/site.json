@@ -92,6 +92,12 @@
             "type": "browser",
             "url": "https://www.apple.com/safari/",
             "what": "Safari on iPadOS: the browser, not any site in it"
+        },
+        "claude-app-iphone": {
+            "label": "Claude app on iPhone",
+            "type": "app",
+            "url": "https://claude.ai/download",
+            "what": "The Claude app on iOS, used here to run and supervise Claude Code sessions"
         }
     }
 }
