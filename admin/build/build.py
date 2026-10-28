@@ -62,6 +62,10 @@ FACET_INTRO  = {
     'status'         : 'As of the date each finding was last checked.',
     'kind'           : 'A failure works against the reader; a gap is something they need that is not there.',
 }
+ICON_SEARCH   = '<svg class="finder__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="9" r="5.5"/><path d="M13.2 13.2 17 17"/></svg>'
+ICON_REFRESH  = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 10a6.5 6.5 0 1 1-2-4.7"/><path d="M16.5 3.5v3.3h-3.3"/></svg>'
+ICON_FILTERS  = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 6h14M3 14h14"/><circle cx="7" cy="6" r="2" fill="var(--surface)"/><circle cx="13" cy="14" r="2" fill="var(--surface)"/></svg>'
+ICON_GITHUB   = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .2a8 8 0 0 0-2.53 15.6c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.93-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 .2Z"/></svg>'
 DIRECTIVE    = re.compile(r'^\{\{([a-z-]+)(?::(.*))?\}\}\s*$')
 
 
@@ -191,10 +195,36 @@ class Site:
                 f'<p class="finding__meta">{meta}</p>{body}</li>')
 
     def d_findings_list(self, arg):
-        items    = self.select(arg)
+        parts    = [x for x in (arg or '').split(';') if x]
+        limit    = next((int(x.partition('=')[2]) for x in parts if x.startswith('limit=')), None)
+        items    = self.select(';'.join(x for x in parts if not x.startswith('limit=')))
+        items    = items[:limit] if limit else items
         md_out   = '\n'.join(f'- [{f["id"]}]({self.finding_href(f)}) · {f["severity"]} · {STATUS_LABEL[f["status"]].lower()} · {f["title"]} ({self.product_label(f["product"])})' for f in items)
         html_out = '<ul class="findings findings--compact">' + ''.join(self.finding_row(f, compact=True) for f in items) + '</ul>'
         return md_out or '_None._', html_out or '<p><em>None.</em></p>'
+
+    def d_finder(self, arg):
+        """The search field: a plain GET form to /findings/?q= that works without JavaScript; finder.js adds the type-ahead."""
+        n    = len(self.findings)
+        html_out = (f'<form class="finder finder--inline" data-finder action="/findings/" method="get" role="search" aria-label="Search the register">'
+                    f'<div class="finder__field">{ICON_SEARCH}'
+                    f'<input class="finder__input" type="search" name="q" placeholder="Search {n} findings" '
+                    f'autocomplete="off" aria-label="Search the register" data-finder-input>'
+                    f'<button class="icon-btn" type="submit" aria-label="Search">{ICON_SEARCH.replace("finder__icon", "")}</button></div>'
+                    f'<ul class="finder__list" role="listbox" data-finder-list hidden></ul></form>')
+        return f'Search the register: /findings/?q=… ({n} findings).', html_out
+
+    def d_quick(self, arg):
+        """One-tap starting points, each a normal link to a filtered list."""
+        c     = self.counts()
+        picks = [(f'Open ({c["open"]})', '/findings/?status=open,partly-fixed'),
+                 (f'High severity ({c["high_open"]})', '/findings/?status=open,partly-fixed&severity=high'),
+                 (f'Fixed ({c["fixed"]})', '/findings/?status=fixed'),
+                 ('Phone first visit', '/findings/?area=first-visit'),
+                 ('Gaps', '/findings/?kind=gap')]
+        md_out   = ' · '.join(f'[{label}]({href})' for label, href in picks)
+        html_out = '<p class="quick">' + ''.join(f'<a class="quick__chip" href="{esc(href)}">{esc(label)}</a>' for label, href in picks) + '</p>'
+        return md_out, html_out
 
     def d_findings_register(self, arg):
         items = self.sorted_findings()
@@ -204,17 +234,24 @@ class Site:
             options = ''.join(f'<option value="{esc(v)}">{esc(label)}</option>' for v, label, _ in self.facet_values(key) if v in used)
             selects.append(f'<label class="filter"><span>{key.capitalize()}</span>'
                            f'<select name="{key}" data-filter="{key}"><option value="">Any</option>{options}</select></label>')
-        form = (f'<details class="filters-box" data-open-wide><summary>Filter the register <span class="filters__active" data-findings-active></span></summary>'
-                f'<form class="filters" data-findings-filters action="/findings/" method="get" role="search" aria-label="Filter findings">'
-                f'{"".join(selects)}'
-                f'<label class="filter filter--q"><span>Words</span><input type="search" name="q" data-filter="q" placeholder="e.g. chip, tag, 404"></label>'
-                f'<p class="filters__status" aria-live="polite"><span data-findings-count>{len(items)} of {len(items)}</span> findings · '
-                f'<a href="/findings/" data-findings-reset>Clear</a> · the address is the filter: copy it to share this view</p></form></details>')
+        quick = ''.join(f'<button type="button" class="quick__chip" data-quick="{esc(key)}={esc(value)}" aria-pressed="false">{esc(label)}</button>'
+                        for label, key, value in [('Open', 'status', 'open,partly-fixed'), ('High severity', 'severity', 'high'), ('Fixed', 'status', 'fixed'),
+                                                  ('Failures', 'kind', 'failure'), ('Gaps', 'kind', 'gap')])
+        form = (f'<form class="finder" data-findings-filters action="/findings/" method="get" role="search" aria-label="Search and filter findings">'
+                f'<div class="finder__field">{ICON_SEARCH}'
+                f'<input class="finder__input" type="search" name="q" data-filter="q" autocomplete="off" placeholder="Search {len(items)} findings by word, id or site" aria-label="Search findings">'
+                f'<button type="button" class="icon-btn" data-findings-reset aria-label="Clear search and filters" title="Clear" hidden>{ICON_REFRESH}</button>'
+                f'<button type="button" class="icon-btn" data-filters-toggle aria-expanded="false" aria-controls="filters" aria-label="Filters" title="Filters">{ICON_FILTERS}<span class="icon-btn__n" data-filters-n hidden></span></button>'
+                f'</div><p class="quick">{quick}</p>'
+                f'<div class="filters" id="filters" data-filters-panel>{"".join(selects)}</div>'
+                f'<p class="results-bar" aria-live="polite"><span><strong data-findings-count>{len(items)} of {len(items)}</strong> findings'
+                f' <span data-findings-active></span></span>'
+                f'<span>The address is the filter. <button type="button" data-copy-link>Copy link</button></span></p></form>')
         md_rows  = ['| ID | Status | Severity | Product | Problems | Visibility | Finding |', '| --- | --- | --- | --- | --- | --- | --- |']
         md_rows += [f'| [{f["id"]}]({self.finding_href(f)}) | {STATUS_LABEL[f["status"]]} | {f["severity"]} | {self.product_label(f["product"])} | '
                     f'{", ".join(f["problems"])} | {f["visibility"]} | {f["title"]} |' for f in items]
         html_out = form + '<ul class="findings" data-findings>' + ''.join(self.finding_row(f) for f in items) + '</ul>'
-        html_out += '<p class="findings__empty" data-findings-empty hidden>No finding matches this filter. <a href="/findings/">Show all</a>.</p>'
+        html_out += '<p class="findings__empty" data-findings-empty hidden>No finding matches. <a href="/findings/">Show all</a>.</p>'
         return '\n'.join(md_rows), html_out
 
     def d_facet(self, key):
@@ -539,8 +576,11 @@ class Site:
                    + ''.join(f'<li><a href="#{hid}">{md.inline(text)}</a></li>' for _, text, hid in page['toc']) + '</ol></details></nav>')
         twin_link = f'<a href="{esc(twin)}">This page as markdown</a> · ' if page['twin'] else ''
         network   = ' · '.join(f'<a href="{esc(n["url"])}" rel="noopener">{esc(n["label"])}</a>' for n in s['network'])
-        scripts   = '<script src="/assets/findings.js" defer></script>' if 'data-findings' in page['html'] else ''
+        scripts   = '<script src="/assets/finder.js" defer></script>'
+        if 'data-findings' in page['html']:
+            scripts += '<script src="/assets/findings.js" defer></script>'
         canonical = s['origin'] + url
+        icon_search = ICON_SEARCH.replace('finder__icon', '')
         return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -558,6 +598,7 @@ class Site:
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/site.css">
+<script>document.documentElement.classList.add('js')</script>
 {scripts}
 </head>
 <body class="layout-{esc(page['layout'])}">
@@ -565,7 +606,13 @@ class Site:
 <header class="site-head">
   <div class="wrap site-head__row">
     <a class="brand" href="/"><span class="brand__ux">ux</span><span class="brand__rest">.sgit.ai</span></a>
+    <a class="chip chip--net" href="https://sgit.ai/" rel="noopener">&#8599; part of <strong>sgit.ai</strong></a>
+    <a class="chip chip--ver" href="/admin/versions.html">{esc(self.version)}</a>
     <nav class="site-nav" aria-label="Main"><ul>{nav}</ul></nav>
+    <div class="site-tools">
+      <a class="btn-quiet" href="/findings/" data-palette-open aria-label="Search the register">{icon_search}<span class="btn-quiet__label">Search</span> <kbd class="js-only">/</kbd></a>
+      <a class="btn-quiet" href="{esc(s['repository'])}" rel="noopener" aria-label="Source on GitHub">{ICON_GITHUB}<span class="btn-quiet__label">GitHub</span></a>
+    </div>
   </div>
 </header>
 <main id="main" class="wrap main">
@@ -578,7 +625,7 @@ class Site:
 <footer class="site-foot">
   <div class="wrap">
     <p><strong>{esc(s['name'])}</strong>: {esc(s['tagline'])}. By {esc(s['author'])}. <a href="/about/">Why this exists</a>.</p>
-    <p>{twin_link}<a href="/llms.txt">For agents: llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">{esc(self.version)}</a> · <a href="{esc(s['repository'])}" rel="noopener">Source</a></p>
+    <p>{twin_link}<a class="foot-agents" href="/llms.txt">for agents: /llms.txt</a> · <a href="/data/findings.json">The register as JSON</a> · <a href="/admin/">How it is built</a> · <a href="/admin/versions.html">{esc(self.version)}</a> · <a href="{esc(s['repository'])}" rel="noopener">Source</a></p>
     <p class="muted">Part of the sgit.ai network: {network}. {esc(s['licence'])}</p>
   </div>
 </footer>
@@ -632,6 +679,22 @@ class Site:
         lines += ['', f'Repository: {s["repository"]}', '']
         return '\n'.join(lines)
 
+    def search_index(self):
+        """The type-ahead index: one short record per finding, principle, exemplar and page. Generated, so it cannot list what does not exist."""
+        rows = []
+        for f in self.sorted_findings():
+            rows.append({'t': f['title'], 'u': self.finding_href(f), 'k': 'Finding', 'i': f['id'],
+                         'm': f'{self.product_label(f["product"])} · {f["severity"]} · {STATUS_LABEL[f["status"]].lower()}',
+                         'x': f['impact']})
+        for n, pr in enumerate(self.principles, 1):
+            rows.append({'t': pr['title'], 'u': f'/principles/#{pr["id"]}', 'k': 'Principle', 'i': f'P{n}', 'm': pr['rule'], 'x': pr['test']})
+        for e in self.exemplars:
+            rows.append({'t': e['title'], 'u': f'/exemplars/{e["id"]}.html', 'k': 'Exemplar', 'i': e['id'], 'm': self.product_label(e['product']), 'x': ''})
+        for pg in sorted(self.pages, key=lambda p: p['path']):
+            if pg['sitemap'] and not pg['path'].startswith(('findings/UX-', 'exemplars/EX-')) and pg['path'] != 'index.html':
+                rows.append({'t': pg['title'], 'u': self.url_of(pg['path']), 'k': 'Page', 'i': '', 'm': pg['description'], 'x': ''})
+        return json.dumps(rows, ensure_ascii=False, separators=(',', ':')) + '\n'
+
     def llms_full(self, llms):
         parts = [llms, '']
         for p in sorted(self.pages, key=lambda p: p['path']):
@@ -657,6 +720,7 @@ class Site:
             if p['twin']:
                 self.files[p['path'][:-5] + '.md'] = p['md']
         llms = self.llms_txt()
+        self.files['assets/search.json'] = self.search_index()
         self.files['llms.txt']      = llms
         self.files['llms-full.txt'] = self.llms_full(llms)
         self.files['sitemap.xml']   = self.sitemap()

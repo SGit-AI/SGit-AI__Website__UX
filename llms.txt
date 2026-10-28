@@ -4,7 +4,7 @@
 > live site with a date and version, the principle it breaks, the fix, and (where one exists) a working
 > prototype of the fix in three design directions.
 
-Site version: v0.4.1 (2026-10-25). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
+Site version: v0.5.0 (2026-10-28). Content CC BY 4.0. Code Apache 2.0. Author: Dinis Cruz, with AI co-authorship.
 
 ## The headline
 
